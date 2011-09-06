@@ -1,9 +1,12 @@
+@class MainWindowController;
 
 @interface ApplicationDelegate : NSObject {
-    
-    NSPersistentStoreCoordinator *persistentStoreCoordinator;
-    NSManagedObjectModel *managedObjectModel;
-    NSManagedObjectContext *managedObjectContext;
+
+  MainWindowController *mainWindowController;
+
+  NSPersistentStoreCoordinator *persistentStoreCoordinator;
+  NSManagedObjectModel *managedObjectModel;
+  NSManagedObjectContext *managedObjectContext;
 }
 
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;

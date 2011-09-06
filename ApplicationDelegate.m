@@ -1,6 +1,12 @@
 #import "ApplicationDelegate.h"
+#import "MainWindowController.h"
 
 @implementation ApplicationDelegate
+
+-(void) applicationDidFinishLaunching:(NSNotification *)notification {
+	mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
+	[mainWindowController showWindow:self];
+}
 
 
 /**

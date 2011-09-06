@@ -1,0 +1,5 @@
+@interface MainWindowController : NSWindowController {
+
+}
+
+@end
