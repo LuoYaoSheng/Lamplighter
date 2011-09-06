@@ -1,7 +1,5 @@
-//
-// Prefix header for all source files of the 'Lamplighter' target in the 'Lamplighter' project
-//
-
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 #endif
+
+#define SongDataType @"com.funkensturm.Lamplighter.datatype.song"

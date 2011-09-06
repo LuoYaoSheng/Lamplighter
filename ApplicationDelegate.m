@@ -1,14 +1,6 @@
-//
-//  Lamplighter_AppDelegate.m
-//  Lamplighter
-//
-//  Created by Future on 06/09/11.
-//  Copyright funkensturm. 2011 . All rights reserved.
-//
+#import "ApplicationDelegate.h"
 
-#import "Lamplighter_AppDelegate.h"
-
-@implementation Lamplighter_AppDelegate
+@implementation ApplicationDelegate
 
 @synthesize window;
 

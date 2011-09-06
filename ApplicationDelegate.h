@@ -1,15 +1,5 @@
-//
-//  Lamplighter_AppDelegate.h
-//  Lamplighter
-//
-//  Created by Future on 06/09/11.
-//  Copyright funkensturm. 2011 . All rights reserved.
-//
 
-#import <Cocoa/Cocoa.h>
-
-@interface Lamplighter_AppDelegate : NSObject 
-{
+@interface ApplicationDelegate : NSObject {
     NSWindow *window;
     
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
