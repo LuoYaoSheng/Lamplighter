@@ -2,7 +2,6 @@
 
 @implementation ApplicationDelegate
 
-@synthesize window;
 
 /**
     Returns the support directory for the application, used to store the Core Data
@@ -192,7 +191,6 @@
  
 - (void)dealloc {
 
-    [window release];
     [managedObjectContext release];
     [persistentStoreCoordinator release];
     [managedObjectModel release];

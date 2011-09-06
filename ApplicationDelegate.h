@@ -1,13 +1,10 @@
 
 @interface ApplicationDelegate : NSObject {
-    NSWindow *window;
     
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;
 }
-
-@property (nonatomic, retain) IBOutlet NSWindow *window;
 
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
