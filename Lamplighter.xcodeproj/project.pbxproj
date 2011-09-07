@@ -15,6 +15,8 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		D8A00D851416A4310034792D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D841416A4310034792D /* MainWindow.xib */; };
 		D8A00D8B1416A4670034792D /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A00D8A1416A4670034792D /* MainWindowController.m */; };
+		D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D9A141743870034792D /* SongsDrawer.xib */; };
+		D8A00DA0141743F20034792D /* SongsDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A00D9F141743F20034792D /* SongsDrawerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,9 @@
 		D8A00D841416A4310034792D /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		D8A00D891416A4670034792D /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		D8A00D8A1416A4670034792D /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		D8A00D9A141743870034792D /* SongsDrawer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongsDrawer.xib; sourceTree = "<group>"; };
+		D8A00D9E141743F20034792D /* SongsDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongsDrawerViewController.h; sourceTree = "<group>"; };
+		D8A00D9F141743F20034792D /* SongsDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongsDrawerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +60,8 @@
 				77C8280C06725ACE000B614F /* ApplicationDelegate.m */,
 				D8A00D891416A4670034792D /* MainWindowController.h */,
 				D8A00D8A1416A4670034792D /* MainWindowController.m */,
+				D8A00D9E141743F20034792D /* SongsDrawerViewController.h */,
+				D8A00D9F141743F20034792D /* SongsDrawerViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -147,6 +154,7 @@
 			children = (
 				2F7446970DB6B7EA00F9684A /* MainMenu.xib */,
 				D8A00D841416A4310034792D /* MainWindow.xib */,
+				D8A00D9A141743870034792D /* SongsDrawer.xib */,
 			);
 			name = MainWindow;
 			sourceTree = "<group>";
@@ -215,6 +223,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				2F7446990DB6B7EA00F9684A /* MainMenu.xib in Resources */,
 				D8A00D851416A4310034792D /* MainWindow.xib in Resources */,
+				D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +238,7 @@
 				77C8280E06725ACE000B614F /* ApplicationDelegate.m in Sources */,
 				770B37ED0679A11B001EADE2 /* Lamplighter_DataModel.xcdatamodel in Sources */,
 				D8A00D8B1416A4670034792D /* MainWindowController.m in Sources */,
+				D8A00DA0141743F20034792D /* SongsDrawerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +303,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "VERBOSE=NO";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -313,12 +325,46 @@
 			};
 			name = Release;
 		};
+		D8A00DAF141744670034792D /* Verbose */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "VERBOSE=YES";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Verbose;
+		};
+		D8A00DB0141744670034792D /* Verbose */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Lamplighter_Prefix.pch;
+				INFOPLIST_FILE = "Lamplighter-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Lamplighter;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Verbose;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		26FC0A840875C7B200E6366F /* Build configuration list for PBXNativeTarget "Lamplighter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
+				D8A00DB0141744670034792D /* Verbose */,
 				26FC0A850875C7B200E6366F /* Debug */,
 				26FC0A860875C7B200E6366F /* Release */,
 			);
@@ -328,6 +374,7 @@
 		26FC0A880875C7B200E6366F /* Build configuration list for PBXProject "Lamplighter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
+				D8A00DAF141744670034792D /* Verbose */,
 				26FC0A890875C7B200E6366F /* Debug */,
 				26FC0A8A0875C7B200E6366F /* Release */,
 			);

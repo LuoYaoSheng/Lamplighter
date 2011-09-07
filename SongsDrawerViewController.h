@@ -1,0 +1,5 @@
+@interface SongsDrawerViewController : NSViewController {
+
+}
+
+@end

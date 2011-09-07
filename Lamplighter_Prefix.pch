@@ -3,3 +3,8 @@
 #endif
 
 #define SongDataType @"com.funkensturm.Lamplighter.datatype.song"
+
+#define debugLog(...) NSLog(__VA_ARGS__)
+#ifndef debugLog(...)
+  #define debugLog(...)
+#endif
