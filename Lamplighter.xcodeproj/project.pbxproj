@@ -17,6 +17,7 @@
 		D8A00D8B1416A4670034792D /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A00D8A1416A4670034792D /* MainWindowController.m */; };
 		D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D9A141743870034792D /* SongsDrawer.xib */; };
 		D8A00DA0141743F20034792D /* SongsDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A00D9F141743F20034792D /* SongsDrawerViewController.m */; };
+		D8A00E5B14174A0D0034792D /* SongsDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A00E5A14174A0D0034792D /* SongsDrawer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		D8A00D9A141743870034792D /* SongsDrawer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongsDrawer.xib; sourceTree = "<group>"; };
 		D8A00D9E141743F20034792D /* SongsDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongsDrawerViewController.h; sourceTree = "<group>"; };
 		D8A00D9F141743F20034792D /* SongsDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongsDrawerViewController.m; sourceTree = "<group>"; };
+		D8A00E5914174A0D0034792D /* SongsDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongsDrawer.h; sourceTree = "<group>"; };
+		D8A00E5A14174A0D0034792D /* SongsDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongsDrawer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 				2F7446970DB6B7EA00F9684A /* MainMenu.xib */,
 				D8A00D841416A4310034792D /* MainWindow.xib */,
 				D8A00D9A141743870034792D /* SongsDrawer.xib */,
+				D8A00E5914174A0D0034792D /* SongsDrawer.h */,
+				D8A00E5A14174A0D0034792D /* SongsDrawer.m */,
 			);
 			name = MainWindow;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				770B37ED0679A11B001EADE2 /* Lamplighter_DataModel.xcdatamodel in Sources */,
 				D8A00D8B1416A4670034792D /* MainWindowController.m in Sources */,
 				D8A00DA0141743F20034792D /* SongsDrawerViewController.m in Sources */,
+				D8A00E5B14174A0D0034792D /* SongsDrawer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

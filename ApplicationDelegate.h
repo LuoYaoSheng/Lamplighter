@@ -13,6 +13,8 @@
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
-- (IBAction)saveAction:sender;
+-(void) loadMainWindowController;
+
+-(IBAction) saveAction:sender;
 
 @end

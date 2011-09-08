@@ -6,4 +6,6 @@
 
 }
 
+-(void) loadSongsDrawerViewController;
+
 @end

@@ -4,6 +4,11 @@
 @implementation ApplicationDelegate
 
 -(void) applicationDidFinishLaunching:(NSNotification *)notification {
+  [self loadMainWindowController];
+}
+
+-(void) loadMainWindowController {
+  if (mainWindowController != NULL) return;
 	mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
 	[mainWindowController showWindow:self];
 }

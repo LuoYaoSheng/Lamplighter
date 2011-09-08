@@ -1,0 +1,5 @@
+@interface SongsDrawer : NSDrawer {
+
+}
+
+@end
