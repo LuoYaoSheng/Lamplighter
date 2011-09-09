@@ -98,7 +98,7 @@
 		29B97314FDCFA39411CA2CEA /* Lamplighter */ = {
 			isa = PBXGroup;
 			children = (
-				D8A00D231416A0E20034792D /* Classes */,
+				D8A00D231416A0E20034792D /* Application */,
 				D8A00D411416A1440034792D /* Config */,
 				D8A00D441416A16F0034792D /* Locales */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -124,14 +124,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		D8A00D231416A0E20034792D /* Classes */ = {
+		D8A00D231416A0E20034792D /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				080E96DDFE201D6D7F000001 /* Controllers */,
 				7756732906782D8800D1FEB8 /* Models */,
 				D8A00D421416A1510034792D /* Views */,
 			);
-			name = Classes;
+			name = Application;
 			sourceTree = "<group>";
 		};
 		D8A00D411416A1440034792D /* Config */ = {
