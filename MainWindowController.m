@@ -10,7 +10,7 @@
   [self loadSongsDrawer];
 }
 
-- (void) updateToolbarItems {
+-(void) updateToolbarItems {
   // Songs Drawer
   NSDrawerState state = [songsDrawer state];
   if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
@@ -45,7 +45,7 @@
 -(void) loadSongsDrawerViewController {
   if (songsDrawerViewController != NULL) return;
   songsDrawerViewController = [[SongsDrawerViewController alloc] initWithNibName:@"SongsDrawer" bundle:NULL];
-  [songsDrawerViewController loadView];
+  //[songsDrawerViewController loadView];
 }
 
 -(void) loadSongsDrawer {
@@ -68,7 +68,7 @@
   }
 }
 
-- (void) ensureSpaceForDrawer:(NSDrawer*)drawer {
+-(void) ensureSpaceForDrawer:(NSDrawer*)drawer {
   
   // Get the current positions of the involved objects
   NSRect screenPosition = [[self.window screen] frame];
