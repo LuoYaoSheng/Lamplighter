@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F7446990DB6B7EA00F9684A /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7446970DB6B7EA00F9684A /* Application.xib */; };
 		770B37ED0679A11B001EADE2 /* Lamplighter_DataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 770B37EC0679A11B001EADE2 /* Lamplighter_DataModel.xcdatamodel */; };
 		8D11072B0486CEB800E47090 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* Localizable.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -18,7 +17,8 @@
 		D8825B79141CADD3005E96B7 /* DraggableTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B76141CADD3005E96B7 /* DraggableTableDataSource.m */; };
 		D8825B7A141CADD3005E96B7 /* SongsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B78141CADD3005E96B7 /* SongsDataSource.m */; };
 		D8825B7D141CADDF005E96B7 /* SongsDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B7C141CADDF005E96B7 /* SongsDrawer.m */; };
-		D8A00D851416A4310034792D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D841416A4310034792D /* MainWindow.xib */; };
+		D8825B86141CAE5D005E96B7 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7446980DB6B7EA00F9684A /* Application.xib */; };
+		D8825B89141CAE84005E96B7 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D841416A4310034792D /* MainWindow.xib */; };
 		D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D9A141743870034792D /* SongsDrawer.xib */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		2F7446980DB6B7EA00F9684A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Application.xib; sourceTree = "<group>"; };
+		2F7446980DB6B7EA00F9684A /* Application.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Application.xib; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Lamplighter_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lamplighter_Prefix.pch; sourceTree = "<group>"; };
 		770B37EC0679A11B001EADE2 /* Lamplighter_DataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Lamplighter_DataModel.xcdatamodel; sourceTree = "<group>"; };
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -142,6 +142,14 @@
 			name = DataSources;
 			sourceTree = "<group>";
 		};
+		D8825B80141CAE14005E96B7 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2F7446980DB6B7EA00F9684A /* Application.xib */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
 		D8A00D231416A0E20034792D /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +173,7 @@
 		D8A00D421416A1510034792D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D8825B80141CAE14005E96B7 /* Application */,
 				D8A00D431416A1570034792D /* MainWindow */,
 			);
 			name = Views;
@@ -173,7 +182,6 @@
 		D8A00D431416A1570034792D /* MainWindow */ = {
 			isa = PBXGroup;
 			children = (
-				2F7446970DB6B7EA00F9684A /* Application.xib */,
 				D8A00D841416A4310034792D /* MainWindow.xib */,
 				D8A00D9A141743870034792D /* SongsDrawer.xib */,
 				D8825B7B141CADDF005E96B7 /* SongsDrawer.h */,
@@ -244,8 +252,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072B0486CEB800E47090 /* Localizable.strings in Resources */,
-				2F7446990DB6B7EA00F9684A /* Application.xib in Resources */,
-				D8A00D851416A4310034792D /* MainWindow.xib in Resources */,
+				D8825B86141CAE5D005E96B7 /* Application.xib in Resources */,
+				D8825B89141CAE84005E96B7 /* MainWindow.xib in Resources */,
 				D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,14 +285,6 @@
 				089C165DFE840E0CC02AAC07 /* English */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		2F7446970DB6B7EA00F9684A /* Application.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2F7446980DB6B7EA00F9684A /* English */,
-			);
-			name = Application.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
