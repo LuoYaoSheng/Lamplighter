@@ -1,17 +1,28 @@
 #import "ApplicationDelegate.h"
+
 #import "MainWindowController.h"
+#import "SongsArrayController.h"
 
 @implementation ApplicationDelegate
 
--(void) applicationDidFinishLaunching:(NSNotification *)notification {
-  [self loadMainWindowController];
+- (void) applicationDidFinishLaunching:(NSNotification*)notification {
+	[[self mainWindowController] showWindow:self];
 }
 
--(void) loadMainWindowController {
-  if (mainWindowController != NULL) return;
+- (MainWindowController*) mainWindowController {
+  if (mainWindowController) return mainWindowController;
 	mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
-	[mainWindowController showWindow:self];
+  return mainWindowController;
 }
+
+- (SongsArrayController*) songsArrayController {
+  if (songsArrayController) return songsArrayController;
+  songsArrayController = [SongsArrayController new];
+  [songsArrayController setManagedObjectContext:[self managedObjectContext]];
+  [songsArrayController setEntityName:@"Song"];
+  return songsArrayController;
+}
+
 
 
 /**
@@ -21,7 +32,7 @@
     former cannot be found), the system's temporary directory.
  */
 
-- (NSString *)applicationSupportDirectory {
+- (NSString*) applicationSupportDirectory {
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
     NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : NSTemporaryDirectory();
@@ -34,7 +45,7 @@
     by merging all of the models found in the application bundle.
  */
  
-- (NSManagedObjectModel *)managedObjectModel {
+- (NSManagedObjectModel*) managedObjectModel {
 
     if (managedObjectModel) return managedObjectModel;
 	
@@ -50,7 +61,7 @@
     if necessary.)
  */
 
-- (NSPersistentStoreCoordinator *) persistentStoreCoordinator {
+- (NSPersistentStoreCoordinator*) persistentStoreCoordinator {
 
     if (persistentStoreCoordinator) return persistentStoreCoordinator;
 
@@ -93,7 +104,7 @@
     bound to the persistent store coordinator for the application.) 
  */
  
-- (NSManagedObjectContext *) managedObjectContext {
+- (NSManagedObjectContext*) managedObjectContext {
 
     if (managedObjectContext) return managedObjectContext;
 
@@ -117,7 +128,7 @@
     returned is that of the managed object context for the application.
  */
  
-- (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window {
+- (NSUndoManager*) windowWillReturnUndoManager:(NSWindow*)window {
     return [[self managedObjectContext] undoManager];
 }
 
@@ -148,7 +159,7 @@
     before the application terminates.
  */
  
-- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+- (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication *)sender {
 
     if (!managedObjectContext) return NSTerminateNow;
 
@@ -200,7 +211,7 @@
     Implementation of dealloc, to release the retained variables.
  */
  
-- (void)dealloc {
+- (void) dealloc {
 
     [managedObjectContext release];
     [persistentStoreCoordinator release];

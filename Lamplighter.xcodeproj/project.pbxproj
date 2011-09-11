@@ -19,6 +19,7 @@
 		D8825B86141CAE5D005E96B7 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7446980DB6B7EA00F9684A /* Application.xib */; };
 		D8825B89141CAE84005E96B7 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D841416A4310034792D /* MainWindow.xib */; };
 		D8825B9E141CAF2A005E96B7 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B9D141CAF2A005E96B7 /* MainWindowController.m */; };
+		D8825BC6141CB2E1005E96B7 /* SongsArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825BC5141CB2E1005E96B7 /* SongsArrayController.m */; };
 		D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D9A141743870034792D /* SongsDrawer.xib */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,8 @@
 		D8825B7B141CADDF005E96B7 /* SongsDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongsDrawer.h; path = Classes/SongsDrawer.h; sourceTree = "<group>"; };
 		D8825B7C141CADDF005E96B7 /* SongsDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongsDrawer.m; path = Classes/SongsDrawer.m; sourceTree = "<group>"; };
 		D8825B9D141CAF2A005E96B7 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = Classes/MainWindowController.m; sourceTree = "<group>"; };
+		D8825BC4141CB2E1005E96B7 /* SongsArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongsArrayController.h; path = Classes/SongsArrayController.h; sourceTree = "<group>"; };
+		D8825BC5141CB2E1005E96B7 /* SongsArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongsArrayController.m; path = Classes/SongsArrayController.m; sourceTree = "<group>"; };
 		D8A00D841416A4310034792D /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		D8A00D9A141743870034792D /* SongsDrawer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongsDrawer.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +128,7 @@
 		7756732906782D8800D1FEB8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D8825BC0141CB2B6005E96B7 /* ArrayControllers */,
 				D8825B5E141CAD21005E96B7 /* DataSources */,
 				770B37EC0679A11B001EADE2 /* Lamplighter_DataModel.xcdatamodel */,
 			);
@@ -148,6 +152,15 @@
 				2F7446980DB6B7EA00F9684A /* Application.xib */,
 			);
 			name = Application;
+			sourceTree = "<group>";
+		};
+		D8825BC0141CB2B6005E96B7 /* ArrayControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8825BC4141CB2E1005E96B7 /* SongsArrayController.h */,
+				D8825BC5141CB2E1005E96B7 /* SongsArrayController.m */,
+			);
+			name = ArrayControllers;
 			sourceTree = "<group>";
 		};
 		D8A00D231416A0E20034792D /* Application */ = {
@@ -273,6 +286,7 @@
 				D8825B7A141CADD3005E96B7 /* SongsDataSource.m in Sources */,
 				D8825B7D141CADDF005E96B7 /* SongsDrawer.m in Sources */,
 				D8825B9E141CAF2A005E96B7 /* MainWindowController.m in Sources */,
+				D8825BC6141CB2E1005E96B7 /* SongsArrayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

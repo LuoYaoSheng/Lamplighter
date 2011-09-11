@@ -1,0 +1,5 @@
+@interface SongsArrayController : NSArrayController {
+
+}
+
+@end
