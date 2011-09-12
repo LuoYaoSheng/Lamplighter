@@ -9,8 +9,12 @@
   IBOutlet NSMenuItem *toggleSongsMenuItem;
 }
 
--(void) loadSongsDrawerViewController;
+// View Controllers
+@property (nonatomic, retain, readonly) SongsDrawerViewController *songsDrawerViewController;
+
 -(void) loadSongsDrawer;
 -(IBAction) toggleSongsDrawer:(id)sender;
+
+- (void) ensureSpaceForDrawer:(NSDrawer*)drawer;
 
 @end

@@ -14,7 +14,7 @@
 		D8825B72141CADC9005E96B7 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */; };
 		D8825B74141CADC9005E96B7 /* SongsDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */; };
 		D8825B79141CADD3005E96B7 /* DraggableTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B76141CADD3005E96B7 /* DraggableTableDataSource.m */; };
-		D8825B7A141CADD3005E96B7 /* SongsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B78141CADD3005E96B7 /* SongsDataSource.m */; };
+		D8825B7A141CADD3005E96B7 /* SongsTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B78141CADD3005E96B7 /* SongsTableDataSource.m */; };
 		D8825B7D141CADDF005E96B7 /* SongsDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B7C141CADDF005E96B7 /* SongsDrawer.m */; };
 		D8825B86141CAE5D005E96B7 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7446980DB6B7EA00F9684A /* Application.xib */; };
 		D8825B89141CAE84005E96B7 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D841416A4310034792D /* MainWindow.xib */; };
@@ -42,8 +42,8 @@
 		D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongsDrawerViewController.m; path = Classes/SongsDrawerViewController.m; sourceTree = "<group>"; };
 		D8825B75141CADD3005E96B7 /* DraggableTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DraggableTableDataSource.h; path = Classes/DraggableTableDataSource.h; sourceTree = "<group>"; };
 		D8825B76141CADD3005E96B7 /* DraggableTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DraggableTableDataSource.m; path = Classes/DraggableTableDataSource.m; sourceTree = "<group>"; };
-		D8825B77141CADD3005E96B7 /* SongsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongsDataSource.h; path = Classes/SongsDataSource.h; sourceTree = "<group>"; };
-		D8825B78141CADD3005E96B7 /* SongsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongsDataSource.m; path = Classes/SongsDataSource.m; sourceTree = "<group>"; };
+		D8825B77141CADD3005E96B7 /* SongsTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongsTableDataSource.h; path = Classes/SongsTableDataSource.h; sourceTree = "<group>"; };
+		D8825B78141CADD3005E96B7 /* SongsTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongsTableDataSource.m; path = Classes/SongsTableDataSource.m; sourceTree = "<group>"; };
 		D8825B7B141CADDF005E96B7 /* SongsDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongsDrawer.h; path = Classes/SongsDrawer.h; sourceTree = "<group>"; };
 		D8825B7C141CADDF005E96B7 /* SongsDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongsDrawer.m; path = Classes/SongsDrawer.m; sourceTree = "<group>"; };
 		D8825B9D141CAF2A005E96B7 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = Classes/MainWindowController.m; sourceTree = "<group>"; };
@@ -140,8 +140,8 @@
 			children = (
 				D8825B75141CADD3005E96B7 /* DraggableTableDataSource.h */,
 				D8825B76141CADD3005E96B7 /* DraggableTableDataSource.m */,
-				D8825B77141CADD3005E96B7 /* SongsDataSource.h */,
-				D8825B78141CADD3005E96B7 /* SongsDataSource.m */,
+				D8825B77141CADD3005E96B7 /* SongsTableDataSource.h */,
+				D8825B78141CADD3005E96B7 /* SongsTableDataSource.m */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -283,7 +283,7 @@
 				D8825B72141CADC9005E96B7 /* ApplicationDelegate.m in Sources */,
 				D8825B74141CADC9005E96B7 /* SongsDrawerViewController.m in Sources */,
 				D8825B79141CADD3005E96B7 /* DraggableTableDataSource.m in Sources */,
-				D8825B7A141CADD3005E96B7 /* SongsDataSource.m in Sources */,
+				D8825B7A141CADD3005E96B7 /* SongsTableDataSource.m in Sources */,
 				D8825B7D141CADDF005E96B7 /* SongsDrawer.m in Sources */,
 				D8825B9E141CAF2A005E96B7 /* MainWindowController.m in Sources */,
 				D8825BC6141CB2E1005E96B7 /* SongsArrayController.m in Sources */,

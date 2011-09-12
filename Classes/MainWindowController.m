@@ -1,4 +1,5 @@
 #import "MainWindowController.h"
+
 #import "SongsDrawerViewController.h"
 #import "SongsDrawer.h"
 
@@ -6,22 +7,10 @@
 
 -(void) awakeFromNib {
   debugLog(@"[MainWindowController] awakeFromNib");
-  [self loadSongsDrawerViewController];
-  [self loadSongsDrawer];
 }
 
--(void) updateToolbarItems {
-  // Songs Drawer
-  NSDrawerState state = [songsDrawer state];
-  if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
-    [toggleSongsMenuItem setTitle:NSLocalizedString(@"menu.songs.hide", nil)];
-  } else {
-    [toggleSongsMenuItem setTitle:NSLocalizedString(@"menu.songs.show", nil)];
-  }
-}
-
--(BOOL) validateMenuItem:(NSMenuItem*)item{
-  NSLog(@"validating");
+- (BOOL) validateMenuItem:(NSMenuItem*)item{
+  debugLog(@"[MainWindowController] validateMenuItem");
   BOOL result = YES;
   
   if ([item action] == @selector(toggleSongsDrawer:)) {
@@ -42,22 +31,15 @@
 }
 */
 
--(void) loadSongsDrawerViewController {
-  if (songsDrawerViewController != NULL) return;
-  songsDrawerViewController = [[SongsDrawerViewController alloc] initWithNibName:@"SongsDrawer" bundle:NULL];
-  //[songsDrawerViewController loadView];
-}
 
--(void) loadSongsDrawer {
-  songsDrawer = [[SongsDrawer alloc] initWithContentSize:NSMakeSize(200, 100) preferredEdge:NSMinXEdge];
-  [songsDrawer setContentView:songsDrawerViewController.view];
-  [songsDrawer setParentWindow:self.window];
-  [songsDrawer setMinContentSize:NSMakeSize(160, 0)];
-  [songsDrawer setMaxContentSize:NSMakeSize(400, 10000)];
-}
+/***********************
+ * Handling the Drawer *
+ ***********************/
 
--(IBAction) toggleSongsDrawer:(id)sender {
-  NSDrawerState state = [songsDrawer state];
+- (IBAction) toggleSongsDrawer:(id)sender {
+  // Initialize the Drawer
+  [self songsDrawerViewController];
+  NSDrawerState state = [[self songsDrawer] state];
   
   if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
     [songsDrawer close];
@@ -68,7 +50,23 @@
   }
 }
 
--(void) ensureSpaceForDrawer:(NSDrawer*)drawer {
+- (SongsDrawerViewController*) songsDrawerViewController {
+  if (songsDrawerViewController) return songsDrawerViewController;
+  songsDrawerViewController = [[SongsDrawerViewController alloc] initWithNibName:@"SongsDrawer" bundle:NULL];
+  return songsDrawerViewController;
+}
+
+- (SongsDrawer*) songsDrawer {
+  if (songsDrawer) return songsDrawer;
+  songsDrawer = [[SongsDrawer alloc] initWithContentSize:NSMakeSize(200, 100) preferredEdge:NSMinXEdge];
+  [songsDrawer setContentView:songsDrawerViewController.view];
+  [songsDrawer setParentWindow:self.window];
+  [songsDrawer setMinContentSize:NSMakeSize(160, 0)];
+  [songsDrawer setMaxContentSize:NSMakeSize(400, 10000)];
+  return songsDrawer;
+}
+
+- (void) ensureSpaceForDrawer:(NSDrawer*)drawer {
   
   // Get the current positions of the involved objects
   NSRect screenPosition = [[self.window screen] frame];

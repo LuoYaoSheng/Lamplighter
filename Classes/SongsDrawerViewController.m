@@ -1,6 +1,7 @@
 #import "SongsDrawerViewController.h"
 
 #import "ApplicationDelegate.h"
+#import "SongsTableDataSource.h"
 
 @implementation SongsDrawerViewController
 
@@ -8,9 +9,16 @@
 
 -(void) awakeFromNib {
   debugLog(@"[SongsDrawerViewController] awakeFromNib");
-  debugLog(@"[SongsDrawerViewController] NSApp: %@", NSApp);
   
   [[self tableColumn] bind:NSValueBinding toObject:[NSApp songsArrayController] withKeyPath:@"selection.title" options:nil];
+}
+
+
+- (SongsTableDataSource*) songsTableDataSource {
+  if (songsTableDataSource) return songsTableDataSource;
+  songsTableDataSource = [SongsTableDataSource new];
+  return songsTableDataSource;
+  
 }
 
 @end

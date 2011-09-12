@@ -5,8 +5,10 @@
 
   // Window Controllers
   MainWindowController *mainWindowController;
+  
   // Array Controllers
   SongsArrayController *songsArrayController;
+  
 
   // Core Data
   NSPersistentStoreCoordinator *persistentStoreCoordinator;
