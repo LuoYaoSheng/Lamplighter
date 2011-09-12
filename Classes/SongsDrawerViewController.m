@@ -2,10 +2,12 @@
 
 #import "ApplicationDelegate.h"
 #import "SongsTableDataSource.h"
+#import "MainWindowController.h"
+#import "NewSongWindowController.h"
 
 @implementation SongsDrawerViewController
 
-@synthesize tableColumn;
+@synthesize tableColumn, newSongButton;
 
 -(void) awakeFromNib {
   debugLog(@"[SongsDrawerViewController] awakeFromNib");
@@ -18,7 +20,10 @@
   if (songsTableDataSource) return songsTableDataSource;
   songsTableDataSource = [SongsTableDataSource new];
   return songsTableDataSource;
-  
+}
+
+- (IBAction) newSong:(id)sender {
+  [[[NSApp mainWindowController] newSongWindowController] newSong:self];
 }
 
 @end

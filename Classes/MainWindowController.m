@@ -2,10 +2,11 @@
 
 #import "SongsDrawerViewController.h"
 #import "SongsDrawer.h"
+#import "NewSongWindowController.h"
 
 @implementation MainWindowController
 
--(void) awakeFromNib {
+- (void) awakeFromNib {
   debugLog(@"[MainWindowController] awakeFromNib");
 }
 
@@ -100,5 +101,17 @@
     [animation release];
   }
 }
+
+/************
+ * New Song *
+ ************/
+
+- (NewSongWindowController*) newSongWindowController {
+  if (newSongWindowController) return newSongWindowController;
+	newSongWindowController = [[NewSongWindowController alloc] initWithWindowNibName:@"NewSongWindow"];
+  return newSongWindowController;
+}
+
+
 
 @end

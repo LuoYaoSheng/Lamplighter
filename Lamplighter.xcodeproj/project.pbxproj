@@ -20,6 +20,9 @@
 		D8825B89141CAE84005E96B7 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D841416A4310034792D /* MainWindow.xib */; };
 		D8825B9E141CAF2A005E96B7 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B9D141CAF2A005E96B7 /* MainWindowController.m */; };
 		D8825BC6141CB2E1005E96B7 /* SongsArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825BC5141CB2E1005E96B7 /* SongsArrayController.m */; };
+		D8825CA7141DDE8B005E96B7 /* NewSongWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8825CA6141DDE8B005E96B7 /* NewSongWindow.xib */; };
+		D8825CBB141E607D005E96B7 /* NewSongWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825CBA141E607D005E96B7 /* NewSongWindowController.m */; };
+		D8825CFF141E6CD2005E96B7 /* SongWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825CFE141E6CD2005E96B7 /* SongWindowController.m */; };
 		D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D9A141743870034792D /* SongsDrawer.xib */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,11 @@
 		D8825B9D141CAF2A005E96B7 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = Classes/MainWindowController.m; sourceTree = "<group>"; };
 		D8825BC4141CB2E1005E96B7 /* SongsArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongsArrayController.h; path = Classes/SongsArrayController.h; sourceTree = "<group>"; };
 		D8825BC5141CB2E1005E96B7 /* SongsArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongsArrayController.m; path = Classes/SongsArrayController.m; sourceTree = "<group>"; };
+		D8825CA6141DDE8B005E96B7 /* NewSongWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewSongWindow.xib; sourceTree = "<group>"; };
+		D8825CB9141E607D005E96B7 /* NewSongWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewSongWindowController.h; path = Classes/NewSongWindowController.h; sourceTree = "<group>"; };
+		D8825CBA141E607D005E96B7 /* NewSongWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewSongWindowController.m; path = Classes/NewSongWindowController.m; sourceTree = "<group>"; };
+		D8825CFD141E6CD2005E96B7 /* SongWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongWindowController.h; path = Classes/SongWindowController.h; sourceTree = "<group>"; };
+		D8825CFE141E6CD2005E96B7 /* SongWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongWindowController.m; path = Classes/SongWindowController.m; sourceTree = "<group>"; };
 		D8A00D841416A4310034792D /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		D8A00D9A141743870034792D /* SongsDrawer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongsDrawer.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,12 +76,9 @@
 		080E96DDFE201D6D7F000001 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D8825B6C141CADC9005E96B7 /* ApplicationDelegate.h */,
-				D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */,
-				D8825B6E141CADC9005E96B7 /* MainWindowController.h */,
-				D8825B9D141CAF2A005E96B7 /* MainWindowController.m */,
-				D8825B70141CADC9005E96B7 /* SongsDrawerViewController.h */,
-				D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */,
+				D8825CBC141E60A1005E96B7 /* Application */,
+				D8825CBD141E60AD005E96B7 /* MainWindow */,
+				D8825CBE141E60BB005E96B7 /* Peripherals */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -163,6 +168,45 @@
 			name = ArrayControllers;
 			sourceTree = "<group>";
 		};
+		D8825CA3141DDE5B005E96B7 /* Peripherals */ = {
+			isa = PBXGroup;
+			children = (
+				D8825CA6141DDE8B005E96B7 /* NewSongWindow.xib */,
+			);
+			name = Peripherals;
+			sourceTree = "<group>";
+		};
+		D8825CBC141E60A1005E96B7 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D8825B6C141CADC9005E96B7 /* ApplicationDelegate.h */,
+				D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		D8825CBD141E60AD005E96B7 /* MainWindow */ = {
+			isa = PBXGroup;
+			children = (
+				D8825B6E141CADC9005E96B7 /* MainWindowController.h */,
+				D8825B9D141CAF2A005E96B7 /* MainWindowController.m */,
+				D8825B70141CADC9005E96B7 /* SongsDrawerViewController.h */,
+				D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */,
+			);
+			name = MainWindow;
+			sourceTree = "<group>";
+		};
+		D8825CBE141E60BB005E96B7 /* Peripherals */ = {
+			isa = PBXGroup;
+			children = (
+				D8825CFD141E6CD2005E96B7 /* SongWindowController.h */,
+				D8825CFE141E6CD2005E96B7 /* SongWindowController.m */,
+				D8825CB9141E607D005E96B7 /* NewSongWindowController.h */,
+				D8825CBA141E607D005E96B7 /* NewSongWindowController.m */,
+			);
+			name = Peripherals;
+			sourceTree = "<group>";
+		};
 		D8A00D231416A0E20034792D /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +232,7 @@
 			children = (
 				D8825B80141CAE14005E96B7 /* Application */,
 				D8A00D431416A1570034792D /* MainWindow */,
+				D8825CA3141DDE5B005E96B7 /* Peripherals */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -268,6 +313,7 @@
 				D8825B86141CAE5D005E96B7 /* Application.xib in Resources */,
 				D8825B89141CAE84005E96B7 /* MainWindow.xib in Resources */,
 				D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */,
+				D8825CA7141DDE8B005E96B7 /* NewSongWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +333,8 @@
 				D8825B7D141CADDF005E96B7 /* SongsDrawer.m in Sources */,
 				D8825B9E141CAF2A005E96B7 /* MainWindowController.m in Sources */,
 				D8825BC6141CB2E1005E96B7 /* SongsArrayController.m in Sources */,
+				D8825CBB141E607D005E96B7 /* NewSongWindowController.m in Sources */,
+				D8825CFF141E6CD2005E96B7 /* SongWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
