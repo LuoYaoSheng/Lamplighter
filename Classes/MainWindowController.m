@@ -8,6 +8,7 @@
 
 - (void) awakeFromNib {
   debugLog(@"[MainWindowController] awakeFromNib");
+
 }
 
 - (BOOL) validateMenuItem:(NSMenuItem*)item{

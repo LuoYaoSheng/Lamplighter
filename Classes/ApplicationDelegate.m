@@ -6,7 +6,7 @@
 @implementation ApplicationDelegate
 
 - (void) applicationDidFinishLaunching:(NSNotification*)notification {
-	[[self mainWindowController] showWindow:self];
+	[self.mainWindowController showWindow:self];
 }
 
 - (MainWindowController*) mainWindowController {
@@ -18,7 +18,7 @@
 - (SongsArrayController*) songsArrayController {
   if (songsArrayController) return songsArrayController;
   songsArrayController = [SongsArrayController new];
-  [songsArrayController setManagedObjectContext:[self managedObjectContext]];
+  [songsArrayController setManagedObjectContext:self.managedObjectContext];
   [songsArrayController setEntityName:@"Song"];
   return songsArrayController;
 }
@@ -45,11 +45,9 @@
  */
  
 - (NSManagedObjectModel*) managedObjectModel {
-
-    if (managedObjectModel) return managedObjectModel;
-	
-    managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
-    return managedObjectModel;
+  if (managedObjectModel) return managedObjectModel;
+  managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
+  return managedObjectModel;
 }
 
 
@@ -64,7 +62,7 @@
 
     if (persistentStoreCoordinator) return persistentStoreCoordinator;
 
-    NSManagedObjectModel *mom = [self managedObjectModel];
+    NSManagedObjectModel *mom = self.managedObjectModel;
     if (!mom) {
         NSAssert(NO, @"Managed object model is nil");
         NSLog(@"%@:%s No model to generate a store from", [self class], _cmd);

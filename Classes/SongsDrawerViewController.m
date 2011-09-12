@@ -24,6 +24,7 @@
 
 - (IBAction) newSong:(id)sender {
   [[[NSApp mainWindowController] newSongWindowController] newSong:self];
+  
 }
 
 @end
