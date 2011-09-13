@@ -16,6 +16,6 @@
 @property (readwrite) BOOL titleErrors;
 @property (readwrite) BOOL contentErrors;
 
-- (void) updateButtons:(id)sender;
+- (void) updateButtons;
 
 @end

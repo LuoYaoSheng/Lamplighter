@@ -7,11 +7,11 @@
 
 @implementation SongsDrawerViewController
 
-@synthesize tableColumn, newSongButton;
+@synthesize tableColumn, tableView, newSongButton;
 
 -(void) awakeFromNib {
   debugLog(@"[SongsDrawerViewController] awakeFromNib");
-  
+  [[self tableView] setDataSource:self.songsTableDataSource];
   [[self tableColumn] bind:NSValueBinding toObject:[NSApp songsArrayController] withKeyPath:@"selection.title" options:nil];
 }
 
@@ -22,9 +22,8 @@
   return songsTableDataSource;
 }
 
-- (IBAction) newSong:(id)sender {
+- (IBAction) newSong:sender {
   [[[NSApp mainWindowController] newSongWindowController] newSong:self];
-  
 }
 
 @end

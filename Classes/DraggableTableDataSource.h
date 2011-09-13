@@ -1,6 +1,4 @@
-#import <Cocoa/Cocoa.h>
-
-@interface DraggableTableDataSource : NSObject {
+@interface DraggableTableDataSource : NSObject <NSTableViewDataSource> {
 
 }
 

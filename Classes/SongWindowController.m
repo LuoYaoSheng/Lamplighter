@@ -1,10 +1,29 @@
 #import "SongWindowController.h"
 
+#import "Song.h"
+
 @implementation SongWindowController
 
 @synthesize titleErrors, contentErrors;
 
-- (void) updateButtons:(id)sender {
+/*
+- (void) doneEditSong:sender {
+  [NSApp endSheet:self.window returnCode:NSOKButton];
+}
+*/
+
+// Since SongsController is the delegate of all text fields we can enable or disable the save button
+// whenever all TextFields have valid values
+- (void) controlTextDidChange:(NSNotification*)notification {
+  if ([notification object] == titleField) {
+    titleErrors = ![Song validTitle:[[notification object] stringValue]];
+  } else if ([notification object] == contentField) {
+    contentErrors = ![Song validTitle:[[notification object] stringValue]];
+  }
+  [self updateButtons];
+}
+
+- (void) updateButtons {
   if (!titleErrors && !contentErrors) {
     // We don't care to check whether we're creating or editing a song.
     // Just enabling/disabling all existing buttons is efficient enough.

@@ -23,6 +23,9 @@
 		D8825CA7141DDE8B005E96B7 /* NewSongWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8825CA6141DDE8B005E96B7 /* NewSongWindow.xib */; };
 		D8825CBB141E607D005E96B7 /* NewSongWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825CBA141E607D005E96B7 /* NewSongWindowController.m */; };
 		D8825CFF141E6CD2005E96B7 /* SongWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825CFE141E6CD2005E96B7 /* SongWindowController.m */; };
+		D8825E05141E8990005E96B7 /* Presentation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825E00141E8990005E96B7 /* Presentation.m */; };
+		D8825E06141E8990005E96B7 /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825E02141E8990005E96B7 /* Slide.m */; };
+		D8825E07141E8990005E96B7 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825E04141E8990005E96B7 /* Song.m */; };
 		D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D9A141743870034792D /* SongsDrawer.xib */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +60,12 @@
 		D8825CBA141E607D005E96B7 /* NewSongWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewSongWindowController.m; path = Classes/NewSongWindowController.m; sourceTree = "<group>"; };
 		D8825CFD141E6CD2005E96B7 /* SongWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongWindowController.h; path = Classes/SongWindowController.h; sourceTree = "<group>"; };
 		D8825CFE141E6CD2005E96B7 /* SongWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongWindowController.m; path = Classes/SongWindowController.m; sourceTree = "<group>"; };
+		D8825DFF141E8990005E96B7 /* Presentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Presentation.h; path = Classes/Presentation.h; sourceTree = "<group>"; };
+		D8825E00141E8990005E96B7 /* Presentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Presentation.m; path = Classes/Presentation.m; sourceTree = "<group>"; };
+		D8825E01141E8990005E96B7 /* Slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Slide.h; path = Classes/Slide.h; sourceTree = "<group>"; };
+		D8825E02141E8990005E96B7 /* Slide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Slide.m; path = Classes/Slide.m; sourceTree = "<group>"; };
+		D8825E03141E8990005E96B7 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Song.h; path = Classes/Song.h; sourceTree = "<group>"; };
+		D8825E04141E8990005E96B7 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Song.m; path = Classes/Song.m; sourceTree = "<group>"; };
 		D8A00D841416A4310034792D /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		D8A00D9A141743870034792D /* SongsDrawer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongsDrawer.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +142,7 @@
 		7756732906782D8800D1FEB8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D8825DFB141E8960005E96B7 /* Entities */,
 				D8825BC0141CB2B6005E96B7 /* ArrayControllers */,
 				D8825B5E141CAD21005E96B7 /* DataSources */,
 				770B37EC0679A11B001EADE2 /* Lamplighter_DataModel.xcdatamodel */,
@@ -205,6 +215,19 @@
 				D8825CBA141E607D005E96B7 /* NewSongWindowController.m */,
 			);
 			name = Peripherals;
+			sourceTree = "<group>";
+		};
+		D8825DFB141E8960005E96B7 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				D8825DFF141E8990005E96B7 /* Presentation.h */,
+				D8825E00141E8990005E96B7 /* Presentation.m */,
+				D8825E01141E8990005E96B7 /* Slide.h */,
+				D8825E02141E8990005E96B7 /* Slide.m */,
+				D8825E03141E8990005E96B7 /* Song.h */,
+				D8825E04141E8990005E96B7 /* Song.m */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 		D8A00D231416A0E20034792D /* Application */ = {
@@ -335,6 +358,9 @@
 				D8825BC6141CB2E1005E96B7 /* SongsArrayController.m in Sources */,
 				D8825CBB141E607D005E96B7 /* NewSongWindowController.m in Sources */,
 				D8825CFF141E6CD2005E96B7 /* SongWindowController.m in Sources */,
+				D8825E05141E8990005E96B7 /* Presentation.m in Sources */,
+				D8825E06141E8990005E96B7 /* Slide.m in Sources */,
+				D8825E07141E8990005E96B7 /* Song.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

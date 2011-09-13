@@ -3,12 +3,12 @@
 
 @implementation DraggableTableDataSource
 
-- (int) numberOfRowsInTableView:(NSTableView*)table {
+- (NSInteger) numberOfRowsInTableView:(NSTableView*)table {
   // Fall back to the binding
   return 0;
 }
 
-- (id) tableView:(NSTableView*)table objectValueForTableColumn:(NSTableColumn*)column row:(int)row {
+- (id) tableView:(NSTableView*)table objectValueForTableColumn:(NSTableColumn*)column row:(NSInteger)row {
   // Fall back to the binding
   return nil;  
 }

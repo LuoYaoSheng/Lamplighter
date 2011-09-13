@@ -3,6 +3,7 @@
 @interface SongsDrawerViewController : NSViewController {
 
   IBOutlet NSTableColumn *tableColumn;
+  IBOutlet NSTableView *tableView;
   IBOutlet NSButton *newSongButton;
   
   // Data Sources
@@ -11,13 +12,14 @@
 
 // GUI Items
 @property (nonatomic, retain, readonly) IBOutlet NSTableColumn *tableColumn;
+@property (nonatomic, retain, readonly) IBOutlet NSTableView *tableView;
 @property (nonatomic, retain, readonly) IBOutlet NSButton *newSongButton;
 
 // Data Sources
 @property (nonatomic, retain, readonly) SongsTableDataSource *songsTableDataSource;
 
 // New Song
-- (IBAction) newSong:(id)sender;
+- (IBAction) newSong:sender;
 
 
 @end
