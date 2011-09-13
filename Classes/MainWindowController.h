@@ -1,8 +1,11 @@
+@class ApplicationDelegate;
 @class SongsDrawerViewController;
 @class SongsDrawer;
 @class NewSongWindowController;
 
 @interface MainWindowController : NSWindowController {
+  
+  IBOutlet ApplicationDelegate *applicationDelegate;
 
   SongsDrawerViewController *songsDrawerViewController;
   SongsDrawer *songsDrawer;
@@ -11,6 +14,8 @@
   IBOutlet NSMenuItem *toggleSongsMenuItem;
 }
 
+
+@property (nonatomic, retain, readonly) ApplicationDelegate *applicationDelegate;
 
 // Drawer
 @property (nonatomic, retain, readonly) SongsDrawer *songsDrawer;

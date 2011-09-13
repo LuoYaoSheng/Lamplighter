@@ -136,7 +136,7 @@
     are presented to the user.
  */
  
-- (IBAction) saveAction:(id)sender {
+- (IBAction) saveAction:sender {
 
     NSError *error = nil;
     
@@ -156,7 +156,7 @@
     before the application terminates.
  */
  
-- (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication *)sender {
+- (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication*)sender {
 
     if (!managedObjectContext) return NSTerminateNow;
 

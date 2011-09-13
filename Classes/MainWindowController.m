@@ -1,5 +1,6 @@
 #import "MainWindowController.h"
 
+#import "ApplicationDelegate.h"
 #import "SongsDrawerViewController.h"
 #import "SongsDrawer.h"
 #import "NewSongWindowController.h"
@@ -111,6 +112,10 @@
   if (newSongWindowController) return newSongWindowController;
 	newSongWindowController = [[NewSongWindowController alloc] initWithWindowNibName:@"NewSongWindow"];
   return newSongWindowController;
+}
+
+- (ApplicationDelegate*) applicationDelegate {
+  return NSApp; 
 }
 
 
