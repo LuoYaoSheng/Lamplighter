@@ -1,0 +1,5 @@
+@interface BaseArrayController : NSArrayController {
+
+}
+
+@end

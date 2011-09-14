@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="25"/>
+			<integer value="38"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -279,11 +279,9 @@
 				</object>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<object class="NSView" key="NSWindowView" id="1006">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<string key="NSFrameSize">{480, 270}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{1.79769e+308, 1.79769e+308}</string>
@@ -1372,7 +1370,7 @@
 				</object>
 				<string key="NSName">_NSMainMenu</string>
 			</object>
-			<object class="NSCustomObject" id="1053652096">
+			<object class="NSCustomObject" id="274228734">
 				<string key="NSClassName">ApplicationDelegate</string>
 			</object>
 		</object>
@@ -1423,14 +1421,14 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">applicationDelegate</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="1053652096"/>
+						<reference key="destination" ref="274228734"/>
 					</object>
 					<int key="connectionID">145</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">terminate:</string>
-						<reference key="source" ref="1053652096"/>
+						<reference key="source" ref="274228734"/>
 						<reference key="destination" ref="439233095"/>
 					</object>
 					<int key="connectionID">146</int>
@@ -1438,7 +1436,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">hideOtherApplications:</string>
-						<reference key="source" ref="1053652096"/>
+						<reference key="source" ref="274228734"/>
 						<reference key="destination" ref="845487318"/>
 					</object>
 					<int key="connectionID">147</int>
@@ -1446,7 +1444,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">hide:</string>
-						<reference key="source" ref="1053652096"/>
+						<reference key="source" ref="274228734"/>
 						<reference key="destination" ref="975346812"/>
 					</object>
 					<int key="connectionID">148</int>
@@ -1454,7 +1452,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">orderFrontStandardAboutPanel:</string>
-						<reference key="source" ref="1053652096"/>
+						<reference key="source" ref="274228734"/>
 						<reference key="destination" ref="423742324"/>
 					</object>
 					<int key="connectionID">149</int>
@@ -1462,10 +1460,18 @@
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">unhideAllApplications:</string>
-						<reference key="source" ref="1053652096"/>
+						<reference key="source" ref="274228734"/>
 						<reference key="destination" ref="309446925"/>
 					</object>
 					<int key="connectionID">150</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">saveAction:</string>
+						<reference key="source" ref="274228734"/>
+						<reference key="destination" ref="917334679"/>
+					</object>
+					<int key="connectionID">151</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2428,7 +2434,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">144</int>
-						<reference key="object" ref="1053652096"/>
+						<reference key="object" ref="274228734"/>
 						<reference key="parent" ref="0"/>
 					</object>
 				</object>
@@ -2719,7 +2725,7 @@
 					<string>{{370, 880}, {64, 6}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{408, 1023}, {176, 73}}</string>
+					<string>{{542, 662}, {176, 73}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2822,7 +2828,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">150</int>
+			<int key="maxID">151</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

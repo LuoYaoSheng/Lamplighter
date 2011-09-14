@@ -1,4 +1,6 @@
-@interface SongsArrayController : NSArrayController {
+#import "BaseArrayController.h"
+
+@interface SongsArrayController : BaseArrayController {
 
 }
 

@@ -26,6 +26,7 @@
 		D8825E05141E8990005E96B7 /* Presentation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825E00141E8990005E96B7 /* Presentation.m */; };
 		D8825E06141E8990005E96B7 /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825E02141E8990005E96B7 /* Slide.m */; };
 		D8825E07141E8990005E96B7 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825E04141E8990005E96B7 /* Song.m */; };
+		D8825F45142108B1005E96B7 /* BaseArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825F44142108B1005E96B7 /* BaseArrayController.m */; };
 		D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D9A141743870034792D /* SongsDrawer.xib */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,8 @@
 		D8825E02141E8990005E96B7 /* Slide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Slide.m; path = Classes/Slide.m; sourceTree = "<group>"; };
 		D8825E03141E8990005E96B7 /* Song.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Song.h; path = Classes/Song.h; sourceTree = "<group>"; };
 		D8825E04141E8990005E96B7 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Song.m; path = Classes/Song.m; sourceTree = "<group>"; };
+		D8825F43142108B1005E96B7 /* BaseArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseArrayController.h; path = Classes/BaseArrayController.h; sourceTree = "<group>"; };
+		D8825F44142108B1005E96B7 /* BaseArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseArrayController.m; path = Classes/BaseArrayController.m; sourceTree = "<group>"; };
 		D8A00D841416A4310034792D /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		D8A00D9A141743870034792D /* SongsDrawer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongsDrawer.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +175,8 @@
 		D8825BC0141CB2B6005E96B7 /* ArrayControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8825F43142108B1005E96B7 /* BaseArrayController.h */,
+				D8825F44142108B1005E96B7 /* BaseArrayController.m */,
 				D8825BC4141CB2E1005E96B7 /* SongsArrayController.h */,
 				D8825BC5141CB2E1005E96B7 /* SongsArrayController.m */,
 			);
@@ -361,6 +366,7 @@
 				D8825E05141E8990005E96B7 /* Presentation.m in Sources */,
 				D8825E06141E8990005E96B7 /* Slide.m in Sources */,
 				D8825E07141E8990005E96B7 /* Song.m in Sources */,
+				D8825F45142108B1005E96B7 /* BaseArrayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

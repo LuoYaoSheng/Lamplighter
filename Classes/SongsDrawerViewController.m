@@ -13,6 +13,7 @@
   debugLog(@"[SongsDrawerViewController] awakeFromNib");
   [[self tableView] setDataSource:self.songsTableDataSource];
   [[self tableColumn] bind:NSValueBinding toObject:[NSApp songsArrayController] withKeyPath:@"selection.title" options:nil];
+  //debugLog(@"[SongsDrawerViewController] [self tableColumn] %@", [self tableColumn]);
 }
 
 
