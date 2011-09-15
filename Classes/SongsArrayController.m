@@ -3,7 +3,7 @@
 @implementation SongsArrayController
 
 - (id) init {
-  NSLog(@"[SongsArrayController] init");
+  debugLog(@"[SongsArrayController] init");
   self = [super init];
   [self setEntityName:@"Song"];
   return self;

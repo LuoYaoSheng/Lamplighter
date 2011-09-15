@@ -11,7 +11,7 @@
 }
 
 // GUI Items
-@property (nonatomic, retain, readonly) IBOutlet NSTableColumn *tableColumn;
+@property (nonatomic, retain) IBOutlet NSTableColumn *tableColumn;
 @property (nonatomic, retain, readonly) IBOutlet NSTableView *tableView;
 @property (nonatomic, retain, readonly) IBOutlet NSButton *newSongButton;
 

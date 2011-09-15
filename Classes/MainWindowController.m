@@ -40,13 +40,14 @@
  ***********************/
 
 - (IBAction) toggleSongsDrawer:(id)sender {
-  // Initialize the Drawer
+  // Initialize the Drawer by simply calling it
   [self songsDrawerViewController];
   NSDrawerState state = [[self songsDrawer] state];
   
   if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
     [songsDrawer close];
   } else {
+    [[NSApp songsArrayController] ensureContentIsLoaded];
     [self ensureSpaceForDrawer:songsDrawer];
     //[presentasionsDrawer close];
     [songsDrawer openOnEdge:NSMinXEdge];
