@@ -26,10 +26,9 @@
  *
  */
 - (void) ensureContentIsLoaded {
-  if ([[self content] length] == 0) {
-    NSError *error = nil;
-    BOOL success = [self fetchWithRequest:nil merge:NO error:&error];
-  }
+  // TODO: Only fetch when content is empty
+  NSError *error = nil;
+  BOOL success = [self fetchWithRequest:nil merge:NO error:&error];
 }
 
 @end
