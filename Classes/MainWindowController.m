@@ -4,11 +4,23 @@
 #import "SongsDrawerViewController.h"
 #import "SongsDrawer.h"
 #import "NewSongWindowController.h"
+#import "PlaylistTableDataSource.h"
+#import "SongsArrayController.h"
 
 @implementation MainWindowController
 
+@synthesize playlistTableColumn, playlistTableView;
+
 - (void) awakeFromNib {
   debugLog(@"[MainWindowController] awakeFromNib");
+  [self setupPlaylistTable];
+}
+
+- (void) setupPlaylistTable {
+  [playlistTableView registerForDraggedTypes: [NSArray arrayWithObject:SongDataType]];
+  [[self playlistTableView] setDataSource:self.playlistTableDataSource];
+  [[self playlistTableColumn] bind:NSValueBinding toObject:[NSApp playlistArrayController] withKeyPath:@"arrangedObjects.title" options:nil];
+  debugLog(@"datasource: %@", [[self playlistTableView] dataSource]);
 
 }
 
@@ -103,6 +115,15 @@
     [animation startAnimation];
     [animation release];
   }
+}
+
+/****************/
+
+
+- (PlaylistTableDataSource*) playlistTableDataSource {
+  if (playlistTableDataSource) return playlistTableDataSource;
+  playlistTableDataSource = [PlaylistTableDataSource new];
+  return playlistTableDataSource;
 }
 
 /************

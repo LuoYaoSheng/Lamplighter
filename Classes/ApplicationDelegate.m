@@ -2,6 +2,7 @@
 
 #import "MainWindowController.h"
 #import "SongsArrayController.h"
+#import "PlaylistArrayController.h"
 
 @implementation ApplicationDelegate
 
@@ -22,6 +23,12 @@
   return songsArrayController;
 }
 
+- (PlaylistArrayController*) playlistArrayController {
+  if (playlistArrayController) return playlistArrayController;
+  playlistArrayController = [PlaylistArrayController new];
+  [playlistArrayController setManagedObjectContext:self.managedObjectContext];
+  return playlistArrayController;
+}
 
 /**
     Returns the support directory for the application, used to store the Core Data

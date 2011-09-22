@@ -1,5 +1,6 @@
 @class MainWindowController;
 @class SongsArrayController;
+@class PlaylistArrayController;
 
 @interface ApplicationDelegate : NSApplication {
 
@@ -8,6 +9,7 @@
   
   // Array Controllers
   SongsArrayController *songsArrayController;
+  PlaylistArrayController *playlistArrayController;
   
 
   // Core Data
@@ -22,6 +24,7 @@
 
 // Array Controllers
 @property (nonatomic, retain, readonly) SongsArrayController *songsArrayController;
+@property (nonatomic, retain, readonly) PlaylistArrayController *playlistArrayController;
 
 // Core Data
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;

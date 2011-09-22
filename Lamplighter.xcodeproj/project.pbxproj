@@ -27,6 +27,8 @@
 		D8825E06141E8990005E96B7 /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825E02141E8990005E96B7 /* Slide.m */; };
 		D8825E07141E8990005E96B7 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825E04141E8990005E96B7 /* Song.m */; };
 		D8825F45142108B1005E96B7 /* BaseArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825F44142108B1005E96B7 /* BaseArrayController.m */; };
+		D8825FB514252C81005E96B7 /* PlaylistTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825FB414252C81005E96B7 /* PlaylistTableDataSource.m */; };
+		D8825FF5142B122F005E96B7 /* PlaylistArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825FF4142B122F005E96B7 /* PlaylistArrayController.m */; };
 		D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D9A141743870034792D /* SongsDrawer.xib */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,10 @@
 		D8825E04141E8990005E96B7 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Song.m; path = Classes/Song.m; sourceTree = "<group>"; };
 		D8825F43142108B1005E96B7 /* BaseArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseArrayController.h; path = Classes/BaseArrayController.h; sourceTree = "<group>"; };
 		D8825F44142108B1005E96B7 /* BaseArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseArrayController.m; path = Classes/BaseArrayController.m; sourceTree = "<group>"; };
+		D8825FB314252C81005E96B7 /* PlaylistTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaylistTableDataSource.h; path = Classes/PlaylistTableDataSource.h; sourceTree = "<group>"; };
+		D8825FB414252C81005E96B7 /* PlaylistTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaylistTableDataSource.m; path = Classes/PlaylistTableDataSource.m; sourceTree = "<group>"; };
+		D8825FF3142B122F005E96B7 /* PlaylistArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaylistArrayController.h; path = Classes/PlaylistArrayController.h; sourceTree = "<group>"; };
+		D8825FF4142B122F005E96B7 /* PlaylistArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaylistArrayController.m; path = Classes/PlaylistArrayController.m; sourceTree = "<group>"; };
 		D8A00D841416A4310034792D /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		D8A00D9A141743870034792D /* SongsDrawer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongsDrawer.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +166,8 @@
 				D8825B76141CADD3005E96B7 /* DraggableTableDataSource.m */,
 				D8825B77141CADD3005E96B7 /* SongsTableDataSource.h */,
 				D8825B78141CADD3005E96B7 /* SongsTableDataSource.m */,
+				D8825FB314252C81005E96B7 /* PlaylistTableDataSource.h */,
+				D8825FB414252C81005E96B7 /* PlaylistTableDataSource.m */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -179,6 +187,8 @@
 				D8825F44142108B1005E96B7 /* BaseArrayController.m */,
 				D8825BC4141CB2E1005E96B7 /* SongsArrayController.h */,
 				D8825BC5141CB2E1005E96B7 /* SongsArrayController.m */,
+				D8825FF3142B122F005E96B7 /* PlaylistArrayController.h */,
+				D8825FF4142B122F005E96B7 /* PlaylistArrayController.m */,
 			);
 			name = ArrayControllers;
 			sourceTree = "<group>";
@@ -367,6 +377,8 @@
 				D8825E06141E8990005E96B7 /* Slide.m in Sources */,
 				D8825E07141E8990005E96B7 /* Song.m in Sources */,
 				D8825F45142108B1005E96B7 /* BaseArrayController.m in Sources */,
+				D8825FB514252C81005E96B7 /* PlaylistTableDataSource.m in Sources */,
+				D8825FF5142B122F005E96B7 /* PlaylistArrayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

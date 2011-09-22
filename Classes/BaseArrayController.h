@@ -2,4 +2,6 @@
 
 }
 
+- (void) ensureContentIsLoaded;
+
 @end
