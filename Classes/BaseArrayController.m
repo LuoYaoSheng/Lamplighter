@@ -6,8 +6,6 @@
   debugLog(@"[BaseArrayController] init");
   self = [super init];
   [self setAvoidsEmptySelection:NO];
-  [self setAutomaticallyRearrangesObjects:YES];
-  [self setAutomaticallyPreparesContent:YES];
   return self;
 }
 
@@ -23,12 +21,10 @@
  * first. It ensures that the initial content loading has actually taken place. Note that this is
  * not happening automatically, because we don't want to waste resources on application launch. It
  * should really just be loaded when it's needed (e.g. when a drawer with the content is opened).
- *
  */
 - (void) ensureContentIsLoaded {
-  // TODO: Only fetch when content is empty
   NSError *error = nil;
-  BOOL success = [self fetchWithRequest:nil merge:NO error:&error];
+  [self fetchWithRequest:nil merge:NO error:&error];
 }
 
 @end

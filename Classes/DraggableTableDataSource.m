@@ -1,6 +1,5 @@
 #import "DraggableTableDataSource.h"
 
-
 @implementation DraggableTableDataSource
 
 - (NSInteger) numberOfRowsInTableView:(NSTableView*)table {
@@ -13,7 +12,9 @@
   return nil;  
 }
 
-// When dragging, copy the Song object URI into the pasteboard as an Lamplighter SongDataType
+/*
+ * When dragging, copy the Song object URI into the pasteboard as an Lamplighter SongDataType
+ */
 - (BOOL)tableView:(NSTableView *)table writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard*)pboard {
   BOOL success = NO;
   NSDictionary *infoForBinding = [table infoForBinding:NSContentBinding];
@@ -35,9 +36,7 @@
     [pboard addTypes:[NSArray arrayWithObject:SongDataType] owner:nil];
     success = [pboard setString:[objectIDs componentsJoinedByString:@", "] forType:SongDataType];        
   }
-  
   return success;
 }
-
 
 @end

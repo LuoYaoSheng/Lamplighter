@@ -5,7 +5,7 @@
 - (id) init {
   debugLog(@"[PlaylistArrayController] init");
   self = [super init];
-  [self setEntityName:@"Song"];
+  //[self setObjectClass:@"NSMutableDictionary"];
   return self;
 }
 

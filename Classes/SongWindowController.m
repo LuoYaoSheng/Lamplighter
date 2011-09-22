@@ -12,8 +12,14 @@
 }
 */
 
-// Since SongsController is the delegate of all text fields we can enable or disable the save button
-// whenever all TextFields have valid values
+/**************
+ * VALIDATION *
+ **************/
+
+/*
+ * We are the delegate of all text fields in the new song form. On every keystroke
+ * we perform a validation.
+ */
 - (void) controlTextDidChange:(NSNotification*)notification {
   if ([notification object] == titleField) {
     titleErrors = ![Song validTitle:[[notification object] stringValue]];
@@ -23,6 +29,9 @@
   [self updateButtons];
 }
 
+/*
+ * Enable or disable the save button whenever all TextFields have valid values.
+ */
 - (void) updateButtons {
   if (!titleErrors && !contentErrors) {
     // We don't care to check whether we're creating or editing a song.
@@ -34,6 +43,10 @@
     [doneButton setEnabled:NO];
   }
 }
+
+/**********************
+ * GUI INITIALIZATION *
+ **********************/
 
 - (void) awakeFromNib {
   // I18n

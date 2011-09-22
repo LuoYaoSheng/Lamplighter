@@ -5,7 +5,6 @@
 }
 
 - (IBAction) newSong:(id)sender;
-
 - (IBAction) cancelNewSong:sender;
 - (IBAction) saveNewSong:sender;
 

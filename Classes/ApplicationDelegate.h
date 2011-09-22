@@ -11,7 +11,6 @@
   SongsArrayController *songsArrayController;
   PlaylistArrayController *playlistArrayController;
   
-
   // Core Data
   NSPersistentStoreCoordinator *persistentStoreCoordinator;
   NSManagedObjectModel *managedObjectModel;

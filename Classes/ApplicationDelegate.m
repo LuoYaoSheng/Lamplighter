@@ -6,9 +6,17 @@
 
 @implementation ApplicationDelegate
 
+/******************************
+ * APPLICATION INITIALIZATION *
+ ******************************/
+
 - (void) applicationDidFinishLaunching:(NSNotification*)notification {
 	[self.mainWindowController showWindow:self];
 }
+
+/**********************
+ * WINDOW CONTROLLERS *
+ **********************/
 
 - (MainWindowController*) mainWindowController {
   if (mainWindowController) return mainWindowController;
@@ -16,11 +24,17 @@
   return mainWindowController;
 }
 
+/*********************
+ * ARRAY CONTROLLERS *
+ *********************/
+
 - (SongsArrayController*) songsArrayController {
   if (songsArrayController) return songsArrayController;
   songsArrayController = [SongsArrayController new];
   [songsArrayController setManagedObjectContext:self.managedObjectContext];
-  return songsArrayController;
+  NSSortDescriptor *sortByTitle = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+  [songsArrayController setSortDescriptors:[NSArray arrayWithObject:sortByTitle]];
+ return songsArrayController;
 }
 
 - (PlaylistArrayController*) playlistArrayController {
@@ -30,55 +44,51 @@
   return playlistArrayController;
 }
 
-/**
-    Returns the support directory for the application, used to store the Core Data
-    store file.  This code uses a directory named "Lamplighter" for
-    the content, either in the NSApplicationSupportDirectory location or (if the
-    former cannot be found), the system's temporary directory.
+/*********************
+ * DATA CORE BACKEND *
+ *********************/
+
+/*
+ * Returns the support directory for the application, used to store the Core Data
+ * store file.  This code uses a directory named "Lamplighter" for
+ * the content, either in the NSApplicationSupportDirectory location or (if the
+ * former cannot be found), the system's temporary directory.
  */
-
 - (NSString*) applicationSupportDirectory {
-
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : NSTemporaryDirectory();
-    return [basePath stringByAppendingPathComponent:@"Lamplighter"];
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+  NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : NSTemporaryDirectory();
+  return [basePath stringByAppendingPathComponent:@"Lamplighter"];
 }
 
-
-/**
-    Creates, retains, and returns the managed object model for the application 
-    by merging all of the models found in the application bundle.
+/*
+ * Creates, retains, and returns the managed object model for the application 
+ * by merging all of the models found in the application bundle.
  */
- 
 - (NSManagedObjectModel*) managedObjectModel {
   if (managedObjectModel) return managedObjectModel;
   managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
   return managedObjectModel;
 }
 
-
-/**
-    Returns the persistent store coordinator for the application.  This 
-    implementation will create and return a coordinator, having added the 
-    store for the application to it.  (The directory for the store is created, 
-    if necessary.)
+/*
+ * Returns the persistent store coordinator for the application.  This 
+ * implementation will create and return a coordinator, having added the 
+ * store for the application to it.  (The directory for the store is created, 
+ * if necessary.)
  */
-
 - (NSPersistentStoreCoordinator*) persistentStoreCoordinator {
-
   if (persistentStoreCoordinator) return persistentStoreCoordinator;
-
+  
   NSManagedObjectModel *mom = self.managedObjectModel;
   if (!mom) {
     NSAssert(NO, @"Managed object model is nil");
     NSLog(@"%@:%s No model to generate a store from", [self class], _cmd);
     return nil;
   }
-
+  
   NSFileManager *fileManager = [NSFileManager defaultManager];
   NSString *applicationSupportDirectory = [self applicationSupportDirectory];
   NSError *error = nil;
-  
   if ( ![fileManager fileExistsAtPath:applicationSupportDirectory isDirectory:NULL] ) {
     if (![fileManager createDirectoryAtPath:applicationSupportDirectory withIntermediateDirectories:NO attributes:nil error:&error]) {
       NSAssert(NO, ([NSString stringWithFormat:@"Failed to create App Support directory %@ : %@", applicationSupportDirectory,error]));
@@ -94,17 +104,14 @@
     [persistentStoreCoordinator release], persistentStoreCoordinator = nil;
     return nil;
   }    
-
   return persistentStoreCoordinator;
 }
 
-/**
-    Returns the managed object context for the application (which is already
-    bound to the persistent store coordinator for the application.) 
+/*
+ * Returns the managed object context for the application (which is already
+ * bound to the persistent store coordinator for the application.) 
  */
- 
 - (NSManagedObjectContext*) managedObjectContext {
-
   if (managedObjectContext) return managedObjectContext;
 
   NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
@@ -118,38 +125,39 @@
   }
   managedObjectContext = [NSManagedObjectContext new];
   [managedObjectContext setPersistentStoreCoordinator: coordinator];
-
   return managedObjectContext;
 }
 
-/**
-    Returns the NSUndoManager for the application.  In this case, the manager
-    returned is that of the managed object context for the application.
+/*
+ * Returns the NSUndoManager for the application.  In this case, the manager
+ * returned is that of the managed object context for the application.
  */
- 
 - (NSUndoManager*) windowWillReturnUndoManager:(NSWindow*)window {
-    return [self.managedObjectContext undoManager];
+  return [self.managedObjectContext undoManager];
 }
 
+/********************
+ * INSTANCE METHODS *
+ ********************/
 
-/**
-    Performs the save action for the application, which is to send the save:
-    message to the application's managed object context.  Any encountered errors
-    are presented to the user.
+/*
+ * Performs the save action for the application, which is to send the save:
+ * message to the application's managed object context.  Any encountered errors
+ * are presented to the user.
  */
- 
 - (IBAction) saveAction:sender {
-
   NSError *error = nil;
-  
   if (![self.managedObjectContext commitEditing]) {
     NSLog(@"%@:%s unable to commit editing before saving", [self class], _cmd);
   }
-
   if (![self.managedObjectContext save:&error]) {
     [self presentError:error];
   }
 }
+
+/**********************
+ * NOTIFICATION HOOKS *
+ **********************/
 
 /*
  * Implementation of the applicationShouldTerminate: method, used here to
@@ -157,19 +165,13 @@
  * before the application terminates.
  */
 - (NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication*)sender {
-  debugLog(@"quit if no managed object");
-
   if (!self.managedObjectContext) return NSTerminateNow;
-  debugLog(@"quit if not commit");
 
   if (![self.managedObjectContext commitEditing]) {
     NSLog(@"%@:%s unable to commit editing to terminate", [self class], _cmd);
     return NSTerminateCancel;
   }
-
-  debugLog(@"quit if no changes");
   if (![self.managedObjectContext hasChanges]) return NSTerminateNow;
-  debugLog(@"quit if save");
 
   NSError *error = nil;
   if (![self.managedObjectContext save:&error]) {
@@ -199,27 +201,30 @@
     NSInteger answer = [alert runModal];
     [alert release];
     alert = nil;
-    
     if (answer == NSAlertAlternateReturn) return NSTerminateCancel;
-
   }
-
   return NSTerminateNow;
 }
 
 
-/**
-    Implementation of dealloc, to release the retained variables.
- */
- 
-- (void) dealloc {
+/****************
+ * DEALLOCATION *
+ ****************/
 
+/*
+ * Implementation of dealloc, to release the retained variables.
+ */
+- (void) dealloc {
+  // Window Controllers
+  [mainWindowController release];
+  // Array Controllers
+  [songsArrayController release];
+  [playlistArrayController release];
+  // Core Data
   [managedObjectContext release];
   [persistentStoreCoordinator release];
   [managedObjectModel release];
-	
   [super dealloc];
 }
-
 
 @end

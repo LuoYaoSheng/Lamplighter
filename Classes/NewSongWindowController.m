@@ -5,6 +5,10 @@
 
 @implementation NewSongWindowController
 
+/********************
+ * INSTANCE METHODS *
+ ********************/
+
 - (IBAction) newSong:(id)sender {
   self.titleErrors = YES;
   self.contentErrors = YES;
@@ -25,6 +29,10 @@
   [NSApp endSheet:self.window returnCode:NSOKButton];
 }
 
+/*************
+ * CALLBACKS *
+ *************/
+
 - (void) sheetEnded:(NSWindow*)sheet returnCode:(int)code contextInfo:(void*)context {
   if (code == NSOKButton) {
     Song *song = [[NSApp songsArrayController] newObject];
@@ -35,7 +43,5 @@
   }
   [sheet orderOut:nil];
 }
-
-
 
 @end

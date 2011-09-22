@@ -6,6 +6,10 @@
 
 @implementation PlaylistTableDataSource
 
+/*
+ * This method gets called whenever somebody hovers a drag over our Playlist.
+ * Depending on which value we return, the cursor indicates the user's possibitlies.
+ */
 - (NSDragOperation) tableView:(NSTableView*)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation {
   // First of all, we won't allow anything to be dropped here
   NSDragOperation result = NSDragOperationNone;
@@ -21,41 +25,38 @@
   return result;
 }
 
+/*
+ * This method gets called whenever somebody drops something into our Playlist.
+ * Depending on whether the object came from another table or whether the object
+ * was merely reordered within the Playlist, we will allow it or deny it.
+ */
 - (BOOL) tableView:(NSTableView*)table acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)targetRow dropOperation:(NSTableViewDropOperation)operation {
+
+  // First, let's check out whether a Song has been dropped into our Playlist
   NSString *urlString = [[info draggingPasteboard] stringForType:SongDataType];
   NSURL *url = [NSURL URLWithString:urlString];
   
+  // Second, we ensure that the Song already exists in our database
   NSManagedObjectID *objectID = [[NSApp persistentStoreCoordinator] managedObjectIDForURIRepresentation:url];
   id object = [[NSApp managedObjectContext] objectRegisteredForID:objectID];
-  
   if (object == nil) return NO;
   
   
-  // Firstly, the drag can come from the Songs Database.
+  // Then we check out where the drag came from. Here, it came from the Songs Table in the Drawer.
   if ([info draggingSource] == [[[NSApp  mainWindowController] songsDrawerViewController] songsTableView]) {
 
-    // In that case, add the song only if it doesn't exist already, because it's only a reference to a Core Data object
+    // In that case, add the Song only if it doesn't already exist.
     if (!([[[NSApp playlistArrayController] arrangedObjects] containsObject:object])) {
       [[NSApp playlistArrayController] addObject:object];
       return YES;
     }
     
-  // Secondly, it may come from the playlist table itself
+  // Then, it may come from the Playlist table itself
   } else if ([info draggingSource] == [[NSApp  mainWindowController] playlistTableView]) {
-
-    // That means that the object is already in the playlist table
-    // In that case it makes a difference whether the OPTION key is held down or not
-    // But we don't implement that yet
-    /*
-    if ([self optionKeyPressed]) {
-      // If so, it is save to just duplicate the object
-      [[NSApp playlistArrayController] insertObject:object atArrangedObjectIndex:targetRow];
-      return 
-    } else {
-    */
     
-    // If not, we just move the object to another position
-    // If the object is moved to a position further below, we need to adjust the target row, because we deleted the object
+    // If the song is not yet in the Playlist, we just move the object to another position
+    // If the object is moved to a position further below, we need to adjust the target row,
+    // because we temporarily delete the object while repositioning
     int sourceRow = [[[NSApp playlistArrayController] arrangedObjects] indexOfObject:object];
     if (sourceRow < targetRow) targetRow -= 1;
     // Remove and add the object at the right position
