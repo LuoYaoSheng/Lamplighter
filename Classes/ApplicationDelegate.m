@@ -44,6 +44,17 @@
   return playlistArrayController;
 }
 
+/**********************
+ * OBJECT CONTROLLERS *
+ **********************/
+
+- (NSObjectController*) projectorSlideController {
+  if (projectorSlideController) return projectorSlideController;
+  projectorSlideController = [NSObjectController new];
+  [projectorSlideController setManagedObjectContext:self.managedObjectContext];
+  return projectorSlideController;
+}
+
 /*********************
  * DATA CORE BACKEND *
  *********************/

@@ -11,6 +11,9 @@
   SongsArrayController *songsArrayController;
   PlaylistArrayController *playlistArrayController;
   
+  // Object Controllers
+  NSObjectController *projectorSlideController;
+  
   // Core Data
   NSPersistentStoreCoordinator *persistentStoreCoordinator;
   NSManagedObjectModel *managedObjectModel;
@@ -24,6 +27,10 @@
 // Array Controllers
 @property (nonatomic, retain, readonly) SongsArrayController *songsArrayController;
 @property (nonatomic, retain, readonly) PlaylistArrayController *playlistArrayController;
+
+// Object Controllers
+@property (nonatomic, retain, readonly) NSObjectController *projectorSlideController;
+
 
 // Core Data
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
