@@ -29,6 +29,9 @@
 		D8825F45142108B1005E96B7 /* BaseArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825F44142108B1005E96B7 /* BaseArrayController.m */; };
 		D8825FB514252C81005E96B7 /* PlaylistTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825FB414252C81005E96B7 /* PlaylistTableDataSource.m */; };
 		D8825FF5142B122F005E96B7 /* PlaylistArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825FF4142B122F005E96B7 /* PlaylistArrayController.m */; };
+		D88260EE142BA370005E96B7 /* ProjectorController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88260ED142BA370005E96B7 /* ProjectorController.m */; };
+		D882612A142C680C005E96B7 /* ProjectorWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8826129142C680C005E96B7 /* ProjectorWindow.xib */; };
+		D8826132142C686F005E96B7 /* ProjectorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8826131142C686F005E96B7 /* ProjectorWindowController.m */; };
 		D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D9A141743870034792D /* SongsDrawer.xib */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +78,11 @@
 		D8825FB414252C81005E96B7 /* PlaylistTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaylistTableDataSource.m; path = Classes/PlaylistTableDataSource.m; sourceTree = "<group>"; };
 		D8825FF3142B122F005E96B7 /* PlaylistArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaylistArrayController.h; path = Classes/PlaylistArrayController.h; sourceTree = "<group>"; };
 		D8825FF4142B122F005E96B7 /* PlaylistArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaylistArrayController.m; path = Classes/PlaylistArrayController.m; sourceTree = "<group>"; };
+		D88260EC142BA370005E96B7 /* ProjectorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectorController.h; path = Classes/ProjectorController.h; sourceTree = "<group>"; };
+		D88260ED142BA370005E96B7 /* ProjectorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectorController.m; path = Classes/ProjectorController.m; sourceTree = "<group>"; };
+		D8826129142C680C005E96B7 /* ProjectorWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectorWindow.xib; sourceTree = "<group>"; };
+		D8826130142C686F005E96B7 /* ProjectorWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectorWindowController.h; path = Classes/ProjectorWindowController.h; sourceTree = "<group>"; };
+		D8826131142C686F005E96B7 /* ProjectorWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectorWindowController.m; path = Classes/ProjectorWindowController.m; sourceTree = "<group>"; };
 		D8A00D841416A4310034792D /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		D8A00D9A141743870034792D /* SongsDrawer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongsDrawer.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +104,7 @@
 			children = (
 				D8825CBC141E60A1005E96B7 /* Application */,
 				D8825CBD141E60AD005E96B7 /* MainWindow */,
+				D882612C142C682D005E96B7 /* Projector */,
 				D8825CBE141E60BB005E96B7 /* Peripherals */,
 			);
 			name = Controllers;
@@ -245,6 +254,25 @@
 			name = Entities;
 			sourceTree = "<group>";
 		};
+		D8826128142C67C2005E96B7 /* Projector */ = {
+			isa = PBXGroup;
+			children = (
+				D8826129142C680C005E96B7 /* ProjectorWindow.xib */,
+			);
+			name = Projector;
+			sourceTree = "<group>";
+		};
+		D882612C142C682D005E96B7 /* Projector */ = {
+			isa = PBXGroup;
+			children = (
+				D88260EC142BA370005E96B7 /* ProjectorController.h */,
+				D88260ED142BA370005E96B7 /* ProjectorController.m */,
+				D8826130142C686F005E96B7 /* ProjectorWindowController.h */,
+				D8826131142C686F005E96B7 /* ProjectorWindowController.m */,
+			);
+			name = Projector;
+			sourceTree = "<group>";
+		};
 		D8A00D231416A0E20034792D /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +298,7 @@
 			children = (
 				D8825B80141CAE14005E96B7 /* Application */,
 				D8A00D431416A1570034792D /* MainWindow */,
+				D8826128142C67C2005E96B7 /* Projector */,
 				D8825CA3141DDE5B005E96B7 /* Peripherals */,
 			);
 			name = Views;
@@ -352,6 +381,7 @@
 				D8825B89141CAE84005E96B7 /* MainWindow.xib in Resources */,
 				D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */,
 				D8825CA7141DDE8B005E96B7 /* NewSongWindow.xib in Resources */,
+				D882612A142C680C005E96B7 /* ProjectorWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +409,8 @@
 				D8825F45142108B1005E96B7 /* BaseArrayController.m in Sources */,
 				D8825FB514252C81005E96B7 /* PlaylistTableDataSource.m in Sources */,
 				D8825FF5142B122F005E96B7 /* PlaylistArrayController.m in Sources */,
+				D88260EE142BA370005E96B7 /* ProjectorController.m in Sources */,
+				D8826132142C686F005E96B7 /* ProjectorWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

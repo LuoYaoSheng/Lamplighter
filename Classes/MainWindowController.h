@@ -3,44 +3,53 @@
 @class SongsDrawer;
 @class NewSongWindowController;
 @class PlaylistTableDataSource;
+@class ProjectorController;
 
 @interface MainWindowController : NSWindowController {
   
+  // Application Delegate Outlet
   IBOutlet ApplicationDelegate *applicationDelegate;
-
-  SongsDrawerViewController *songsDrawerViewController;
-  SongsDrawer *songsDrawer;
-  NewSongWindowController *newSongWindowController;
-
-  PlaylistTableDataSource *playlistTableDataSource;
-
+  
+  // Playlist
   IBOutlet NSTableColumn *playlistTableColumn;
   IBOutlet NSTableView *playlistTableView;
+  PlaylistTableDataSource *playlistTableDataSource;
+  
+  // Drawer
+  SongsDrawer *songsDrawer;
+  SongsDrawerViewController *songsDrawerViewController;
 
-  IBOutlet NSMenuItem *toggleSongsMenuItem;
+  // Song creation
+  NewSongWindowController *newSongWindowController;
+
+  // Projector
+  ProjectorController *projectorController;
 }
 
 
+// Application Delegate Outlet
 @property (nonatomic, retain, readonly) ApplicationDelegate *applicationDelegate;
+
+// Playlist
+@property (nonatomic, retain, readonly) NSTableColumn *playlistTableColumn;
+@property (nonatomic, retain, readonly) NSTableView *playlistTableView;
+@property (nonatomic, retain, readonly) PlaylistTableDataSource *playlistTableDataSource;
 
 // Drawer
 @property (nonatomic, retain, readonly) SongsDrawer *songsDrawer;
-
-// View Controllers
 @property (nonatomic, retain, readonly) SongsDrawerViewController *songsDrawerViewController;
+
+// Song creation
 @property (nonatomic, retain, readonly) NewSongWindowController *newSongWindowController;
 
-@property (nonatomic, retain, readonly) PlaylistTableDataSource *playlistTableDataSource;
+// Projector
+@property (nonatomic, retain, readonly) ProjectorController *projectorController;
 
-@property (nonatomic, retain, readonly) NSTableColumn *playlistTableColumn;
-@property (nonatomic, retain, readonly) NSTableView *playlistTableView;
-
+// Playlist
 - (void) setupPlaylistTable;
 
-// Handling the Drawer
-- (IBAction) toggleSongsDrawer:(id)sender;
+// Drawer
+- (IBAction) toggleSongsDrawer:sender;
 - (void) ensureSpaceForDrawer:(NSDrawer*)drawer;
-
-// New Song
 
 @end

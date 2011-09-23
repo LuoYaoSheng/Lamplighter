@@ -6,50 +6,59 @@
 #import "NewSongWindowController.h"
 #import "PlaylistTableDataSource.h"
 #import "SongsArrayController.h"
+#import "ProjectorController.h"
 
 @implementation MainWindowController
 
+@synthesize applicationDelegate;
 @synthesize playlistTableColumn, playlistTableView;
+
+/******************
+ * INITIALIZATION *
+ ******************/
 
 - (void) awakeFromNib {
   debugLog(@"[MainWindowController] awakeFromNib");
   [self setupPlaylistTable];
 }
 
+/************
+ * PLAYLIST *
+ ************/
+
 - (void) setupPlaylistTable {
   [playlistTableView registerForDraggedTypes: [NSArray arrayWithObject:SongDataType]];
   [[self playlistTableView] setDataSource:self.playlistTableDataSource];
+  [[self playlistTableView] setDelegate:self.projectorController];
   [[self playlistTableColumn] bind:NSValueBinding toObject:[NSApp playlistArrayController] withKeyPath:@"arrangedObjects.title" options:nil];
-  debugLog(@"datasource: %@", [[self playlistTableView] dataSource]);
-
-}
-
-- (BOOL) validateMenuItem:(NSMenuItem*)item{
-  debugLog(@"[MainWindowController] validateMenuItem");
-  BOOL result = YES;
   
-  if ([item action] == @selector(toggleSongsDrawer:)) {
-    NSDrawerState state = [songsDrawer state];
-    if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
-      [item setTitle:NSLocalizedString(@"menu.songs.hide", nil)];
-    } else {
-      [item setTitle:NSLocalizedString(@"menu.songs.show", nil)];
-    }
-  }
-  
-  return (result);
 }
 
-/*
--(BOOL) validateToolbarItem:(NSToolbarItem *)item {
-  NSLog(@"wow");
+- (PlaylistTableDataSource*) playlistTableDataSource {
+  if (playlistTableDataSource) return playlistTableDataSource;
+  playlistTableDataSource = [PlaylistTableDataSource new];
+  return playlistTableDataSource;
 }
-*/
 
+/**********
+ * DRAWER *
+ **********/
 
-/***********************
- * Handling the Drawer *
- ***********************/
+- (SongsDrawer*) songsDrawer {
+  if (songsDrawer) return songsDrawer;
+  songsDrawer = [[SongsDrawer alloc] initWithContentSize:NSMakeSize(200, 100) preferredEdge:NSMinXEdge];
+  [songsDrawer setContentView:songsDrawerViewController.view];
+  [songsDrawer setParentWindow:self.window];
+  [songsDrawer setMinContentSize:NSMakeSize(160, 0)];
+  [songsDrawer setMaxContentSize:NSMakeSize(400, 10000)];
+  return songsDrawer;
+}
+
+- (SongsDrawerViewController*) songsDrawerViewController {
+  if (songsDrawerViewController) return songsDrawerViewController;
+  songsDrawerViewController = [[SongsDrawerViewController alloc] initWithNibName:@"SongsDrawer" bundle:NULL];
+  return songsDrawerViewController;
+}
 
 - (IBAction) toggleSongsDrawer:(id)sender {
   // Initialize the Drawer by simply calling it
@@ -64,22 +73,6 @@
     //[presentasionsDrawer close];
     [songsDrawer openOnEdge:NSMinXEdge];
   }
-}
-
-- (SongsDrawerViewController*) songsDrawerViewController {
-  if (songsDrawerViewController) return songsDrawerViewController;
-  songsDrawerViewController = [[SongsDrawerViewController alloc] initWithNibName:@"SongsDrawer" bundle:NULL];
-  return songsDrawerViewController;
-}
-
-- (SongsDrawer*) songsDrawer {
-  if (songsDrawer) return songsDrawer;
-  songsDrawer = [[SongsDrawer alloc] initWithContentSize:NSMakeSize(200, 100) preferredEdge:NSMinXEdge];
-  [songsDrawer setContentView:songsDrawerViewController.view];
-  [songsDrawer setParentWindow:self.window];
-  [songsDrawer setMinContentSize:NSMakeSize(160, 0)];
-  [songsDrawer setMaxContentSize:NSMakeSize(400, 10000)];
-  return songsDrawer;
 }
 
 - (void) ensureSpaceForDrawer:(NSDrawer*)drawer {
@@ -117,18 +110,9 @@
   }
 }
 
-/****************/
-
-
-- (PlaylistTableDataSource*) playlistTableDataSource {
-  if (playlistTableDataSource) return playlistTableDataSource;
-  playlistTableDataSource = [PlaylistTableDataSource new];
-  return playlistTableDataSource;
-}
-
-/************
- * New Song *
- ************/
+/*****************
+ * SONG CREATION *
+ *****************/
 
 - (NewSongWindowController*) newSongWindowController {
   if (newSongWindowController) return newSongWindowController;
@@ -136,10 +120,34 @@
   return newSongWindowController;
 }
 
-- (ApplicationDelegate*) applicationDelegate {
-  return NSApp; 
+/*************
+ * PROJECTOR *
+ *************/
+
+- (ProjectorController*) projectorController {
+  if (projectorController) return projectorController;
+	projectorController = [ProjectorController new];
+  return projectorController;
 }
 
+/*************
+ * GUI ITEMS *
+ *************/
 
+- (BOOL) validateMenuItem:(NSMenuItem*)item{
+  debugLog(@"[MainWindowController] validateMenuItem");
+  BOOL result = YES;
+  
+  if ([item action] == @selector(toggleSongsDrawer:)) {
+    NSDrawerState state = [songsDrawer state];
+    if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
+      [item setTitle:NSLocalizedString(@"menu.songs.hide", nil)];
+    } else {
+      [item setTitle:NSLocalizedString(@"menu.songs.show", nil)];
+    }
+  }
+  
+  return (result);
+}
 
 @end

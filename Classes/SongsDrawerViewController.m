@@ -19,13 +19,11 @@
   [[self songsTableColumn] bind:NSValueBinding toObject:[NSApp songsArrayController] withKeyPath:@"arrangedObjects.title" options:nil];
 }
 
-
 - (SongsTableDataSource*) songsTableDataSource {
   if (songsTableDataSource) return songsTableDataSource;
   songsTableDataSource = [SongsTableDataSource new];
   return songsTableDataSource;
 }
-
 
 - (IBAction) newSong:sender {
   [[[NSApp mainWindowController] newSongWindowController] newSong:self];
