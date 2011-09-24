@@ -1,0 +1,3 @@
+@interface TitleTextField : NSTextField {}
+
+@end

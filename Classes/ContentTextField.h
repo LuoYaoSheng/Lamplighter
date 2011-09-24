@@ -1,0 +1,3 @@
+@interface ContentTextField : NSTextField {}
+
+@end

@@ -12,6 +12,21 @@
 }
 */
 
+/************************
+ * NSTextFieldDelegator *
+ ************************/
+
+- (BOOL) control:(NSControl*)control textView:(NSTextView*)textView doCommandBySelector:(SEL)commandSelector {
+  BOOL result = NO;
+  // new line action of the content textfield:
+  if ((control == contentField) && commandSelector == @selector(insertNewline:)) {
+    // always insert a line-break character and don’t cause the receiver to end editing
+    [textView insertNewlineIgnoringFieldEditor:self];
+    result = YES;
+  }
+  return result;
+}
+
 /**************
  * VALIDATION *
  **************/
