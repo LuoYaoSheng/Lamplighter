@@ -1,6 +1,6 @@
 @class ProjectorWindowController;
 
-@interface ProjectorController : NSObject <NSTableViewDelegate> {
+@interface ProjectorController : NSObject {
 
   // Window Controllers
   ProjectorWindowController *projectorWindowController;

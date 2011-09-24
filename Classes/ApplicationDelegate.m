@@ -12,6 +12,10 @@
 
 - (void) applicationDidFinishLaunching:(NSNotification*)notification {
 	[self.mainWindowController showWindow:self];
+  // Changing the Application Logo to turn on its light
+  NSImage *app_logo_on = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"app_logo_on" ofType:@"icns"]];
+  [self setApplicationIconImage:app_logo_on];
+  [app_logo_on release];
 }
 
 /**********************

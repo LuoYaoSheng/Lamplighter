@@ -17,6 +17,7 @@
 - (void) setupSongsTable {
   [[self songsTableView] setDataSource:self.songsTableDataSource];
   [[self songsTableColumn] bind:NSValueBinding toObject:[NSApp songsArrayController] withKeyPath:@"arrangedObjects.title" options:nil];
+  [[self songsTableView] setNextKeyView:[[NSApp mainWindowController] playlistTableView]];
 }
 
 - (SongsTableDataSource*) songsTableDataSource {

@@ -6,7 +6,7 @@
 #import "NewSongWindowController.h"
 #import "PlaylistTableDataSource.h"
 #import "SongsArrayController.h"
-#import "ProjectorController.h"
+#import "PreviewController.h"
 
 @implementation MainWindowController
 
@@ -29,9 +29,9 @@
 - (void) setupPlaylistTable {
   [playlistTableView registerForDraggedTypes: [NSArray arrayWithObject:SongDataType]];
   [[self playlistTableView] setDataSource:self.playlistTableDataSource];
-  [[self playlistTableView] setDelegate:self.projectorController];
+  [[self playlistTableView] setDelegate:self.previewController];
   [[self playlistTableColumn] bind:NSValueBinding toObject:[NSApp playlistArrayController] withKeyPath:@"arrangedObjects.title" options:nil];
-  
+  [[self playlistTableView] setNextKeyView:[[self songsDrawerViewController] songsTableView]]; 
 }
 
 - (PlaylistTableDataSource*) playlistTableDataSource {
@@ -124,10 +124,10 @@
  * PROJECTOR *
  *************/
 
-- (ProjectorController*) projectorController {
-  if (projectorController) return projectorController;
-	projectorController = [ProjectorController new];
-  return projectorController;
+- (PreviewController*) previewController {
+  if (previewController) return previewController;
+	previewController = [PreviewController new];
+  return previewController;
 }
 
 /*************

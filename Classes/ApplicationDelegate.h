@@ -1,4 +1,5 @@
 @class MainWindowController;
+@class ProjectorController;
 @class SongsArrayController;
 @class PlaylistArrayController;
 
@@ -7,6 +8,9 @@
   // Window Controllers
   MainWindowController *mainWindowController;
   
+  // Projector Controller
+  //ProjectorController *projectorController;
+
   // Array Controllers
   SongsArrayController *songsArrayController;
   PlaylistArrayController *playlistArrayController;
@@ -20,9 +24,11 @@
   NSManagedObjectContext *managedObjectContext;
 }
 
-
 // Window Controllers
 @property (nonatomic, retain, readonly) MainWindowController *mainWindowController;
+
+// Projector
+//@property (nonatomic, retain, readonly) ProjectorController *projectorController;
 
 // Array Controllers
 @property (nonatomic, retain, readonly) SongsArrayController *songsArrayController;
@@ -30,7 +36,6 @@
 
 // Object Controllers
 @property (nonatomic, retain, readonly) NSObjectController *projectorSlideController;
-
 
 // Core Data
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;

@@ -1,14 +1,17 @@
 @class ApplicationDelegate;
+@class PreviewController;
 @class SongsDrawerViewController;
 @class SongsDrawer;
 @class NewSongWindowController;
 @class PlaylistTableDataSource;
-@class ProjectorController;
 
 @interface MainWindowController : NSWindowController {
   
   // Application Delegate Outlet
   IBOutlet ApplicationDelegate *applicationDelegate;
+  
+  // Preview Controller
+  PreviewController *previewController;
   
   // Playlist
   IBOutlet NSTableColumn *playlistTableColumn;
@@ -21,14 +24,14 @@
 
   // Song creation
   NewSongWindowController *newSongWindowController;
-
-  // Projector
-  ProjectorController *projectorController;
 }
 
 
 // Application Delegate Outlet
 @property (nonatomic, retain, readonly) ApplicationDelegate *applicationDelegate;
+
+// Preview Controller
+@property (nonatomic, retain, readonly) PreviewController *previewController;
 
 // Playlist
 @property (nonatomic, retain, readonly) NSTableColumn *playlistTableColumn;
@@ -41,9 +44,6 @@
 
 // Song creation
 @property (nonatomic, retain, readonly) NewSongWindowController *newSongWindowController;
-
-// Projector
-@property (nonatomic, retain, readonly) ProjectorController *projectorController;
 
 // Playlist
 - (void) setupPlaylistTable;
