@@ -12,6 +12,7 @@
 
 @synthesize applicationDelegate;
 @synthesize playlistTableColumn, playlistTableView;
+@synthesize previewCollectionView, liveviewCollectionView;
 
 /******************
  * INITIALIZATION *
@@ -20,6 +21,8 @@
 - (void) awakeFromNib {
   debugLog(@"[MainWindowController] awakeFromNib");
   [self setupPlaylistTable];
+  [self setupPreviewCollectionView];
+  [self setupLiveviewCollectionView];
 }
 
 /************
@@ -38,6 +41,32 @@
   if (playlistTableDataSource) return playlistTableDataSource;
   playlistTableDataSource = [PlaylistTableDataSource new];
   return playlistTableDataSource;
+}
+
+/********************
+ * COLLECTION VIEWS *
+ ********************/
+
+- (void) setupPreviewCollectionView {
+  [[self previewCollectionView] setItemPrototype:[self previewCollectionViewItem]];
+}
+
+- (void) setupLiveviewCollectionView {
+  [[self liveviewCollectionView] setItemPrototype:[self liveviewCollectionViewItem]];
+}
+
+- (NSCollectionViewItem*) previewCollectionViewItem {
+  if (previewCollectionViewItem) return previewCollectionViewItem;
+  previewCollectionViewItem = [NSCollectionViewItem new];
+  [previewCollectionViewItem setView:previewSlideView];
+  return previewCollectionViewItem;
+}
+
+- (NSCollectionViewItem*) liveviewCollectionViewItem {
+  if (liveviewCollectionViewItem) return liveviewCollectionViewItem;
+  liveviewCollectionViewItem = [NSCollectionViewItem new];
+  [liveviewCollectionViewItem setView:liveviewSlideView];
+  return liveviewCollectionViewItem;
 }
 
 /**********

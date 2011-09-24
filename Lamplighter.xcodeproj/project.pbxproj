@@ -34,7 +34,7 @@
 		D8826132142C686F005E96B7 /* ProjectorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8826131142C686F005E96B7 /* ProjectorWindowController.m */; };
 		D88261C0142DDAE2005E96B7 /* app_logo_on.icns in Resources */ = {isa = PBXBuildFile; fileRef = D88261BA142DDAE2005E96B7 /* app_logo_on.icns */; };
 		D88261C1142DDAE2005E96B7 /* app_logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = D88261BB142DDAE2005E96B7 /* app_logo.icns */; };
-		D882621D142DE267005E96B7 /* PreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D882621C142DE267005E96B7 /* PreviewController.m */; };
+		D8826295142DEABE005E96B7 /* PreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8826294142DEABE005E96B7 /* PreviewController.m */; };
 		D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D9A141743870034792D /* SongsDrawer.xib */; };
 /* End PBXBuildFile section */
 
@@ -88,8 +88,8 @@
 		D8826131142C686F005E96B7 /* ProjectorWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectorWindowController.m; path = Classes/ProjectorWindowController.m; sourceTree = "<group>"; };
 		D88261BA142DDAE2005E96B7 /* app_logo_on.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = app_logo_on.icns; path = Images/app_logo_on.icns; sourceTree = "<group>"; };
 		D88261BB142DDAE2005E96B7 /* app_logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = app_logo.icns; path = Images/app_logo.icns; sourceTree = "<group>"; };
-		D882621B142DE267005E96B7 /* PreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewController.h; sourceTree = "<group>"; };
-		D882621C142DE267005E96B7 /* PreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewController.m; sourceTree = "<group>"; };
+		D8826293142DEABE005E96B7 /* PreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewController.h; path = Classes/PreviewController.h; sourceTree = "<group>"; };
+		D8826294142DEABE005E96B7 /* PreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewController.m; path = Classes/PreviewController.m; sourceTree = "<group>"; };
 		D8A00D841416A4310034792D /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		D8A00D9A141743870034792D /* SongsDrawer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongsDrawer.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,8 +234,8 @@
 				D8825B9D141CAF2A005E96B7 /* MainWindowController.m */,
 				D8825B70141CADC9005E96B7 /* SongsDrawerViewController.h */,
 				D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */,
-				D882621B142DE267005E96B7 /* PreviewController.h */,
-				D882621C142DE267005E96B7 /* PreviewController.m */,
+				D8826293142DEABE005E96B7 /* PreviewController.h */,
+				D8826294142DEABE005E96B7 /* PreviewController.m */,
 			);
 			name = MainWindow;
 			sourceTree = "<group>";
@@ -432,7 +432,7 @@
 				D8825FF5142B122F005E96B7 /* PlaylistArrayController.m in Sources */,
 				D88260EE142BA370005E96B7 /* ProjectorController.m in Sources */,
 				D8826132142C686F005E96B7 /* ProjectorWindowController.m in Sources */,
-				D882621D142DE267005E96B7 /* PreviewController.m in Sources */,
+				D8826295142DEABE005E96B7 /* PreviewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

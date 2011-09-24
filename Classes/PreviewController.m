@@ -25,9 +25,9 @@
       if ([notification object] == [self songsTableView] || [notification object] == [self playlistTableView]) {
         // Let's bind the Projector Slide
         Song *song = [[tableArrayController selectedObjects] lastObject];
-        [[NSApp projectorSlideController] setContent:[[song sortedSlides] objectAtIndex:0]];
+        //[[NSApp projectorSlideController] setContent:[[song sortedSlides] objectAtIndex:0]];
         
-        debugLog(@"updating slide to %@", song);
+        [self updatePreviewCollectionView:song];
       }
     }
   }
@@ -49,6 +49,15 @@
     if ([[self songsTableView] selectedRow] >= 0) [[NSApp songsArrayController] setSelectionIndex:-1];
   }
   return YES;
+}
+
+/********************
+ * INSTANCE METHODS *
+ ********************/
+
+- (void) updatePreviewCollectionView:(Song*)song {
+  NSArray *slides = [song sortedSlides];
+  [[[NSApp mainWindowController] previewCollectionView] setContent:slides];
 }
 
 /********************

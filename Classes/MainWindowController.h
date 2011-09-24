@@ -17,6 +17,14 @@
   IBOutlet NSTableColumn *playlistTableColumn;
   IBOutlet NSTableView *playlistTableView;
   PlaylistTableDataSource *playlistTableDataSource;
+
+  // Collection Views
+  IBOutlet NSCollectionView *previewCollectionView;
+  IBOutlet NSCollectionView *liveviewCollectionView;
+  NSCollectionViewItem *previewCollectionViewItem;
+  NSCollectionViewItem *liveviewCollectionViewItem;
+  IBOutlet NSView *previewSlideView;
+  IBOutlet NSView *liveviewSlideView;
   
   // Drawer
   SongsDrawer *songsDrawer;
@@ -38,6 +46,12 @@
 @property (nonatomic, retain, readonly) NSTableView *playlistTableView;
 @property (nonatomic, retain, readonly) PlaylistTableDataSource *playlistTableDataSource;
 
+// Collection View Items
+@property (nonatomic, retain, readonly) NSCollectionView *previewCollectionView;
+@property (nonatomic, retain, readonly) NSCollectionView *liveviewCollectionView;
+@property (nonatomic, retain, readonly) NSCollectionViewItem *previewCollectionViewItem;
+@property (nonatomic, retain, readonly) NSCollectionViewItem *liveviewCollectionViewItem;
+
 // Drawer
 @property (nonatomic, retain, readonly) SongsDrawer *songsDrawer;
 @property (nonatomic, retain, readonly) SongsDrawerViewController *songsDrawerViewController;
@@ -47,6 +61,10 @@
 
 // Playlist
 - (void) setupPlaylistTable;
+
+// Collection Views
+- (void) setupPreviewCollectionView;
+- (void) setupLiveviewCollectionView;
 
 // Drawer
 - (IBAction) toggleSongsDrawer:sender;
