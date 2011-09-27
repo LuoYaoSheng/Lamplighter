@@ -1,0 +1,5 @@
+@interface PreviewCollectionView : NSCollectionView {
+
+}
+
+@end

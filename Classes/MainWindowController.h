@@ -21,8 +21,6 @@
   // Collection Views
   IBOutlet NSCollectionView *previewCollectionView;
   IBOutlet NSCollectionView *liveviewCollectionView;
-  NSCollectionViewItem *previewCollectionViewItem;
-  NSCollectionViewItem *liveviewCollectionViewItem;
   IBOutlet NSView *previewSlideView;
   IBOutlet NSView *liveviewSlideView;
   
@@ -49,8 +47,6 @@
 // Collection View Items
 @property (nonatomic, retain, readonly) NSCollectionView *previewCollectionView;
 @property (nonatomic, retain, readonly) NSCollectionView *liveviewCollectionView;
-@property (nonatomic, retain, readonly) NSCollectionViewItem *previewCollectionViewItem;
-@property (nonatomic, retain, readonly) NSCollectionViewItem *liveviewCollectionViewItem;
 
 // Drawer
 @property (nonatomic, retain, readonly) SongsDrawer *songsDrawer;
