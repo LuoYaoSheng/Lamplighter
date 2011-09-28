@@ -16,9 +16,8 @@
   //textLayer.foregroundColor = whiteColor;
 
   CAConstraint *horizontalConstraint = [CAConstraint constraintWithAttribute:kCAConstraintMidX relativeTo:@"superlayer" attribute:kCAConstraintMidX];
-  CAConstraint *widthConstraint = [CAConstraint constraintWithAttribute:kCAConstraintWidth relativeTo:@"superlayer" attribute:kCAConstraintWidth];
   CAConstraint *verticalConstraint = [CAConstraint constraintWithAttribute:kCAConstraintMidY relativeTo:@"superlayer" attribute:kCAConstraintMidY]; 
-  [textLayer setConstraints:[NSArray arrayWithObjects:verticalConstraint, horizontalConstraint, widthConstraint, nil]];
+  [textLayer setConstraints:[NSArray arrayWithObjects:verticalConstraint, horizontalConstraint, nil]];
 
   CALayer *rootLayer = [CALayer layer];
   [rootLayer setLayoutManager:[CAConstraintLayoutManager layoutManager]];
@@ -30,6 +29,7 @@
   
   NSCollectionViewItem *item = [NSCollectionViewItem new];
   [item setView:slideView];
+  
   return item;
 }
 
