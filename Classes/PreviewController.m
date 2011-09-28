@@ -33,6 +33,10 @@
   }
 }
 
+/********************
+ * INSTANCE METHODS *
+ ********************/
+
 - (BOOL) exclusiveTableSelectionFor:(NSTableView*)table {
   // There is nothing selected in this table.
   if ([table selectedRow] < 0) return NO;
@@ -41,19 +45,21 @@
   if (table == [self songsTableView]) {
     // A song in the songsTable has been selected
     // Let's deselect all selected objects in other tables
-    if ([[self playlistTableView] selectedRow] >= 0) [[NSApp playlistArrayController] setSelectionIndex:-1];
+    [[self playlistTableView] setAllowsEmptySelection:YES];
+    [[self playlistTableView] deselectAll:self];
+    [[self playlistTableView] setAllowsEmptySelection:NO];
     
   } else if (table == [self playlistTableView]) {
     // A song in the playlist has been selected
     // Let's deselect all selected objects in other tables
-    if ([[self songsTableView] selectedRow] >= 0) [[NSApp songsArrayController] setSelectionIndex:-1];
+    [[self songsTableView] setAllowsEmptySelection:YES];
+    [[self songsTableView] deselectAll:self];
+    [[self songsTableView] setAllowsEmptySelection:NO];
+
+    //if ([[self songsTableView] selectedRow] >= 0) [[NSApp songsArrayController] setSelectionIndex:-1];
   }
   return YES;
 }
-
-/********************
- * INSTANCE METHODS *
- ********************/
 
 - (void) updatePreviewCollectionView:(Song*)song {
   NSArray *slides = [song sortedSlides];
