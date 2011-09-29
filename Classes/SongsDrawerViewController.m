@@ -4,6 +4,7 @@
 #import "SongsTableDataSource.h"
 #import "MainWindowController.h"
 #import "NewSongWindowController.h"
+#import "EditSongWindowController.h"
 #import "PreviewController.h"
 
 @implementation SongsDrawerViewController
@@ -18,8 +19,13 @@
 - (void) setupSongsTable {
   [[self songsTableView] setDataSource:self.songsTableDataSource];
   [[self songsTableView] setDelegate:[[NSApp mainWindowController] previewController]];
-  [[self songsTableColumn] bind:NSValueBinding toObject:[NSApp songsArrayController] withKeyPath:@"arrangedObjects.title" options:nil];
   [[self songsTableView] setNextKeyView:[[NSApp mainWindowController] playlistTableView]];
+  [[self songsTableView] setDoubleAction: @selector(songsTableViewDoubleClicked:)];
+  [[self songsTableColumn] bind:NSValueBinding toObject:[NSApp songsArrayController] withKeyPath:@"arrangedObjects.title" options:nil];
+}
+
+- (IBAction) songsTableDoubleClicked:sender {
+  [[[NSApp mainWindowController] editSongWindowController] editSong:sender];
 }
 
 - (SongsTableDataSource*) songsTableDataSource {

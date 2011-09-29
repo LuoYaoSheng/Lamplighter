@@ -24,12 +24,14 @@
   [rootLayer addSublayer:textLayer];
   
   SlideView *slideView = [[SlideView alloc] initWithFrame:NSMakeRect(0, 0, 200, 150)] ;
+  
+  //NSView *slideView = [[NSApp mainWindowController] previewSlideView];
   [slideView setLayer:rootLayer];
 	[slideView setWantsLayer:YES];
   
   NSCollectionViewItem *item = [NSCollectionViewItem new];
   [item setView:slideView];
-  
+    
   return item;
 }
 

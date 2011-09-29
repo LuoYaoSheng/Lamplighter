@@ -9,7 +9,7 @@
  * INSTANCE METHODS *
  ********************/
 
-- (IBAction) newSong:(id)sender {
+- (IBAction) newSong:sender {
   self.titleErrors = YES;
   self.contentErrors = YES;
   // Resetting TextField values from former Song creations

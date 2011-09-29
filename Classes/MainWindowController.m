@@ -4,6 +4,7 @@
 #import "SongsDrawerViewController.h"
 #import "SongsDrawer.h"
 #import "NewSongWindowController.h"
+#import "EditSongWindowController.h"
 #import "PlaylistTableDataSource.h"
 #import "SongsArrayController.h"
 #import "PreviewController.h"
@@ -119,6 +120,12 @@
   if (newSongWindowController) return newSongWindowController;
 	newSongWindowController = [[NewSongWindowController alloc] initWithWindowNibName:@"NewSongWindow"];
   return newSongWindowController;
+}
+
+- (EditSongWindowController*) editSongWindowController {
+  if (editSongWindowController) return editSongWindowController;
+	editSongWindowController = [[EditSongWindowController alloc] initWithWindowNibName:@"EditSongWindow"];
+  return editSongWindowController;
 }
 
 /*************

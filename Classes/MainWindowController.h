@@ -3,6 +3,7 @@
 @class SongsDrawerViewController;
 @class SongsDrawer;
 @class NewSongWindowController;
+@class EditSongWindowController;
 @class PlaylistTableDataSource;
 
 @interface MainWindowController : NSWindowController {
@@ -21,8 +22,6 @@
   // Collection Views
   IBOutlet NSCollectionView *previewCollectionView;
   IBOutlet NSCollectionView *liveviewCollectionView;
-  IBOutlet NSView *previewSlideView;
-  IBOutlet NSView *liveviewSlideView;
   
   // Drawer
   SongsDrawer *songsDrawer;
@@ -30,6 +29,7 @@
 
   // Song creation
   NewSongWindowController *newSongWindowController;
+  EditSongWindowController *editSongWindowController;
 }
 
 
@@ -54,6 +54,7 @@
 
 // Song creation
 @property (nonatomic, retain, readonly) NewSongWindowController *newSongWindowController;
+@property (nonatomic, retain, readonly) EditSongWindowController *editSongWindowController;
 
 // Playlist
 - (void) setupPlaylistTable;
