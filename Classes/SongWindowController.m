@@ -59,6 +59,14 @@
   }
 }
 
+/*************
+ * CALLBACKS *
+ *************/
+
+- (void) sheetEnded:(NSWindow*)sheet returnCode:(int)code contextInfo:(void*)context {
+  [sheet orderOut:nil];
+}
+
 /**********************
  * GUI INITIALIZATION *
  **********************/
