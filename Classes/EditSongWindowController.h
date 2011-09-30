@@ -4,6 +4,8 @@
 
 }
 
+- (void) setupTextFieldBindings;
+
 - (IBAction) editSong:sender;
 - (IBAction) doneEditSong:sender;
 

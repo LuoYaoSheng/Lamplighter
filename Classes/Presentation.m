@@ -114,7 +114,6 @@
   
   NSMutableArray *slidesContents = [NSMutableArray array];
   for (Slide *slide in [self sortedSlides]) {
-    NSLog(@"pos: %@", [slide position]);
     [slidesContents addObject:[slide content]];
   }
   
