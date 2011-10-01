@@ -7,7 +7,9 @@
 #import "EditSongWindowController.h"
 #import "PlaylistTableDataSource.h"
 #import "SongsArrayController.h"
+#import "ProjectorController.h"
 #import "PreviewController.h"
+#import "ProjectorController.h"
 
 @implementation MainWindowController
 
@@ -131,6 +133,14 @@
 /*************
  * PROJECTOR *
  *************/
+
+- (IBAction) toggleLive:sender {
+  [[NSApp projectorController] toggleLive];
+}
+
+/***********
+ * PREVIEW *
+ ***********/
 
 - (PreviewController*) previewController {
   if (previewController) return previewController;

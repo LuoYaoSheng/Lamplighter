@@ -8,6 +8,38 @@
 
 @implementation ProjectorController
 
+@synthesize isLive;
+
+/********************
+ * INSTANCE METHODS *
+ ********************/
+
+- (IBAction) toggleLive {
+  isLive ? [self leaveLive] :[ self goLive];
+}
+
+- (IBAction) goLive {
+  [[self projectorWindowController] goLive];
+  isLive = YES;
+}
+
+- (IBAction) leaveLive {
+  [[self projectorWindowController] leaveLive];
+  [self afterLeaveLive];
+}
+
+- (void) afterLeaveLive {
+  isLive = NO;
+}
+
+/*************
+ * CALLBACKS *
+ *************/
+
+- (void) projectorWindowWillClose {
+  [self afterLeaveLive];
+}
+
 /**********************
  * WINDOW CONTROLLERS *
  **********************/
@@ -16,20 +48,6 @@
   if (projectorWindowController) return projectorWindowController;
 	projectorWindowController = [[ProjectorWindowController alloc] initWithWindowNibName:@"ProjectorWindow"];
   return projectorWindowController;
-}
-
-
-
-/********************
- * ACCESSOR METHODS *
- ********************/
-
-- (NSTableView*) songsTableView {
-  return [[[NSApp mainWindowController] songsDrawerViewController] songsTableView];
-}
-
-- (NSTableView*) playlistTableView {
-  return [[NSApp mainWindowController] playlistTableView];
 }
 
 @end

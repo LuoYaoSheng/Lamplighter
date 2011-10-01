@@ -3,6 +3,7 @@
 #import "MainWindowController.h"
 #import "SongsArrayController.h"
 #import "PlaylistArrayController.h"
+#import "ProjectorController.h";
 
 @implementation ApplicationDelegate
 
@@ -26,6 +27,16 @@
   if (mainWindowController) return mainWindowController;
 	mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
   return mainWindowController;
+}
+
+/*********************
+ * OTHER CONTROLLERS *
+ *********************/
+
+- (ProjectorController*) projectorController {
+  if (projectorController) return projectorController;
+	projectorController = [ProjectorController new];
+  return projectorController;
 }
 
 /*********************

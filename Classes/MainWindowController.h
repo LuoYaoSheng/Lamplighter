@@ -59,12 +59,11 @@
 // Playlist
 - (void) setupPlaylistTable;
 
-// Collection Views
-- (void) setupPreviewCollectionView;
-- (void) setupLiveviewCollectionView;
-
 // Drawer
 - (IBAction) toggleSongsDrawer:sender;
 - (void) ensureSpaceForDrawer:(NSDrawer*)drawer;
+
+// Projector
+- (IBAction) toggleLive:sender;
 
 @end

@@ -2,14 +2,15 @@
 @class ProjectorController;
 @class SongsArrayController;
 @class PlaylistArrayController;
+@class ProjectorController;
 
 @interface ApplicationDelegate : NSApplication {
 
   // Window Controllers
   MainWindowController *mainWindowController;
   
-  // Projector Controller
-  //ProjectorController *projectorController;
+  // Other Controllers
+  ProjectorController *projectorController;
 
   // Array Controllers
   SongsArrayController *songsArrayController;
@@ -27,8 +28,8 @@
 // Window Controllers
 @property (nonatomic, retain, readonly) MainWindowController *mainWindowController;
 
-// Projector
-//@property (nonatomic, retain, readonly) ProjectorController *projectorController;
+// Other Controllers
+@property (nonatomic, retain, readonly) ProjectorController *projectorController;
 
 // Array Controllers
 @property (nonatomic, retain, readonly) SongsArrayController *songsArrayController;
