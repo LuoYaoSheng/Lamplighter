@@ -5,7 +5,9 @@
 - (id) init {
   debugLog(@"[BaseArrayController] init");
   self = [super init];
-  [self setAvoidsEmptySelection:NO];
+  if (self) {
+    [self setAvoidsEmptySelection:NO];
+  }
   return self;
 }
 

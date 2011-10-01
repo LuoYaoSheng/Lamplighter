@@ -2,6 +2,7 @@
 
 #import "ApplicationDelegate.h"
 #import "Song.h"
+#import "PreviewController.h"
 
 @implementation EditSongWindowController
 

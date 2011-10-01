@@ -38,6 +38,7 @@
   [songsArrayController setManagedObjectContext:self.managedObjectContext];
   NSSortDescriptor *sortByTitle = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
   [songsArrayController setSortDescriptors:[NSArray arrayWithObject:sortByTitle]];
+  [sortByTitle release];
  return songsArrayController;
 }
 

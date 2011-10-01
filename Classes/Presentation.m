@@ -104,8 +104,11 @@
 
 
 - (NSArray*) sortedSlides {
+  NSArray *result;
   NSSortDescriptor *sortByPosition = [[NSSortDescriptor alloc] initWithKey:@"position" ascending:YES];
-  return [[self primitiveValueForKey:@"slides"] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByPosition]];
+  result = [[self primitiveValueForKey:@"slides"] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByPosition]];
+  [sortByPosition release];
+  return result;
 }
 
 - (NSString*) content {
