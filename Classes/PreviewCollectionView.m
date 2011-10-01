@@ -10,8 +10,6 @@
   [self setMinItemSize:NSMakeSize(200, 150)];
   
   SlideView *slideView = [[SlideView alloc] initWithContent:[object content]] ;
-  
-  
   NSCollectionViewItem *item = [NSCollectionViewItem new];
   [item setView:slideView];
     

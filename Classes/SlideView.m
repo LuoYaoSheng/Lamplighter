@@ -13,6 +13,7 @@
     [self setContent:newContent];
     [self setLayer:[self rootLayer]];
     [self setWantsLayer:YES];
+    
 
   }
   return self;
@@ -25,7 +26,11 @@
 - (CALayer*) rootLayer {
   if (rootLayer) return rootLayer;
   rootLayer = [CALayer layer];
-  [rootLayer setLayoutManager:[CAConstraintLayoutManager layoutManager]];
+  rootLayer.layoutManager = [CAConstraintLayoutManager layoutManager];
+  CGColorRef blackColor = CGColorCreateGenericRGB(0,0,0,1);
+  rootLayer.backgroundColor = blackColor;
+  CGColorRelease(blackColor);
+  
   [rootLayer addSublayer:[self textLayer]];
   return rootLayer;
 }
