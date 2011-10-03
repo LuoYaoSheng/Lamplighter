@@ -23,10 +23,10 @@
 }
 
 - (void) viewWillDraw {
-  [self resizeBackgroundLayer];
+  [self resizeLayers];
 }
 
-- (void) resizeBackgroundLayer {
+- (void) resizeLayers {
   self.backgroundLayer.bounds = CGRectMake(0, 0,  self.rootLayer.bounds.size.width * 0.9, self.rootLayer.bounds.size.height * 0.9);
 }
 

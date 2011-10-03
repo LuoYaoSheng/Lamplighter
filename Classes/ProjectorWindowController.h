@@ -1,8 +1,11 @@
 @interface ProjectorWindowController : NSWindowController <NSWindowDelegate> {
 
-  NSView *windowView;
+  IBOutlet NSView *slideContainerView;
   
 }
+
+@property (nonatomic, retain, readonly) NSView *slideContainerView;
+
 
 - (void) setupWindow;
 

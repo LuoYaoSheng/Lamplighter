@@ -20,5 +20,6 @@
 @property (nonatomic, retain, readonly) SlideTextLayer *textLayer;
 
 - (id) initWithSlide:(Slide*)newSlide;
+- (void) resizeLayers;
 
 @end
