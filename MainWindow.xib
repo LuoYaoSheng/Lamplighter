@@ -12,8 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="161"/>
 			<integer value="43"/>
-			<integer value="163"/>
 			<integer value="210"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -317,7 +317,7 @@
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSScrollView" id="954645942">
 									<reference key="NSNextResponder" ref="983011935"/>
-									<int key="NSvFlags">274</int>
+									<int key="NSvFlags">4370</int>
 									<object class="NSMutableArray" key="NSSubviews">
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSClipView" id="710029005">
@@ -457,7 +457,7 @@
 								</object>
 								<object class="NSCustomView" id="473069228">
 									<reference key="NSNextResponder" ref="983011935"/>
-									<int key="NSvFlags">256</int>
+									<int key="NSvFlags">4352</int>
 									<object class="NSMutableArray" key="NSSubviews">
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSScrollView" id="417976131">
@@ -472,7 +472,7 @@
 														<bool key="EncodedWithXMLCoder">YES</bool>
 														<object class="NSCollectionView" id="825150080">
 															<reference key="NSNextResponder" ref="222336473"/>
-															<int key="NSvFlags">274</int>
+															<int key="NSvFlags">4370</int>
 															<string key="NSFrameSize">{172, 270}</string>
 															<reference key="NSSuperview" ref="222336473"/>
 															<string key="NSMinGridSize">{0, 0}</string>
@@ -544,7 +544,7 @@
 								</object>
 								<object class="NSCustomView" id="150039659">
 									<reference key="NSNextResponder" ref="983011935"/>
-									<int key="NSvFlags">256</int>
+									<int key="NSvFlags">4352</int>
 									<object class="NSMutableArray" key="NSSubviews">
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSScrollView" id="563601693">
@@ -559,7 +559,7 @@
 														<bool key="EncodedWithXMLCoder">YES</bool>
 														<object class="NSCollectionView" id="551032758">
 															<reference key="NSNextResponder" ref="289759547"/>
-															<int key="NSvFlags">274</int>
+															<int key="NSvFlags">4370</int>
 															<string key="NSFrameSize">{184, 270}</string>
 															<reference key="NSSuperview" ref="289759547"/>
 															<string key="NSMinGridSize">{0, 0}</string>
@@ -568,7 +568,15 @@
 															<int key="NSMaxNumberOfGridColumns">3</int>
 															<object class="NSArray" key="NSBackgroundColors">
 																<bool key="EncodedWithXMLCoder">YES</bool>
-																<reference ref="571952742"/>
+																<object class="NSColor" id="19508230">
+																	<int key="NSColorSpace">6</int>
+																	<string key="NSCatalogName">System</string>
+																	<string key="NSColorName">disabledControlTextColor</string>
+																	<object class="NSColor" key="NSColor">
+																		<int key="NSColorSpace">3</int>
+																		<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
+																	</object>
+																</object>
 															</object>
 															<bool key="NSSelectable">YES</bool>
 															<int key="NSDraggingSourceMaskForLocal">-1</int>
@@ -3460,7 +3468,7 @@
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="571952742"/>
+					<reference ref="19508230"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

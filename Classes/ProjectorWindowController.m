@@ -2,6 +2,7 @@
 
 #import "ApplicationDelegate.h"
 #import "ProjectorController.h"
+#import "SlideView.h"
 
 @implementation ProjectorWindowController
 
@@ -24,13 +25,13 @@
  ********************/
 
 - (void) goLive {
-  debugLog(@"yep");
+  SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection]];
+  [self.window setView:slideView];
   [self.window orderFront:self];
 }
 
 - (void) leaveLive {
   [self.window close];
-
 }
 
 - (void) windowWillClose:(NSNotification*)notification {

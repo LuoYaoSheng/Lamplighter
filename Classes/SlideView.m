@@ -2,6 +2,9 @@
 
 #import <QuartzCore/CoreAnimation.h>
 #import <QTKit/QTKit.h>
+#import "SlideRootLayer.h"
+#import "SlideBackgroundLayer.h"
+#import "SlideTextLayer.h"
 
 @implementation SlideView
 
@@ -13,37 +16,35 @@
     self.slide = newSlide;
     [self setLayer:[self rootLayer]];
     [self setWantsLayer:YES];
+    [[self rootLayer] addSublayer:[self backgroundLayer]];
+    [[self backgroundLayer] addSublayer:[self textLayer]];
   }
   return self;
 }
 
-- (CALayer*) rootLayer {
+- (void) viewWillDraw {
+  [self resizeBackgroundLayer];
+}
+
+- (void) resizeBackgroundLayer {
+  self.backgroundLayer.bounds = CGRectMake(0, 0,  self.rootLayer.bounds.size.width * 0.9, self.rootLayer.bounds.size.height * 0.9);
+}
+
+- (SlideRootLayer*) rootLayer {
   if (rootLayer) return rootLayer;
-  rootLayer = [CALayer layer];
-  rootLayer.layoutManager = [CAConstraintLayoutManager layoutManager];
-  CGColorRef blackColor = CGColorCreateGenericRGB(0,0,0,1);
-  rootLayer.backgroundColor = blackColor;
-  CGColorRelease(blackColor);
-  [rootLayer addSublayer:[self textLayer]];
+  rootLayer = [SlideRootLayer layer];
   return rootLayer;
 }
 
-- (CATextLayer*) textLayer {
+- (SlideBackgroundLayer*) backgroundLayer {
+  if (backgroundLayer) return backgroundLayer;
+  backgroundLayer = [SlideBackgroundLayer layer];
+  return backgroundLayer;
+}
+
+- (SlideTextLayer*) textLayer {
   if (textLayer) return textLayer;
-  textLayer = [CATextLayer layer];
-  textLayer.string = [self.slide content];
-  //textLayer.alignmentMode = kCAAlignmentCenter;
-  textLayer.wrapped = YES;
-  //textLayer.truncationMode = kCATruncationMiddle;
-  textLayer.fontSize = 10;
-  CGColorRef whiteColor = CGColorCreateGenericRGB(1,1,1,1);
-  textLayer.foregroundColor = whiteColor;
-  CGColorRelease(whiteColor);
-  CAConstraint *horizontalConstraint = [CAConstraint constraintWithAttribute:kCAConstraintMidX relativeTo:@"superlayer" attribute:kCAConstraintMidX];
-  CAConstraint *verticalConstraint = [CAConstraint constraintWithAttribute:kCAConstraintMidY relativeTo:@"superlayer" attribute:kCAConstraintMidY]; 
-  CAConstraint *heightConstraint = [CAConstraint constraintWithAttribute:kCAConstraintHeight relativeTo:@"superlayer" attribute:kCAConstraintHeight]; 
-  CAConstraint *widthConstraint = [CAConstraint constraintWithAttribute:kCAConstraintWidth relativeTo:@"superlayer" attribute:kCAConstraintWidth]; 
-  [textLayer setConstraints:[NSArray arrayWithObjects:heightConstraint, widthConstraint, verticalConstraint, horizontalConstraint, nil]];
+  textLayer = [SlideTextLayer layerForSlide:self.slide];
   return textLayer;
 }
 

@@ -11,6 +11,9 @@
 		8D11072B0486CEB800E47090 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* Localizable.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		D879804914386805001D9CB7 /* SlideRootLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879804614386805001D9CB7 /* SlideRootLayer.m */; };
+		D879804A14386805001D9CB7 /* SlideTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879804814386805001D9CB7 /* SlideTextLayer.m */; };
+		D879805F14398628001D9CB7 /* SlideBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879805E14398628001D9CB7 /* SlideBackgroundLayer.m */; };
 		D8825B72141CADC9005E96B7 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */; };
 		D8825B74141CADC9005E96B7 /* SongsDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */; };
 		D8825B79141CADD3005E96B7 /* DraggableTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B76141CADD3005E96B7 /* DraggableTableDataSource.m */; };
@@ -58,6 +61,12 @@
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Lamplighter-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "Lamplighter-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Lamplighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lamplighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D879804514386805001D9CB7 /* SlideRootLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideRootLayer.h; path = Classes/SlideRootLayer.h; sourceTree = "<group>"; };
+		D879804614386805001D9CB7 /* SlideRootLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideRootLayer.m; path = Classes/SlideRootLayer.m; sourceTree = "<group>"; };
+		D879804714386805001D9CB7 /* SlideTextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideTextLayer.h; path = Classes/SlideTextLayer.h; sourceTree = "<group>"; };
+		D879804814386805001D9CB7 /* SlideTextLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideTextLayer.m; path = Classes/SlideTextLayer.m; sourceTree = "<group>"; };
+		D879805D14398628001D9CB7 /* SlideBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideBackgroundLayer.h; path = Classes/SlideBackgroundLayer.h; sourceTree = "<group>"; };
+		D879805E14398628001D9CB7 /* SlideBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideBackgroundLayer.m; path = Classes/SlideBackgroundLayer.m; sourceTree = "<group>"; };
 		D8825B6C141CADC9005E96B7 /* ApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplicationDelegate.h; path = Classes/ApplicationDelegate.h; sourceTree = "<group>"; };
 		D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplicationDelegate.m; path = Classes/ApplicationDelegate.m; sourceTree = "<group>"; };
 		D8825B6E141CADC9005E96B7 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = Classes/MainWindowController.h; sourceTree = "<group>"; };
@@ -135,7 +144,8 @@
 				D8825CBC141E60A1005E96B7 /* Application */,
 				D8825CBD141E60AD005E96B7 /* MainWindow */,
 				D882612C142C682D005E96B7 /* Projector */,
-				D8825CBE141E60BB005E96B7 /* Peripherals */,
+				D8798039143867AC001D9CB7 /* Slide */,
+				D8825CBE141E60BB005E96B7 /* Song */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -200,6 +210,21 @@
 				770B37EC0679A11B001EADE2 /* Lamplighter_DataModel.xcdatamodel */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D8798039143867AC001D9CB7 /* Slide */ = {
+			isa = PBXGroup;
+			children = (
+				D88263DC143222A3005E96B7 /* SlideView.h */,
+				D88263DD143222A3005E96B7 /* SlideView.m */,
+				D879804514386805001D9CB7 /* SlideRootLayer.h */,
+				D879804614386805001D9CB7 /* SlideRootLayer.m */,
+				D879805D14398628001D9CB7 /* SlideBackgroundLayer.h */,
+				D879805E14398628001D9CB7 /* SlideBackgroundLayer.m */,
+				D879804714386805001D9CB7 /* SlideTextLayer.h */,
+				D879804814386805001D9CB7 /* SlideTextLayer.m */,
+			);
+			name = Slide;
 			sourceTree = "<group>";
 		};
 		D8825B5E141CAD21005E96B7 /* DataSources */ = {
@@ -269,7 +294,7 @@
 			name = MainWindow;
 			sourceTree = "<group>";
 		};
-		D8825CBE141E60BB005E96B7 /* Peripherals */ = {
+		D8825CBE141E60BB005E96B7 /* Song */ = {
 			isa = PBXGroup;
 			children = (
 				D8825CFD141E6CD2005E96B7 /* SongWindowController.h */,
@@ -278,10 +303,8 @@
 				D8825CBA141E607D005E96B7 /* NewSongWindowController.m */,
 				D88264FC1434429B005E96B7 /* EditSongWindowController.h */,
 				D88264FD1434429B005E96B7 /* EditSongWindowController.m */,
-				D88263DC143222A3005E96B7 /* SlideView.h */,
-				D88263DD143222A3005E96B7 /* SlideView.m */,
 			);
-			name = Peripherals;
+			name = Song;
 			sourceTree = "<group>";
 		};
 		D8825DFB141E8960005E96B7 /* Entities */ = {
@@ -483,6 +506,9 @@
 				D88263DE143222A3005E96B7 /* SlideView.m in Sources */,
 				D88263E314322576005E96B7 /* PreviewCollectionView.m in Sources */,
 				D88264FE1434429B005E96B7 /* EditSongWindowController.m in Sources */,
+				D879804914386805001D9CB7 /* SlideRootLayer.m in Sources */,
+				D879804A14386805001D9CB7 /* SlideTextLayer.m in Sources */,
+				D879805F14398628001D9CB7 /* SlideBackgroundLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

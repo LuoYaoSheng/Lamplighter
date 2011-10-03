@@ -1,5 +1,7 @@
 @interface ProjectorWindowController : NSWindowController <NSWindowDelegate> {
 
+  NSView *windowView;
+  
 }
 
 - (void) setupWindow;
