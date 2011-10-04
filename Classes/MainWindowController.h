@@ -1,5 +1,6 @@
 @class ApplicationDelegate;
 @class PreviewController;
+@class LiveviewController;
 @class SongsDrawerViewController;
 @class SongsDrawer;
 @class NewSongWindowController;
@@ -13,6 +14,7 @@
   
   // Preview Controller
   PreviewController *previewController;
+  LiveviewController *liveviewController;
   
   // Playlist
   IBOutlet NSTableColumn *playlistTableColumn;
@@ -38,6 +40,7 @@
 
 // Preview Controller
 @property (nonatomic, retain, readonly) PreviewController *previewController;
+@property (nonatomic, retain, readonly) LiveviewController *liveviewController;
 
 // Playlist
 @property (nonatomic, retain, readonly) NSTableColumn *playlistTableColumn;

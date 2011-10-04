@@ -1,4 +1,6 @@
-@interface PreviewCollectionView : NSCollectionView {
+#import "BaseCollectionView.h"
+
+@interface PreviewCollectionView : BaseCollectionView <NSCollectionViewDelegate> {
 
 }
 

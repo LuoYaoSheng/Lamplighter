@@ -9,6 +9,7 @@
 #import "SongsArrayController.h"
 #import "ProjectorController.h"
 #import "PreviewController.h"
+#import "LiveviewController.h"
 #import "ProjectorController.h"
 
 @implementation MainWindowController
@@ -146,6 +147,12 @@
   if (previewController) return previewController;
 	previewController = [PreviewController new];
   return previewController;
+}
+
+- (LiveviewController*) liveviewController {
+  if (liveviewController) return liveviewController;
+	liveviewController = [LiveviewController new];
+  return liveviewController;
 }
 
 /*************

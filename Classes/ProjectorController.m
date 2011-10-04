@@ -29,7 +29,12 @@
 }
 
 - (void) afterLeaveLive {
+  // TODO: Handle NSWindow#isVisible instead
   isLive = NO;
+}
+
+- (void) setSlide:(Slide*)newSlide {
+  //[self setContent:selectedSlide];
 }
 
 /*************

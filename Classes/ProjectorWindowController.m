@@ -6,8 +6,6 @@
 
 @implementation ProjectorWindowController
 
-@synthesize slideContainerView;
-
 /******************
  * INITIALIZATION *
  ******************/
@@ -28,9 +26,8 @@
 
 - (void) goLive {
   SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection]];
-  [slideContainerView addSubview:slideView];
-  debugLog(@"slideContainerView: %@", slideContainerView);
-  //[slideContainerView setWantsLayer:YES];
+  [self.window setContentView:slideView];
+  debugLog(@"[self.window] %@", [self.window contentView]);
   [self.window orderFront:self];
 }
 

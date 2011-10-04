@@ -14,6 +14,9 @@
 		D879804914386805001D9CB7 /* SlideRootLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879804614386805001D9CB7 /* SlideRootLayer.m */; };
 		D879804A14386805001D9CB7 /* SlideTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879804814386805001D9CB7 /* SlideTextLayer.m */; };
 		D879805F14398628001D9CB7 /* SlideBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879805E14398628001D9CB7 /* SlideBackgroundLayer.m */; };
+		D87981AA143AD9AB001D9CB7 /* LiveviewCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D87981A7143AD9AB001D9CB7 /* LiveviewCollectionView.m */; };
+		D87981AB143AD9AB001D9CB7 /* LiveviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87981A9143AD9AB001D9CB7 /* LiveviewController.m */; };
+		D87981AE143ADA1E001D9CB7 /* BaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D87981AD143ADA1E001D9CB7 /* BaseCollectionView.m */; };
 		D8825B72141CADC9005E96B7 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */; };
 		D8825B74141CADC9005E96B7 /* SongsDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */; };
 		D8825B79141CADD3005E96B7 /* DraggableTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B76141CADD3005E96B7 /* DraggableTableDataSource.m */; };
@@ -67,6 +70,12 @@
 		D879804814386805001D9CB7 /* SlideTextLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideTextLayer.m; path = Classes/SlideTextLayer.m; sourceTree = "<group>"; };
 		D879805D14398628001D9CB7 /* SlideBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideBackgroundLayer.h; path = Classes/SlideBackgroundLayer.h; sourceTree = "<group>"; };
 		D879805E14398628001D9CB7 /* SlideBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideBackgroundLayer.m; path = Classes/SlideBackgroundLayer.m; sourceTree = "<group>"; };
+		D87981A6143AD9AB001D9CB7 /* LiveviewCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveviewCollectionView.h; path = Classes/LiveviewCollectionView.h; sourceTree = "<group>"; };
+		D87981A7143AD9AB001D9CB7 /* LiveviewCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveviewCollectionView.m; path = Classes/LiveviewCollectionView.m; sourceTree = "<group>"; };
+		D87981A8143AD9AB001D9CB7 /* LiveviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveviewController.h; path = Classes/LiveviewController.h; sourceTree = "<group>"; };
+		D87981A9143AD9AB001D9CB7 /* LiveviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveviewController.m; path = Classes/LiveviewController.m; sourceTree = "<group>"; };
+		D87981AC143ADA1E001D9CB7 /* BaseCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseCollectionView.h; path = Classes/BaseCollectionView.h; sourceTree = "<group>"; };
+		D87981AD143ADA1E001D9CB7 /* BaseCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseCollectionView.m; path = Classes/BaseCollectionView.m; sourceTree = "<group>"; };
 		D8825B6C141CADC9005E96B7 /* ApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplicationDelegate.h; path = Classes/ApplicationDelegate.h; sourceTree = "<group>"; };
 		D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplicationDelegate.m; path = Classes/ApplicationDelegate.m; sourceTree = "<group>"; };
 		D8825B6E141CADC9005E96B7 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = Classes/MainWindowController.h; sourceTree = "<group>"; };
@@ -227,6 +236,41 @@
 			name = Slide;
 			sourceTree = "<group>";
 		};
+		D87981AF143ADA23001D9CB7 /* CollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				D87981AC143ADA1E001D9CB7 /* BaseCollectionView.h */,
+				D87981AD143ADA1E001D9CB7 /* BaseCollectionView.m */,
+				D88263E114322576005E96B7 /* PreviewCollectionView.h */,
+				D88263E214322576005E96B7 /* PreviewCollectionView.m */,
+				D87981A6143AD9AB001D9CB7 /* LiveviewCollectionView.h */,
+				D87981A7143AD9AB001D9CB7 /* LiveviewCollectionView.m */,
+			);
+			name = CollectionViews;
+			sourceTree = "<group>";
+		};
+		D87981B4143ADAD3001D9CB7 /* General Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8826293142DEABE005E96B7 /* PreviewController.h */,
+				D8826294142DEABE005E96B7 /* PreviewController.m */,
+				D87981A8143AD9AB001D9CB7 /* LiveviewController.h */,
+				D87981A9143AD9AB001D9CB7 /* LiveviewController.m */,
+			);
+			name = "General Controllers";
+			sourceTree = "<group>";
+		};
+		D87981BC143ADB54001D9CB7 /* GUI Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8825B6E141CADC9005E96B7 /* MainWindowController.h */,
+				D8825B9D141CAF2A005E96B7 /* MainWindowController.m */,
+				D8825B70141CADC9005E96B7 /* SongsDrawerViewController.h */,
+				D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */,
+			);
+			name = "GUI Controllers";
+			sourceTree = "<group>";
+		};
 		D8825B5E141CAD21005E96B7 /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,14 +326,9 @@
 		D8825CBD141E60AD005E96B7 /* MainWindow */ = {
 			isa = PBXGroup;
 			children = (
-				D8825B6E141CADC9005E96B7 /* MainWindowController.h */,
-				D8825B9D141CAF2A005E96B7 /* MainWindowController.m */,
-				D8825B70141CADC9005E96B7 /* SongsDrawerViewController.h */,
-				D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */,
-				D8826293142DEABE005E96B7 /* PreviewController.h */,
-				D8826294142DEABE005E96B7 /* PreviewController.m */,
-				D88263E114322576005E96B7 /* PreviewCollectionView.h */,
-				D88263E214322576005E96B7 /* PreviewCollectionView.m */,
+				D87981BC143ADB54001D9CB7 /* GUI Controllers */,
+				D87981B4143ADAD3001D9CB7 /* General Controllers */,
+				D87981AF143ADA23001D9CB7 /* CollectionViews */,
 			);
 			name = MainWindow;
 			sourceTree = "<group>";
@@ -509,6 +548,9 @@
 				D879804914386805001D9CB7 /* SlideRootLayer.m in Sources */,
 				D879804A14386805001D9CB7 /* SlideTextLayer.m in Sources */,
 				D879805F14398628001D9CB7 /* SlideBackgroundLayer.m in Sources */,
+				D87981AA143AD9AB001D9CB7 /* LiveviewCollectionView.m in Sources */,
+				D87981AB143AD9AB001D9CB7 /* LiveviewController.m in Sources */,
+				D87981AE143ADA1E001D9CB7 /* BaseCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

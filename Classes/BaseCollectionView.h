@@ -1,0 +1,5 @@
+@interface BaseCollectionView : NSCollectionView {
+
+}
+
+@end
