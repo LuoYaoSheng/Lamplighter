@@ -11,9 +11,16 @@
  * APPLICATION INITIALIZATION *
  ******************************/
 
+/* This is the first method that is called on application launch.
+ */
 - (void) applicationDidFinishLaunching:(NSNotification*)notification {
 	[self.mainWindowController showWindow:self];
-  // Changing the Application Logo to turn on its light
+  [self turnOnTheLight];
+}
+
+/* Changing the Application Logo to turn on its light.
+ */
+- (void) turnOnTheLight {
   NSImage *app_logo_on = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"app_logo_on" ofType:@"icns"]];
   [self setApplicationIconImage:app_logo_on];
   [app_logo_on release];
@@ -23,6 +30,8 @@
  * WINDOW CONTROLLERS *
  **********************/
 
+/* The Window Controller for the Main Window.
+ */
 - (MainWindowController*) mainWindowController {
   if (mainWindowController) return mainWindowController;
 	mainWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindow"];
@@ -33,6 +42,9 @@
  * OTHER CONTROLLERS *
  *********************/
 
+/* This Controller acts as a single-point-of-control for the projector. Whatever you want to do
+ * with the projector, it has to go through this controller.
+ */
 - (ProjectorController*) projectorController {
   if (projectorController) return projectorController;
 	projectorController = [ProjectorController new];
@@ -43,6 +55,8 @@
  * ARRAY CONTROLLERS *
  *********************/
 
+/* This Array Controller is backed by Core Data and contains all Songs available in Lamplighter.
+ */
 - (SongsArrayController*) songsArrayController {
   if (songsArrayController) return songsArrayController;
   songsArrayController = [SongsArrayController new];
@@ -50,9 +64,13 @@
   NSSortDescriptor *sortByTitle = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
   [songsArrayController setSortDescriptors:[NSArray arrayWithObject:sortByTitle]];
   [sortByTitle release];
- return songsArrayController;
+  return songsArrayController;
 }
 
+/* This Array Controller is *not* backed by Core Data. It's a simple mutable Array that holds
+ * mere *references* to Core Data objects. You can think of it as a short-lived "songs for today"
+ * list that makes it easier to find songs.
+ */
 - (PlaylistArrayController*) playlistArrayController {
   if (playlistArrayController) return playlistArrayController;
   playlistArrayController = [PlaylistArrayController new];
@@ -64,6 +82,9 @@
  * OBJECT CONTROLLERS *
  **********************/
 
+/* This Object Controller is *not* backed by Core Data. Its solemn purpose is to hold the reference
+ * to a single slide - the one that is to be presented on the projector.
+ */
 - (NSObjectController*) projectorSlideController {
   if (projectorSlideController) return projectorSlideController;
   projectorSlideController = [NSObjectController new];
@@ -244,9 +265,13 @@
 - (void) dealloc {
   // Window Controllers
   [mainWindowController release];
+  // Other Controllers
+  [projectorController release];
   // Array Controllers
   [songsArrayController release];
   [playlistArrayController release];
+  // Object Controllers
+  [projectorSlideController release];
   // Core Data
   [managedObjectContext release];
   [persistentStoreCoordinator release];

@@ -34,6 +34,9 @@
   EditSongWindowController *editSongWindowController;
 }
 
+/**************
+ * PROPERTIES *
+ **************/
 
 // Application Delegate Outlet
 @property (nonatomic, retain, readonly) ApplicationDelegate *applicationDelegate;
@@ -47,7 +50,7 @@
 @property (nonatomic, retain, readonly) NSTableView *playlistTableView;
 @property (nonatomic, retain, readonly) PlaylistTableDataSource *playlistTableDataSource;
 
-// Collection View Items
+// Collection Views
 @property (nonatomic, retain, readonly) NSCollectionView *previewCollectionView;
 @property (nonatomic, retain, readonly) NSCollectionView *liveviewCollectionView;
 
@@ -58,6 +61,10 @@
 // Song creation
 @property (nonatomic, retain, readonly) NewSongWindowController *newSongWindowController;
 @property (nonatomic, retain, readonly) EditSongWindowController *editSongWindowController;
+
+/***********
+ * METHODS *
+ ***********/
 
 // Playlist
 - (void) setupPlaylistTable;

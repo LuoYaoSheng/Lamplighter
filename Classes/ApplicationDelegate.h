@@ -25,6 +25,10 @@
   NSManagedObjectContext *managedObjectContext;
 }
 
+/**************
+ * PROPERTIES *
+ **************/
+
 // Window Controllers
 @property (nonatomic, retain, readonly) MainWindowController *mainWindowController;
 
@@ -42,6 +46,10 @@
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+
+/***********
+ * METHODS *
+ ***********/
 
 -(IBAction) saveAction:sender;
 
