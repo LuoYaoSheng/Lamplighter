@@ -34,7 +34,8 @@
 }
 
 - (void) setSlide:(Slide*)newSlide {
-  //[self setContent:selectedSlide];
+  [[NSApp projectorSlideController] setContent:newSlide];
+  [[self projectorWindowController] goLive];
 }
 
 /*************
