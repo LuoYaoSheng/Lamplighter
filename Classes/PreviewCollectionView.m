@@ -2,6 +2,7 @@
 
 #import "SlideView.h"
 #import "Slide.h"
+#import "Presentation.h"
 #import "ApplicationDelegate.h"
 
 @implementation PreviewCollectionView
@@ -18,10 +19,5 @@
   return item;
 }
 
-- (void) setSelectionIndexes:(NSIndexSet *)indexes {
-  [super setSelectionIndexes:indexes];
-  Slide* selectedSlide = [[self content] objectAtIndex:[indexes firstIndex]];
-  [[NSApp projectorController] setSlide:selectedSlide];
-}
 
 @end

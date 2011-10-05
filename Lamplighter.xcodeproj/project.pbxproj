@@ -629,46 +629,12 @@
 			};
 			name = Release;
 		};
-		D8A00DAF141744670034792D /* Verbose */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "VERBOSE=YES";
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
-			};
-			name = Verbose;
-		};
-		D8A00DB0141744670034792D /* Verbose */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Lamplighter_Prefix.pch;
-				INFOPLIST_FILE = "Lamplighter-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Lamplighter;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Verbose;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		26FC0A840875C7B200E6366F /* Build configuration list for PBXNativeTarget "Lamplighter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D8A00DB0141744670034792D /* Verbose */,
 				26FC0A850875C7B200E6366F /* Debug */,
 				26FC0A860875C7B200E6366F /* Release */,
 			);
@@ -678,7 +644,6 @@
 		26FC0A880875C7B200E6366F /* Build configuration list for PBXProject "Lamplighter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D8A00DAF141744670034792D /* Verbose */,
 				26FC0A890875C7B200E6366F /* Debug */,
 				26FC0A8A0875C7B200E6366F /* Release */,
 			);

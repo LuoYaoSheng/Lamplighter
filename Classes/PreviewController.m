@@ -62,8 +62,7 @@
 }
 
 - (void) updatePreviewCollectionView:(Song*)song {
-  NSArray *slides = [song sortedSlides];
-  [[[NSApp mainWindowController] previewCollectionView] setContent:slides];
+  [[[NSApp mainWindowController] previewCollectionView] setContentAndUpdateSelectionFor:song];
 }
 
 /********************

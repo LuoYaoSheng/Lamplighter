@@ -2,4 +2,6 @@
 
 }
 
+- (void) afterSetSelectionIndexes:(NSIndexSet*)indexes;
+
 @end
