@@ -16,7 +16,7 @@
 }
 
 - (void) setupWindow {
-   BOOL yesBool = YES;
+  BOOL yesBool = YES;
   [self.window performSelector:@selector(setBecomesKeyOnlyIfNeeded:) withObject:[NSNumber numberWithBool:yesBool]];
 }
 
@@ -24,19 +24,15 @@
  * INSTANCE METHODS *
  ********************/
 
-- (void) goLive {
+- (BOOL) isWindowVisible {
+  return [self.window isVisible];
+}
+
+- (void) updateWindow {
   SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection]];
   [self.window setContentView:slideView];
   debugLog(@"[self.window] %@", [self.window contentView]);
   [self.window orderFront:self];
-}
-
-- (void) leaveLive {
-  [self.window close];
-}
-
-- (void) windowWillClose:(NSNotification*)notification {
-  [[NSApp projectorController] projectorWindowWillClose];   
 }
 
 @end

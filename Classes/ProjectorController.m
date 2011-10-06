@@ -8,42 +8,29 @@
 
 @implementation ProjectorController
 
-@synthesize isLive;
-
 /********************
  * INSTANCE METHODS *
  ********************/
 
 - (IBAction) toggleLive {
-  isLive ? [self leaveLive] :[ self goLive];
+  [self isLive] ? [self leaveLive] :[ self goLive];
 }
 
-- (IBAction) goLive {
-  [[self projectorWindowController] goLive];
-  isLive = YES;
+- (BOOL) isLive {
+  return [[self projectorWindowController] isWindowVisible];
 }
 
-- (IBAction) leaveLive {
-  [[self projectorWindowController] leaveLive];
-  [self afterLeaveLive];
+- (void) goLive {
+  [[self projectorWindowController] showWindow:self];
 }
 
-- (void) afterLeaveLive {
-  // TODO: Handle NSWindow#isVisible instead
-  isLive = NO;
+- (void) leaveLive {
+  [[self projectorWindowController] close];
 }
 
-- (void) setSlide:(Slide*)newSlide {
+- (void) showSlide:(Slide*)newSlide {
   [[NSApp projectorSlideController] setContent:newSlide];
-  [[self projectorWindowController] goLive];
-}
-
-/*************
- * CALLBACKS *
- *************/
-
-- (void) projectorWindowWillClose {
-  [self afterLeaveLive];
+  [[self projectorWindowController] updateWindow];
 }
 
 /**********************

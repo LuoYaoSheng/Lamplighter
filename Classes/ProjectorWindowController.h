@@ -4,7 +4,7 @@
 
 - (void) setupWindow;
 
-- (void) goLive;
-- (void) leaveLive;
+- (BOOL) isWindowVisible;
+- (void) updateWindow;
 
 @end

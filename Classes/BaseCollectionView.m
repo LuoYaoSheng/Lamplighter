@@ -32,7 +32,7 @@
 
 - (void) afterSetSelectionIndexes:(NSIndexSet*)indexes {
   Slide* selectedSlide = [[self content] objectAtIndex:[indexes firstIndex]];
-  [[NSApp projectorController] setSlide:selectedSlide];
+  [[NSApp projectorController] showSlide:selectedSlide];
 }
 
 @end
