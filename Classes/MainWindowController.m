@@ -11,6 +11,7 @@
 #import "PreviewController.h"
 #import "LiveviewController.h"
 #import "ProjectorController.h"
+#import "BaseCollectionView.h"
 
 @implementation MainWindowController
 

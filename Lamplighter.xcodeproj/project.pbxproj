@@ -11,6 +11,8 @@
 		8D11072B0486CEB800E47090 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* Localizable.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		D84CF4A11440881D0070724D /* SlideCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CF4A01440881D0070724D /* SlideCollectionViewItem.m */; };
+		D84CF6A814461B590070724D /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CF6A714461B590070724D /* Constants.m */; };
 		D879804914386805001D9CB7 /* SlideRootLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879804614386805001D9CB7 /* SlideRootLayer.m */; };
 		D879804A14386805001D9CB7 /* SlideTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879804814386805001D9CB7 /* SlideTextLayer.m */; };
 		D879805F14398628001D9CB7 /* SlideBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879805E14398628001D9CB7 /* SlideBackgroundLayer.m */; };
@@ -64,6 +66,10 @@
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Lamplighter-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "Lamplighter-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Lamplighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lamplighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D84CF49F1440881D0070724D /* SlideCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideCollectionViewItem.h; path = Classes/SlideCollectionViewItem.h; sourceTree = "<group>"; };
+		D84CF4A01440881D0070724D /* SlideCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideCollectionViewItem.m; path = Classes/SlideCollectionViewItem.m; sourceTree = "<group>"; };
+		D84CF6A614461B590070724D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		D84CF6A714461B590070724D /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		D879804514386805001D9CB7 /* SlideRootLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideRootLayer.h; path = Classes/SlideRootLayer.h; sourceTree = "<group>"; };
 		D879804614386805001D9CB7 /* SlideRootLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideRootLayer.m; path = Classes/SlideRootLayer.m; sourceTree = "<group>"; };
 		D879804714386805001D9CB7 /* SlideTextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideTextLayer.h; path = Classes/SlideTextLayer.h; sourceTree = "<group>"; };
@@ -224,6 +230,8 @@
 		D8798039143867AC001D9CB7 /* Slide */ = {
 			isa = PBXGroup;
 			children = (
+				D84CF49F1440881D0070724D /* SlideCollectionViewItem.h */,
+				D84CF4A01440881D0070724D /* SlideCollectionViewItem.m */,
 				D88263DC143222A3005E96B7 /* SlideView.h */,
 				D88263DD143222A3005E96B7 /* SlideView.m */,
 				D879804514386805001D9CB7 /* SlideRootLayer.h */,
@@ -411,9 +419,11 @@
 		D8A00D411416A1440034792D /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				29B97316FDCFA39411CA2CEA /* main.m */,
 				8D1107310486CEB800E47090 /* Lamplighter-Info.plist */,
 				32CA4F630368D1EE00C91783 /* Lamplighter_Prefix.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
+				D84CF6A614461B590070724D /* Constants.h */,
+				D84CF6A714461B590070724D /* Constants.m */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -551,6 +561,8 @@
 				D87981AA143AD9AB001D9CB7 /* LiveviewCollectionView.m in Sources */,
 				D87981AB143AD9AB001D9CB7 /* LiveviewController.m in Sources */,
 				D87981AE143ADA1E001D9CB7 /* BaseCollectionView.m in Sources */,
+				D84CF4A11440881D0070724D /* SlideCollectionViewItem.m in Sources */,
+				D84CF6A814461B590070724D /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

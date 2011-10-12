@@ -1,14 +1,12 @@
-@class Song; 
+@class Presentation; 
 
-@interface PreviewController : NSObject <NSTableViewDelegate> {
+@interface PreviewController : NSObject <NSTableViewDelegate, NSCollectionViewDelegate> {
   
 }
 
-// NSTableViewDelegate
-- (BOOL) exclusiveTableSelectionFor:(NSTableView*)table;
-
 // Instance methods
-- (void) updatePreviewCollectionView:(Song*)song;
+- (BOOL) exclusifyTableSelectionFor:(NSTableView*)table;
+- (void) setPresentation:(Presentation*)presentation;
 
 // Accessor methods
 - (NSTableView*) songsTableView;

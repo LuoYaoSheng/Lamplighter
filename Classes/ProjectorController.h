@@ -16,6 +16,6 @@
 - (BOOL) isLive;
 - (void) goLive;
 - (void) leaveLive;
-- (void) showSlide:(Slide*)newSlide;
+- (void) setSlide:(Slide*)newSlide;
 
 @end

@@ -31,7 +31,6 @@
 - (void) updateWindow {
   SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection]];
   [self.window setContentView:slideView];
-  debugLog(@"[self.window] %@", [self.window contentView]);
   [self.window orderFront:self];
 }
 

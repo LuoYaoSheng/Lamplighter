@@ -1,6 +1,6 @@
 #import "PreviewController.h"
 
-#import "Song.h"
+#import "Presentation.h"
 #import "ApplicationDelegate.h"
 #import "MainWindowController.h"
 #import "SongsDrawerViewController.h"
@@ -15,7 +15,7 @@
 // method to keep track of selection changes in the Tables
 - (void) tableViewSelectionDidChange:(NSNotification*)notification {
   // Getting the interplay of selections with all tables right if a song was actually selected
-  if ([self exclusiveTableSelectionFor:[notification object]]) {
+  if ([self exclusifyTableSelectionFor:[notification object]]) {
     
     // Determining the Array Controller of the selected table
     NSDictionary *tableContentBindingInfo = [[notification object] infoForBinding:NSContentBinding];
@@ -24,20 +24,26 @@
       
       if ([notification object] == [self songsTableView] || [notification object] == [self playlistTableView]) {
         // Let's bind the Projector Slide
-        Song *song = [[tableArrayController selectedObjects] lastObject];
+        Presentation *presentation = [[tableArrayController selectedObjects] lastObject];
         //[[NSApp projectorSlideController] setContent:[[song sortedSlides] objectAtIndex:0]];
         
-        [self updatePreviewCollectionView:song];
+        [self setPresentation:presentation];
       }
     }
   }
 }
 
+
+- (void)collectionViewSelectionDidChange:(NSNotification *)aNotification {
+  //debugLog(@"wow, %@", aNotification);
+}
+
+
 /********************
  * INSTANCE METHODS *
  ********************/
 
-- (BOOL) exclusiveTableSelectionFor:(NSTableView*)table {
+- (BOOL) exclusifyTableSelectionFor:(NSTableView*)table {
   // There is nothing selected in this table.
   if ([table selectedRow] < 0) return NO;
   
@@ -61,8 +67,8 @@
   return YES;
 }
 
-- (void) updatePreviewCollectionView:(Song*)song {
-  [[[NSApp mainWindowController] previewCollectionView] setContentAndUpdateSelectionFor:song];
+- (void) setPresentation:(Presentation*)presentation {
+  [[[NSApp mainWindowController] previewCollectionView] setPresentation:presentation];
 }
 
 /********************

@@ -51,6 +51,7 @@
  * METHODS *
  ***********/
 
--(IBAction) saveAction:sender;
+- (void) turnOnTheLight;
+- (IBAction) saveAction:sender;
 
 @end

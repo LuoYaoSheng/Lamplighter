@@ -28,9 +28,9 @@
   [[self projectorWindowController] close];
 }
 
-- (void) showSlide:(Slide*)newSlide {
-  [[NSApp projectorSlideController] setContent:newSlide];
-  [[self projectorWindowController] updateWindow];
+- (void) setSlide:(Slide*)newSlide {
+  //[[NSApp projectorSlideController] setContent:newSlide];
+  //[[self projectorWindowController] updateWindow];
 }
 
 /**********************

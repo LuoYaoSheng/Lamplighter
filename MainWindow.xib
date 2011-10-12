@@ -12,8 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
-			<integer value="43"/>
+			<integer value="198"/>
+			<integer value="48"/>
 			<integer value="210"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -3233,6 +3233,7 @@
 					<string>195.IBViewBoundsToFrameTransform</string>
 					<string>196.IBPluginDependency</string>
 					<string>197.IBPluginDependency</string>
+					<string>198.CustomClassName</string>
 					<string>198.IBCollectionViewIntegration.primaryColor</string>
 					<string>198.IBPluginDependency</string>
 					<string>2.IBPluginDependency</string>
@@ -3460,6 +3461,7 @@
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>LiveviewCollectionView</string>
 					<reference ref="19508230"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3536,7 +3538,7 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{494, 1053}, {83, 43}}</string>
+					<string>{{629, 686}, {83, 43}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3606,7 +3608,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">236</int>
+			<int key="maxID">238</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3636,6 +3638,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/BaseCollectionView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">LiveviewCollectionView</string>
+					<string key="superclassName">BaseCollectionView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">Classes/LiveviewCollectionView.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -3686,10 +3696,10 @@
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>ApplicationDelegate</string>
-							<string>NSCollectionView</string>
+							<string>LiveviewCollectionView</string>
 							<string>NSTableColumn</string>
 							<string>NSTableView</string>
-							<string>NSCollectionView</string>
+							<string>PreviewCollectionView</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -3710,7 +3720,7 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">liveviewCollectionView</string>
-								<string key="candidateClassName">NSCollectionView</string>
+								<string key="candidateClassName">LiveviewCollectionView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">playlistTableColumn</string>
@@ -3722,7 +3732,7 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">previewCollectionView</string>
-								<string key="candidateClassName">NSCollectionView</string>
+								<string key="candidateClassName">PreviewCollectionView</string>
 							</object>
 						</object>
 					</object>
