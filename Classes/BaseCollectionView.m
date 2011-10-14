@@ -25,13 +25,13 @@
  */
 - (void) setContent:(id)newContent andIndex:(NSUInteger)index {
   [self setContent:newContent];
-  [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:index]]; 
+  [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:index]];
+  [[self itemAtIndex:[index integerValue]] setSelected:YES];
 }
 
 /* Really, this should be built-in Cocoa.
  */
 - (void) setSelectionIndexes:(NSIndexSet*)indexes {
-  debugLog(@"click");
   [super setSelectionIndexes:indexes];
 	[[NSNotificationCenter defaultCenter] postNotificationName:CollectionViewSelectionDidChangeNotification object:self];
 }

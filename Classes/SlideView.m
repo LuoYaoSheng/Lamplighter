@@ -49,11 +49,11 @@
  ******************/
 
 - (void) mouseDown:(NSEvent*)event {
+  [super mouseDown:event];
   switch ([event clickCount]) {
     case 1: [self wasSingleClicked]; break;
     case 2: [self wasDoubleClicked]; break;
   }
-  [super mouseDown:event];
 }
 
 - (void) wasSingleClicked {
