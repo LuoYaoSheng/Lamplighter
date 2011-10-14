@@ -34,10 +34,6 @@
 }
 
 
-- (void)collectionViewSelectionDidChange:(NSNotification *)aNotification {
-  //debugLog(@"wow, %@", aNotification);
-}
-
 
 /********************
  * INSTANCE METHODS *
@@ -68,7 +64,7 @@
 }
 
 - (void) setPresentation:(Presentation*)presentation {
-  [[[NSApp mainWindowController] previewCollectionView] setPresentation:presentation];
+  [[[NSApp mainWindowController] previewCollectionView] setContent:[presentation sortedSlides]];
 }
 
 /********************

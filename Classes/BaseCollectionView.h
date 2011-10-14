@@ -21,5 +21,3 @@
 - (NSUInteger) selectionIndex;
 
 @end
-
-extern NSString *LLCollectionViewSelectionDidChangeNotification;

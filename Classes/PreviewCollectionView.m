@@ -6,8 +6,5 @@
 
 @implementation PreviewCollectionView
 
-- (void) afterSelectionChanged {
-  //[[[NSApp mainWindowController] liveviewController] setPresentation:[self presentation] andIndex:[self selectionIndex]];
-}
 
 @end

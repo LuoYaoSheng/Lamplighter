@@ -18,6 +18,10 @@
  * INITIALIZATION *
  ******************/
 
+- (id) initWithSlide:(Slide*)newSlide {
+  return [self initWithSlide:newSlide andCollectionView:nil];
+}
+
 - (id) initWithSlide:(Slide*)newSlide andCollectionView:(NSCollectionView*)newCollectionView {
   self = [super initWithFrame:NSMakeRect(0, 0, 0, 0)];
   if (self) {
@@ -46,21 +50,22 @@
 
 - (void) mouseDown:(NSEvent*)event {
   switch ([event clickCount]) {
-    case 1: [self singleClicked]; break;
-    case 2: [self doubleClicked]; break;
+    case 1: [self wasSingleClicked]; break;
+    case 2: [self wasDoubleClicked]; break;
   }
+  [super mouseDown:event];
 }
 
-- (void) singleClicked {
-  [[NSNotificationCenter defaultCenter] postNotificationName:SlideWasSingleClickedNotification object:self];
-
-  debugLog(@"my pos: %i", [[self.slide position] integerValue]);
-  debugLog(@"my view: %@", self.collectionView);
-  [[[NSApp mainWindowController] liveviewController] setPresentation:[self.slide presentation] andIndex:[[self.slide position] integerValue]];
+- (void) wasSingleClicked {
+  [self sendWasClickedNotification:SlideWasSingleClickedNotification];
 }
 
-- (void) doubleClicked {
-  [[NSNotificationCenter defaultCenter] postNotificationName:SlideWasDoubleClickedNotification object:self];
+- (void) wasDoubleClicked {
+  [self sendWasClickedNotification:SlideWasDoubleClickedNotification];
+}
+
+- (void) sendWasClickedNotification:(NSString*)notificationName {
+  [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self];
 }
 
 /**********************

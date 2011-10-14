@@ -147,6 +147,10 @@
 - (PreviewController*) previewController {
   if (previewController) return previewController;
 	previewController = [PreviewController new];
+  [[NSNotificationCenter defaultCenter] addObserver:self.liveviewController
+             selector: @selector(slideWasDoubleClickedNotification:)
+                 name: SlideWasDoubleClickedNotification
+               object: nil];
   return previewController;
 }
 

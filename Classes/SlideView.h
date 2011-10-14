@@ -41,11 +41,13 @@
 
 // Initialization
 - (id) initWithSlide:(Slide*)newSlide;
+- (id) initWithSlide:(Slide*)newSlide andCollectionView:(NSCollectionView*)newCollectionView;
 - (void) deactivateAnimations;
 
 // Event tracking
-- (void) singleClicked;
-- (void) doubleClicked;
+- (void) wasSingleClicked;
+- (void) wasDoubleClicked;
+- (void) sendWasClickedNotification:(NSString*)notificationName;
 
 // Selection Handling
 - (void) setSelected:(BOOL)flag;

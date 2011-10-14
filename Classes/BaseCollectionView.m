@@ -21,53 +21,19 @@
   return item;
 }
 
-/******************
- * SETTER METHODS *
- ******************/
-
-/* Set the Presentation and select the first slide.
+/* Set the Content and select the item according to the given index.
  */
-- (void) setPresentation:(Presentation*)presentation {
-  [self setPresentation:presentation andIndex:0];
+- (void) setContent:(id)newContent andIndex:(NSUInteger)index {
+  [self setContent:newContent];
+  [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:index]]; 
 }
 
-/* Set the Presentation and select a slide according to the given index.
- */
-- (void) setPresentation:(Presentation*)presentation andIndex:(NSUInteger)index {
-  [self setContent:[presentation sortedSlides]];
-  [self setSelectionIndex:index];
-}
-
-/* We override this method to call a post-hook that subclasses can use.
+/* Really, this should be built-in Cocoa.
  */
 - (void) setSelectionIndexes:(NSIndexSet*)indexes {
-  debugLog(@"selecting %@", indexes);
-  //if ([[self selectionIndexes] count] == 0 && [self presentation]) {
-  //  debugLog(@"Correcting index from nothing to 0");
-  //  indexes = [NSIndexSet indexSetWithIndex:1];
-  //}
+  debugLog(@"click");
   [super setSelectionIndexes:indexes];
-  debugLog(@"GOING");
-  //[self sendSelectionDidChangeNotification];
-//  [self afterSelectionChanged];
-}
-
-- (void) setSelectionIndex:(NSUInteger)index {
-  [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:index]];  
-}
-
-/*********
- * HOOKS *
- *********/
-
-/* Post-hook for selection changes. Typically overwritten in subclasses.
- */
-- (void) afterSelectionChanged {
-}
-
-- (void) sendSelectionDidChangeNotification {
-  debugLog(@"POSTING");
-	[[NSNotificationCenter defaultCenter] postNotificationName:LLCollectionViewSelectionDidChangeNotification object:self];
+	[[NSNotificationCenter defaultCenter] postNotificationName:CollectionViewSelectionDidChangeNotification object:self];
 }
 
 /******************
@@ -93,5 +59,3 @@
 }
 
 @end
-
-NSString *LLCollectionViewSelectionDidChangeNotification = @"LLCollectionViewSelectionDidChangeNotification";
