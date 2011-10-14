@@ -12,20 +12,25 @@
 
 @implementation SlideView
 
-@synthesize slide, isSelected, collectionView;
+@synthesize slide, isSelected, isBoxed, collectionView;
 
 /******************
  * INITIALIZATION *
  ******************/
 
-- (id) initWithSlide:(Slide*)newSlide {
-  return [self initWithSlide:newSlide andCollectionView:nil];
+- (id) initWithSlide:(Slide*)newSlide andBoxing:(BOOL)newBoxing {
+  return [self initWithSlide:newSlide andCollectionView:nil andBoxing:newBoxing];
 }
 
 - (id) initWithSlide:(Slide*)newSlide andCollectionView:(NSCollectionView*)newCollectionView {
+  return [self initWithSlide:newSlide andCollectionView:newCollectionView andBoxing:YES];
+}
+
+- (id) initWithSlide:(Slide*)newSlide andCollectionView:(NSCollectionView*)newCollectionView andBoxing:(BOOL)newBoxing {
   self = [super initWithFrame:NSMakeRect(0, 0, 0, 0)];
   if (self) {
     self.slide = newSlide;
+    self.isBoxed = newBoxing;
     self.collectionView = newCollectionView;
     [self deactivateAnimations];
     [self setLayer:[self rootLayer]];
@@ -35,7 +40,6 @@
   }
   return self;
 }
-
 
 /* By default, Core Animation animates the changing of size, text, etc. of CALayers (and its decendants).
  * With the following command we can disable that. So all changes take immediate effect.
@@ -91,15 +95,19 @@
 }
 
 - (void) updateSelected {
-  if (self.isSelected) {
-    CGColorRef selectedColor = CGColorCreateGenericRGB(1,1,0,0.5);
-    self.rootLayer.backgroundColor = selectedColor;
-    CGColorRelease(selectedColor);
+  CGColorRef rootColor;
+  debugLog(@"self.isBoxed: %i", self.isBoxed);
+  if (self.isBoxed) {
+    if (self.isSelected) {
+      rootColor = CGColorCreateGenericRGB(1,1,0,0.5); // Green
+    } else {
+      rootColor = CGColorCreateGenericRGB(0,0,0,0); // Transparent
+    }
   } else {
-    CGColorRef transparentColor = CGColorCreateGenericRGB(0,0,0,0);
-    self.rootLayer.backgroundColor = transparentColor;
-    CGColorRelease(transparentColor);
+    rootColor = CGColorCreateGenericRGB(0,0,0,1); // Black
   }
+  self.rootLayer.backgroundColor = rootColor;
+  CGColorRelease(rootColor);
 }
 
 /******************

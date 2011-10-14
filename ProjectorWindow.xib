@@ -34,7 +34,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSWindowTemplate" id="986794577">
-				<int key="NSWindowStyleMask">8223</int>
+				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{875, 477}, {200, 150}}</string>
 				<int key="NSWTFlags">611845120</int>
@@ -50,7 +50,7 @@
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
-				<string key="NSMinSize">{200, 169}</string>
+				<string key="NSMinSize">{200, 172}</string>
 				<string key="NSMaxSize">{1.79769e+308, 1.79769e+308}</string>
 			</object>
 		</object>
@@ -144,9 +144,9 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{347, 498}, {200, 150}}</string>
+					<string>{{347, 499}, {200, 150}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{347, 498}, {200, 150}}</string>
+					<string>{{347, 499}, {200, 150}}</string>
 					<boolean value="NO"/>
 					<boolean value="YES"/>
 					<string>{200, 150}</string>

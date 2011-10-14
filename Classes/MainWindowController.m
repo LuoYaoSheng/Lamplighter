@@ -26,6 +26,7 @@
 - (void) awakeFromNib {
   debugLog(@"[MainWindowController] awakeFromNib");
   [self setupPlaylistTable];
+  [self setupControllerObservers];
 }
 
 /************
@@ -44,6 +45,10 @@
   if (playlistTableDataSource) return playlistTableDataSource;
   playlistTableDataSource = [PlaylistTableDataSource new];
   return playlistTableDataSource;
+}
+
+- (void) setupControllerObservers {
+  [[NSNotificationCenter defaultCenter] addObserver:self.liveviewController selector:@selector(slideWasDoubleClickedNotification:) name:SlideWasDoubleClickedNotification object:nil];
 }
 
 /**********
@@ -147,10 +152,6 @@
 - (PreviewController*) previewController {
   if (previewController) return previewController;
 	previewController = [PreviewController new];
-  [[NSNotificationCenter defaultCenter] addObserver:self.liveviewController
-             selector: @selector(slideWasDoubleClickedNotification:)
-                 name: SlideWasDoubleClickedNotification
-               object: nil];
   return previewController;
 }
 

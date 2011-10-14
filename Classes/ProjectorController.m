@@ -2,11 +2,23 @@
 
 #import "ProjectorWindowController.h"
 #import "Song.h"
+#import "SlideView.h"
 #import "ApplicationDelegate.h"
 #import "MainWindowController.h"
 #import "SongsDrawerViewController.h"
 
 @implementation ProjectorController
+
+
+- (void) collectionViewSelectionDidChangeNotification:(NSNotification*)notification {
+  NSCollectionView *collectionView = [notification object];
+  NSUInteger selectionIndex = [[collectionView selectionIndexes] firstIndex];
+  if ((int)selectionIndex == -1) {
+    [self setSlide:NULL];
+  } else {
+    [self setSlide:[[[collectionView itemAtIndex:selectionIndex] view] slide]];
+  }
+}
 
 /********************
  * INSTANCE METHODS *
@@ -29,8 +41,8 @@
 }
 
 - (void) setSlide:(Slide*)newSlide {
-  //[[NSApp projectorSlideController] setContent:newSlide];
-  //[[self projectorWindowController] updateWindow];
+  [[NSApp projectorSlideController] setContent:newSlide];
+  [[self projectorWindowController] updateWindow];
 }
 
 /**********************

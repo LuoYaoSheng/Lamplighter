@@ -11,6 +11,7 @@
   
   // Status trackers
   BOOL isSelected;
+  BOOL isBoxed;
   
   // Layers
   SlideRootLayer *rootLayer;
@@ -29,6 +30,7 @@
 
 // Status trackers
 @property (readwrite) BOOL isSelected;
+@property (readwrite) BOOL isBoxed;
 
 // Layers
 @property (nonatomic, retain, readonly) SlideRootLayer *rootLayer;

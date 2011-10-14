@@ -29,7 +29,7 @@
 }
 
 - (void) updateWindow {
-  SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection]];
+  SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection] andBoxing:NO];
   [self.window setContentView:slideView];
   [self.window orderFront:self];
 }

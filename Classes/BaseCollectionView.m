@@ -25,8 +25,7 @@
  */
 - (void) setContent:(id)newContent andIndex:(NSUInteger)index {
   [self setContent:newContent];
-  [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:index]];
-  [[self itemAtIndex:[index integerValue]] setSelected:YES];
+  [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:[index integerValue]]];
 }
 
 /* Really, this should be built-in Cocoa.
