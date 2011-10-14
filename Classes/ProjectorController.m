@@ -20,6 +20,13 @@
   }
 }
 
+- (void) slideWasDoubleClickedNotification:(NSNotification*)notification {
+  SlideView *slideView = [notification object];
+  if ([slideView collectionView] == NULL) {
+    [slideView toggleFullscreen];
+  }
+}
+
 /********************
  * INSTANCE METHODS *
  ********************/

@@ -1,0 +1,6 @@
+@interface ProjectorWindow : NSWindow {
+
+}
+
+
+@end

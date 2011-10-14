@@ -96,7 +96,6 @@
 
 - (void) updateSelected {
   CGColorRef rootColor;
-  debugLog(@"self.isBoxed: %i", self.isBoxed);
   if (self.isBoxed) {
     if (self.isSelected) {
       rootColor = CGColorCreateGenericRGB(1,1,0,0.5); // Green
@@ -109,6 +108,39 @@
   self.rootLayer.backgroundColor = rootColor;
   CGColorRelease(rootColor);
 }
+
+
+
+-(void) toggleFullscreen {
+  if ([self isInFullScreenMode]) {
+    [self exitFullScreen];
+    [NSCursor unhide];
+  } else {
+    [self goFullscreenOnScreen:[self.window screen]];
+  }
+}
+
+- (void) exitFullScreen {
+  [self exitFullScreenModeWithOptions:NULL];
+  [self.window makeFirstResponder:self];
+}
+
+-(void) goFullscreenOnScreen:(NSScreen*)screen {
+  NSNumber *presentationOptions = [NSNumber numberWithUnsignedInt:(NSApplicationPresentationAutoHideMenuBar|
+                                                                   NSApplicationPresentationAutoHideDock|
+                                                                   NSApplicationPresentationDisableProcessSwitching)];
+  
+  NSDictionary *opts = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], NSFullScreenModeAllScreens, presentationOptions, NSFullScreenModeApplicationPresentationOptions, nil];
+  if (![self isInFullScreenMode]) {
+    if (screen == [NSScreen mainScreen]) [NSCursor hide];
+    [self enterFullScreenMode:screen withOptions:opts];
+  } else {
+    if (screen == [NSScreen mainScreen]) [NSCursor hide];
+    [self exitFullScreenModeWithOptions:NULL];
+    [self enterFullScreenMode:screen withOptions:opts];
+  }
+}
+
 
 /******************
  * GETTER METHODS *

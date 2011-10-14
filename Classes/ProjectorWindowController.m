@@ -16,8 +16,9 @@
 }
 
 - (void) setupWindow {
-  BOOL yesBool = YES;
-  [self.window performSelector:@selector(setBecomesKeyOnlyIfNeeded:) withObject:[NSNumber numberWithBool:yesBool]];
+  [self.window setMovableByWindowBackground:YES];
+  //BOOL yesBool = YES;
+  //[self.window performSelector:@selector(setBecomesKeyOnlyIfNeeded:) withObject:[NSNumber numberWithBool:yesBool]];
 }
 
 /********************
@@ -31,7 +32,7 @@
 - (void) updateWindow {
   SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection] andBoxing:NO];
   [self.window setContentView:slideView];
-  [self.window orderFront:self];
+  //[self.window orderFront:self];
 }
 
 @end

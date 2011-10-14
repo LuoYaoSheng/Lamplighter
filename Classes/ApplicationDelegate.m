@@ -29,6 +29,7 @@
 
 - (void) setupControllerObservers {
   [[NSNotificationCenter defaultCenter] addObserver:self.projectorController selector:@selector(collectionViewSelectionDidChangeNotification:) name:CollectionViewSelectionDidChangeNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self.projectorController selector:@selector(slideWasDoubleClickedNotification:) name:SlideWasDoubleClickedNotification object:nil];
 }
 
 /**********************
@@ -53,6 +54,7 @@
 - (ProjectorController*) projectorController {
   if (projectorController) return projectorController;
 	projectorController = [ProjectorController new];
+  [projectorController setSlide:NULL];
   return projectorController;
 }
 
