@@ -5,19 +5,13 @@
 
 }
 
-// Setter Methods
-- (void) setPresentation:(Presentation*)presentation;
-- (void) setPresentation:(Presentation*)presentation andIndex:(NSUInteger)index;
+// Item handling
+- (void) resizePreviewSlidesAccordingToProjectorViewSize;
+- (void) resizePreviewSlidesAccordingTo:(NSSize)size;
+- (void) setContent:(id)newContent andIndex:(NSUInteger)index;
+
+// Selection handling
+- (BOOL) deselectAll;
 - (void) setSelectionIndexes:(NSIndexSet*)indexes;
-- (void) setSelectionIndex:(NSUInteger)index;
-
-// Hooks
-- (void) afterSelectionChanged;
-- (void) sendSelectionDidChangeNotification;
-
-// Getter Methods
-- (Presentation*) presentation;
-- (Slide*) selectedSlide;
-- (NSUInteger) selectionIndex;
 
 @end

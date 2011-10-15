@@ -5,4 +5,6 @@
 
 }
 
+- (void) setupConstraints;
+
 @end

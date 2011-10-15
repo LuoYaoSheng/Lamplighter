@@ -51,7 +51,15 @@
  * METHODS *
  ***********/
 
-- (void) turnOnTheLight;
+// Application Initialization
+- (void) setupControllerObservers;
+
+// Data Core Backend
+- (NSString*) applicationSupportDirectory;
+
+// Instance Methods
 - (IBAction) saveAction:sender;
+- (NSScreen*) suggestedScreenForProjector;
+- (BOOL) singleScreenMode;
 
 @end

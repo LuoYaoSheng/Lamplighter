@@ -20,7 +20,6 @@
 		D879804914386805001D9CB7 /* SlideRootLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879804614386805001D9CB7 /* SlideRootLayer.m */; };
 		D879804A14386805001D9CB7 /* SlideTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879804814386805001D9CB7 /* SlideTextLayer.m */; };
 		D879805F14398628001D9CB7 /* SlideBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879805E14398628001D9CB7 /* SlideBackgroundLayer.m */; };
-		D87981AA143AD9AB001D9CB7 /* LiveviewCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D87981A7143AD9AB001D9CB7 /* LiveviewCollectionView.m */; };
 		D87981AB143AD9AB001D9CB7 /* LiveviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87981A9143AD9AB001D9CB7 /* LiveviewController.m */; };
 		D87981AE143ADA1E001D9CB7 /* BaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D87981AD143ADA1E001D9CB7 /* BaseCollectionView.m */; };
 		D8825B72141CADC9005E96B7 /* ApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */; };
@@ -52,7 +51,6 @@
 		D88262DB14304EB4005E96B7 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88262DA14304EB4005E96B7 /* QTKit.framework */; };
 		D88262FD14304ED2005E96B7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88262FC14304ED2005E96B7 /* QuartzCore.framework */; };
 		D88263DE143222A3005E96B7 /* SlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = D88263DD143222A3005E96B7 /* SlideView.m */; };
-		D88263E314322576005E96B7 /* PreviewCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D88263E214322576005E96B7 /* PreviewCollectionView.m */; };
 		D88264BB14343E54005E96B7 /* EditSongWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D88264BA14343E54005E96B7 /* EditSongWindow.xib */; };
 		D88264FE1434429B005E96B7 /* EditSongWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88264FD1434429B005E96B7 /* EditSongWindowController.m */; };
 		D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D9A141743870034792D /* SongsDrawer.xib */; };
@@ -87,8 +85,6 @@
 		D879804814386805001D9CB7 /* SlideTextLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideTextLayer.m; path = Classes/SlideTextLayer.m; sourceTree = "<group>"; };
 		D879805D14398628001D9CB7 /* SlideBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideBackgroundLayer.h; path = Classes/SlideBackgroundLayer.h; sourceTree = "<group>"; };
 		D879805E14398628001D9CB7 /* SlideBackgroundLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideBackgroundLayer.m; path = Classes/SlideBackgroundLayer.m; sourceTree = "<group>"; };
-		D87981A6143AD9AB001D9CB7 /* LiveviewCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveviewCollectionView.h; path = Classes/LiveviewCollectionView.h; sourceTree = "<group>"; };
-		D87981A7143AD9AB001D9CB7 /* LiveviewCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveviewCollectionView.m; path = Classes/LiveviewCollectionView.m; sourceTree = "<group>"; };
 		D87981A8143AD9AB001D9CB7 /* LiveviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveviewController.h; path = Classes/LiveviewController.h; sourceTree = "<group>"; };
 		D87981A9143AD9AB001D9CB7 /* LiveviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveviewController.m; path = Classes/LiveviewController.m; sourceTree = "<group>"; };
 		D87981AC143ADA1E001D9CB7 /* BaseCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseCollectionView.h; path = Classes/BaseCollectionView.h; sourceTree = "<group>"; };
@@ -141,8 +137,6 @@
 		D88262FC14304ED2005E96B7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D88263DC143222A3005E96B7 /* SlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideView.h; path = Classes/SlideView.h; sourceTree = "<group>"; };
 		D88263DD143222A3005E96B7 /* SlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideView.m; path = Classes/SlideView.m; sourceTree = "<group>"; };
-		D88263E114322576005E96B7 /* PreviewCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewCollectionView.h; path = Classes/PreviewCollectionView.h; sourceTree = "<group>"; };
-		D88263E214322576005E96B7 /* PreviewCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewCollectionView.m; path = Classes/PreviewCollectionView.m; sourceTree = "<group>"; };
 		D88264BA14343E54005E96B7 /* EditSongWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditSongWindow.xib; sourceTree = "<group>"; };
 		D88264FC1434429B005E96B7 /* EditSongWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditSongWindowController.h; path = Classes/EditSongWindowController.h; sourceTree = "<group>"; };
 		D88264FD1434429B005E96B7 /* EditSongWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditSongWindowController.m; path = Classes/EditSongWindowController.m; sourceTree = "<group>"; };
@@ -260,10 +254,6 @@
 			children = (
 				D87981AC143ADA1E001D9CB7 /* BaseCollectionView.h */,
 				D87981AD143ADA1E001D9CB7 /* BaseCollectionView.m */,
-				D88263E114322576005E96B7 /* PreviewCollectionView.h */,
-				D88263E214322576005E96B7 /* PreviewCollectionView.m */,
-				D87981A6143AD9AB001D9CB7 /* LiveviewCollectionView.h */,
-				D87981A7143AD9AB001D9CB7 /* LiveviewCollectionView.m */,
 			);
 			name = CollectionViews;
 			sourceTree = "<group>";
@@ -572,12 +562,10 @@
 				D882629E142DEB23005E96B7 /* ContentTextField.m in Sources */,
 				D882629F142DEB23005E96B7 /* TitleTextField.m in Sources */,
 				D88263DE143222A3005E96B7 /* SlideView.m in Sources */,
-				D88263E314322576005E96B7 /* PreviewCollectionView.m in Sources */,
 				D88264FE1434429B005E96B7 /* EditSongWindowController.m in Sources */,
 				D879804914386805001D9CB7 /* SlideRootLayer.m in Sources */,
 				D879804A14386805001D9CB7 /* SlideTextLayer.m in Sources */,
 				D879805F14398628001D9CB7 /* SlideBackgroundLayer.m in Sources */,
-				D87981AA143AD9AB001D9CB7 /* LiveviewCollectionView.m in Sources */,
 				D87981AB143AD9AB001D9CB7 /* LiveviewController.m in Sources */,
 				D87981AE143ADA1E001D9CB7 /* BaseCollectionView.m in Sources */,
 				D84CF4A11440881D0070724D /* SlideCollectionViewItem.m in Sources */,

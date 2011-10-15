@@ -42,8 +42,9 @@
  ***********/
 
 // Initialization
-- (id) initWithSlide:(Slide*)newSlide;
+- (id) initWithSlide:(Slide*)newSlide andPreviewMode:(BOOL)newPreviewMode;
 - (id) initWithSlide:(Slide*)newSlide andCollectionView:(NSCollectionView*)newCollectionView;
+- (id) initWithSlide:(Slide*)newSlide andCollectionView:(NSCollectionView*)newCollectionView andPreviewMode:(BOOL)newPreviewMode;
 - (void) deactivateAnimations;
 
 // Event tracking
@@ -56,6 +57,13 @@
 
 // Drawing
 - (void) resizeLayers;
+
+// Selection handling
 - (void) updateSelected;
+
+// Fullscreen handling
+- (void) toggleFullscreen;
+- (void) exitFullScreen;
+-(void) goFullscreenOnScreen:(NSScreen*)screen;
 
 @end

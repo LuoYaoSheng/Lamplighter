@@ -20,7 +20,7 @@
 
 - (void) setupControllerObservers {
   [[NSNotificationCenter defaultCenter] addObserver:self.projectorController selector:@selector(collectionViewSelectionDidChangeNotification:) name:CollectionViewSelectionDidChangeNotification object:nil];
-  [[NSNotificationCenter defaultCenter] addObserver:self.projectorController selector:@selector(slideWasDoubleClickedNotification:) name:SlideWasDoubleClickedNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self.projectorController selector:@selector(slideViewWasDoubleClickedNotification:) name:SlideViewWasDoubleClickedNotification object:nil];
 }
 
 /**********************
@@ -199,6 +199,20 @@
   if (![self.managedObjectContext save:&error]) {
     [self presentError:error];
   }
+}
+
+- (NSScreen*) suggestedScreenForProjector {
+  if ([self singleScreenMode]) {
+    // Single screen: Projector in a window mode
+    return [NSScreen mainScreen];
+  } else {
+    // Multiple screens: Projector on secondary screen mode
+    return [[NSScreen screens] lastObject];
+  }
+}
+
+- (BOOL) singleScreenMode {
+  return ([[NSScreen screens] count] == 1);
 }
 
 /**********************

@@ -26,8 +26,14 @@
 - (void) awakeFromNib {
   debugLog(@"[MainWindowController] awakeFromNib");
   [self setupPlaylistTable];
-  [self setupControllerObservers];
+  [self setupObservers];
   [self setupMenuLocalization];
+}
+
+- (void) setupObservers {
+  [[NSNotificationCenter defaultCenter] addObserver:self.liveviewCollectionView selector:@selector(projectorSlideViewWillDrawNotification:) name:ProjectorSlideViewWillDraw object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self.previewCollectionView selector:@selector(projectorSlideViewWillDrawNotification:) name:ProjectorSlideViewWillDraw object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self.liveviewController selector:@selector(slideViewWasDoubleClickedNotification:) name:SlideViewWasDoubleClickedNotification object:nil];
 }
 
 /************
@@ -46,10 +52,6 @@
   if (playlistTableDataSource) return playlistTableDataSource;
   playlistTableDataSource = [PlaylistTableDataSource new];
   return playlistTableDataSource;
-}
-
-- (void) setupControllerObservers {
-  [[NSNotificationCenter defaultCenter] addObserver:self.liveviewController selector:@selector(slideWasDoubleClickedNotification:) name:SlideWasDoubleClickedNotification object:nil];
 }
 
 /**********
@@ -73,7 +75,6 @@
 }
 
 - (void) ensureSpaceForDrawer:(NSDrawer*)drawer {
-  
   // Get the current positions of the involved objects
   NSRect screenPosition = [[self.window screen] frame];
   NSRect windowPosition = [self.window frame];
@@ -105,6 +106,11 @@
     [animation startAnimation];
     [animation release];
   }
+}
+
+- (BOOL) isDrawerOpen {
+  NSDrawerState state = [songsDrawer state];
+  return state == NSDrawerOpenState || state == NSDrawerOpeningState;
 }
 
 /*****************
@@ -168,6 +174,25 @@
   return liveviewController;
 }
 
+/**********************
+ * NSWindowController *
+ **********************/
+
+- (BOOL) validateMenuItem:(NSMenuItem*)item {
+  BOOL result = YES;
+  if ([item action] == @selector(projectorGoBlankAction:)) {
+    if (![[NSApp projectorController] isLive] || [[NSApp projectorController] isBlank]) result = NO;
+  }
+  [self updateMenuItem:item];
+  return (result);
+}
+
+- (BOOL) validateToolbarItem:(NSToolbarItem*)item {
+  BOOL result = YES;
+  [self updateToolbarItem:item];
+  return (result);
+}
+
 /*************
  * GUI ITEMS *
  *************/
@@ -192,12 +217,6 @@
   }
 }
 
-- (BOOL) validateToolbarItem:(NSToolbarItem*)item {
-  BOOL result = YES;
-  [self updateToolbarItem:item];
-  return (result);
-}
-
 - (void) updateToolbarItem:(NSToolbarItem*)item {
   if ([item action] == @selector(toggleLiveAction:)) {
     NSImage *itemImage;
@@ -220,18 +239,6 @@
   }
 }
 
-// Enabled/Disabled Validation
-- (BOOL) validateMenuItem:(NSMenuItem*)item {
-  BOOL result = YES;
-  if ([item action] == @selector(projectorGoBlankAction:)) {
-    if (![[NSApp projectorController] isLive] || [[NSApp projectorController] isBlank]) result = NO;
-  }
-
-  [self updateMenuItem:item];
-  return (result);
-}
-
-// Text changes
 - (void) updateMenuItem:(NSMenuItem*)item {
   if ([item action] == @selector(toggleLiveAction:)) {
     if ([[NSApp projectorController] isLive]) {
@@ -246,11 +253,6 @@
       item.title = NSLocalizedString(@"menu.songs.show", nil);
     }
   }
-}
-
-- (BOOL) isDrawerOpen {
-  NSDrawerState state = [songsDrawer state];
-  return state == NSDrawerOpenState || state == NSDrawerOpeningState;
 }
 
 @end

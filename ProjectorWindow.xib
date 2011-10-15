@@ -36,7 +36,7 @@
 			<object class="NSWindowTemplate" id="986794577">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{875, 477}, {200, 150}}</string>
+				<string key="NSWindowRect">{{475, 540}, {200, 150}}</string>
 				<int key="NSWTFlags">611845120</int>
 				<string key="NSWindowTitle">Projector</string>
 				<string key="NSWindowClass">ProjectorWindow</string>
@@ -145,9 +145,9 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{453, 440}, {200, 150}}</string>
+					<string>{{475, 540}, {200, 150}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{453, 440}, {200, 150}}</string>
+					<string>{{475, 540}, {200, 150}}</string>
 					<boolean value="NO"/>
 					<boolean value="YES"/>
 					<string>{200, 150}</string>

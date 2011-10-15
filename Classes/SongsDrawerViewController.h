@@ -10,6 +10,10 @@
   SongsTableDataSource *songsTableDataSource;
 }
 
+/**************
+ * PROPERTIES *
+ **************/
+
 // GUI Items
 @property (nonatomic, retain) IBOutlet NSTableColumn *songsTableColumn;
 @property (nonatomic, retain, readonly) IBOutlet NSTableView *songsTableView;
@@ -18,9 +22,15 @@
 // Data Sources
 @property (nonatomic, retain, readonly) SongsTableDataSource *songsTableDataSource;
 
+/***********
+ * METHODS *
+ ***********/
+
+// Initialization
 - (void) setupSongsTable;
 
-// New Song
+// GUI Actions
+- (IBAction) songsTableViewDoubleClicked:sender;
 - (IBAction) newSong:sender;
 
 @end

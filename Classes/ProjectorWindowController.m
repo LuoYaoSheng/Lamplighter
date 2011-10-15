@@ -17,8 +17,8 @@
 
 - (void) setupWindow {
   [self.window setMovableByWindowBackground:YES];
-  //BOOL yesBool = YES;
-  //[self.window performSelector:@selector(setBecomesKeyOnlyIfNeeded:) withObject:[NSNumber numberWithBool:yesBool]];
+  NSSize size = [[NSApp projectorController] sizeOfProjectorScreen];
+  [self.window setContentSize:NSMakeSize(250, 250 / (size.width / size.height))];
 }
 
 /********************
@@ -30,9 +30,8 @@
 }
 
 - (void) updateWindow {
-  SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection] andBoxing:NO];
+  SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection] andPreviewMode:NO];
   [self.window setContentView:slideView];
-  //[self.window orderFront:self];
 }
 
 @end

@@ -13,8 +13,16 @@
 
 }
 
+/**************
+ * PROPERTIES *
+ **************/
+
 @property (readwrite) BOOL titleErrors;
 @property (readwrite) BOOL contentErrors;
+
+/***********
+ * METHODS *
+ ***********/
 
 - (void) updateButtons;
 

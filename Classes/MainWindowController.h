@@ -6,8 +6,7 @@
 @class NewSongWindowController;
 @class EditSongWindowController;
 @class PlaylistTableDataSource;
-@class PreviewCollectionView;
-@class LiveviewCollectionView;
+@class BaseCollectionView;
 
 @interface MainWindowController : NSWindowController {
   
@@ -24,8 +23,8 @@
   PlaylistTableDataSource *playlistTableDataSource;
 
   // Collection Views
-  IBOutlet PreviewCollectionView *previewCollectionView;
-  IBOutlet LiveviewCollectionView *liveviewCollectionView;
+  IBOutlet BaseCollectionView *previewCollectionView;
+  IBOutlet BaseCollectionView *liveviewCollectionView;
   
   // Drawer
   SongsDrawer *songsDrawer;
@@ -53,8 +52,8 @@
 @property (nonatomic, retain, readonly) PlaylistTableDataSource *playlistTableDataSource;
 
 // Collection Views
-@property (nonatomic, retain, readonly) PreviewCollectionView *previewCollectionView;
-@property (nonatomic, retain, readonly) LiveviewCollectionView *liveviewCollectionView;
+@property (nonatomic, retain, readonly) BaseCollectionView *previewCollectionView;
+@property (nonatomic, retain, readonly) BaseCollectionView *liveviewCollectionView;
 
 // Drawer
 @property (nonatomic, retain, readonly) SongsDrawer *songsDrawer;
@@ -68,11 +67,21 @@
  * METHODS *
  ***********/
 
+// Initialization
+- (void) setupObservers;
+
 // Playlist
 - (void) setupPlaylistTable;
 
 // Drawer
 - (void) ensureSpaceForDrawer:(NSDrawer*)drawer;
+- (BOOL) isDrawerOpen;
+
+// GUI Items
+- (void) setupMenuLocalization;
+- (void) localizeMenu:(NSMenu*)theMenu;
+- (void) updateToolbarItem:(NSToolbarItem*)item;
+- (void) updateMenuItem:(NSMenuItem*)item;
 
 // Menu/Toolbar Actions
 - (IBAction) toggleSongsDrawerAction:sender;

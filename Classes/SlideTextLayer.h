@@ -7,12 +7,16 @@
 
 }
 
+// Initialization
 + (id) layerForSlide:(Slide*)newSlide;
 
 - (void) setupBindingForSlide:(Slide*)newSlide;
 - (void) setupConstraints;
 - (void) setupFont;
 
-- (CGFloat) calcSize:(CGRect)rect;
+// Font resizing
+- (void) setupSize;
+- (void) increaseToMaxSize;
+- (CGFloat) maxTextSizeForRectangle:(NSSize)size;
 
 @end

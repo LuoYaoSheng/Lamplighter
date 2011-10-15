@@ -4,6 +4,8 @@
 NSString * const SongDataType = @"com.funkensturm.Lamplighter.datatype.song";
 
 // Notifications
-NSString * const SlideWasSingleClickedNotification = @"LamplighterSlideWasSingleClickedNotification";
-NSString * const SlideWasDoubleClickedNotification = @"LamplighterSlideWasDoubleClickedNotification";
+NSString * const SlideViewWasSingleClickedNotification = @"LamplighterSlideViewWasSingleClickedNotification";
+NSString * const SlideViewWasDoubleClickedNotification = @"LamplighterSlideViewWasDoubleClickedNotification";
 NSString * const CollectionViewSelectionDidChangeNotification = @"LamplighterCollectionViewSelectionDidChangeNotification";
+
+NSString * const ProjectorSlideViewWillDraw = @"LamlighterProjectorSlideViewWillDraw";

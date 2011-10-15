@@ -18,19 +18,19 @@
  * INITIALIZATION *
  ******************/
 
-- (id) initWithSlide:(Slide*)newSlide andBoxing:(BOOL)newBoxing {
-  return [self initWithSlide:newSlide andCollectionView:nil andBoxing:newBoxing];
+- (id) initWithSlide:(Slide*)newSlide andPreviewMode:(BOOL)newPreviewMode {
+  return [self initWithSlide:newSlide andCollectionView:nil andPreviewMode:newPreviewMode];
 }
 
 - (id) initWithSlide:(Slide*)newSlide andCollectionView:(NSCollectionView*)newCollectionView {
-  return [self initWithSlide:newSlide andCollectionView:newCollectionView andBoxing:YES];
+  return [self initWithSlide:newSlide andCollectionView:newCollectionView andPreviewMode:YES];
 }
 
-- (id) initWithSlide:(Slide*)newSlide andCollectionView:(NSCollectionView*)newCollectionView andBoxing:(BOOL)newBoxing {
+- (id) initWithSlide:(Slide*)newSlide andCollectionView:(NSCollectionView*)newCollectionView andPreviewMode:(BOOL)newPreviewMode {
   self = [super initWithFrame:NSMakeRect(0, 0, 0, 0)];
   if (self) {
     self.slide = newSlide;
-    self.isBoxed = newBoxing;
+    self.isBoxed = newPreviewMode;
     self.collectionView = newCollectionView;
     [self deactivateAnimations];
     [self setLayer:[self rootLayer]];
@@ -61,11 +61,11 @@
 }
 
 - (void) wasSingleClicked {
-  [self sendWasClickedNotification:SlideWasSingleClickedNotification];
+  [self sendWasClickedNotification:SlideViewWasSingleClickedNotification];
 }
 
 - (void) wasDoubleClicked {
-  [self sendWasClickedNotification:SlideWasDoubleClickedNotification];
+  [self sendWasClickedNotification:SlideViewWasDoubleClickedNotification];
 }
 
 - (void) sendWasClickedNotification:(NSString*)notificationName {
@@ -88,12 +88,23 @@
   [self resizeLayers];
   [self updateSelected];
   [self.textLayer setupSize];
+  if (!self.collectionView) {
+    [[NSNotificationCenter defaultCenter] postNotificationName:ProjectorSlideViewWillDraw object:self];
+  }
 }
 
 - (void) resizeLayers {
   [self deactivateAnimations];
-  self.backgroundLayer.bounds = CGRectMake(0, 0,  self.rootLayer.bounds.size.width * 0.95, self.rootLayer.bounds.size.height * 0.95);
+  CGFloat horizontalMargin = self.rootLayer.bounds.size.width / 20;
+  CGFloat verticalMargin = self.rootLayer.bounds.size.height / 10;
+  CGFloat margin = (horizontalMargin + verticalMargin) / 2;
+  //if (verticalMargin > horizontalMargin) margin = verticalMargin;
+  self.backgroundLayer.bounds = CGRectMake(0, 0,  self.rootLayer.bounds.size.width - margin, self.rootLayer.bounds.size.height - margin);
 }
+
+/**********************
+ * SELECTION HANDLING *
+ **********************/
 
 - (void) updateSelected {
   CGColorRef rootColor;
@@ -110,7 +121,9 @@
   CGColorRelease(rootColor);
 }
 
-
+/***********************
+ * FULLSCREEN HANDLING *
+ ***********************/
 
 -(void) toggleFullscreen {
   if ([self isInFullScreenMode]) {

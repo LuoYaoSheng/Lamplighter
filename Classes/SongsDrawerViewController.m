@@ -11,6 +11,10 @@
 
 @synthesize songsTableColumn, songsTableView, newSongButton;
 
+/******************
+ * INITIALIZATION *
+ ******************/
+
 - (void) awakeFromNib {
   debugLog(@"[SongsDrawerViewController] awakeFromNib");
   [self setupSongsTable];
@@ -26,18 +30,26 @@
   [[self songsTableColumn] bind:NSValueBinding toObject:[NSApp songsArrayController] withKeyPath:@"arrangedObjects.title" options:nil];
 }
 
+/***************
+ * GUI Actions *
+ ***************/
+
 - (IBAction) songsTableViewDoubleClicked:sender {
   [[[NSApp mainWindowController] editSongWindowController] editSong:sender];
 }
+
+- (IBAction) newSong:sender {
+  [[[NSApp mainWindowController] newSongWindowController] newSong:self];
+}
+
+/*********************
+ * TABLE DATA SOURCE *
+ *********************/
 
 - (SongsTableDataSource*) songsTableDataSource {
   if (songsTableDataSource) return songsTableDataSource;
   songsTableDataSource = [SongsTableDataSource new];
   return songsTableDataSource;
-}
-
-- (IBAction) newSong:sender {
-  [[[NSApp mainWindowController] newSongWindowController] newSong:self];
 }
 
 @end

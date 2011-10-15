@@ -6,12 +6,6 @@
 
 @synthesize titleErrors, contentErrors;
 
-/*
-- (void) doneEditSong:sender {
-  [NSApp endSheet:self.window returnCode:NSOKButton];
-}
-*/
-
 /************************
  * NSTextFieldDelegator *
  ************************/

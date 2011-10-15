@@ -4,6 +4,10 @@
 
 @implementation SlideCollectionViewItem
 
+/************************
+ * NSCollectionViewItem *
+ ************************/
+
 -(void) setSelected:(BOOL)flag {
   [super setSelected:flag];
   [(SlideView*)[self view] setSelected:flag];

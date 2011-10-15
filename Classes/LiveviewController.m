@@ -8,7 +8,24 @@
 
 @implementation LiveviewController
 
-- (void) slideWasDoubleClickedNotification:(NSNotification*)notification {
+/* Here we're basically just passing on the request to the CollectionView. Single responsibility concept.
+ */
+- (void) setPresentation:(Presentation*)presentation andIndex:(NSUInteger)index {
+  [[[NSApp mainWindowController] liveviewCollectionView] setContent:[presentation sortedSlides] andIndex:index];
+}
+
+/* If some random Controller told the ProjectorController to go blank, really we want the liveviewCollection
+ * to not have anything selected. That's an example case of why we need this "callback" method.
+ */
+- (BOOL) ensureNoSelection {
+  return [[[NSApp mainWindowController] liveviewCollectionView] deselectAll];
+}
+
+/*****************
+ * NOTIFICATIONS *
+ *****************/
+
+- (void) slideViewWasDoubleClickedNotification:(NSNotification*)notification {
   SlideView *slideView = [notification object];
   Slide *slide = [slideView slide];
   if ([slideView collectionView] == [[NSApp mainWindowController] previewCollectionView]) {
@@ -19,18 +36,6 @@
     //NSDictionary *notificationObject = [NSDictionary dictionaryWithObjectsAndKeys:self.slide, @"slide", self.collectionView, @"collectionView", nil];
     [self setPresentation:(Presentation*)[slide presentation] andIndex:(NSUInteger)[slide position]];
   }
-}
-
-- (void) setPresentation:(Presentation*)presentation andIndex:(NSUInteger)index {
-  [[[NSApp mainWindowController] liveviewCollectionView] setContent:[presentation sortedSlides] andIndex:index];
-}
-
-/* If some random Controller told the ProjectorController to go blank, really we want the liveviewCollection
- * to not have anything selected. That's an example case of why we need this "callback" method.
- */
-- (BOOL) ensureNoSelection {
-  if (![[NSApp projectorController] isLive]) return NO;
-  return [[[NSApp mainWindowController] liveviewCollectionView] deselectAll];
 }
 
 @end
