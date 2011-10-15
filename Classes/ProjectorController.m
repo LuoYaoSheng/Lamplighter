@@ -6,6 +6,7 @@
 #import "ApplicationDelegate.h"
 #import "MainWindowController.h"
 #import "SongsDrawerViewController.h"
+#import "BaseCollectionView.h"
 
 @implementation ProjectorController
 
@@ -41,6 +42,8 @@
 
 - (void) goLive {
   [[self projectorWindowController] showWindow:self];
+  [[[NSApp mainWindowController] liveviewCollectionView] resizePreviewSlidesAccordingToProjectorViewSize];
+  [[[NSApp mainWindowController] previewCollectionView] resizePreviewSlidesAccordingToProjectorViewSize];
 }
 
 - (void) leaveLive {

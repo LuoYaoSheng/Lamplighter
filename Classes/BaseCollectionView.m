@@ -54,7 +54,7 @@
  */
 - (void) setContent:(id)newContent andIndex:(NSUInteger)index {
   [self setContent:newContent];
-  [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:[index integerValue]]];
+  [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:index]];
 }
 
 /**********************
@@ -66,7 +66,7 @@
  */
 - (BOOL) deselectAll {
   if ([[self selectionIndexes] count] > 0) {
-    [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:[NSIndexSet indexSet]]];
+    [self setSelectionIndexes:[NSIndexSet indexSet]];
     return YES;
   }
   return NO;
