@@ -13,4 +13,6 @@
 - (void) setupConstraints;
 - (void) setupFont;
 
+- (CGFloat) calcSize:(CGRect)rect;
+
 @end

@@ -87,6 +87,7 @@
 - (void) viewWillDraw {
   [self resizeLayers];
   [self updateSelected];
+  [self.textLayer setupSize];
 }
 
 - (void) resizeLayers {
