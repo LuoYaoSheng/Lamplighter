@@ -15,16 +15,7 @@
  */
 - (void) applicationDidFinishLaunching:(NSNotification*)notification {
 	[self.mainWindowController showWindow:self];
-  [self turnOnTheLight];
   [self setupControllerObservers];
-}
-
-/* Changing the Application Logo to turn on its light.
- */
-- (void) turnOnTheLight {
-  NSImage *app_logo_on = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"app_logo_on" ofType:@"icns"]];
-  [self setApplicationIconImage:app_logo_on];
-  [app_logo_on release];
 }
 
 - (void) setupControllerObservers {
@@ -152,7 +143,7 @@
     }
   }
   
-  NSURL *url = [NSURL fileURLWithPath: [applicationSupportDirectory stringByAppendingPathComponent: @"storedata"]];
+  NSURL *url = [NSURL fileURLWithPath: [applicationSupportDirectory stringByAppendingPathComponent: @"database"]];
   persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: mom];
   if (![persistentStoreCoordinator addPersistentStoreWithType:NSBinaryStoreType configuration:nil URL:url options:nil error:&error]){
     [NSApp presentError:error];

@@ -29,6 +29,7 @@
  * to not have anything selected. That's an example case of why we need this "callback" method.
  */
 - (BOOL) ensureNoSelection {
+  if (![[NSApp projectorController] isLive]) return NO;
   return [[[NSApp mainWindowController] liveviewCollectionView] deselectAll];
 }
 

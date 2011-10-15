@@ -12,6 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -38,7 +39,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSCustomView" id="1005">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -197,7 +198,7 @@
 								<double key="NSPercent">0.91826923076923073</double>
 							</object>
 						</object>
-						<string key="NSFrame">{{8, 8}, {193, 308}}</string>
+						<string key="NSFrame">{{8, 7}, {193, 308}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSNextKeyView" ref="757534429"/>
 						<int key="NSsFlags">562</int>
@@ -208,6 +209,7 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{213, 347}</string>
+				<reference key="NSSuperview"/>
 				<string key="NSClassName">BaseView</string>
 			</object>
 		</object>
@@ -303,8 +305,8 @@
 						<reference key="object" ref="1005"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="606148578"/>
 							<reference ref="325597109"/>
+							<reference ref="606148578"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Songs Drawer</string>
@@ -390,7 +392,7 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{375, 51}, {213, 347}}</string>
+					<string>{{375, 177}, {213, 347}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{628, 654}</string>
 					<string>{{217, 442}, {480, 272}}</string>
@@ -406,7 +408,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">P4AAAL+AAABBEAAAw54AAA</bytes>
+						<bytes key="NSTransformStruct">P4AAAL+AAABBAAAAw50AAA</bytes>
 					</object>
 				</object>
 			</object>
@@ -436,7 +438,7 @@
 					<string key="superclassName">NSView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">BaseView.h</string>
+						<string key="minorKey">Classes/BaseView.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

@@ -126,10 +126,7 @@
 }
 
 -(void) goFullscreenOnScreen:(NSScreen*)screen {
-  NSNumber *presentationOptions = [NSNumber numberWithUnsignedInt:(NSApplicationPresentationAutoHideMenuBar|
-                                                                   NSApplicationPresentationAutoHideDock|
-                                                                   NSApplicationPresentationDisableProcessSwitching)];
-  
+  NSNumber *presentationOptions = [NSNumber numberWithUnsignedInt:(NSApplicationPresentationAutoHideMenuBar|NSApplicationPresentationAutoHideDock|NSApplicationPresentationDisableProcessSwitching)];
   NSDictionary *opts = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], NSFullScreenModeAllScreens, presentationOptions, NSFullScreenModeApplicationPresentationOptions, nil];
   if (![self isInFullScreenMode]) {
     if (screen == [NSScreen mainScreen]) [NSCursor hide];

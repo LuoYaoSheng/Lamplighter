@@ -24,7 +24,12 @@
   SlideView *slideView = [notification object];
   if ([slideView collectionView] == NULL) {
     [slideView toggleFullscreen];
+  } else {
+    if ([slideView collectionView] == [[NSApp mainWindowController] liveviewCollectionView] && ![self isLive]) {
+      [self goLive];
+    }
   }
+
 }
 
 /********************

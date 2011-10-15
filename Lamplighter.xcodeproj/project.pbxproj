@@ -16,6 +16,7 @@
 		D84CF9B61448CF870070724D /* ProjectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CF9B51448CF870070724D /* ProjectorWindow.m */; };
 		D84CFCE11449A7F30070724D /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CFCDE1449A7F30070724D /* BaseView.m */; };
 		D84CFCE21449A7F30070724D /* BaseWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CFCE01449A7F30070724D /* BaseWindow.m */; };
+		D84CFD5A1449CA5D0070724D /* songs.icns in Resources */ = {isa = PBXBuildFile; fileRef = D84CFD591449CA5D0070724D /* songs.icns */; };
 		D879804914386805001D9CB7 /* SlideRootLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879804614386805001D9CB7 /* SlideRootLayer.m */; };
 		D879804A14386805001D9CB7 /* SlideTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879804814386805001D9CB7 /* SlideTextLayer.m */; };
 		D879805F14398628001D9CB7 /* SlideBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879805E14398628001D9CB7 /* SlideBackgroundLayer.m */; };
@@ -79,6 +80,7 @@
 		D84CFCDE1449A7F30070724D /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseView.m; path = Classes/BaseView.m; sourceTree = "<group>"; };
 		D84CFCDF1449A7F30070724D /* BaseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWindow.h; path = Classes/BaseWindow.h; sourceTree = "<group>"; };
 		D84CFCE01449A7F30070724D /* BaseWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWindow.m; path = Classes/BaseWindow.m; sourceTree = "<group>"; };
+		D84CFD591449CA5D0070724D /* songs.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = songs.icns; path = Images/songs.icns; sourceTree = "<group>"; };
 		D879804514386805001D9CB7 /* SlideRootLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideRootLayer.h; path = Classes/SlideRootLayer.h; sourceTree = "<group>"; };
 		D879804614386805001D9CB7 /* SlideRootLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideRootLayer.m; path = Classes/SlideRootLayer.m; sourceTree = "<group>"; };
 		D879804714386805001D9CB7 /* SlideTextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideTextLayer.h; path = Classes/SlideTextLayer.h; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 		D88261B6142DDAD7005E96B7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D84CFD591449CA5D0070724D /* songs.icns */,
 				D88261BA142DDAE2005E96B7 /* app_logo_on.icns */,
 				D88261BB142DDAE2005E96B7 /* app_logo.icns */,
 			);
@@ -535,6 +538,7 @@
 				D88261C0142DDAE2005E96B7 /* app_logo_on.icns in Resources */,
 				D88261C1142DDAE2005E96B7 /* app_logo.icns in Resources */,
 				D88264BB14343E54005E96B7 /* EditSongWindow.xib in Resources */,
+				D84CFD5A1449CA5D0070724D /* songs.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

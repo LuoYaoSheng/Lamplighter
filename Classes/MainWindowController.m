@@ -140,10 +140,12 @@
     //[presentasionsDrawer close];
     [songsDrawer openOnEdge:NSMinXEdge];
   }
+  if ([sender isKindOfClass:[NSToolbarItem class]]) [self validateToolbarItem:sender];
 }
 
 - (IBAction) toggleLiveAction:sender {
   [[NSApp projectorController] toggleLive];
+  if ([sender isKindOfClass:[NSToolbarItem class]]) [self validateToolbarItem:sender];
 }
 
 - (IBAction) projectorGoBlankAction:sender {
@@ -190,22 +192,65 @@
   }
 }
 
-- (BOOL) validateMenuItem:(NSMenuItem*)item{
+- (BOOL) validateToolbarItem:(NSToolbarItem*)item {
   BOOL result = YES;
-  // Enabled/Disabled Validation
+  [self updateToolbarItem:item];
+  return (result);
+}
+
+- (void) updateToolbarItem:(NSToolbarItem*)item {
+  if ([item action] == @selector(toggleLiveAction:)) {
+    NSImage *itemImage;
+    if ([[NSApp projectorController] isLive]) {
+      item.label = NSLocalizedString(@"toolbar.live.stop", nil);
+      itemImage = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"app_logo_on" ofType:@"icns"]];
+    } else {
+      item.label = NSLocalizedString(@"toolbar.live.start", nil);
+      itemImage = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"app_logo" ofType:@"icns"]];
+    }
+    [NSApp setApplicationIconImage:itemImage];
+    item.image = itemImage;
+    [itemImage release];
+  } else if ([item action] == @selector(toggleSongsDrawerAction:)) {
+    if ([self isDrawerOpen]) {
+      item.label = NSLocalizedString(@"toolbar.songs.hide", nil);
+    } else {
+      item.label = NSLocalizedString(@"toolbar.songs.show", nil);
+    }
+  }
+}
+
+// Enabled/Disabled Validation
+- (BOOL) validateMenuItem:(NSMenuItem*)item {
+  BOOL result = YES;
   if ([item action] == @selector(projectorGoBlankAction:)) {
     if (![[NSApp projectorController] isLive] || [[NSApp projectorController] isBlank]) result = NO;
   }
-  // Text changes
-  if ([item action] == @selector(toggleSongsDrawerAction:)) {
-    NSDrawerState state = [songsDrawer state];
-    if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
-      [item setTitle:NSLocalizedString(@"menu.songs.hide", nil)];
+
+  [self updateMenuItem:item];
+  return (result);
+}
+
+// Text changes
+- (void) updateMenuItem:(NSMenuItem*)item {
+  if ([item action] == @selector(toggleLiveAction:)) {
+    if ([[NSApp projectorController] isLive]) {
+      item.title = NSLocalizedString(@"menu.projector.live.stop", nil);
     } else {
-      [item setTitle:NSLocalizedString(@"menu.songs.show", nil)];
+      item.title = NSLocalizedString(@"menu.projector.live.start", nil);
+    }
+  } else if ([item action] == @selector(toggleSongsDrawerAction:)) {
+    if ([self isDrawerOpen]) {
+      item.title = NSLocalizedString(@"menu.songs.hide", nil);
+    } else {
+      item.title = NSLocalizedString(@"menu.songs.show", nil);
     }
   }
-  return (result);
+}
+
+- (BOOL) isDrawerOpen {
+  NSDrawerState state = [songsDrawer state];
+  return state == NSDrawerOpenState || state == NSDrawerOpeningState;
 }
 
 @end
