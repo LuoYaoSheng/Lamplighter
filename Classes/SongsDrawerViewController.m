@@ -9,7 +9,7 @@
 
 @implementation SongsDrawerViewController
 
-@synthesize songsTableColumn, songsTableView, newSongButton;
+@synthesize songsTableColumn, songsTableView, newSongButton, searchField;
 
 /******************
  * INITIALIZATION *
@@ -40,6 +40,31 @@
 
 - (IBAction) newSong:sender {
   [[[NSApp mainWindowController] newSongWindowController] newSong:self];
+}
+
+- (IBAction)filterSongs:sender {
+  NSMutableString *searchText = [NSMutableString stringWithString:[self.searchField stringValue]];
+  
+  if ([searchText length] == 0) {
+    [[NSApp songsArrayController] setFilterPredicate:nil];
+    return;
+  }
+  
+  NSArray *searchTerms = [searchText componentsSeparatedByString:@" "];
+  
+  if ([searchTerms count] == 1) {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(keywords contains[cd] %@)", searchText];
+    [[NSApp songsArrayController] setFilterPredicate:predicate];
+  } else {
+    NSMutableArray *subPredicates = [[NSMutableArray alloc] init];
+    for (NSString *term in searchTerms) {
+      NSPredicate *p = [NSPredicate predicateWithFormat:@"(keywords contains[cd] %@)", term];
+      [subPredicates addObject:p];
+    }
+    NSPredicate *cp = [NSCompoundPredicate andPredicateWithSubpredicates:subPredicates];
+    
+    [[NSApp songsArrayController] setFilterPredicate:cp];
+  }
 }
 
 /*********************

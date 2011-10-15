@@ -8,6 +8,10 @@
 @dynamic footnote;
 @dynamic slides;
 
+/*****************
+ * CLASS METHODS *
+ *****************/
+
 + (BOOL) validTitle:(NSString*)suggestedTitle {
   NSString *normalizedTitle = [Presentation normalizeTitle:suggestedTitle];
   if ([normalizedTitle length] > 0) return YES; else return NO;
@@ -30,28 +34,17 @@
 + (NSArray*) contentToVerses:(NSString*)rawContent {
   NSArray *rawVerses = [rawContent componentsSeparatedByString: @"\n\n"];
   NSMutableArray *normalizedVerses = [[NSMutableArray alloc] init];
-
   for (NSString *rawVerse in rawVerses) {
-    
-    /* Just in case you would like to normalize the lines as well:
-     * 
-    NSArray *rawLines = [rawVerse componentsSeparatedByString: @"\n"];
-    NSMutableArray *normalizedLines = [[NSMutableArray alloc] init];
-    for (NSString *rawLine in rawLines) {
-      NSString *normalizedLine = [rawLine stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-      if ([normalizedLine length] > 0) [normalizedLines addObject:normalizedLine];
-    }
-    NSString *verseWithNormalizedLines = [normalizedLines componentsJoinedByString:@"\n"];
-    */
-    
     NSString *normalizedVerse = [rawVerse stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([normalizedVerse length] > 0) [normalizedVerses addObject:normalizedVerse];
-  }
-  
+  }  
   NSArray *result = [[NSArray alloc] initWithArray:normalizedVerses];
   return result;
 }
 
+/********************
+ * INSTANCE METHODS *
+ ********************/
 
 - (void) setTitle:(NSString*)value {
   [self willChangeValueForKey:@"title"];
@@ -76,8 +69,6 @@
       position += 1;
     }
     
-    
-    
   } else {
     // Looks like we have to create all slides for this song from scratch.
     // Let's first remove all current slides
@@ -96,12 +87,36 @@
       }
     }
   }
-
-  // [self willChangeValueForKey:@"content"];
-
-  // [self didChangeValueForKey:@"content"];
 }
 
+/*
++ (NSString*) decomposeAndFilterString: (NSString*) string {
+  NSMutableString *decomposedString = [[string decomposedStringWithCanonicalMapping] mutableCopy];
+  NSCharacterSet *nonBaseSet = [NSCharacterSet nonBaseCharacterSet];
+  NSRange range = NSMakeRange([decomposedString length], 0);
+  
+  while (range.location > 0) {
+    range = [decomposedString rangeOfCharacterFromSet:nonBaseSet
+                                              options:NSBackwardsSearch range:NSMakeRange(0, range.location)];
+    if (range.length == 0) {
+      break;
+    }
+    [decomposedString deleteCharactersInRange:range];
+  }
+  
+  return [decomposedString autorelease];
+}
+*/
+
+- (void) willSave {
+  [self updateKeywords];
+  [super willSave];
+}
+
+- (void) updateKeywords {
+  NSArray *values = [[NSArray alloc] initWithObjects: self.title, self.content, self.footnote, nil];  
+  [self setPrimitiveValue:[values componentsJoinedByString:@" "] forKey:@"keywords"];
+}
 
 - (NSArray*) sortedSlides {
   NSArray *result;
