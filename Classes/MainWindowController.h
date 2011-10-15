@@ -72,10 +72,11 @@
 - (void) setupPlaylistTable;
 
 // Drawer
-- (IBAction) toggleSongsDrawer:sender;
 - (void) ensureSpaceForDrawer:(NSDrawer*)drawer;
 
-// Projector
-- (IBAction) toggleLive:sender;
+// Menu/Toolbar Actions
+- (IBAction) toggleSongsDrawerAction:sender;
+- (IBAction) toggleLiveAction:sender;
+- (IBAction) projectorGoBlankAction:sender;
 
 @end

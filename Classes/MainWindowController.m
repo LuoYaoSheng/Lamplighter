@@ -27,6 +27,7 @@
   debugLog(@"[MainWindowController] awakeFromNib");
   [self setupPlaylistTable];
   [self setupControllerObservers];
+  [self setupMenuLocalization];
 }
 
 /************
@@ -69,21 +70,6 @@
   if (songsDrawerViewController) return songsDrawerViewController;
   songsDrawerViewController = [[SongsDrawerViewController alloc] initWithNibName:@"SongsDrawer" bundle:NULL];
   return songsDrawerViewController;
-}
-
-- (IBAction) toggleSongsDrawer:(id)sender {
-  // Initialize the Drawer by simply calling it
-  [self songsDrawerViewController];
-  NSDrawerState state = [[self songsDrawer] state];
-  
-  if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
-    [songsDrawer close];
-  } else {
-    [[NSApp songsArrayController] ensureContentIsLoaded];
-    [self ensureSpaceForDrawer:songsDrawer];
-    //[presentasionsDrawer close];
-    [songsDrawer openOnEdge:NSMinXEdge];
-  }
 }
 
 - (void) ensureSpaceForDrawer:(NSDrawer*)drawer {
@@ -137,12 +123,31 @@
   return editSongWindowController;
 }
 
-/*************
- * PROJECTOR *
- *************/
+/************************
+ * MENU/TOOLBAR ACTIONS *
+ ************************/
 
-- (IBAction) toggleLive:sender {
+- (IBAction) toggleSongsDrawerAction:sender {
+  // Initialize the Drawer by simply calling it
+  [self songsDrawerViewController];
+  NSDrawerState state = [[self songsDrawer] state];
+  
+  if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
+    [songsDrawer close];
+  } else {
+    [[NSApp songsArrayController] ensureContentIsLoaded];
+    [self ensureSpaceForDrawer:songsDrawer];
+    //[presentasionsDrawer close];
+    [songsDrawer openOnEdge:NSMinXEdge];
+  }
+}
+
+- (IBAction) toggleLiveAction:sender {
   [[NSApp projectorController] toggleLive];
+}
+
+- (IBAction) projectorGoBlankAction:sender {
+  [self.liveviewController ensureNoSelection];
 }
 
 /***********
@@ -165,11 +170,36 @@
  * GUI ITEMS *
  *************/
 
+/* Let's localize the Menu. I know that we can simply use the built-in Cocoa localization for xib files.
+ * However, we're using so many programmatically set strings that we can as well have the entire application
+ * in a Localizable.string. After all, a single text file is easier to translate for newbies than having them
+ * use Interface Builder.
+ */
+- (void) setupMenuLocalization {
+  [self localizeMenu:[self.window menu]];
+}
+
+/* Yes, it's recursion. We iterate over the entire menu and translate every item title.
+ * NSLocalizedString is smart enough to "ignore" titles that don't have a translation. 
+ */
+- (void) localizeMenu:(NSMenu*)theMenu {
+  debugLog(@"localizeMenu ", theMenu);
+  [theMenu setTitle:NSLocalizedString([theMenu title], nil)];
+  for (NSMenuItem *loopMenuItem in [theMenu itemArray]) {
+    debugLog(@" ", loopMenuItem);
+    [loopMenuItem setTitle:NSLocalizedString([loopMenuItem title], nil)];
+    [self localizeMenu:[loopMenuItem submenu]];
+  }
+}
+
 - (BOOL) validateMenuItem:(NSMenuItem*)item{
-  debugLog(@"[MainWindowController] validateMenuItem");
   BOOL result = YES;
-  
-  if ([item action] == @selector(toggleSongsDrawer:)) {
+  // Enabled/Disabled Validation
+  if ([item action] == @selector(projectorGoBlankAction:)) {
+    if (![[NSApp projectorController] isLive] || [[NSApp projectorController] isBlank]) result = NO;
+  }
+  // Text changes
+  if ([item action] == @selector(toggleSongsDrawerAction:)) {
     NSDrawerState state = [songsDrawer state];
     if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
       [item setTitle:NSLocalizedString(@"menu.songs.hide", nil)];
@@ -177,7 +207,6 @@
       [item setTitle:NSLocalizedString(@"menu.songs.show", nil)];
     }
   }
-  
   return (result);
 }
 

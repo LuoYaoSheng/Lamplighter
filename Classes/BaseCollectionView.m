@@ -28,6 +28,10 @@
   [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:[index integerValue]]];
 }
 
+- (void) deselectAll {
+  [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:-1]];
+}
+
 /* Really, this should be built-in Cocoa.
  */
 - (void) setSelectionIndexes:(NSIndexSet*)indexes {

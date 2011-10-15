@@ -54,7 +54,7 @@
 - (ProjectorController*) projectorController {
   if (projectorController) return projectorController;
 	projectorController = [ProjectorController new];
-  [projectorController setSlide:NULL];
+  [projectorController goBlank];
   return projectorController;
 }
 
@@ -260,7 +260,6 @@
   }
   return NSTerminateNow;
 }
-
 
 /****************
  * DEALLOCATION *

@@ -14,7 +14,7 @@
   NSCollectionView *collectionView = [notification object];
   NSUInteger selectionIndex = [[collectionView selectionIndexes] firstIndex];
   if ((int)selectionIndex == -1) {
-    [self setSlide:NULL];
+    [self goBlank];
   } else {
     [self setSlide:[[[collectionView itemAtIndex:selectionIndex] view] slide]];
   }
@@ -30,6 +30,14 @@
 /********************
  * INSTANCE METHODS *
  ********************/
+
+- (BOOL) isBlank {
+  if ([[NSApp projectorSlideController] content]) return NO; else return YES;
+}
+
+- (void) goBlank {
+  [self setSlide:NULL];
+}
 
 - (IBAction) toggleLive {
   [self isLive] ? [self leaveLive] :[ self goLive];

@@ -5,7 +5,7 @@
 @class ProjectorController;
 
 @interface ApplicationDelegate : NSApplication {
-
+  
   // Window Controllers
   MainWindowController *mainWindowController;
   
