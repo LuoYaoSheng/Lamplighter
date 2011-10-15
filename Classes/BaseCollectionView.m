@@ -28,8 +28,15 @@
   [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:[index integerValue]]];
 }
 
-- (void) deselectAll {
-  [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:-1]];
+/* Returns YES or NO depending on whether something happened. YES means, there was a selection and
+ * it is now gone. NO means that nothing was selected from the beginning.
+ */
+- (BOOL) deselectAll {
+  if ([[self selectionIndexes] count] > 0) {
+    [self setSelectionIndexes:[NSIndexSet indexSetWithIndex:[NSIndexSet indexSet]]];
+    return YES;
+  }
+  return NO;
 }
 
 /* Really, this should be built-in Cocoa.
@@ -39,26 +46,23 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:CollectionViewSelectionDidChangeNotification object:self];
 }
 
-/******************
- * GETTER METHODS *
- ******************/
-
-/* Fetching the currently displayed presentation.
- */
+/*
 - (Presentation*) presentation {
   return [[self selectedSlide] presentation];
 }
 
-/* Fetching the currently selected slide.
- */
 - (Slide*) selectedSlide {
+  debugLog(@"selectedSlide", self);
   return [[self content] objectAtIndex:[self selectionIndex]];
 }
-
-/* Fetching the selection index. We assume that only one item is selected.
- */
-- (NSUInteger) selectionIndex {
-  return [[self selectionIndexes] firstIndex];
+- (NSUInteger) selectionIndextest {
+  debugLog(@"selectionIndex", self);
+  if ([[self selectionIndex] count] > 0) {
+    return [[self selectionIndexes] firstIndex];
+  } else {
+    return -1;
+  }
 }
+*/
 
 @end

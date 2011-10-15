@@ -28,8 +28,8 @@
 /* If some random Controller told the ProjectorController to go blank, really we want the liveviewCollection
  * to not have anything selected. That's an example case of why we need this "callback" method.
  */
-- (void) ensureNoSelection {
-  [[[NSApp mainWindowController] liveviewCollectionView] deselectAll];
+- (BOOL) ensureNoSelection {
+  return [[[NSApp mainWindowController] liveviewCollectionView] deselectAll];
 }
 
 @end

@@ -14,6 +14,8 @@
 		D84CF4A11440881D0070724D /* SlideCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CF4A01440881D0070724D /* SlideCollectionViewItem.m */; };
 		D84CF9B31448CF7F0070724D /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CF9B21448CF7F0070724D /* Constants.m */; };
 		D84CF9B61448CF870070724D /* ProjectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CF9B51448CF870070724D /* ProjectorWindow.m */; };
+		D84CFCE11449A7F30070724D /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CFCDE1449A7F30070724D /* BaseView.m */; };
+		D84CFCE21449A7F30070724D /* BaseWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CFCE01449A7F30070724D /* BaseWindow.m */; };
 		D879804914386805001D9CB7 /* SlideRootLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879804614386805001D9CB7 /* SlideRootLayer.m */; };
 		D879804A14386805001D9CB7 /* SlideTextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879804814386805001D9CB7 /* SlideTextLayer.m */; };
 		D879805F14398628001D9CB7 /* SlideBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879805E14398628001D9CB7 /* SlideBackgroundLayer.m */; };
@@ -73,6 +75,10 @@
 		D84CF9B21448CF7F0070724D /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Classes/Constants.m; sourceTree = "<group>"; };
 		D84CF9B41448CF870070724D /* ProjectorWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectorWindow.h; path = Classes/ProjectorWindow.h; sourceTree = "<group>"; };
 		D84CF9B51448CF870070724D /* ProjectorWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectorWindow.m; path = Classes/ProjectorWindow.m; sourceTree = "<group>"; };
+		D84CFCDD1449A7F30070724D /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseView.h; path = Classes/BaseView.h; sourceTree = "<group>"; };
+		D84CFCDE1449A7F30070724D /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseView.m; path = Classes/BaseView.m; sourceTree = "<group>"; };
+		D84CFCDF1449A7F30070724D /* BaseWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWindow.h; path = Classes/BaseWindow.h; sourceTree = "<group>"; };
+		D84CFCE01449A7F30070724D /* BaseWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseWindow.m; path = Classes/BaseWindow.m; sourceTree = "<group>"; };
 		D879804514386805001D9CB7 /* SlideRootLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideRootLayer.h; path = Classes/SlideRootLayer.h; sourceTree = "<group>"; };
 		D879804614386805001D9CB7 /* SlideRootLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideRootLayer.m; path = Classes/SlideRootLayer.m; sourceTree = "<group>"; };
 		D879804714386805001D9CB7 /* SlideTextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideTextLayer.h; path = Classes/SlideTextLayer.h; sourceTree = "<group>"; };
@@ -447,6 +453,10 @@
 		D8A00D431416A1570034792D /* MainWindow */ = {
 			isa = PBXGroup;
 			children = (
+				D84CFCDD1449A7F30070724D /* BaseView.h */,
+				D84CFCDE1449A7F30070724D /* BaseView.m */,
+				D84CFCDF1449A7F30070724D /* BaseWindow.h */,
+				D84CFCE01449A7F30070724D /* BaseWindow.m */,
 				D8A00D841416A4310034792D /* MainWindow.xib */,
 				D8A00D9A141743870034792D /* SongsDrawer.xib */,
 				D8825B7B141CADDF005E96B7 /* SongsDrawer.h */,
@@ -569,6 +579,8 @@
 				D84CF4A11440881D0070724D /* SlideCollectionViewItem.m in Sources */,
 				D84CF9B31448CF7F0070724D /* Constants.m in Sources */,
 				D84CF9B61448CF870070724D /* ProjectorWindow.m in Sources */,
+				D84CFCE11449A7F30070724D /* BaseView.m in Sources */,
+				D84CFCE21449A7F30070724D /* BaseWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

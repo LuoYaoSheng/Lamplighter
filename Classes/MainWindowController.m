@@ -183,10 +183,8 @@
  * NSLocalizedString is smart enough to "ignore" titles that don't have a translation. 
  */
 - (void) localizeMenu:(NSMenu*)theMenu {
-  debugLog(@"localizeMenu ", theMenu);
   [theMenu setTitle:NSLocalizedString([theMenu title], nil)];
   for (NSMenuItem *loopMenuItem in [theMenu itemArray]) {
-    debugLog(@" ", loopMenuItem);
     [loopMenuItem setTitle:NSLocalizedString([loopMenuItem title], nil)];
     [self localizeMenu:[loopMenuItem submenu]];
   }

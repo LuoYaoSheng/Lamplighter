@@ -1,0 +1,5 @@
+@interface BaseView : NSView {
+
+}
+
+@end

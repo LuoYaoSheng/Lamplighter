@@ -14,6 +14,8 @@
 - (void) awakeFromNib {
   debugLog(@"[SongsDrawerViewController] awakeFromNib");
   [self setupSongsTable];
+  debugLog(@"[[self view] window] = %@", [[self view] window]);
+  [[self view] setNextResponder:[[NSApp mainWindowController] window]];
 }
 
 - (void) setupSongsTable {
