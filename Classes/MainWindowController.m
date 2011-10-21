@@ -12,6 +12,7 @@
 #import "LiveviewController.h"
 #import "ProjectorController.h"
 #import "BaseCollectionView.h"
+#import "ProgressWindowController.h"
 
 @implementation MainWindowController
 
@@ -127,6 +128,12 @@
   if (editSongWindowController) return editSongWindowController;
 	editSongWindowController = [[EditSongWindowController alloc] initWithWindowNibName:@"EditSongWindow"];
   return editSongWindowController;
+}
+
+- (ProgressWindowController*) progressWindowController {
+  if (progressWindowController) return progressWindowController;
+	progressWindowController = [[ProgressWindowController alloc] initWithWindowNibName:@"ProgressWindow"];
+  return progressWindowController;
 }
 
 /************************

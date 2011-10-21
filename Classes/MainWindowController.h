@@ -33,6 +33,10 @@
   // Song creation
   NewSongWindowController *newSongWindowController;
   EditSongWindowController *editSongWindowController;
+
+  // Periphals
+  NSWindowController *progressWindowController;
+
 }
 
 /**************
@@ -62,6 +66,9 @@
 // Song creation
 @property (nonatomic, retain, readonly) NewSongWindowController *newSongWindowController;
 @property (nonatomic, retain, readonly) EditSongWindowController *editSongWindowController;
+
+// Periphals
+@property (nonatomic, retain, readonly) NSWindowController *progressWindowController;
 
 /***********
  * METHODS *

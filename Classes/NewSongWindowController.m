@@ -39,6 +39,7 @@
     // We're trusting in that the Song Entity will normalize its stuff
     [song setValue:[titleField stringValue] forKey:@"title"];
     [song setValue:[contentField stringValue] forKey:@"content"];
+    [song setValue:[copyrightField stringValue] forKey:@"footnote"];
     [[NSApp songsArrayController] addObject:song];
   }
   [sheet orderOut:nil];

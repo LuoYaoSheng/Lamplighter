@@ -27,6 +27,7 @@
   [[self songsTableView] setNextKeyView:[[NSApp mainWindowController] playlistTableView]];
   [[self songsTableView] setTarget:self];
   [[self songsTableView] setDoubleAction: @selector(songsTableViewDoubleClicked:)];
+  [[self songsTableView] registerForDraggedTypes: [NSArray arrayWithObject:NSFilenamesPboardType]];
   [[self songsTableColumn] bind:NSValueBinding toObject:[NSApp songsArrayController] withKeyPath:@"arrangedObjects.title" options:nil];
 }
 

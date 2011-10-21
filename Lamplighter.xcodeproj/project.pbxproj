@@ -11,6 +11,9 @@
 		8D11072B0486CEB800E47090 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* Localizable.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		D84C039B144DDE580070724D /* ProgressWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84C039A144DDE580070724D /* ProgressWindow.xib */; };
+		D84C03A2144DDF0F0070724D /* ProgressWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84C03A1144DDF0F0070724D /* ProgressWindowController.m */; };
+		D84C04DB1450C28B0070724D /* SongImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = D84C04DA1450C28B0070724D /* SongImporter.m */; };
 		D84CF4A11440881D0070724D /* SlideCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CF4A01440881D0070724D /* SlideCollectionViewItem.m */; };
 		D84CF9B31448CF7F0070724D /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CF9B21448CF7F0070724D /* Constants.m */; };
 		D84CF9B61448CF870070724D /* ProjectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CF9B51448CF870070724D /* ProjectorWindow.m */; };
@@ -68,6 +71,11 @@
 		77C82804067257F0000B614F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Lamplighter-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "Lamplighter-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Lamplighter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lamplighter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D84C039A144DDE580070724D /* ProgressWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressWindow.xib; sourceTree = "<group>"; };
+		D84C03A0144DDF0F0070724D /* ProgressWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressWindowController.h; path = Classes/ProgressWindowController.h; sourceTree = "<group>"; };
+		D84C03A1144DDF0F0070724D /* ProgressWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressWindowController.m; path = Classes/ProgressWindowController.m; sourceTree = "<group>"; };
+		D84C04D91450C28B0070724D /* SongImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongImporter.h; sourceTree = "<group>"; };
+		D84C04DA1450C28B0070724D /* SongImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongImporter.m; sourceTree = "<group>"; };
 		D84CF49F1440881D0070724D /* SlideCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideCollectionViewItem.h; path = Classes/SlideCollectionViewItem.h; sourceTree = "<group>"; };
 		D84CF4A01440881D0070724D /* SlideCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideCollectionViewItem.m; path = Classes/SlideCollectionViewItem.m; sourceTree = "<group>"; };
 		D84CF9B11448CF7F0070724D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/Constants.h; sourceTree = "<group>"; };
@@ -223,6 +231,7 @@
 		7756732906782D8800D1FEB8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D84C04D81450C2460070724D /* Importer */,
 				D8826296142DEB0C005E96B7 /* Subclasses */,
 				D8825DFB141E8960005E96B7 /* Entities */,
 				D8825BC0141CB2B6005E96B7 /* ArrayControllers */,
@@ -230,6 +239,15 @@
 				770B37EC0679A11B001EADE2 /* Lamplighter_DataModel.xcdatamodel */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D84C04D81450C2460070724D /* Importer */ = {
+			isa = PBXGroup;
+			children = (
+				D84C04D91450C28B0070724D /* SongImporter.h */,
+				D84C04DA1450C28B0070724D /* SongImporter.m */,
+			);
+			name = Importer;
 			sourceTree = "<group>";
 		};
 		D8798039143867AC001D9CB7 /* Slide */ = {
@@ -276,6 +294,8 @@
 				D8825B9D141CAF2A005E96B7 /* MainWindowController.m */,
 				D8825B70141CADC9005E96B7 /* SongsDrawerViewController.h */,
 				D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */,
+				D84C03A0144DDF0F0070724D /* ProgressWindowController.h */,
+				D84C03A1144DDF0F0070724D /* ProgressWindowController.m */,
 			);
 			name = "GUI Controllers";
 			sourceTree = "<group>";
@@ -319,6 +339,7 @@
 			children = (
 				D8825CA6141DDE8B005E96B7 /* NewSongWindow.xib */,
 				D88264BA14343E54005E96B7 /* EditSongWindow.xib */,
+				D84C039A144DDE580070724D /* ProgressWindow.xib */,
 			);
 			name = Peripherals;
 			sourceTree = "<group>";
@@ -529,6 +550,7 @@
 				D88261C1142DDAE2005E96B7 /* app_logo.icns in Resources */,
 				D88264BB14343E54005E96B7 /* EditSongWindow.xib in Resources */,
 				D84CFD5A1449CA5D0070724D /* songs.icns in Resources */,
+				D84C039B144DDE580070724D /* ProgressWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +595,8 @@
 				D84CF9B61448CF870070724D /* ProjectorWindow.m in Sources */,
 				D84CFCE11449A7F30070724D /* BaseView.m in Sources */,
 				D84CFCE21449A7F30070724D /* BaseWindow.m in Sources */,
+				D84C03A2144DDF0F0070724D /* ProgressWindowController.m in Sources */,
+				D84C04DB1450C28B0070724D /* SongImporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
