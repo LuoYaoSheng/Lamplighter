@@ -9,7 +9,12 @@
  * Depending on which value we return, the cursor indicates the user's possibitlies.
  */
 - (NSDragOperation) tableView:(NSTableView*)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation {
-  return NSDragOperationCopy;
+  NSDragOperation result = NSDragOperationNone;
+  // Generally, we only accept drops between lines, not onto lines
+  if (operation == NSTableViewDropAbove) {
+    result = NSDragOperationCopy;
+  }
+  return result;
 }
 
 - (BOOL) tableView:(NSTableView*)table acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)targetRow dropOperation:(NSTableViewDropOperation)operation {

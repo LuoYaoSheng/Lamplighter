@@ -8,4 +8,6 @@ NSString * const SlideViewWasSingleClickedNotification = @"LamplighterSlideViewW
 NSString * const SlideViewWasDoubleClickedNotification = @"LamplighterSlideViewWasDoubleClickedNotification";
 NSString * const CollectionViewSelectionDidChangeNotification = @"LamplighterCollectionViewSelectionDidChangeNotification";
 
+NSString * const ProgressDidChangeNotification = @"LamplighterProgressDidChangeNotification";
+
 NSString * const ProjectorSlideViewWillDraw = @"LamlighterProjectorSlideViewWillDraw";

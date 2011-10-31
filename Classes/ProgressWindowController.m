@@ -13,6 +13,10 @@
   [self.progressIndicator setMaxValue:(double)newValue];
 }
 
+- (void) progressDidChangeNotification: (NSNotification*)notification  {
+  [self setProgressValue:[[[notification userInfo] valueForKey:@"progress"] doubleValue]];
+}
+
 - (void) setProgressValue:(double)newValue {
   [self.progressIndicator setDoubleValue:newValue];
 }

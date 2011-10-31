@@ -16,6 +16,13 @@
   return self;
 }
 
+- (void)contextDidSave:(NSNotification *)notification {
+  debugLog(@"context did save!");
+  [[NSApp managedObjectContext] performSelectorOnMainThread:@selector(mergeChangesFromContextDidSaveNotification:)
+                                                    withObject:notification
+                                                 waitUntilDone:YES];
+}
+
 - (void) import {
   NSError *error = nil;
   NSData *data = [[NSData alloc] initWithContentsOfFile:self.filepath options:0 error:&error];
@@ -25,14 +32,18 @@
     debugLog(@"forking");
     NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(importEasislidesStarter:) object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:[self progressWindowController] selector:@selector(progressDidChangeNotification:) name:ProgressDidChangeNotification object:nil];
+
     
     debugLog(@"Starting...");
     [thread start];
     
+    /*
     while ([thread isExecuting]) {
       debugLog(@"Executing...");
       sleep(1);
     }
+     */
     
     debugLog(@"Finished...");
     
@@ -48,12 +59,21 @@
   // the code between here and "[pool drain]" to blow your memory into pieces.
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
   [self importEasislides];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(contextDidSave:)
+                                               name:NSManagedObjectContextDidSaveNotification
+                                             object:[self managedObjectContextForThread]];
+
+  
   [pool drain];
 }
 
 - (void) importEasislides {
   debugLog(@"Importing: %@", [[self.document rootElement] name]);
   NSUInteger songsCount = [[self.document rootElement] childCount];
+  
+  NSMutableDictionary *dict = [NSMutableDictionary dictionary];
   
   int i = 1;
   for (NSXMLElement* element in [[self.document rootElement] children]) {
@@ -77,9 +97,12 @@
 
     [self addSong:title withContent:content andFootnote:footnote];
 
-    debugLog(@"addsong stop...");
+    //debugLog(@"addsong stop...");
 
-    //[[self progressWindowController] setProgressValue:progress];
+    [dict setValue:[NSNumber numberWithFloat:progress] forKey:@"progress"];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:ProgressDidChangeNotification object:self userInfo:dict];
+
     
     
     i++;
@@ -91,14 +114,16 @@
 }
 
 - (void) addSong:(NSString*)title withContent:(NSString*)content andFootnote:(NSString*)footnote {
-  debugLog(@"adding song!");
+  //debugLog(@"adding song!");
   Song *song = [[NSApp songsArrayController] newObject];
   [song setValue:title forKey:@"title"];
   [song setValue:content forKey:@"content"];
   [song setValue:footnote forKey:@"footnote"];
-  debugLog(@"before array %@", NSApp);
+  //debugLog(@"before array %@", NSApp);
   debugLog(@"before array %@", [NSApp songsArrayController]);
   [[self songsArrayController] addObject:song];
+  debugLog(@"commiting");
+  [[NSApp managedObjectContext] commitEditing];
   debugLog(@"after array");
 }
 

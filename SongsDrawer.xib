@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="9"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -53,7 +53,7 @@
 							<int key="NSCellFlags">343014976</int>
 							<int key="NSCellFlags2">268436544</int>
 							<string key="NSContents"/>
-							<object class="NSFont" key="NSSupport" id="199639990">
+							<object class="NSFont" key="NSSupport">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">13</double>
 								<int key="NSfFlags">1044</int>
@@ -199,7 +199,11 @@
 													<int key="NSCellFlags">337772096</int>
 													<int key="NSCellFlags2">2048</int>
 													<string key="NSContents">Text Cell</string>
-													<reference key="NSSupport" ref="199639990"/>
+													<object class="NSFont" key="NSSupport">
+														<string key="NSName">LucidaGrande</string>
+														<double key="NSSize">11</double>
+														<int key="NSfFlags">16</int>
+													</object>
 													<reference key="NSControlView" ref="417020276"/>
 													<object class="NSColor" key="NSBackgroundColor" id="521468257">
 														<int key="NSColorSpace">6</int>
@@ -254,7 +258,7 @@
 								<reference key="NSSuperview" ref="606148578"/>
 								<reference key="NSTarget" ref="606148578"/>
 								<string key="NSAction">_doScroller:</string>
-								<double key="NSPercent">0.9509803921568627</double>
+								<double key="NSPercent">0.99013157894736847</double>
 							</object>
 							<object class="NSScroller" id="995838833">
 								<reference key="NSNextResponder" ref="606148578"/>
