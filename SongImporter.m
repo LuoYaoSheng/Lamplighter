@@ -16,13 +16,6 @@
   return self;
 }
 
-- (void)contextDidSave:(NSNotification *)notification {
-  debugLog(@"context did save!");
-  [[NSApp managedObjectContext] performSelectorOnMainThread:@selector(mergeChangesFromContextDidSaveNotification:)
-                                                    withObject:notification
-                                                 waitUntilDone:YES];
-}
-
 - (void) import {
   NSError *error = nil;
   NSData *data = [[NSData alloc] initWithContentsOfFile:self.filepath options:0 error:&error];
@@ -60,11 +53,7 @@
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
   [self importEasislides];
   
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(contextDidSave:)
-                                               name:NSManagedObjectContextDidSaveNotification
-                                             object:[self managedObjectContextForThread]];
-
+  
   
   [pool drain];
 }
