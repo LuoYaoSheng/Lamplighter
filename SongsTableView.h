@@ -1,0 +1,5 @@
+@interface SongsTableView : NSTableView {
+
+}
+
+@end

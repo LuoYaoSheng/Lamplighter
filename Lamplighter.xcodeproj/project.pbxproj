@@ -14,6 +14,7 @@
 		D84C039B144DDE580070724D /* ProgressWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D84C039A144DDE580070724D /* ProgressWindow.xib */; };
 		D84C03A2144DDF0F0070724D /* ProgressWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84C03A1144DDF0F0070724D /* ProgressWindowController.m */; };
 		D84C04DB1450C28B0070724D /* SongImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = D84C04DA1450C28B0070724D /* SongImporter.m */; };
+		D84C078C145FD8F50070724D /* SongsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D84C078B145FD8F50070724D /* SongsTableView.m */; };
 		D84CF4A11440881D0070724D /* SlideCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CF4A01440881D0070724D /* SlideCollectionViewItem.m */; };
 		D84CF9B31448CF7F0070724D /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CF9B21448CF7F0070724D /* Constants.m */; };
 		D84CF9B61448CF870070724D /* ProjectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D84CF9B51448CF870070724D /* ProjectorWindow.m */; };
@@ -76,6 +77,8 @@
 		D84C03A1144DDF0F0070724D /* ProgressWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressWindowController.m; path = Classes/ProgressWindowController.m; sourceTree = "<group>"; };
 		D84C04D91450C28B0070724D /* SongImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongImporter.h; sourceTree = "<group>"; };
 		D84C04DA1450C28B0070724D /* SongImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongImporter.m; sourceTree = "<group>"; };
+		D84C078A145FD8F50070724D /* SongsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongsTableView.h; sourceTree = "<group>"; };
+		D84C078B145FD8F50070724D /* SongsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SongsTableView.m; sourceTree = "<group>"; };
 		D84CF49F1440881D0070724D /* SlideCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideCollectionViewItem.h; path = Classes/SlideCollectionViewItem.h; sourceTree = "<group>"; };
 		D84CF4A01440881D0070724D /* SlideCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideCollectionViewItem.m; path = Classes/SlideCollectionViewItem.m; sourceTree = "<group>"; };
 		D84CF9B11448CF7F0070724D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Classes/Constants.h; sourceTree = "<group>"; };
@@ -475,6 +478,8 @@
 				D8A00D9A141743870034792D /* SongsDrawer.xib */,
 				D8825B7B141CADDF005E96B7 /* SongsDrawer.h */,
 				D8825B7C141CADDF005E96B7 /* SongsDrawer.m */,
+				D84C078A145FD8F50070724D /* SongsTableView.h */,
+				D84C078B145FD8F50070724D /* SongsTableView.m */,
 			);
 			name = MainWindow;
 			sourceTree = "<group>";
@@ -597,6 +602,7 @@
 				D84CFCE21449A7F30070724D /* BaseWindow.m in Sources */,
 				D84C03A2144DDF0F0070724D /* ProgressWindowController.m in Sources */,
 				D84C04DB1450C28B0070724D /* SongImporter.m in Sources */,
+				D84C078C145FD8F50070724D /* SongsTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
