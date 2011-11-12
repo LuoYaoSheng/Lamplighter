@@ -15,7 +15,10 @@
 /*
  * When dragging, copy the Song object URI into the pasteboard as an Lamplighter SongDataType
  */
-- (BOOL)tableView:(NSTableView *)table writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard*)pboard {
+- (BOOL)tableView:(NSTableView *)table writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard*)wrongpboard {
+  
+  NSPasteboard *pboard = [NSPasteboard pasteboardWithName:NSDragPboard];
+  
   BOOL success = NO;
   NSDictionary *infoForBinding = [table infoForBinding:NSContentBinding];
   if (infoForBinding != nil) {
@@ -32,11 +35,34 @@
       NSURL *representedURL = [objectID URIRepresentation];
       [objectIDs addObject:representedURL];
     }
-    [pboard declareTypes:[NSArray arrayWithObject:SongDataType] owner:nil];
-    [pboard addTypes:[NSArray arrayWithObject:SongDataType] owner:nil];
-    success = [pboard setString:[objectIDs componentsJoinedByString:@", "] forType:SongDataType];        
+    
+    NSMutableArray *filenameExtensions = [NSMutableArray array];
+     [filenameExtensions addObject:@"txt"];
+    
+    [pboard setPropertyList:filenameExtensions forType:NSFilesPromisePboardType];
+    debugLog(@"one");
+
+    success = YES;
   }
   return success;
+}
+
+- (NSArray *)tableView:(NSTableView *)aTableView namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination forDraggedRowsWithIndexes:(NSIndexSet *)indexSet {
+
+  debugLog(@"two");
+  NSArray *draggedFilenames = [NSArray arrayWithObjects:@"one.txt", @"two.txt", nil];
+  
+  for (NSString *filename in draggedFilenames) {
+    
+    NSString *fullPathToOriginal = nil;
+    NSString *destPath = [[dropDestination path] stringByAppendingPathComponent:filename];
+    
+    
+  }
+  debugLog(@"dropDestination: %@", dropDestination);
+  debugLog(@"draggedFilenames: %@", draggedFilenames);
+
+  return draggedFilenames;
 }
 
 @end

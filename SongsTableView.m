@@ -29,4 +29,8 @@
   
 }
 
+- (NSDragOperation) draggingSourceOperationMaskForLocal:(BOOL)flag {
+  return NSDragOperationCopy;
+}
+
 @end
