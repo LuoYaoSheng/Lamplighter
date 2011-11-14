@@ -150,8 +150,9 @@
   } else {
     [[NSApp songsArrayController] ensureContentIsLoaded];
     [self ensureSpaceForDrawer:songsDrawer];
-    //[presentasionsDrawer close];
     [songsDrawer openOnEdge:NSMinXEdge];
+    [self.window makeFirstResponder:[songsDrawerViewController searchField]];
+    
   }
   if ([sender isKindOfClass:[NSToolbarItem class]]) [self validateToolbarItem:sender];
 }

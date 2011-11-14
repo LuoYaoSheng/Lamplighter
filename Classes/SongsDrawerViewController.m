@@ -46,6 +46,17 @@
 - (IBAction)filterSongs:sender {
   NSMutableString *searchText = [NSMutableString stringWithString:[self.searchField stringValue]];
   
+  // Remove extraenous whitespace
+  while ([searchText rangeOfString:@"  "].location != NSNotFound) {
+    [searchText replaceOccurrencesOfString:@"  " withString:@" " options:0 range:NSMakeRange(0, [searchText length])];
+  }
+  
+  //Remove leading space
+  if ([searchText length] != 0) [searchText replaceOccurrencesOfString:@" " withString:@"" options:0 range:NSMakeRange(0,1)];
+  
+  //Remove trailing space
+  if ([searchText length] != 0) [searchText replaceOccurrencesOfString:@" " withString:@"" options:0 range:NSMakeRange([searchText length]-1, 1)];
+  
   if ([searchText length] == 0) {
     [[NSApp songsArrayController] setFilterPredicate:nil];
     return;
