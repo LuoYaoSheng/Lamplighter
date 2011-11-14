@@ -172,11 +172,10 @@
 		080E96DDFE201D6D7F000001 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D8825CBC141E60A1005E96B7 /* Application */,
-				D8825CBD141E60AD005E96B7 /* MainWindow */,
-				D882612C142C682D005E96B7 /* Projector */,
-				D8798039143867AC001D9CB7 /* Slide */,
-				D8825CBE141E60BB005E96B7 /* Song */,
+				D8825CBC141E60A1005E96B7 /* Application Delegate */,
+				D882612C142C682D005E96B7 /* Object Controllers */,
+				D87981BC143ADB54001D9CB7 /* View Controllers */,
+				D8E6DAE214717F49000F7B23 /* Window Controllers */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -234,40 +233,22 @@
 		7756732906782D8800D1FEB8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D84C04D81450C2460070724D /* Importer */,
-				D8826296142DEB0C005E96B7 /* Subclasses */,
-				D8825DFB141E8960005E96B7 /* Entities */,
-				D8825BC0141CB2B6005E96B7 /* ArrayControllers */,
-				D8825B5E141CAD21005E96B7 /* DataSources */,
-				770B37EC0679A11B001EADE2 /* Lamplighter_DataModel.xcdatamodel */,
+				D8825BC0141CB2B6005E96B7 /* Array Controllers */,
+				D8825DFB141E8960005E96B7 /* Core Data */,
+				D8825B5E141CAD21005E96B7 /* Data Sources */,
+				D84C04D81450C2460070724D /* Objects */,
+				D8826296142DEB0C005E96B7 /* Text Fields */,
 			);
 			name = Models;
 			sourceTree = "<group>";
 		};
-		D84C04D81450C2460070724D /* Importer */ = {
+		D84C04D81450C2460070724D /* Objects */ = {
 			isa = PBXGroup;
 			children = (
 				D84C04D91450C28B0070724D /* SongImporter.h */,
 				D84C04DA1450C28B0070724D /* SongImporter.m */,
 			);
-			name = Importer;
-			sourceTree = "<group>";
-		};
-		D8798039143867AC001D9CB7 /* Slide */ = {
-			isa = PBXGroup;
-			children = (
-				D84CF49F1440881D0070724D /* SlideCollectionViewItem.h */,
-				D84CF4A01440881D0070724D /* SlideCollectionViewItem.m */,
-				D88263DC143222A3005E96B7 /* SlideView.h */,
-				D88263DD143222A3005E96B7 /* SlideView.m */,
-				D879804514386805001D9CB7 /* SlideRootLayer.h */,
-				D879804614386805001D9CB7 /* SlideRootLayer.m */,
-				D879805D14398628001D9CB7 /* SlideBackgroundLayer.h */,
-				D879805E14398628001D9CB7 /* SlideBackgroundLayer.m */,
-				D879804714386805001D9CB7 /* SlideTextLayer.h */,
-				D879804814386805001D9CB7 /* SlideTextLayer.m */,
-			);
-			name = Slide;
+			name = Objects;
 			sourceTree = "<group>";
 		};
 		D87981AF143ADA23001D9CB7 /* CollectionViews */ = {
@@ -279,31 +260,16 @@
 			name = CollectionViews;
 			sourceTree = "<group>";
 		};
-		D87981B4143ADAD3001D9CB7 /* General Controllers */ = {
+		D87981BC143ADB54001D9CB7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D8826293142DEABE005E96B7 /* PreviewController.h */,
-				D8826294142DEABE005E96B7 /* PreviewController.m */,
-				D87981A8143AD9AB001D9CB7 /* LiveviewController.h */,
-				D87981A9143AD9AB001D9CB7 /* LiveviewController.m */,
-			);
-			name = "General Controllers";
-			sourceTree = "<group>";
-		};
-		D87981BC143ADB54001D9CB7 /* GUI Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D8825B6E141CADC9005E96B7 /* MainWindowController.h */,
-				D8825B9D141CAF2A005E96B7 /* MainWindowController.m */,
 				D8825B70141CADC9005E96B7 /* SongsDrawerViewController.h */,
 				D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */,
-				D84C03A0144DDF0F0070724D /* ProgressWindowController.h */,
-				D84C03A1144DDF0F0070724D /* ProgressWindowController.m */,
 			);
-			name = "GUI Controllers";
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		D8825B5E141CAD21005E96B7 /* DataSources */ = {
+		D8825B5E141CAD21005E96B7 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
 				D8825B75141CADD3005E96B7 /* DraggableTableDataSource.h */,
@@ -313,7 +279,7 @@
 				D8825FB314252C81005E96B7 /* PlaylistTableDataSource.h */,
 				D8825FB414252C81005E96B7 /* PlaylistTableDataSource.m */,
 			);
-			name = DataSources;
+			name = "Data Sources";
 			sourceTree = "<group>";
 		};
 		D8825B80141CAE14005E96B7 /* Application */ = {
@@ -324,17 +290,14 @@
 			name = Application;
 			sourceTree = "<group>";
 		};
-		D8825BC0141CB2B6005E96B7 /* ArrayControllers */ = {
+		D8825BC0141CB2B6005E96B7 /* Array Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8E6DAE314717FCE000F7B23 /* BaseArrayController */,
 				D8825F43142108B1005E96B7 /* BaseArrayController.h */,
 				D8825F44142108B1005E96B7 /* BaseArrayController.m */,
-				D8825BC4141CB2E1005E96B7 /* SongsArrayController.h */,
-				D8825BC5141CB2E1005E96B7 /* SongsArrayController.m */,
-				D8825FF3142B122F005E96B7 /* PlaylistArrayController.h */,
-				D8825FF4142B122F005E96B7 /* PlaylistArrayController.m */,
 			);
-			name = ArrayControllers;
+			name = "Array Controllers";
 			sourceTree = "<group>";
 		};
 		D8825CA3141DDE5B005E96B7 /* Peripherals */ = {
@@ -347,49 +310,26 @@
 			name = Peripherals;
 			sourceTree = "<group>";
 		};
-		D8825CBC141E60A1005E96B7 /* Application */ = {
+		D8825CBC141E60A1005E96B7 /* Application Delegate */ = {
 			isa = PBXGroup;
 			children = (
 				D8825B6C141CADC9005E96B7 /* ApplicationDelegate.h */,
 				D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */,
 			);
-			name = Application;
+			name = "Application Delegate";
 			sourceTree = "<group>";
 		};
-		D8825CBD141E60AD005E96B7 /* MainWindow */ = {
+		D8825DFB141E8960005E96B7 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				D87981BC143ADB54001D9CB7 /* GUI Controllers */,
-				D87981B4143ADAD3001D9CB7 /* General Controllers */,
-				D87981AF143ADA23001D9CB7 /* CollectionViews */,
-			);
-			name = MainWindow;
-			sourceTree = "<group>";
-		};
-		D8825CBE141E60BB005E96B7 /* Song */ = {
-			isa = PBXGroup;
-			children = (
-				D8825CFD141E6CD2005E96B7 /* SongWindowController.h */,
-				D8825CFE141E6CD2005E96B7 /* SongWindowController.m */,
-				D8825CB9141E607D005E96B7 /* NewSongWindowController.h */,
-				D8825CBA141E607D005E96B7 /* NewSongWindowController.m */,
-				D88264FC1434429B005E96B7 /* EditSongWindowController.h */,
-				D88264FD1434429B005E96B7 /* EditSongWindowController.m */,
-			);
-			name = Song;
-			sourceTree = "<group>";
-		};
-		D8825DFB141E8960005E96B7 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
+				770B37EC0679A11B001EADE2 /* Lamplighter_DataModel.xcdatamodel */,
+				D8E6DAE414717FE5000F7B23 /* Presentation */,
 				D8825DFF141E8990005E96B7 /* Presentation.h */,
 				D8825E00141E8990005E96B7 /* Presentation.m */,
 				D8825E01141E8990005E96B7 /* Slide.h */,
 				D8825E02141E8990005E96B7 /* Slide.m */,
-				D8825E03141E8990005E96B7 /* Song.h */,
-				D8825E04141E8990005E96B7 /* Song.m */,
 			);
-			name = Entities;
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 		D8826128142C67C2005E96B7 /* Projector */ = {
@@ -402,15 +342,17 @@
 			name = Projector;
 			sourceTree = "<group>";
 		};
-		D882612C142C682D005E96B7 /* Projector */ = {
+		D882612C142C682D005E96B7 /* Object Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D87981A8143AD9AB001D9CB7 /* LiveviewController.h */,
+				D87981A9143AD9AB001D9CB7 /* LiveviewController.m */,
+				D8826293142DEABE005E96B7 /* PreviewController.h */,
+				D8826294142DEABE005E96B7 /* PreviewController.m */,
 				D88260EC142BA370005E96B7 /* ProjectorController.h */,
 				D88260ED142BA370005E96B7 /* ProjectorController.m */,
-				D8826130142C686F005E96B7 /* ProjectorWindowController.h */,
-				D8826131142C686F005E96B7 /* ProjectorWindowController.m */,
 			);
-			name = Projector;
+			name = "Object Controllers";
 			sourceTree = "<group>";
 		};
 		D88261B6142DDAD7005E96B7 /* Images */ = {
@@ -423,7 +365,7 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		D8826296142DEB0C005E96B7 /* Subclasses */ = {
+		D8826296142DEB0C005E96B7 /* Text Fields */ = {
 			isa = PBXGroup;
 			children = (
 				D882629A142DEB23005E96B7 /* ContentTextField.h */,
@@ -431,7 +373,7 @@
 				D882629C142DEB23005E96B7 /* TitleTextField.h */,
 				D882629D142DEB23005E96B7 /* TitleTextField.m */,
 			);
-			name = Subclasses;
+			name = "Text Fields";
 			sourceTree = "<group>";
 		};
 		D8A00D231416A0E20034792D /* Application */ = {
@@ -460,9 +402,11 @@
 			isa = PBXGroup;
 			children = (
 				D8825B80141CAE14005E96B7 /* Application */,
+				D87981AF143ADA23001D9CB7 /* CollectionViews */,
 				D8A00D431416A1570034792D /* MainWindow */,
-				D8826128142C67C2005E96B7 /* Projector */,
 				D8825CA3141DDE5B005E96B7 /* Peripherals */,
+				D8826128142C67C2005E96B7 /* Projector */,
+				D8E6DADD14717DA2000F7B23 /* Slide */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -490,6 +434,70 @@
 				089C165CFE840E0CC02AAC07 /* Localizable.strings */,
 			);
 			name = Locales;
+			sourceTree = "<group>";
+		};
+		D8E6DADD14717DA2000F7B23 /* Slide */ = {
+			isa = PBXGroup;
+			children = (
+				D84CF49F1440881D0070724D /* SlideCollectionViewItem.h */,
+				D84CF4A01440881D0070724D /* SlideCollectionViewItem.m */,
+				D88263DC143222A3005E96B7 /* SlideView.h */,
+				D88263DD143222A3005E96B7 /* SlideView.m */,
+				D879804514386805001D9CB7 /* SlideRootLayer.h */,
+				D879804614386805001D9CB7 /* SlideRootLayer.m */,
+				D879805D14398628001D9CB7 /* SlideBackgroundLayer.h */,
+				D879805E14398628001D9CB7 /* SlideBackgroundLayer.m */,
+				D879804714386805001D9CB7 /* SlideTextLayer.h */,
+				D879804814386805001D9CB7 /* SlideTextLayer.m */,
+			);
+			name = Slide;
+			sourceTree = "<group>";
+		};
+		D8E6DADF14717EB6000F7B23 /* SongWindowController */ = {
+			isa = PBXGroup;
+			children = (
+				D8825CB9141E607D005E96B7 /* NewSongWindowController.h */,
+				D8825CBA141E607D005E96B7 /* NewSongWindowController.m */,
+				D88264FC1434429B005E96B7 /* EditSongWindowController.h */,
+				D88264FD1434429B005E96B7 /* EditSongWindowController.m */,
+			);
+			name = SongWindowController;
+			sourceTree = "<group>";
+		};
+		D8E6DAE214717F49000F7B23 /* Window Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8825B6E141CADC9005E96B7 /* MainWindowController.h */,
+				D8825B9D141CAF2A005E96B7 /* MainWindowController.m */,
+				D84C03A0144DDF0F0070724D /* ProgressWindowController.h */,
+				D84C03A1144DDF0F0070724D /* ProgressWindowController.m */,
+				D8826130142C686F005E96B7 /* ProjectorWindowController.h */,
+				D8826131142C686F005E96B7 /* ProjectorWindowController.m */,
+				D8E6DADF14717EB6000F7B23 /* SongWindowController */,
+				D8825CFD141E6CD2005E96B7 /* SongWindowController.h */,
+				D8825CFE141E6CD2005E96B7 /* SongWindowController.m */,
+			);
+			name = "Window Controllers";
+			sourceTree = "<group>";
+		};
+		D8E6DAE314717FCE000F7B23 /* BaseArrayController */ = {
+			isa = PBXGroup;
+			children = (
+				D8825BC4141CB2E1005E96B7 /* SongsArrayController.h */,
+				D8825BC5141CB2E1005E96B7 /* SongsArrayController.m */,
+				D8825FF3142B122F005E96B7 /* PlaylistArrayController.h */,
+				D8825FF4142B122F005E96B7 /* PlaylistArrayController.m */,
+			);
+			name = BaseArrayController;
+			sourceTree = "<group>";
+		};
+		D8E6DAE414717FE5000F7B23 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				D8825E03141E8990005E96B7 /* Song.h */,
+				D8825E04141E8990005E96B7 /* Song.m */,
+			);
+			name = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
