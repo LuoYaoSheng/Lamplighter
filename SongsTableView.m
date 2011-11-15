@@ -15,6 +15,8 @@
     } else {
       [self deleteSelectedSong:NO];
     }
+  } else {
+    [super keyDown:event];
   }
 }
 

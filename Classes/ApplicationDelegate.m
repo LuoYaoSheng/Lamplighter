@@ -59,9 +59,8 @@
   if (songsArrayController) return songsArrayController;
   songsArrayController = [SongsArrayController new];
   [songsArrayController setManagedObjectContext:self.managedObjectContext];
-  NSSortDescriptor *sortByTitle = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+  NSSortDescriptor *sortByTitle = [[[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)] autorelease];
   [songsArrayController setSortDescriptors:[NSArray arrayWithObject:sortByTitle]];
-  [sortByTitle release];
   return songsArrayController;
 }
 

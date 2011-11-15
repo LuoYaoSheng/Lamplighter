@@ -82,6 +82,7 @@
     if (![license1 isEqualToString:@""]) footnote = [footnote stringByAppendingFormat:@", %@", license1];
     if (![license2 isEqualToString:@""]) footnote = [footnote stringByAppendingFormat:@", %@", license2];
     
+    content = [content stringByReplacingOccurrencesOfString:@"[chorus]" withString:@""];
     content = [content stringByReplacingOccurrencesOfString:@"[1]" withString:@""];
     content = [content stringByReplacingOccurrencesOfString:@"[2]" withString:@""];
     content = [content stringByReplacingOccurrencesOfString:@"[3]" withString:@""];
