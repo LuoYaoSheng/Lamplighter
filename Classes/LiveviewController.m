@@ -4,7 +4,9 @@
 #import "ApplicationDelegate.h"
 #import "MainWindowController.h"
 #import "LiveviewController.h"
+#import "BaseCollectionView.h"
 #import "SlideView.h"
+#import "Slide.h"
 
 @implementation LiveviewController
 

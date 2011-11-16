@@ -45,7 +45,7 @@
 
 - (IBAction)filterSongs:sender {
   NSMutableString *searchText = [NSMutableString stringWithString:[self.searchField stringValue]];
-  searchText = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+  [searchText setString:[searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
   
   while ([searchText rangeOfString:@"  "].location != NSNotFound) {
     [searchText replaceOccurrencesOfString:@"  " withString:@" " options:0 range:NSMakeRange(0, [searchText length])];

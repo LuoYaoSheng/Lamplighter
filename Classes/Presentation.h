@@ -22,6 +22,7 @@
 // Instance Methods
 - (void) setTitle:(NSString*)value;
 - (void) setContent:(NSString*)value;
+- (void) updateKeywords;
 - (NSArray*) sortedSlides;
 
 @end

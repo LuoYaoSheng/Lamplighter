@@ -54,8 +54,8 @@
   
   for (NSString *filename in draggedFilenames) {
     
-    NSString *fullPathToOriginal = nil;
-    NSString *destPath = [[dropDestination path] stringByAppendingPathComponent:filename];
+    //NSString *fullPathToOriginal = nil;
+    //NSString *destPath = [[dropDestination path] stringByAppendingPathComponent:filename];
     
     
   }

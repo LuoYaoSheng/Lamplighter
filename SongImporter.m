@@ -107,7 +107,7 @@
     
     
     i++;
-    if (i >= 100) break;
+    //if (i >= 3000) break;
   }
   debugLog(@"finished.");
 

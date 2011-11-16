@@ -9,7 +9,7 @@
 @dynamic presentation;
 
 - (int) numberOfLines {
-  return [[[self content] componentsSeparatedByString: @"\n"] length];
+  return [[[self content] componentsSeparatedByString: @"\n"] count];
 }
 
 @end

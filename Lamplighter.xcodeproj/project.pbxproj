@@ -173,7 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				D8825CBC141E60A1005E96B7 /* Application Delegate */,
-				D882612C142C682D005E96B7 /* Object Controllers */,
+				D882612C142C682D005E96B7 /* General Controllers */,
 				D87981BC143ADB54001D9CB7 /* View Controllers */,
 				D8E6DAE214717F49000F7B23 /* Window Controllers */,
 			);
@@ -342,7 +342,7 @@
 			name = Projector;
 			sourceTree = "<group>";
 		};
-		D882612C142C682D005E96B7 /* Object Controllers */ = {
+		D882612C142C682D005E96B7 /* General Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D87981A8143AD9AB001D9CB7 /* LiveviewController.h */,
@@ -352,7 +352,7 @@
 				D88260EC142BA370005E96B7 /* ProjectorController.h */,
 				D88260ED142BA370005E96B7 /* ProjectorController.m */,
 			);
-			name = "Object Controllers";
+			name = "General Controllers";
 			sourceTree = "<group>";
 		};
 		D88261B6142DDAD7005E96B7 /* Images */ = {

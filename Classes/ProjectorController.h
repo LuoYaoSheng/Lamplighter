@@ -7,9 +7,6 @@
   // Window Controllers
   ProjectorWindowController *projectorWindowController;
 
-  // Blank Slide
-  Slide *blankSlide;
-
 }
 
 /**************
@@ -18,8 +15,6 @@
 
 // Window Controllers
 @property (nonatomic, retain, readonly) ProjectorWindowController *projectorWindowController;
-
-@property (nonatomic, retain, readonly) Slide *blankSlide;
 
 /***********
  * METHODS *

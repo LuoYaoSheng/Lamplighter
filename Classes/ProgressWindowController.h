@@ -6,5 +6,6 @@
 
 @property (nonatomic, retain) IBOutlet NSProgressIndicator *progressIndicator;
 
+- (void) setProgressValue:(double)newValue;
 
 @end

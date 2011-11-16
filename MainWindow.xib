@@ -12,8 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="198"/>
-			<integer value="17"/>
+			<integer value="195"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2609,9 +2608,9 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{342, 126}, {480, 270}}</string>
+					<string>{{271, 114}, {480, 270}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{342, 126}, {480, 270}}</string>
+					<string>{{271, 114}, {480, 270}}</string>
 					<integer value="1"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -2903,10 +2902,10 @@
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>ApplicationDelegate</string>
-							<string>LiveviewCollectionView</string>
+							<string>BaseCollectionView</string>
 							<string>NSTableColumn</string>
 							<string>NSTableView</string>
-							<string>PreviewCollectionView</string>
+							<string>BaseCollectionView</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -2927,7 +2926,7 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">liveviewCollectionView</string>
-								<string key="candidateClassName">LiveviewCollectionView</string>
+								<string key="candidateClassName">BaseCollectionView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">playlistTableColumn</string>
@@ -2939,7 +2938,7 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">previewCollectionView</string>
-								<string key="candidateClassName">PreviewCollectionView</string>
+								<string key="candidateClassName">BaseCollectionView</string>
 							</object>
 						</object>
 					</object>

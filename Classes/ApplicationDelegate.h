@@ -5,11 +5,15 @@
 @class ProjectorController;
 
 @interface ApplicationDelegate : NSApplication {
+
+  /*************
+   * VARIABLES *
+   *************/
   
   // Window Controllers
   MainWindowController *mainWindowController;
   
-  // Other Controllers
+  // General Controllers
   ProjectorController *projectorController;
 
   // Array Controllers
@@ -32,7 +36,7 @@
 // Window Controllers
 @property (nonatomic, retain, readonly) MainWindowController *mainWindowController;
 
-// Other Controllers
+// General Controllers
 @property (nonatomic, retain, readonly) ProjectorController *projectorController;
 
 // Array Controllers
@@ -47,9 +51,9 @@
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
-/***********
- * METHODS *
- ***********/
+/********************
+ * INSTANCE METHODS *
+ ********************/
 
 // Application Initialization
 - (void) setupControllerObservers;

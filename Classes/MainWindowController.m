@@ -130,7 +130,7 @@
   return editSongWindowController;
 }
 
-- (ProgressWindowController*) progressWindowController {
+- (NSWindowController*) progressWindowController {
   if (progressWindowController) return progressWindowController;
 	progressWindowController = [[ProgressWindowController alloc] initWithWindowNibName:@"ProgressWindow"];
   return progressWindowController;

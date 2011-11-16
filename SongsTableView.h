@@ -2,4 +2,6 @@
 
 }
 
+- (void) deleteSelectedSong:(BOOL)force;
+
 @end
