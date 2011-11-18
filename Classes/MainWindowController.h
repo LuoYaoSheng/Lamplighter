@@ -2,7 +2,7 @@
 @class PreviewController;
 @class LiveviewController;
 @class SongsDrawerViewController;
-@class SongsDrawer;
+@class PDFsDrawerViewController;
 @class NewSongWindowController;
 @class EditSongWindowController;
 @class PlaylistTableDataSource;
@@ -29,8 +29,10 @@
   IBOutlet BaseCollectionView *liveviewCollectionView;
   
   // Drawer
-  SongsDrawer *songsDrawer;
+  NSDrawer *songsDrawer;
   SongsDrawerViewController *songsDrawerViewController;
+  NSDrawer *pdfsDrawer;
+  PDFsDrawerViewController *pdfsDrawerViewController;
 
   // Song creation
   NewSongWindowController *newSongWindowController;
@@ -63,8 +65,10 @@
 @property (nonatomic, retain, readonly) BaseCollectionView *liveviewCollectionView;
 
 // Drawer
-@property (nonatomic, retain, readonly) SongsDrawer *songsDrawer;
+@property (nonatomic, retain, readonly) NSDrawer *songsDrawer;
 @property (nonatomic, retain, readonly) SongsDrawerViewController *songsDrawerViewController;
+@property (nonatomic, retain, readonly) NSDrawer *pdfsDrawer;
+@property (nonatomic, retain, readonly) PDFsDrawerViewController *pdfsDrawerViewController;
 
 // Song creation
 @property (nonatomic, retain, readonly) NewSongWindowController *newSongWindowController;
