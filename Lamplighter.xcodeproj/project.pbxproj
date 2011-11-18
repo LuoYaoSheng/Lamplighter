@@ -61,6 +61,8 @@
 		D8E6DE921476BFBF000F7B23 /* SongImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE911476BFBF000F7B23 /* SongImporter.m */; };
 		D8E6DE951476BFEA000F7B23 /* PreviewPDFThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE941476BFEA000F7B23 /* PreviewPDFThumbnailView.m */; };
 		D8E6DE981476C012000F7B23 /* SongsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE971476C012000F7B23 /* SongsTableView.m */; };
+		D8E6DE9C1476C07C000F7B23 /* PDFsDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE9B1476C07C000F7B23 /* PDFsDrawerViewController.m */; };
+		D8E6DEA11476C246000F7B23 /* PDFsTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DEA01476C246000F7B23 /* PDFsTableDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +162,10 @@
 		D8E6DE941476BFEA000F7B23 /* PreviewPDFThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewPDFThumbnailView.m; path = Classes/PreviewPDFThumbnailView.m; sourceTree = "<group>"; };
 		D8E6DE961476C012000F7B23 /* SongsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongsTableView.h; path = Classes/SongsTableView.h; sourceTree = "<group>"; };
 		D8E6DE971476C012000F7B23 /* SongsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongsTableView.m; path = Classes/SongsTableView.m; sourceTree = "<group>"; };
+		D8E6DE9A1476C07C000F7B23 /* PDFsDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFsDrawerViewController.h; path = Classes/PDFsDrawerViewController.h; sourceTree = "<group>"; };
+		D8E6DE9B1476C07C000F7B23 /* PDFsDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFsDrawerViewController.m; path = Classes/PDFsDrawerViewController.m; sourceTree = "<group>"; };
+		D8E6DE9F1476C246000F7B23 /* PDFsTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFsTableDataSource.h; path = Classes/PDFsTableDataSource.h; sourceTree = "<group>"; };
+		D8E6DEA01476C246000F7B23 /* PDFsTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFsTableDataSource.m; path = Classes/PDFsTableDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +280,8 @@
 			children = (
 				D8825B70141CADC9005E96B7 /* SongsDrawerViewController.h */,
 				D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */,
+				D8E6DE9A1476C07C000F7B23 /* PDFsDrawerViewController.h */,
+				D8E6DE9B1476C07C000F7B23 /* PDFsDrawerViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -524,6 +532,8 @@
 				D8825B78141CADD3005E96B7 /* SongsTableDataSource.m */,
 				D8825FB314252C81005E96B7 /* PlaylistTableDataSource.h */,
 				D8825FB414252C81005E96B7 /* PlaylistTableDataSource.m */,
+				D8E6DE9F1476C246000F7B23 /* PDFsTableDataSource.h */,
+				D8E6DEA01476C246000F7B23 /* PDFsTableDataSource.m */,
 			);
 			name = DraggableTableDataSource;
 			sourceTree = "<group>";
@@ -641,6 +651,8 @@
 				D8E6DE921476BFBF000F7B23 /* SongImporter.m in Sources */,
 				D8E6DE951476BFEA000F7B23 /* PreviewPDFThumbnailView.m in Sources */,
 				D8E6DE981476C012000F7B23 /* SongsTableView.m in Sources */,
+				D8E6DE9C1476C07C000F7B23 /* PDFsDrawerViewController.m in Sources */,
+				D8E6DEA11476C246000F7B23 /* PDFsTableDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
