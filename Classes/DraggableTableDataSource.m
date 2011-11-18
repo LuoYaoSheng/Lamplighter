@@ -17,7 +17,7 @@
  */
 - (BOOL)tableView:(NSTableView *)table writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard*)internalPasteboard {
   
-  NSPasteboard *pboard = [NSPasteboard pasteboardWithName:NSDragPboard];
+  NSPasteboard *dragPasteboard = [NSPasteboard pasteboardWithName:NSDragPboard];
   
   BOOL success = NO;
   NSDictionary *infoForBinding = [table infoForBinding:NSContentBinding];
@@ -36,10 +36,14 @@
       [objectIDs addObject:representedURL];
     }
     
+    [internalPasteboard declareTypes:[NSArray arrayWithObject:SongDataType] owner:nil];
+    [internalPasteboard addTypes:[NSArray arrayWithObject:SongDataType] owner:nil];
+    [internalPasteboard setString:[objectIDs componentsJoinedByString:@", "] forType:SongDataType];  
+    
     NSMutableArray *filenameExtensions = [NSMutableArray array];
      [filenameExtensions addObject:@"txt"];
     
-    [pboard setPropertyList:filenameExtensions forType:NSFilesPromisePboardType];
+    [dragPasteboard setPropertyList:filenameExtensions forType:NSFilesPromisePboardType];
     debugLog(@"one");
 
     success = YES;
