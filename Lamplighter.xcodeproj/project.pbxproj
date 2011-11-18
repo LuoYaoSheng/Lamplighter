@@ -58,6 +58,8 @@
 		D88264BB14343E54005E96B7 /* EditSongWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D88264BA14343E54005E96B7 /* EditSongWindow.xib */; };
 		D88264FE1434429B005E96B7 /* EditSongWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88264FD1434429B005E96B7 /* EditSongWindowController.m */; };
 		D8A00D9B141743870034792D /* SongsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8A00D9A141743870034792D /* SongsDrawer.xib */; };
+		D8E6DDE21475746F000F7B23 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E6DDE11475746F000F7B23 /* Quartz.framework */; };
+		D8E6DDED147574EF000F7B23 /* PreviewPDFThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DDEC147574EF000F7B23 /* PreviewPDFThumbnailView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +155,9 @@
 		D88264FD1434429B005E96B7 /* EditSongWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditSongWindowController.m; path = Classes/EditSongWindowController.m; sourceTree = "<group>"; };
 		D8A00D841416A4310034792D /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		D8A00D9A141743870034792D /* SongsDrawer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongsDrawer.xib; sourceTree = "<group>"; };
+		D8E6DDE11475746F000F7B23 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		D8E6DDEB147574EF000F7B23 /* PreviewPDFThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewPDFThumbnailView.h; sourceTree = "<group>"; };
+		D8E6DDEC147574EF000F7B23 /* PreviewPDFThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewPDFThumbnailView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +168,7 @@
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				D88262DB14304EB4005E96B7 /* QTKit.framework in Frameworks */,
 				D88262FD14304ED2005E96B7 /* QuartzCore.framework in Frameworks */,
+				D8E6DDE21475746F000F7B23 /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +192,7 @@
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				D88262DA14304EB4005E96B7 /* QTKit.framework */,
 				D88262FC14304ED2005E96B7 /* QuartzCore.framework */,
+				D8E6DDE11475746F000F7B23 /* Quartz.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -272,12 +279,9 @@
 		D8825B5E141CAD21005E96B7 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D8E6DE781476BE0A000F7B23 /* DraggableTableDataSource */,
 				D8825B75141CADD3005E96B7 /* DraggableTableDataSource.h */,
 				D8825B76141CADD3005E96B7 /* DraggableTableDataSource.m */,
-				D8825B77141CADD3005E96B7 /* SongsTableDataSource.h */,
-				D8825B78141CADD3005E96B7 /* SongsTableDataSource.m */,
-				D8825FB314252C81005E96B7 /* PlaylistTableDataSource.h */,
-				D8825FB414252C81005E96B7 /* PlaylistTableDataSource.m */,
 			);
 			name = "Data Sources";
 			sourceTree = "<group>";
@@ -401,6 +405,7 @@
 		D8A00D421416A1510034792D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D8E6DDEA147574E1000F7B23 /* PDF Views */,
 				D8825B80141CAE14005E96B7 /* Application */,
 				D87981AF143ADA23001D9CB7 /* CollectionViews */,
 				D8A00D431416A1570034792D /* MainWindow */,
@@ -498,6 +503,26 @@
 				D8825E04141E8990005E96B7 /* Song.m */,
 			);
 			name = Presentation;
+			sourceTree = "<group>";
+		};
+		D8E6DDEA147574E1000F7B23 /* PDF Views */ = {
+			isa = PBXGroup;
+			children = (
+				D8E6DDEB147574EF000F7B23 /* PreviewPDFThumbnailView.h */,
+				D8E6DDEC147574EF000F7B23 /* PreviewPDFThumbnailView.m */,
+			);
+			name = "PDF Views";
+			sourceTree = "<group>";
+		};
+		D8E6DE781476BE0A000F7B23 /* DraggableTableDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				D8825B77141CADD3005E96B7 /* SongsTableDataSource.h */,
+				D8825B78141CADD3005E96B7 /* SongsTableDataSource.m */,
+				D8825FB314252C81005E96B7 /* PlaylistTableDataSource.h */,
+				D8825FB414252C81005E96B7 /* PlaylistTableDataSource.m */,
+			);
+			name = DraggableTableDataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -611,6 +636,7 @@
 				D84C03A2144DDF0F0070724D /* ProgressWindowController.m in Sources */,
 				D84C04DB1450C28B0070724D /* SongImporter.m in Sources */,
 				D84C078C145FD8F50070724D /* SongsTableView.m in Sources */,
+				D8E6DDED147574EF000F7B23 /* PreviewPDFThumbnailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@
 /*
  * When dragging, copy the Song object URI into the pasteboard as an Lamplighter SongDataType
  */
-- (BOOL)tableView:(NSTableView *)table writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard*)wrongpboard {
+- (BOOL)tableView:(NSTableView *)table writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard*)internalPasteboard {
   
   NSPasteboard *pboard = [NSPasteboard pasteboardWithName:NSDragPboard];
   

@@ -7,6 +7,7 @@
 @class EditSongWindowController;
 @class PlaylistTableDataSource;
 @class BaseCollectionView;
+@class PreviewPDFThumbnailView;
 
 @interface MainWindowController : NSWindowController {
   
@@ -22,7 +23,8 @@
   IBOutlet NSTableView *playlistTableView;
   PlaylistTableDataSource *playlistTableDataSource;
 
-  // Collection Views
+  // Collection/Thumbnail Views
+  IBOutlet PreviewPDFThumbnailView *previewPDFThumbnailView;
   IBOutlet BaseCollectionView *previewCollectionView;
   IBOutlet BaseCollectionView *liveviewCollectionView;
   
@@ -55,7 +57,8 @@
 @property (nonatomic, retain, readonly) NSTableView *playlistTableView;
 @property (nonatomic, retain, readonly) PlaylistTableDataSource *playlistTableDataSource;
 
-// Collection Views
+// Collection/Thumbnail Views
+@property (nonatomic, retain, readonly) PreviewPDFThumbnailView *previewPDFThumbnailView;
 @property (nonatomic, retain, readonly) BaseCollectionView *previewCollectionView;
 @property (nonatomic, retain, readonly) BaseCollectionView *liveviewCollectionView;
 
