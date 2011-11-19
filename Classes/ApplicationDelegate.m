@@ -64,6 +64,13 @@
   return songsArrayController;
 }
 
+- (PDFsArrayController*) pdfsArrayController {
+  if (pdfsArrayController) return pdfsArrayController;
+  pdfsArrayController = [PDFsArrayController new];
+  [pdfsArrayController setManagedObjectContext:self.managedObjectContext];
+  return pdfsArrayController;
+}
+
 /* This Array Controller is *not* backed by Core Data. It's a simple mutable Array that holds
  * mere *references* to Core Data objects. You can think of it as a short-lived "songs for today"
  * list that makes it easier to find songs.

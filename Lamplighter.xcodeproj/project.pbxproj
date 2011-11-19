@@ -63,6 +63,7 @@
 		D8E6DE981476C012000F7B23 /* SongsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE971476C012000F7B23 /* SongsTableView.m */; };
 		D8E6DE9C1476C07C000F7B23 /* PDFsDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE9B1476C07C000F7B23 /* PDFsDrawerViewController.m */; };
 		D8E6DEA11476C246000F7B23 /* PDFsTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DEA01476C246000F7B23 /* PDFsTableDataSource.m */; };
+		D8E6DF111477FFAF000F7B23 /* PDFsArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DF101477FFAF000F7B23 /* PDFsArrayController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +167,8 @@
 		D8E6DE9B1476C07C000F7B23 /* PDFsDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFsDrawerViewController.m; path = Classes/PDFsDrawerViewController.m; sourceTree = "<group>"; };
 		D8E6DE9F1476C246000F7B23 /* PDFsTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFsTableDataSource.h; path = Classes/PDFsTableDataSource.h; sourceTree = "<group>"; };
 		D8E6DEA01476C246000F7B23 /* PDFsTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFsTableDataSource.m; path = Classes/PDFsTableDataSource.m; sourceTree = "<group>"; };
+		D8E6DF0F1477FFAF000F7B23 /* PDFsArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFsArrayController.h; path = Classes/PDFsArrayController.h; sourceTree = "<group>"; };
+		D8E6DF101477FFAF000F7B23 /* PDFsArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFsArrayController.m; path = Classes/PDFsArrayController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,6 +504,8 @@
 			children = (
 				D8825BC4141CB2E1005E96B7 /* SongsArrayController.h */,
 				D8825BC5141CB2E1005E96B7 /* SongsArrayController.m */,
+				D8E6DF0F1477FFAF000F7B23 /* PDFsArrayController.h */,
+				D8E6DF101477FFAF000F7B23 /* PDFsArrayController.m */,
 				D8825FF3142B122F005E96B7 /* PlaylistArrayController.h */,
 				D8825FF4142B122F005E96B7 /* PlaylistArrayController.m */,
 			);
@@ -653,6 +658,7 @@
 				D8E6DE981476C012000F7B23 /* SongsTableView.m in Sources */,
 				D8E6DE9C1476C07C000F7B23 /* PDFsDrawerViewController.m in Sources */,
 				D8E6DEA11476C246000F7B23 /* PDFsTableDataSource.m in Sources */,
+				D8E6DF111477FFAF000F7B23 /* PDFsArrayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,7 @@
 
 #import "ApplicationDelegate.h"
 #import "SongsDrawerViewController.h"
-#import "SongsDrawer.h"
+#import "PDFsDrawerViewController.h"
 #import "NewSongWindowController.h"
 #import "EditSongWindowController.h"
 #import "PlaylistTableDataSource.h"
@@ -59,9 +59,9 @@
  * DRAWER *
  **********/
 
-- (SongsDrawer*) songsDrawer {
+- (NSDrawer*) songsDrawer {
   if (songsDrawer) return songsDrawer;
-  songsDrawer = [[SongsDrawer alloc] initWithContentSize:NSMakeSize(200, 100) preferredEdge:NSMinXEdge];
+  songsDrawer = [[NSDrawer alloc] initWithContentSize:NSMakeSize(200, 100) preferredEdge:NSMinXEdge];
   [songsDrawer setContentView:songsDrawerViewController.view];
   [songsDrawer setParentWindow:self.window];
   [songsDrawer setMinContentSize:NSMakeSize(160, 0)];
@@ -69,10 +69,26 @@
   return songsDrawer;
 }
 
+- (NSDrawer*) pdfsDrawer {
+  if (pdfsDrawer) return pdfsDrawer;
+  pdfsDrawer = [[NSDrawer alloc] initWithContentSize:NSMakeSize(200, 100) preferredEdge:NSMinXEdge];
+  [pdfsDrawer setContentView:pdfsDrawerViewController.view];
+  [pdfsDrawer setParentWindow:self.window];
+  [pdfsDrawer setMinContentSize:NSMakeSize(160, 0)];
+  [pdfsDrawer setMaxContentSize:NSMakeSize(400, 10000)];
+  return pdfsDrawer;
+}
+
 - (SongsDrawerViewController*) songsDrawerViewController {
   if (songsDrawerViewController) return songsDrawerViewController;
   songsDrawerViewController = [[SongsDrawerViewController alloc] initWithNibName:@"SongsDrawer" bundle:NULL];
   return songsDrawerViewController;
+}
+
+- (PDFsDrawerViewController*) pdfsDrawerViewController {
+  if (pdfsDrawerViewController) return pdfsDrawerViewController;
+  pdfsDrawerViewController = [[PDFsDrawerViewController alloc] initWithNibName:@"PDFsDrawer" bundle:NULL];
+  return pdfsDrawerViewController;
 }
 
 - (void) ensureSpaceForDrawer:(NSDrawer*)drawer {
@@ -140,17 +156,33 @@
  * MENU/TOOLBAR ACTIONS *
  ************************/
 
+- (IBAction) togglePDFsDrawerAction:sender {
+  [self pdfsDrawerViewController];
+  NSDrawerState state = [self.pdfsDrawer state];
+  
+  if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
+    [self.pdfsDrawer close];
+  } else {
+    [self.songsDrawer close];
+    [self ensureSpaceForDrawer:self.pdfsDrawer];
+    [self.pdfsDrawer openOnEdge:NSMinXEdge];
+    
+  }
+  if ([sender isKindOfClass:[NSToolbarItem class]]) [self validateToolbarItem:sender];
+}
+
 - (IBAction) toggleSongsDrawerAction:sender {
   // Initialize the Drawer by simply calling it
   [self songsDrawerViewController];
-  NSDrawerState state = [[self songsDrawer] state];
+  NSDrawerState state = [self.songsDrawer state];
   
   if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
-    [songsDrawer close];
+    [self.songsDrawer close];
   } else {
+    [self.pdfsDrawer close];
     [[NSApp songsArrayController] ensureContentIsLoaded];
-    [self ensureSpaceForDrawer:songsDrawer];
-    [songsDrawer openOnEdge:NSMinXEdge];
+    [self ensureSpaceForDrawer:self.songsDrawer];
+    [self.songsDrawer openOnEdge:NSMinXEdge];
     [self.window makeFirstResponder:[songsDrawerViewController searchField]];
     
   }

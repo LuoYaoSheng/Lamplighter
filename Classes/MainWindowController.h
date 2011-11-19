@@ -30,8 +30,8 @@
   
   // Drawer
   NSDrawer *songsDrawer;
-  SongsDrawerViewController *songsDrawerViewController;
   NSDrawer *pdfsDrawer;
+  SongsDrawerViewController *songsDrawerViewController;
   PDFsDrawerViewController *pdfsDrawerViewController;
 
   // Song creation
@@ -66,8 +66,8 @@
 
 // Drawer
 @property (nonatomic, retain, readonly) NSDrawer *songsDrawer;
-@property (nonatomic, retain, readonly) SongsDrawerViewController *songsDrawerViewController;
 @property (nonatomic, retain, readonly) NSDrawer *pdfsDrawer;
+@property (nonatomic, retain, readonly) SongsDrawerViewController *songsDrawerViewController;
 @property (nonatomic, retain, readonly) PDFsDrawerViewController *pdfsDrawerViewController;
 
 // Song creation
@@ -98,6 +98,7 @@
 - (void) updateMenuItem:(NSMenuItem*)item;
 
 // Menu/Toolbar Actions
+- (IBAction) togglePDFsDrawerAction:sender;
 - (IBAction) toggleSongsDrawerAction:sender;
 - (IBAction) toggleLiveAction:sender;
 - (IBAction) projectorGoBlankAction:sender;

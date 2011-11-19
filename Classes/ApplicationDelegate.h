@@ -1,6 +1,7 @@
 @class MainWindowController;
 @class ProjectorController;
 @class SongsArrayController;
+@class PDFsArrayController;
 @class PlaylistArrayController;
 @class ProjectorController;
 
@@ -18,6 +19,7 @@
 
   // Array Controllers
   SongsArrayController *songsArrayController;
+  PDFsArrayController *pdfsArrayController;
   PlaylistArrayController *playlistArrayController;
   
   // Object Controllers
@@ -41,6 +43,7 @@
 
 // Array Controllers
 @property (nonatomic, retain, readonly) SongsArrayController *songsArrayController;
+@property (nonatomic, retain, readonly) PDFsArrayController *pdfsArrayController;
 @property (nonatomic, retain, readonly) PlaylistArrayController *playlistArrayController;
 
 // Object Controllers
