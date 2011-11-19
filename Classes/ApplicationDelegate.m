@@ -2,6 +2,7 @@
 
 #import "MainWindowController.h"
 #import "SongsArrayController.h"
+#import "PDFsArrayController.h"
 #import "PlaylistArrayController.h"
 #import "ProjectorController.h";
 
@@ -138,20 +139,11 @@
     return nil;
   }
   
-  NSFileManager *fileManager = [NSFileManager defaultManager];
-  NSString *applicationSupportDirectory = [self applicationSupportDirectory];
-  NSError *error = nil;
-  if ( ![fileManager fileExistsAtPath:applicationSupportDirectory isDirectory:NULL] ) {
-    if (![fileManager createDirectoryAtPath:applicationSupportDirectory withIntermediateDirectories:NO attributes:nil error:&error]) {
-      NSAssert(NO, ([NSString stringWithFormat:@"Failed to create App Support directory %@ : %@", applicationSupportDirectory,error]));
-      NSLog(@"Error creating application support directory at %@ : %@",applicationSupportDirectory,error);
-      return nil;
-    }
-  }
+  [self ensureDatabaseDirectory];
   
-  NSURL *url = [NSURL fileURLWithPath: [applicationSupportDirectory stringByAppendingPathComponent: @"database"]];
   persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: mom];
-  if (![persistentStoreCoordinator addPersistentStoreWithType:NSBinaryStoreType configuration:nil URL:url options:nil error:&error]){
+  NSError *error = nil;
+  if (![persistentStoreCoordinator addPersistentStoreWithType:NSBinaryStoreType configuration:nil URL:[self databaseDirectoryURL] options:nil error:&error]){
     [NSApp presentError:error];
     [persistentStoreCoordinator release], persistentStoreCoordinator = nil;
     return nil;
@@ -165,6 +157,7 @@
  */
 - (NSManagedObjectContext*) managedObjectContext {
   if (managedObjectContext) return managedObjectContext;
+  debugLog(@"%@:%s Instantiating...", [self class], _cmd);
 
   NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
   if (!coordinator) {
@@ -186,6 +179,61 @@
  */
 - (NSUndoManager*) windowWillReturnUndoManager:(NSWindow*)window {
   return [self.managedObjectContext undoManager];
+}
+
+/**************
+ * FILESYSTEM *
+ **************/
+
+- (BOOL) ensureApplicationSupportDirectory {
+  NSString *applicationSupportDirectory = [self applicationSupportDirectory];
+  BOOL isDirectory;
+  NSFileManager *fileManager = [NSFileManager defaultManager];
+  if ([fileManager fileExistsAtPath:applicationSupportDirectory isDirectory:&isDirectory] && isDirectory) return YES;
+  NSError *error = nil;
+  if ([fileManager createDirectoryAtPath:applicationSupportDirectory withIntermediateDirectories:NO attributes:nil error:&error]) return YES;
+  NSAssert(NO, ([NSString stringWithFormat:@"Failed to create Lamplighter support directory %@ : %@", applicationSupportDirectory, error]));
+  return NO;
+}
+
+- (BOOL) ensureDatabaseDirectory {
+  [self ensureApplicationSupportDirectory];
+  NSFileManager *fileManager = [NSFileManager defaultManager];
+  BOOL isDirectory;
+  if ([fileManager fileExistsAtPath:[self databaseDirectoryPath] isDirectory:&isDirectory] && isDirectory) return YES;
+  NSError *error = nil;
+  if ([fileManager createDirectoryAtPath:[self databaseDirectoryPath] withIntermediateDirectories:NO attributes:nil error:&error]) return YES;
+  [self throwError:201 withInfo:[error description]];
+  return NO;
+}
+
+- (NSURL*) databaseDirectoryURL {
+  return [NSURL fileURLWithPath:[[self applicationSupportDirectory] stringByAppendingPathComponent: @"database"]];
+}
+
+- (NSString*) databaseDirectoryPath {
+  return [[self databaseDirectoryURL] path];
+}
+
+/******************
+ * ERROR HANDLING *
+ ******************/
+
+- (void) throwError:(NSUInteger)code withInfo:(NSString*)info {
+  NSString *message;
+  switch (code) {
+    case 201:
+      message = @"Sorry, the database directory could not be created. ";
+      break;
+    default:
+      message = @"Sorry, an unknown error occured. ";
+      break;
+  }
+  message = [message stringByAppendingString:info];
+  NSMutableDictionary *ui = [NSMutableDictionary dictionaryWithObject:message forKey:NSLocalizedDescriptionKey];
+  NSError *appError = [NSError errorWithDomain:ErrorDomain code:code userInfo:ui];
+  [self presentError:appError];
+  exit(code);
 }
 
 /********************

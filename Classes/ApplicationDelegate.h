@@ -54,6 +54,15 @@
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
+/**************
+ * FILESYSTEM *
+ **************/
+
+- (BOOL) ensureApplicationSupportDirectory;
+- (BOOL) ensureDatabaseDirectory;
+- (NSURL*) databaseDirectoryURL;
+- (NSString*) databaseDirectoryPath;
+
 /********************
  * INSTANCE METHODS *
  ********************/

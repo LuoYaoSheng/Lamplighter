@@ -1,5 +1,8 @@
 #import "Constants.h"
 
+// Error
+NSString * const ErrorDomain = @"com.funkensturm.Lamplighter.errors";
+
 // Data Types
 NSString * const SongDataType = @"com.funkensturm.Lamplighter.datatype.song";
 
