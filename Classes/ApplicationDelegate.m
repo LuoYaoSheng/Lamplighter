@@ -102,18 +102,6 @@
  *********************/
 
 /*
- * Returns the support directory for the application, used to store the Core Data
- * store file.  This code uses a directory named "Lamplighter" for
- * the content, either in the NSApplicationSupportDirectory location or (if the
- * former cannot be found), the system's temporary directory.
- */
-- (NSString*) applicationSupportDirectory {
-  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-  NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : NSTemporaryDirectory();
-  return [basePath stringByAppendingPathComponent:@"Lamplighter"];
-}
-
-/*
  * Creates, retains, and returns the managed object model for the application 
  * by merging all of the models found in the application bundle.
  */
@@ -143,7 +131,7 @@
   
   persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: mom];
   NSError *error = nil;
-  if (![persistentStoreCoordinator addPersistentStoreWithType:NSBinaryStoreType configuration:nil URL:[self databaseDirectoryURL] options:nil error:&error]){
+  if (![persistentStoreCoordinator addPersistentStoreWithType:NSBinaryStoreType configuration:nil URL:[self databaseFileURL] options:nil error:&error]){
     [NSApp presentError:error];
     [persistentStoreCoordinator release], persistentStoreCoordinator = nil;
     return nil;
@@ -207,8 +195,24 @@
   return NO;
 }
 
+/*
+ * Returns the support directory for the application, used to store the Core Data
+ * store file.  This code uses a directory named "Lamplighter" for
+ * the content, either in the NSApplicationSupportDirectory location or (if the
+ * former cannot be found), the system's temporary directory.
+ */
+- (NSString*) applicationSupportDirectory {
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+  NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : NSTemporaryDirectory();
+  return [basePath stringByAppendingPathComponent:@"Lamplighter"];
+}
+
 - (NSURL*) databaseDirectoryURL {
   return [NSURL fileURLWithPath:[[self applicationSupportDirectory] stringByAppendingPathComponent: @"database"]];
+}
+
+- (NSURL*) databaseFileURL {
+  return [NSURL URLWithString:@"database" relativeToURL:[self databaseDirectoryURL]];
 }
 
 - (NSString*) databaseDirectoryPath {
