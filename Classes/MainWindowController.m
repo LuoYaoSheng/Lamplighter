@@ -127,7 +127,7 @@
 
 - (BOOL) isDrawerOpen {
   NSDrawerState state = [songsDrawer state];
-  return state == NSDrawerOpenState || state == NSDrawerOpeningState;
+  return [songsDrawer state] == NSDrawerOpenState || [songsDrawer state] == NSDrawerOpeningState;
 }
 
 /*****************
@@ -271,10 +271,16 @@
     item.image = itemImage;
     [itemImage release];
   } else if ([item action] == @selector(toggleSongsDrawerAction:)) {
-    if ([self isDrawerOpen]) {
+    if ([songsDrawer state] == NSDrawerOpenState || [songsDrawer state] == NSDrawerOpeningState) {
       item.label = NSLocalizedString(@"toolbar.songs.hide", nil);
     } else {
       item.label = NSLocalizedString(@"toolbar.songs.show", nil);
+    }
+  } else if ([item action] == @selector(togglePDFsDrawerAction:)) {
+    if ([pdfsDrawer state] == NSDrawerOpenState || [pdfsDrawer state] == NSDrawerOpeningState) {
+      item.label = NSLocalizedString(@"toolbar.pdfs.hide", nil);
+    } else {
+      item.label = NSLocalizedString(@"toolbar.pdfs.show", nil);
     }
   }
 }
