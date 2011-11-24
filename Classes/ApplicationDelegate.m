@@ -195,6 +195,16 @@
   return NO;
 }
 
+- (BOOL) ensurePDFsDirectory {
+  [self ensureApplicationSupportDirectory];
+  NSFileManager *fileManager = [NSFileManager defaultManager];
+  BOOL isDirectory;
+  if ([fileManager fileExistsAtPath:[self pdfsDirectoryPath] isDirectory:&isDirectory] && isDirectory) return YES;
+  NSError *error = nil;
+  if ([fileManager createDirectoryAtPath:[self pdfsDirectoryPath] withIntermediateDirectories:NO attributes:nil error:&error]) return YES;
+  [self throwError:202 withInfo:[error description]];
+  return NO;
+}
 /*
  * Returns the support directory for the application, used to store the Core Data
  * store file.  This code uses a directory named "Lamplighter" for
@@ -211,12 +221,20 @@
   return [NSURL fileURLWithPath:[[self applicationSupportDirectory] stringByAppendingPathComponent: @"database"]];
 }
 
+- (NSURL*) pdfsDirectoryURL {
+  return [NSURL fileURLWithPath:[[self applicationSupportDirectory] stringByAppendingPathComponent: @"pdfs"]];
+}
+
 - (NSURL*) databaseFileURL {
   return [NSURL URLWithString:@"database" relativeToURL:[self databaseDirectoryURL]];
 }
 
 - (NSString*) databaseDirectoryPath {
   return [[self databaseDirectoryURL] path];
+}
+
+- (NSString*) pdfsDirectoryPath {
+  return [[self pdfsDirectoryURL] path];
 }
 
 /******************

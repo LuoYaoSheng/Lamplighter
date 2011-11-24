@@ -165,6 +165,7 @@
   } else {
     [self.songsDrawer close];
     [self ensureSpaceForDrawer:self.pdfsDrawer];
+    [[NSApp pdfsArrayController] update];
     [self.pdfsDrawer openOnEdge:NSMinXEdge];
     
   }

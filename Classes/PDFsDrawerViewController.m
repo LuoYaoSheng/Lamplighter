@@ -25,7 +25,7 @@
   [[self tableView] setNextKeyView:[[NSApp mainWindowController] playlistTableView]];
   [[self tableView] setTarget:self];
   [[self tableView] registerForDraggedTypes: [NSArray arrayWithObject:NSFilenamesPboardType]];
-  [[self tableColumn] bind:NSValueBinding toObject:[NSApp pdfsArrayController] withKeyPath:@"arrangedObjects.title" options:nil];
+  [[self tableColumn] bind:NSValueBinding toObject:[NSApp pdfsArrayController] withKeyPath:@"arrangedObjects.lastPathComponent" options:nil];
 }
 
 /*********************
