@@ -1,5 +1,8 @@
 #import "DraggableTableDataSource.h"
 
+#import "ApplicationDelegate.h"
+#import "MainWindowController.h"
+
 @implementation DraggableTableDataSource
 
 - (NSInteger) numberOfRowsInTableView:(NSTableView*)table {
@@ -27,24 +30,34 @@
     
     // Eventually this code can handle multiple selects, but we'll just have only one selected anyway
     NSArray *objects = [[arrayController arrangedObjects] objectsAtIndexes:rowIndexes];
-    NSMutableArray *objectIDs = [NSMutableArray array];
-    unsigned int i, count = [objects count];
-    for (i = 0; i < count; i++) {
-      NSManagedObject *item = [objects objectAtIndex:i];
-      NSManagedObjectID *objectID = [item objectID];
-      NSURL *representedURL = [objectID URIRepresentation];
-      [objectIDs addObject:representedURL];
+    NSMutableArray *urls = [NSMutableArray array];
+    NSString *dataType;
+    
+    for (id *object in objects) {
+      NSURL *url;
+      if (table == [[[NSApp mainWindowController] pdfsDrawerViewController] tableView]) {
+        // URL to a PDF file on disk
+        dataType = PDFDataType;
+        url = (NSURL*)object;
+      } else {
+        // Core Data (currently just Song entities)
+        dataType = SongDataType;
+        url = [[(NSManagedObject*)object objectID] URIRepresentation];
+      }
+      [urls addObject:url];
     }
     
-    [internalPasteboard declareTypes:[NSArray arrayWithObject:SongDataType] owner:nil];
-    [internalPasteboard addTypes:[NSArray arrayWithObject:SongDataType] owner:nil];
-    [internalPasteboard setString:[objectIDs componentsJoinedByString:@", "] forType:SongDataType];  
+    [internalPasteboard declareTypes:[NSArray arrayWithObject:dataType] owner:nil];
+    [internalPasteboard addTypes:[NSArray arrayWithObject:dataType] owner:nil];
+    [internalPasteboard setString:[urls componentsJoinedByString:@", "] forType:dataType];  
     
     NSMutableArray *filenameExtensions = [NSMutableArray array];
-     [filenameExtensions addObject:@"txt"];
-    
+    if (dataType == PDFDataType) {
+      [filenameExtensions addObject:@"pdf"];
+    } else {
+      [filenameExtensions addObject:@"txt"];
+    }
     [dragPasteboard setPropertyList:filenameExtensions forType:NSFilesPromisePboardType];
-    debugLog(@"one");
 
     success = YES;
   }

@@ -43,6 +43,7 @@
 
 - (void) setupPlaylistTable {
   [playlistTableView registerForDraggedTypes: [NSArray arrayWithObject:SongDataType]];
+  [playlistTableView registerForDraggedTypes: [NSArray arrayWithObject:PDFDataType]];
   [[self playlistTableView] setDataSource:self.playlistTableDataSource];
   [[self playlistTableView] setDelegate:self.previewController];
   [[self playlistTableColumn] bind:NSValueBinding toObject:[NSApp playlistArrayController] withKeyPath:@"arrangedObjects.title" options:nil];

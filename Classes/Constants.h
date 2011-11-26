@@ -3,6 +3,7 @@ extern NSString * const ErrorDomain;
 
 // Data Types
 extern NSString * const SongDataType;
+extern NSString * const PDFDataType;
 
 // Notifications
 extern NSString * const SlideViewWasSingleClickedNotification;

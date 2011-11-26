@@ -5,6 +5,7 @@ NSString * const ErrorDomain = @"com.funkensturm.Lamplighter.errors";
 
 // Data Types
 NSString * const SongDataType = @"com.funkensturm.Lamplighter.datatype.song";
+NSString * const PDFDataType = @"com.funkensturm.Lamplighter.datatype.pdf";
 
 // Notifications
 NSString * const SlideViewWasSingleClickedNotification = @"LamplighterSlideViewWasSingleClickedNotification";

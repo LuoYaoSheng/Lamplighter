@@ -4,6 +4,6 @@
 
 }
 
-- (BOOL) optionKeyPressed;
+- (void) moveObject:(id)object toRow:(NSInteger)targetRow;
 
 @end

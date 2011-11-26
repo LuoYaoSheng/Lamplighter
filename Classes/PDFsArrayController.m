@@ -1,7 +1,5 @@
 #import "PDFsArrayController.h"
 
-#import "PDF.h"
-
 @implementation PDFsArrayController
 
 - (id) init {

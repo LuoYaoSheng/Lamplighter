@@ -18,7 +18,7 @@
     if ([info draggingSource] == [[NSApp  mainWindowController] playlistTableView]) {
 			result = NSDragOperationMove;
     } else {
-      // All other drops indicate a copy symbol
+      // All other drops (from the internal dragging pasteboard) indicate a copy symbol
       result = NSDragOperationCopy;
     }
   }
@@ -32,45 +32,46 @@
  */
 - (BOOL) tableView:(NSTableView*)table acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)targetRow dropOperation:(NSTableViewDropOperation)operation {
 
-  // First, let's check out whether a Song has been dropped into our Playlist
-  NSString *urlString = [[info draggingPasteboard] stringForType:SongDataType];
-  NSURL *url = [NSURL URLWithString:urlString];
+  id object;
+  NSArray *types = [[info draggingPasteboard] types];
   
-  // Second, we ensure that the Song already exists in our database
-  NSManagedObjectID *objectID = [[NSApp persistentStoreCoordinator] managedObjectIDForURIRepresentation:url];
-  id object = [[NSApp managedObjectContext] objectRegisteredForID:objectID];
-  if (object == nil) return NO;
-  
-  
-  // Then we check out where the drag came from. Here, it came from the Songs Table in the Drawer.
-  if ([info draggingSource] == [[[NSApp  mainWindowController] songsDrawerViewController] songsTableView]) {
-
-    // In that case, add the Song only if it doesn't already exist.
-    if (!([[[NSApp playlistArrayController] arrangedObjects] containsObject:object])) {
-      [[NSApp playlistArrayController] addObject:object];
-      return YES;
-    }
+  if ([types containsObject:PDFDataType]) {
+    object = [NSURL URLWithString:[[info draggingPasteboard] stringForType:PDFDataType]];
     
-  // Then, it may come from the Playlist table itself
-  } else if ([info draggingSource] == [[NSApp  mainWindowController] playlistTableView]) {
+  } else if ([types containsObject:SongDataType]) {
+    NSURL *url = [NSURL URLWithString:[[info draggingPasteboard] stringForType:SongDataType]];
+    // We ensure that the Song already exists in our database (i.e. is committed and saved)
+    NSManagedObjectID *objectID = [[NSApp persistentStoreCoordinator] managedObjectIDForURIRepresentation:url];
+    object = [[NSApp managedObjectContext] objectRegisteredForID:objectID];
+    if (!object) return NO;
     
-    // If the song is not yet in the Playlist, we just move the object to another position
-    // If the object is moved to a position further below, we need to adjust the target row,
-    // because we temporarily delete the object while repositioning
-    int sourceRow = [[[NSApp playlistArrayController] arrangedObjects] indexOfObject:object];
-    if (sourceRow < targetRow) targetRow -= 1;
-    // Remove and add the object at the right position
-    [[NSApp playlistArrayController] removeObject:object];
-    [[NSApp playlistArrayController] insertObject:object atArrangedObjectIndex:targetRow];
-    return YES;    
+  } else {
+    // We don't accept anything else
+    return NO;
   }
-  return NO;
+  
+  if ([info draggingSource] == [[NSApp  mainWindowController] playlistTableView]) {
+    [self moveObject:object toRow:targetRow];
+  } else  {
+    [self addObject:object];
+  }
+  return YES;
 }
 
-- (BOOL) optionKeyPressed {
-  // Have a quick look at whether the OPTION key is held down (meaning "copy")
-  NSEvent *currentEvent = [NSApp currentEvent];
-  return ([currentEvent modifierFlags] & NSAlternateKeyMask) != 0;
+- (void) addObject:(id)object {
+  // Don't do anything if the object already exists
+  if (([[[NSApp playlistArrayController] arrangedObjects] containsObject:object])) return;
+  [[NSApp playlistArrayController] addObject:object];
+}
+
+- (void) moveObject:(id)object toRow:(NSInteger)targetRow {
+  // If the object is moved to a position further below, we need to adjust the target row,
+  // because we temporarily delete the object while repositioning
+  NSInteger sourceRow = [[[NSApp playlistArrayController] arrangedObjects] indexOfObject:object];
+  if (sourceRow < targetRow) targetRow -= 1;
+  // Remove and add the object at the right position
+  [[NSApp playlistArrayController] removeObject:object];
+  [[NSApp playlistArrayController] insertObject:object atArrangedObjectIndex:targetRow];
 }  
 
 @end
