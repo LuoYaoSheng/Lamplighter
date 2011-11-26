@@ -69,6 +69,8 @@
   if (pdfsArrayController) return pdfsArrayController;
   pdfsArrayController = [PDFsArrayController new];
   [pdfsArrayController setManagedObjectContext:self.managedObjectContext];
+  NSSortDescriptor *sortByTitle = [[[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)] autorelease];
+  [pdfsArrayController setSortDescriptors:[NSArray arrayWithObject:sortByTitle]];
   return pdfsArrayController;
 }
 

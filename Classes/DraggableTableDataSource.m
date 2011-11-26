@@ -38,7 +38,8 @@
       if (table == [[[NSApp mainWindowController] pdfsDrawerViewController] tableView]) {
         // URL to a PDF file on disk
         dataType = PDFDataType;
-        url = (NSURL*)object;
+        //url = (NSURL*)object;
+        url = [[(NSManagedObject*)object objectID] URIRepresentation];
       } else {
         // Core Data (currently just Song entities)
         dataType = SongDataType;
@@ -46,11 +47,11 @@
       }
       [urls addObject:url];
     }
-    
+
     [internalPasteboard declareTypes:[NSArray arrayWithObject:dataType] owner:nil];
     [internalPasteboard addTypes:[NSArray arrayWithObject:dataType] owner:nil];
     [internalPasteboard setString:[urls componentsJoinedByString:@", "] forType:dataType];  
-    
+
     NSMutableArray *filenameExtensions = [NSMutableArray array];
     if (dataType == PDFDataType) {
       [filenameExtensions addObject:@"pdf"];

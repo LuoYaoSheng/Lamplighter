@@ -63,6 +63,7 @@
 		D8E6DE9C1476C07C000F7B23 /* PDFsDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE9B1476C07C000F7B23 /* PDFsDrawerViewController.m */; };
 		D8E6DEA11476C246000F7B23 /* PDFsTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DEA01476C246000F7B23 /* PDFsTableDataSource.m */; };
 		D8E6DF111477FFAF000F7B23 /* PDFsArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DF101477FFAF000F7B23 /* PDFsArrayController.m */; };
+		D8E6E1FF14815108000F7B23 /* PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6E1FE14815108000F7B23 /* PDF.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +167,8 @@
 		D8E6DEA01476C246000F7B23 /* PDFsTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFsTableDataSource.m; path = Classes/PDFsTableDataSource.m; sourceTree = "<group>"; };
 		D8E6DF0F1477FFAF000F7B23 /* PDFsArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFsArrayController.h; path = Classes/PDFsArrayController.h; sourceTree = "<group>"; };
 		D8E6DF101477FFAF000F7B23 /* PDFsArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFsArrayController.m; path = Classes/PDFsArrayController.m; sourceTree = "<group>"; };
+		D8E6E1FD14815108000F7B23 /* PDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDF.h; path = Classes/PDF.h; sourceTree = "<group>"; };
+		D8E6E1FE14815108000F7B23 /* PDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDF.m; path = Classes/PDF.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +345,8 @@
 				D8825E00141E8990005E96B7 /* Presentation.m */,
 				D8825E01141E8990005E96B7 /* Slide.h */,
 				D8825E02141E8990005E96B7 /* Slide.m */,
+				D8E6E1FD14815108000F7B23 /* PDF.h */,
+				D8E6E1FE14815108000F7B23 /* PDF.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -653,6 +658,7 @@
 				D8E6DE9C1476C07C000F7B23 /* PDFsDrawerViewController.m in Sources */,
 				D8E6DEA11476C246000F7B23 /* PDFsTableDataSource.m in Sources */,
 				D8E6DF111477FFAF000F7B23 /* PDFsArrayController.m in Sources */,
+				D8E6E1FF14815108000F7B23 /* PDF.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

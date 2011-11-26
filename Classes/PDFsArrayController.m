@@ -1,10 +1,18 @@
 #import "PDFsArrayController.h"
 
+#import "ApplicationDelegate.h"
+#import "PDF.h"
+
 @implementation PDFsArrayController
 
 - (id) init {
   debugLog(@"[PDFsArrayController] init");
   self = [super init];
+  if (self) {
+    [self setAutomaticallyRearrangesObjects:YES];
+    [self setAutomaticallyPreparesContent:YES];
+    [self setEntityName:@"PDF"];
+  }
   return self;
 }
 
@@ -15,13 +23,22 @@
   NSArray *urls = [fileManager contentsOfDirectoryAtURL:[NSApp pdfsDirectoryURL] includingPropertiesForKeys:NULL options:NSDirectoryEnumerationSkipsHiddenFiles error:&error];
 
   for (NSURL *url in urls) {
-    if (![[self arrangedObjects] containsObject:url]) [self addObject:url];
+    if ([[self PDFsWithURL:url] count] == 0) {
+      PDF *pdf = [self newObject];
+      pdf.url = url;
+      if (![[self arrangedObjects] containsObject:url]) [self addObject:pdf];
+    }
   }
   
-  for (NSURL *url in [self arrangedObjects]) {
-    if (![urls containsObject:url]) [self removeObject:url];
-  }  
+  for (PDF *pdf in [self arrangedObjects]) {
+    if (![urls containsObject:pdf.url]) [self removeObject:pdf];
+  }
+  [[NSApp managedObjectContext] commitEditing];
 }
 
+- (NSArray*) PDFsWithURL:(NSURL*)url {
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"url == %@", url];
+  return [[self arrangedObjects] filteredArrayUsingPredicate:predicate];
+}
 
 @end

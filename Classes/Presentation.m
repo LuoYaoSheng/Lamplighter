@@ -3,7 +3,7 @@
 
 @implementation Presentation 
 
-// Note that the content is never stored in the CoreData object, it's derived from the slides
+// Note that the "content" is never stored in the CoreData object, it's derived from the slides
 @dynamic title;
 @dynamic footnote;
 @dynamic slides;

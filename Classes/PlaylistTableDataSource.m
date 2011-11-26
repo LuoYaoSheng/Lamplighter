@@ -36,7 +36,13 @@
   NSArray *types = [[info draggingPasteboard] types];
   
   if ([types containsObject:PDFDataType]) {
-    object = [NSURL URLWithString:[[info draggingPasteboard] stringForType:PDFDataType]];
+    //object = [NSURL URLWithString:[[info draggingPasteboard] stringForType:PDFDataType]];
+    
+    NSURL *url = [NSURL URLWithString:[[info draggingPasteboard] stringForType:PDFDataType]];
+    // We ensure that the Song already exists in our database (i.e. is committed and saved)
+    NSManagedObjectID *objectID = [[NSApp persistentStoreCoordinator] managedObjectIDForURIRepresentation:url];
+    object = [[NSApp managedObjectContext] objectRegisteredForID:objectID];
+
     
   } else if ([types containsObject:SongDataType]) {
     NSURL *url = [NSURL URLWithString:[[info draggingPasteboard] stringForType:SongDataType]];
