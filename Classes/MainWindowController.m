@@ -18,7 +18,7 @@
 
 @synthesize applicationDelegate;
 @synthesize playlistTableColumn, playlistTableView;
-@synthesize previewCollectionView, previewPDFThumbnailView, liveviewCollectionView;
+@synthesize previewCollectionView, previewPDFView, previewPDFThumbnailView, liveviewCollectionView;
 
 /******************
  * INITIALIZATION *
@@ -29,6 +29,8 @@
   [self setupPlaylistTable];
   [self setupObservers];
   [self setupMenuLocalization];
+  self.previewPDFView = [PDFView new];
+  [self.previewPDFThumbnailView setPDFView:self.previewPDFView];
 }
 
 - (void) setupObservers {

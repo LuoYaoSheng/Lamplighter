@@ -23,16 +23,13 @@
     NSDictionary *tableContentBindingInfo = [[notification object] infoForBinding:NSContentBinding];
     if (tableContentBindingInfo != nil) {
       NSArrayController *tableArrayController = [tableContentBindingInfo objectForKey:NSObservedObjectKey];
+      id object = [[tableArrayController selectedObjects] lastObject];
       
-      if ([notification object] == [self songsTableView] || [notification object] == [self playlistTableView]) {
-        // Let's bind the Projector Slide
-        Presentation *presentation = [[tableArrayController selectedObjects] lastObject];
-        //[[NSApp projectorSlideController] setContent:[[song sortedSlides] objectAtIndex:0]];
-        
-        [self setPresentation:presentation];
-      } else if ([notification object] == [self pdfsTableView]) {
-        PDF *pdf = [[tableArrayController selectedObjects] lastObject];
-        [self setPDF:pdf];
+      
+      if ([object isKindOfClass:[Presentation class]]) {
+        [self setPresentation:object];
+      } else if ([object isKindOfClass:[PDF class]]) {
+        [self setPDF:object];
       }
     }
   }
@@ -75,11 +72,8 @@
 - (void) setPDF:(PDF*)pdf {
   [[[NSApp mainWindowController] previewPDFThumbnailView] setHidden:NO];
   [[[NSApp mainWindowController] previewCollectionView] setHidden:YES];
-  debugLog(@"Setting pdf: %@", pdf.title);
-  //NSData *pdfData = [[NSData alloc] initWithContentsOfURL:pdf.url];
   PDFDocument *document = [[PDFDocument alloc] initWithURL:pdf.url];
-  
-  [[[NSApp mainWindowController] previewPDFThumbnailView] setdocum];
+  [[[NSApp mainWindowController] previewPDFView] setDocument:document];
 }
 
 /********************

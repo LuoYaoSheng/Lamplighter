@@ -1,3 +1,5 @@
+#import <Quartz/Quartz.h>
+
 @class ApplicationDelegate;
 @class PreviewController;
 @class LiveviewController;
@@ -24,6 +26,7 @@
   PlaylistTableDataSource *playlistTableDataSource;
 
   // Collection/Thumbnail Views
+  IBOutlet PDFView *previewPDFView;
   IBOutlet PreviewPDFThumbnailView *previewPDFThumbnailView;
   IBOutlet BaseCollectionView *previewCollectionView;
   IBOutlet BaseCollectionView *liveviewCollectionView;
@@ -60,6 +63,7 @@
 @property (nonatomic, retain, readonly) PlaylistTableDataSource *playlistTableDataSource;
 
 // Collection/Thumbnail Views
+@property (nonatomic, retain, readwrite) PDFView *previewPDFView;
 @property (nonatomic, retain, readonly) PreviewPDFThumbnailView *previewPDFThumbnailView;
 @property (nonatomic, retain, readonly) BaseCollectionView *previewCollectionView;
 @property (nonatomic, retain, readonly) BaseCollectionView *liveviewCollectionView;
