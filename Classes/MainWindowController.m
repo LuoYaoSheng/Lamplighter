@@ -18,7 +18,7 @@
 
 @synthesize applicationDelegate;
 @synthesize playlistTableColumn, playlistTableView;
-@synthesize previewCollectionView, liveviewCollectionView;
+@synthesize previewCollectionView, previewPDFThumbnailView, liveviewCollectionView;
 
 /******************
  * INITIALIZATION *

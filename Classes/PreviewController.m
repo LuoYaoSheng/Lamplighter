@@ -4,6 +4,8 @@
 #import "ApplicationDelegate.h"
 #import "MainWindowController.h"
 #import "SongsDrawerViewController.h"
+#import "PDFsDrawerViewController.h"
+#import "PDF.h"
 
 @implementation PreviewController
 
@@ -28,6 +30,9 @@
         //[[NSApp projectorSlideController] setContent:[[song sortedSlides] objectAtIndex:0]];
         
         [self setPresentation:presentation];
+      } else if ([notification object] == [self pdfsTableView]) {
+        PDF *pdf = [[tableArrayController selectedObjects] lastObject];
+        [self setPDF:pdf];
       }
     }
   }
@@ -62,7 +67,19 @@
 }
 
 - (void) setPresentation:(Presentation*)presentation {
+  [[[NSApp mainWindowController] previewCollectionView] setHidden:NO];
+  [[[NSApp mainWindowController] previewPDFThumbnailView] setHidden:YES];
   [[[NSApp mainWindowController] previewCollectionView] setContent:[presentation sortedSlides]];
+}
+
+- (void) setPDF:(PDF*)pdf {
+  [[[NSApp mainWindowController] previewPDFThumbnailView] setHidden:NO];
+  [[[NSApp mainWindowController] previewCollectionView] setHidden:YES];
+  debugLog(@"Setting pdf: %@", pdf.title);
+  //NSData *pdfData = [[NSData alloc] initWithContentsOfURL:pdf.url];
+  PDFDocument *document = [[PDFDocument alloc] initWithURL:pdf.url];
+  
+  [[[NSApp mainWindowController] previewPDFThumbnailView] setdocum];
 }
 
 /********************
@@ -71,6 +88,10 @@
 
 - (NSTableView*) songsTableView {
   return [[[NSApp mainWindowController] songsDrawerViewController] songsTableView];
+}
+
+- (NSTableView*) pdfsTableView {
+  return [[[NSApp mainWindowController] pdfsDrawerViewController] tableView];
 }
 
 - (NSTableView*) playlistTableView {
