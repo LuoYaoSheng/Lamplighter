@@ -29,14 +29,18 @@
   [self setupPlaylistTable];
   [self setupObservers];
   [self setupMenuLocalization];
-  self.previewPDFView = [PDFView new];
-  [self.previewPDFThumbnailView setPDFView:self.previewPDFView];
+  [self setupPDFViews];
 }
 
 - (void) setupObservers {
   [[NSNotificationCenter defaultCenter] addObserver:self.liveviewCollectionView selector:@selector(projectorSlideViewWillDrawNotification:) name:ProjectorSlideViewWillDraw object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self.previewCollectionView selector:@selector(projectorSlideViewWillDrawNotification:) name:ProjectorSlideViewWillDraw object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self.liveviewController selector:@selector(slideViewWasDoubleClickedNotification:) name:SlideViewWasDoubleClickedNotification object:nil];
+}
+
+- (void) setupPDFViews {
+  self.previewPDFView = [PDFView new];
+  [self.previewPDFThumbnailView setBackgroundColor:[NSColor headerColor]];
 }
 
 /************

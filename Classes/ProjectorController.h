@@ -21,6 +21,7 @@
  ***********/
 
 // Instance Methods
+- (NSSize) recommendedThumbnailSize;
 - (NSSize) sizeOfProjectorScreen;
 - (BOOL) isBlank;
 - (void) goBlank;

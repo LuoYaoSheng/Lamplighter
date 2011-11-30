@@ -28,26 +28,12 @@
  *****************/
 
 - (void) resizePreviewSlidesAccordingToProjectorViewSize {
-  [self resizePreviewSlidesAccordingTo:[[NSApp projectorController] sizeOfProjectorScreen]];
+  [self resizePreviewSlidesAccordingTo:[[NSApp projectorController] recommendedThumbnailSize]];
 }
 
 - (void) resizePreviewSlidesAccordingTo:(NSSize)size {
-  CGFloat width = size.width;
-  CGFloat height = size.height;
-  CGFloat ratio = width / height;
-  // Derive the preview slide size from the MainWindow screen size
-  NSRect screenRect = [[[[NSApp mainWindowController] window] screen] frame];
-  if (ratio > 1) {
-    // Make the horizontal projector slide fit into the preview slide constraints
-    width = screenRect.size.width / 4.5;
-    height = width / ratio;
-  } else {
-    // Make the vertical projector slide fit into the preview slide constraints
-    height = screenRect.size.height / 5.5;
-    width = height * ratio;
-  }
-  [self setMaxItemSize:NSMakeSize(width, height)];
-  [self setMinItemSize:NSMakeSize(width, height)];
+  [self setMaxItemSize:NSMakeSize(size.width, size.height)];
+  [self setMinItemSize:NSMakeSize(size.width, size.height)];
 }
 
 /* Set the Content and select the item according to the given index.

@@ -21,7 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="4"/>
+			<integer value="184"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -424,7 +424,7 @@
 											<float key="ThumbSizeHeight">64</float>
 											<int key="MaxColumns">0</int>
 											<bool key="Bezeled">NO</bool>
-											<bool key="AllowsDragging">YES</bool>
+											<bool key="AllowsDragging">NO</bool>
 											<nil key="PDFView"/>
 										</object>
 										<object class="NSScrollView" id="417976131">
@@ -2851,7 +2851,7 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{310, 531}, {616, 169}}</string>
+					<string>{{310, 700}, {616, 0}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
@@ -3000,6 +3000,7 @@
 							<string>playlistTableView</string>
 							<string>previewCollectionView</string>
 							<string>previewPDFThumbnailView</string>
+							<string>previewPDFView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -3009,6 +3010,7 @@
 							<string>NSTableView</string>
 							<string>BaseCollectionView</string>
 							<string>PreviewPDFThumbnailView</string>
+							<string>PDFView</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -3021,6 +3023,7 @@
 							<string>playlistTableView</string>
 							<string>previewCollectionView</string>
 							<string>previewPDFThumbnailView</string>
+							<string>previewPDFView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -3047,6 +3050,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">previewPDFThumbnailView</string>
 								<string key="candidateClassName">PreviewPDFThumbnailView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">previewPDFView</string>
+								<string key="candidateClassName">PDFView</string>
 							</object>
 						</object>
 					</object>

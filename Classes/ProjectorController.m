@@ -14,6 +14,25 @@
  * INSTANCE METHODS *
  ********************/
 
+- (NSSize) recommendedThumbnailSize {
+  NSSize size = [self sizeOfProjectorScreen];
+  CGFloat width = size.width;
+  CGFloat height = size.height;
+  CGFloat ratio = width / height;
+  // Derive the preview slide size from the MainWindow screen size
+  NSRect screenRect = [[[[NSApp mainWindowController] window] screen] frame];
+  if (ratio > 1) {
+    // Make the horizontal projector slide fit into the preview slide constraints
+    width = screenRect.size.width / 4.5;
+    height = width / ratio;
+  } else {
+    // Make the vertical projector slide fit into the preview slide constraints
+    height = screenRect.size.height / 5.5;
+    width = height * ratio;
+  }
+  return NSMakeSize(width, height);
+}
+
 - (NSSize) sizeOfProjectorScreen {
   NSRect frame;
   if ([NSApp singleScreenMode] && [self isLive]) {

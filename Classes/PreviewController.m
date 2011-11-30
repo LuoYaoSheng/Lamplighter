@@ -73,6 +73,8 @@
   [[[NSApp mainWindowController] previewPDFThumbnailView] setHidden:NO];
   [[[NSApp mainWindowController] previewCollectionView] setHidden:YES];
   PDFDocument *document = [[PDFDocument alloc] initWithURL:pdf.url];
+  [[[NSApp mainWindowController] previewPDFThumbnailView] setPDFView:NULL];
+  [[[NSApp mainWindowController] previewPDFThumbnailView] setPDFView:[[NSApp mainWindowController] previewPDFView]];
   [[[NSApp mainWindowController] previewPDFView] setDocument:document];
 }
 
