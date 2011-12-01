@@ -23,11 +23,11 @@
   NSRect screenRect = [[[[NSApp mainWindowController] window] screen] frame];
   if (ratio > 1) {
     // Make the horizontal projector slide fit into the preview slide constraints
-    width = screenRect.size.width / 4.5;
+    width = screenRect.size.width / 5;
     height = width / ratio;
   } else {
     // Make the vertical projector slide fit into the preview slide constraints
-    height = screenRect.size.height / 5.5;
+    height = screenRect.size.height / 6;
     width = height * ratio;
   }
   return NSMakeSize(width, height);
@@ -61,13 +61,12 @@
 
 - (void) goLive {
   [[self projectorWindowController] showWindow:self];
-  [[[NSApp mainWindowController] liveviewCollectionView] updateThumbnailSize];
-  [[[NSApp mainWindowController] previewCollectionView] updateThumbnailSize];
-  [[[NSApp mainWindowController] previewPDFThumbnailView] updateThumbnailSize];
+  [[NSApp mainWindowController] updateThumbnailSize];
 }
 
 - (void) leaveLive {
   [[self projectorWindowController] close];
+  [[NSApp mainWindowController] updateThumbnailSize];
 }
 
 - (void) setSlide:(Slide*)newSlide {

@@ -63,12 +63,4 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:CollectionViewSelectionDidChangeNotification object:self];
 }
 
-/****************
- * NOTIFICAIONS *
- ****************/
-
-- (void) projectorSlideViewWillDrawNotification:(NSNotification*)notification {
-  [self updateThumbnailSize];
-}
-
 @end
