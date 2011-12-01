@@ -61,8 +61,9 @@
 
 - (void) goLive {
   [[self projectorWindowController] showWindow:self];
-  [[[NSApp mainWindowController] liveviewCollectionView] resizePreviewSlidesAccordingToProjectorViewSize];
-  [[[NSApp mainWindowController] previewCollectionView] resizePreviewSlidesAccordingToProjectorViewSize];
+  [[[NSApp mainWindowController] liveviewCollectionView] updateThumbnailSize];
+  [[[NSApp mainWindowController] previewCollectionView] updateThumbnailSize];
+  [[[NSApp mainWindowController] previewPDFThumbnailView] updateThumbnailSize];
 }
 
 - (void) leaveLive {

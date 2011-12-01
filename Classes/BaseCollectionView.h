@@ -6,7 +6,7 @@
 }
 
 // Item handling
-- (void) resizePreviewSlidesAccordingToProjectorViewSize;
+- (void) updateThumbnailSize;
 - (void) resizePreviewSlidesAccordingTo:(NSSize)size;
 - (void) setContent:(id)newContent andIndex:(NSUInteger)index;
 

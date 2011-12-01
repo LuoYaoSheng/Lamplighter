@@ -14,9 +14,7 @@
  ********************/
 
 - (NSCollectionViewItem*) newItemForRepresentedObject:(id)object {
-  //[self setMaxItemSize:NSMakeSize(200, 150)];
-  //[self setMinItemSize:NSMakeSize(200, 150)];
-  [self resizePreviewSlidesAccordingToProjectorViewSize];
+  [self updateThumbnailSize];
   SlideView *slideView = [[SlideView alloc] initWithSlide:object andCollectionView:self];
   SlideCollectionViewItem *item = [SlideCollectionViewItem new];
   [item setView:slideView];
@@ -27,7 +25,7 @@
  * ITEM HANDLING *
  *****************/
 
-- (void) resizePreviewSlidesAccordingToProjectorViewSize {
+- (void) updateThumbnailSize {
   [self resizePreviewSlidesAccordingTo:[[NSApp projectorController] recommendedThumbnailSize]];
 }
 
@@ -70,7 +68,7 @@
  ****************/
 
 - (void) projectorSlideViewWillDrawNotification:(NSNotification*)notification {
-  [self resizePreviewSlidesAccordingToProjectorViewSize];
+  [self updateThumbnailSize];
 }
 
 @end

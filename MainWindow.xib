@@ -418,7 +418,7 @@
 													<string>NeXT TIFF v4.0 pasteboard type</string>
 												</object>
 											</object>
-											<string key="NSFrameSize">{172, 270}</string>
+											<string key="NSFrame">{{-1, -1}, {174, 272}}</string>
 											<reference key="NSSuperview" ref="473069228"/>
 											<float key="ThumbSizeWidth">64</float>
 											<float key="ThumbSizeHeight">64</float>
@@ -2820,7 +2820,7 @@
 					<string>PreviewPDFThumbnailView</string>
 					<string>com.apple.pdfkit.ibplugin</string>
 					<object class="NSAffineTransform">
-						<bytes key="NSTransformStruct">AUCgAABCJAAAA</bytes>
+						<bytes key="NSTransformStruct">AUEQAABCqAAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
