@@ -33,7 +33,7 @@
     NSMutableArray *urls = [NSMutableArray array];
     NSString *dataType;
     
-    for (id *object in objects) {
+    for (id object in objects) {
       NSURL *url;
       if (table == [[[NSApp mainWindowController] pdfsDrawerViewController] tableView]) {
         // URL to a PDF file on disk
