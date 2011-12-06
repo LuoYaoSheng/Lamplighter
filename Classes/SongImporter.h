@@ -1,7 +1,9 @@
+#import "Importer.h"
+
 @class SongsArrayController;
 @class ProgressWindowController;
 
-@interface SongImporter : NSObject {
+@interface SongImporter : Importer {
 
   NSString *filepath;
   NSXMLDocument *document;
@@ -22,7 +24,5 @@
 - (void) importEasislides;
 - (void) addSong:(NSString*)title withContent:(NSString*)content andFootnote:(NSString*)footnote;
 - (id) managedObjectContextForThread;
-
-- (ProgressWindowController*) progressWindowController;
 
 @end

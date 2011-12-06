@@ -1,5 +1,8 @@
 #import "PDFsTableDataSource.h"
 
+#import "ApplicationDelegate.h"
+#import "PDFImporter.h"
+
 @implementation PDFsTableDataSource
 
 /*
@@ -17,12 +20,11 @@
 
 - (BOOL) tableView:(NSTableView*)table acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)targetRow dropOperation:(NSTableViewDropOperation)operation {
   
-  //NSArray *paths = [[info draggingPasteboard] propertyListForType:NSFilenamesPboardType];
-  //NSString *path = [paths objectAtIndex:0];
+  NSArray *paths = [[info draggingPasteboard] propertyListForType:NSFilenamesPboardType];
   
-  debugLog(@"Activating Importer...");
-  
-  return NO;
+  PDFImporter *importer = [[PDFImporter alloc] initWithPaths:paths];
+  debugLog(@"Activating PDF Importer...");
+  return [importer import];
 }
 
 

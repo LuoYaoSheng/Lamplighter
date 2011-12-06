@@ -64,6 +64,8 @@
 		D8E6DEA11476C246000F7B23 /* PDFsTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DEA01476C246000F7B23 /* PDFsTableDataSource.m */; };
 		D8E6DF111477FFAF000F7B23 /* PDFsArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DF101477FFAF000F7B23 /* PDFsArrayController.m */; };
 		D8E6E1FF14815108000F7B23 /* PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6E1FE14815108000F7B23 /* PDF.m */; };
+		E0CDED52148E98EE0044B115 /* PDFImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = E0CDED51148E98EE0044B115 /* PDFImporter.m */; };
+		E0CDED56148E9AE00044B115 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = E0CDED55148E9AE00044B115 /* Importer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +172,10 @@
 		D8E6E1FD14815108000F7B23 /* PDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDF.h; path = Classes/PDF.h; sourceTree = "<group>"; };
 		D8E6E1FE14815108000F7B23 /* PDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDF.m; path = Classes/PDF.m; sourceTree = "<group>"; };
 		E0CDED4B148E8A600044B115 /* Lamplighter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Lamplighter.entitlements; sourceTree = "<group>"; };
+		E0CDED50148E98EE0044B115 /* PDFImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFImporter.h; path = Classes/PDFImporter.h; sourceTree = "<group>"; };
+		E0CDED51148E98EE0044B115 /* PDFImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFImporter.m; path = Classes/PDFImporter.m; sourceTree = "<group>"; };
+		E0CDED54148E9AE00044B115 /* Importer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Importer.h; path = Classes/Importer.h; sourceTree = "<group>"; };
+		E0CDED55148E9AE00044B115 /* Importer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Importer.m; path = Classes/Importer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +273,10 @@
 			children = (
 				D8E6DE901476BFBF000F7B23 /* SongImporter.h */,
 				D8E6DE911476BFBF000F7B23 /* SongImporter.m */,
+				E0CDED50148E98EE0044B115 /* PDFImporter.h */,
+				E0CDED51148E98EE0044B115 /* PDFImporter.m */,
+				E0CDED54148E9AE00044B115 /* Importer.h */,
+				E0CDED55148E9AE00044B115 /* Importer.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -662,6 +672,8 @@
 				D8E6DEA11476C246000F7B23 /* PDFsTableDataSource.m in Sources */,
 				D8E6DF111477FFAF000F7B23 /* PDFsArrayController.m in Sources */,
 				D8E6E1FF14815108000F7B23 /* PDF.m in Sources */,
+				E0CDED52148E98EE0044B115 /* PDFImporter.m in Sources */,
+				E0CDED56148E9AE00044B115 /* Importer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

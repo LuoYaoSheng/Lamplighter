@@ -3,8 +3,8 @@
 #import "Song.h"
 #import "ApplicationDelegate.h"
 #import "MainWindowController.h"
-#import "ProgressWindowController.h"
 #import "SongsArrayController.h"
+#import "ProgressWindowController.h"
 
 @implementation SongImporter
 
@@ -62,8 +62,6 @@
   debugLog(@"Importing: %@", [[self.document rootElement] name]);
   NSUInteger songsCount = [[self.document rootElement] childCount];
   
-  NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-  
   int i = 1;
   for (NSXMLElement* element in [[self.document rootElement] children]) {
     float progress = ((float)i / songsCount) * 100;
@@ -100,11 +98,7 @@
 
     //debugLog(@"addsong stop...");
 
-    [dict setValue:[NSNumber numberWithFloat:progress] forKey:@"progress"];
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:ProgressDidChangeNotification object:self userInfo:dict];
-
-    
+    [self setProgress:progress];
     
     i++;
     //if (i >= 3000) break;
@@ -144,13 +138,4 @@
  [songsArrayController setManagedObjectContext:[self managedObjectContextForThread]];
  return songsArrayController;
 }
-
-/********************
- * ACCESSOR METHODS *
- ********************/
-
-- (ProgressWindowController*) progressWindowController {
-  return [[NSApp mainWindowController] progressWindowController];
-}
-
 @end
