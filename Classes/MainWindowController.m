@@ -132,7 +132,6 @@
 }
 
 - (BOOL) isDrawerOpen {
-  NSDrawerState state = [songsDrawer state];
   return [songsDrawer state] == NSDrawerOpenState || [songsDrawer state] == NSDrawerOpeningState;
 }
 
@@ -152,7 +151,7 @@
   return editSongWindowController;
 }
 
-- (NSWindowController*) progressWindowController {
+- (ProgressWindowController*) progressWindowController {
   if (progressWindowController) return progressWindowController;
 	progressWindowController = [[ProgressWindowController alloc] initWithWindowNibName:@"ProgressWindow"];
   return progressWindowController;

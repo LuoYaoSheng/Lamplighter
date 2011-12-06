@@ -128,7 +128,7 @@
   debugLog(@"after array");
 }
 
-- (id) managedObjectContextForThread; {    
+- (id) managedObjectContextForThread {    
   NSManagedObjectContext * newContext = [[[NSThread currentThread] threadDictionary] valueForKey:@"managedObjectContext"];
   if(newContext) return newContext;
   

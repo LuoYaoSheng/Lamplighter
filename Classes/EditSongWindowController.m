@@ -3,6 +3,7 @@
 #import "ApplicationDelegate.h"
 #import "Song.h"
 #import "PreviewController.h"
+#import "MainWindowController.h"
 
 @implementation EditSongWindowController
 
@@ -30,6 +31,7 @@
   self.contentErrors = NO;
   [self updateButtons];
   [self.window makeFirstResponder:titleField];
+
   [NSApp beginSheet:self.window modalForWindow:[[NSApp mainWindowController] window] modalDelegate:self didEndSelector:@selector(sheetEnded:returnCode:contextInfo:) contextInfo:NULL]; 
 }
 

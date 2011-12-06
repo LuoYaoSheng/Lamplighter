@@ -2,6 +2,7 @@
 
 #import "ApplicationDelegate.h"
 #import "Song.h"
+#import "MainWindowController.h"
 
 @implementation NewSongWindowController
 

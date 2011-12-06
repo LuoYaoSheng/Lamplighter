@@ -17,8 +17,8 @@
 
 - (BOOL) tableView:(NSTableView*)table acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)targetRow dropOperation:(NSTableViewDropOperation)operation {
   
-  NSArray *paths = [[info draggingPasteboard] propertyListForType:NSFilenamesPboardType];
-  NSString *path = [paths objectAtIndex:0];
+  //NSArray *paths = [[info draggingPasteboard] propertyListForType:NSFilenamesPboardType];
+  //NSString *path = [paths objectAtIndex:0];
   
   debugLog(@"Activating Importer...");
   

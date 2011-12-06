@@ -60,8 +60,18 @@
 
 - (BOOL) ensureApplicationSupportDirectory;
 - (BOOL) ensureDatabaseDirectory;
+- (BOOL) ensurePDFsDirectory;
 - (NSURL*) databaseDirectoryURL;
+- (NSURL*) pdfsDirectoryURL;
+- (NSURL*) databaseFileURL;
 - (NSString*) databaseDirectoryPath;
+- (NSString*) pdfsDirectoryPath;
+
+/******************
+ * ERROR HANDLING *
+ ******************/
+
+- (void) throwError:(NSUInteger)code withInfo:(NSString*)info;
 
 /********************
  * INSTANCE METHODS *

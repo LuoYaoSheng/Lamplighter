@@ -4,4 +4,7 @@
 
 }
 
+
+- (void) updateThumbnailSize;
+
 @end

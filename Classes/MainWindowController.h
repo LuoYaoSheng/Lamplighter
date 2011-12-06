@@ -10,6 +10,7 @@
 @class PlaylistTableDataSource;
 @class BaseCollectionView;
 @class PreviewPDFThumbnailView;
+@class ProgressWindowController;
 
 @interface MainWindowController : NSWindowController {
   
@@ -42,7 +43,7 @@
   EditSongWindowController *editSongWindowController;
 
   // Periphals
-  NSWindowController *progressWindowController;
+  ProgressWindowController *progressWindowController;
 
 }
 
@@ -79,7 +80,7 @@
 @property (nonatomic, retain, readonly) EditSongWindowController *editSongWindowController;
 
 // Periphals
-@property (nonatomic, retain, readonly) NSWindowController *progressWindowController;
+@property (nonatomic, retain, readonly) ProgressWindowController *progressWindowController;
 
 /***********
  * METHODS *
@@ -87,6 +88,7 @@
 
 // Initialization
 - (void) setupObservers;
+- (void) setupPDFViews;
 
 // Playlist
 - (void) setupPlaylistTable;
@@ -106,5 +108,8 @@
 - (IBAction) toggleSongsDrawerAction:sender;
 - (IBAction) toggleLiveAction:sender;
 - (IBAction) projectorGoBlankAction:sender;
+
+// Preview
+- (void) updateThumbnailSize;
 
 @end

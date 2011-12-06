@@ -4,7 +4,7 @@
 
   IBOutlet NSTableColumn *songsTableColumn;
   IBOutlet NSTableView *songsTableView;
-  IBOutlet NSButton *newSongButton;
+  IBOutlet NSButton *createSongButton;
   IBOutlet NSSearchField *searchField;
   
   // Data Sources
@@ -18,7 +18,7 @@
 // GUI Items
 @property (nonatomic, retain) IBOutlet NSTableColumn *songsTableColumn;
 @property (nonatomic, retain, readonly) IBOutlet NSTableView *songsTableView;
-@property (nonatomic, retain, readonly) IBOutlet NSButton *newSongButton;
+@property (nonatomic, retain, readonly) IBOutlet NSButton *createSongButton;
 @property (nonatomic, retain, readonly) IBOutlet NSSearchField *searchField;
 
 // Data Sources

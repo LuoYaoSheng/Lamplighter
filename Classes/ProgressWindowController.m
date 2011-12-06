@@ -8,7 +8,7 @@
 @synthesize progressIndicator;
 
 - (void) setMaxValue:(NSUInteger)newValue {
-  debugLog(@"maximum value is %i", newValue);
+  debugLog(@"maximum value is %i", (int)newValue);
   //[self.progressIndicator setIndeterminate:NO];
   [self.progressIndicator setMaxValue:(double)newValue];
 }

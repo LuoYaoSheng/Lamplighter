@@ -4,4 +4,7 @@
 
 }
 
+- (void) update;
+- (NSArray*) PDFsWithURL:(NSURL*)url;
+
 @end

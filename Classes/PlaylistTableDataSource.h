@@ -4,6 +4,7 @@
 
 }
 
+- (void) addObject:(id)object;
 - (void) moveObject:(id)object toRow:(NSInteger)targetRow;
 
 @end

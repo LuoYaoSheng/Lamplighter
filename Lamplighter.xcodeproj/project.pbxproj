@@ -103,7 +103,7 @@
 		D87981AC143ADA1E001D9CB7 /* BaseCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseCollectionView.h; path = Classes/BaseCollectionView.h; sourceTree = "<group>"; };
 		D87981AD143ADA1E001D9CB7 /* BaseCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseCollectionView.m; path = Classes/BaseCollectionView.m; sourceTree = "<group>"; };
 		D8825B6C141CADC9005E96B7 /* ApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplicationDelegate.h; path = Classes/ApplicationDelegate.h; sourceTree = "<group>"; };
-		D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplicationDelegate.m; path = Classes/ApplicationDelegate.m; sourceTree = "<group>"; };
+		D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; name = ApplicationDelegate.m; path = Classes/ApplicationDelegate.m; sourceTree = "<group>"; tabWidth = 2; wrapsLines = 0; };
 		D8825B6E141CADC9005E96B7 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = Classes/MainWindowController.h; sourceTree = "<group>"; };
 		D8825B70141CADC9005E96B7 /* SongsDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongsDrawerViewController.h; path = Classes/SongsDrawerViewController.h; sourceTree = "<group>"; };
 		D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongsDrawerViewController.m; path = Classes/SongsDrawerViewController.m; sourceTree = "<group>"; };
@@ -169,6 +169,7 @@
 		D8E6DF101477FFAF000F7B23 /* PDFsArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFsArrayController.m; path = Classes/PDFsArrayController.m; sourceTree = "<group>"; };
 		D8E6E1FD14815108000F7B23 /* PDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDF.h; path = Classes/PDF.h; sourceTree = "<group>"; };
 		D8E6E1FE14815108000F7B23 /* PDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDF.m; path = Classes/PDF.m; sourceTree = "<group>"; };
+		E0CDED4B148E8A600044B115 /* Lamplighter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Lamplighter.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +230,7 @@
 		29B97314FDCFA39411CA2CEA /* Lamplighter */ = {
 			isa = PBXGroup;
 			children = (
+				E0CDED4B148E8A600044B115 /* Lamplighter.entitlements */,
 				D8A00D231416A0E20034792D /* Application */,
 				D8A00D411416A1440034792D /* Config */,
 				D8A00D441416A16F0034792D /* Locales */,
@@ -570,6 +572,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = funkensturm;
 			};
 			buildConfigurationList = 26FC0A880875C7B200E6366F /* Build configuration list for PBXProject "Lamplighter" */;
@@ -680,9 +683,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Lamplighter.entitlements;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -698,6 +701,7 @@
 		26FC0A860875C7B200E6366F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Lamplighter.entitlements;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
@@ -720,8 +724,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -732,8 +735,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};

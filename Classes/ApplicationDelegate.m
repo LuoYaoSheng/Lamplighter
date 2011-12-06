@@ -4,7 +4,7 @@
 #import "SongsArrayController.h"
 #import "PDFsArrayController.h"
 #import "PlaylistArrayController.h"
-#import "ProjectorController.h";
+#import "ProjectorController.h"
 
 @implementation ApplicationDelegate
 
@@ -125,7 +125,7 @@
   NSManagedObjectModel *mom = self.managedObjectModel;
   if (!mom) {
     NSAssert(NO, @"Managed object model is nil");
-    NSLog(@"%@:%s No model to generate a store from", [self class], _cmd);
+    NSLog(@"%@:%s No model to generate a store from", [self class], (char*)_cmd);
     return nil;
   }
   
@@ -147,7 +147,7 @@
  */
 - (NSManagedObjectContext*) managedObjectContext {
   if (managedObjectContext) return managedObjectContext;
-  debugLog(@"%@:%s Instantiating...", [self class], _cmd);
+  debugLog(@"%@:%s Instantiating...", [self class], (char*)_cmd);
 
   NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
   if (!coordinator) {
@@ -272,7 +272,7 @@
 - (IBAction) saveAction:sender {
   NSError *error = nil;
   if (![self.managedObjectContext commitEditing]) {
-    NSLog(@"%@:%s unable to commit editing before saving", [self class], _cmd);
+    NSLog(@"%@:%s unable to commit editing before saving", [self class], (char*)_cmd);
   }
   if (![self.managedObjectContext save:&error]) {
     [self presentError:error];
@@ -306,7 +306,7 @@
   if (!self.managedObjectContext) return NSTerminateNow;
 
   if (![self.managedObjectContext commitEditing]) {
-    NSLog(@"%@:%s unable to commit editing to terminate", [self class], _cmd);
+    NSLog(@"%@:%s unable to commit editing to terminate", [self class], (char*)_cmd);
     return NSTerminateCancel;
   }
   if (![self.managedObjectContext hasChanges]) return NSTerminateNow;

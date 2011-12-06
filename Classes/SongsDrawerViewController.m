@@ -9,7 +9,7 @@
 
 @implementation SongsDrawerViewController
 
-@synthesize songsTableColumn, songsTableView, newSongButton, searchField;
+@synthesize songsTableColumn, songsTableView, createSongButton, searchField;
 
 /******************
  * INITIALIZATION *
