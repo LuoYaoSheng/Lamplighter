@@ -24,7 +24,10 @@
     NSError *error = nil;
     NSString *target = [[NSApp pdfsDirectoryPath] stringByAppendingPathComponent:[source lastPathComponent]];
     
-    if (![fileManager contentsEqualAtPath:source andPath:target]) {
+    CFStringRef fileExtension = (CFStringRef) [source pathExtension];
+    CFStringRef fileUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension, NULL);
+
+    if (UTTypeConformsTo(fileUTI, kUTTypePDF) && ![fileManager contentsEqualAtPath:source andPath:target]) {
       if ([fileManager fileExistsAtPath:target]) [fileManager removeItemAtPath:target error:&error];
       if (error) NSLog(@"Error when removing existing file: %@", error);
       debugLog(@"Importing PDF %@", source);
@@ -33,6 +36,7 @@
     }
     [self setProgress:progress];
 
+    CFRelease(fileUTI);
     i++;
   }
   

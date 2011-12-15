@@ -9,7 +9,7 @@
  ********************/
 
 - (NSString*) title {
-  return [url lastPathComponent];
+  return [url.lastPathComponent stringByDeletingPathExtension];;
 }
 
 - (void) setTitle:(NSString *)newTitle {

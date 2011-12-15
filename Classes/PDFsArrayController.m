@@ -24,9 +24,15 @@
 
   for (NSURL *url in urls) {
     if ([[self PDFsWithURL:url] count] == 0) {
-      PDF *pdf = [self newObject];
-      pdf.url = url;
-      if (![[self arrangedObjects] containsObject:url]) [self addObject:pdf];
+      CFStringRef fileExtension = (CFStringRef) [url pathExtension];
+      CFStringRef fileUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension, NULL);
+      
+      if (UTTypeConformsTo(fileUTI, kUTTypePDF)) {
+        PDF *pdf = [self newObject];
+        pdf.url = url;
+        if (![[self arrangedObjects] containsObject:url]) [self addObject:pdf];
+      }
+      CFRelease(fileUTI);
     }
   }
   
