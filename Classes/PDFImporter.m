@@ -14,9 +14,7 @@
 }
 
 - (BOOL) import {
-  
   NSFileManager *fileManager = [NSFileManager defaultManager];
-  
   NSUInteger totalCount = [self.paths count];
 
   int i = 1;
@@ -27,12 +25,11 @@
     NSString *target = [[NSApp pdfsDirectoryPath] stringByAppendingPathComponent:[source lastPathComponent]];
     
     if (![fileManager contentsEqualAtPath:source andPath:target]) {
+      if ([fileManager fileExistsAtPath:target]) [fileManager removeItemAtPath:target error:&error];
+      if (error) NSLog(@"Error when removing existing file: %@", error);
+      debugLog(@"Importing PDF %@", source);
       [fileManager copyItemAtPath:source toPath:target error:&error];
-    }
-    if (error) {
-      NSLog(@"Error: %@", error);
-      [[self progressWindowController] orderOut];
-      return NO;
+      if (error) NSLog(@"Error when importing PDF: %@", error);
     }
     [self setProgress:progress];
 
@@ -42,7 +39,6 @@
   [[self progressWindowController] orderOut];
   [[NSApp pdfsArrayController] update];
   return YES;
-  
 }
 
 @end
