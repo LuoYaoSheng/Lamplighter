@@ -1,7 +1,7 @@
-@interface SongsTableView : NSTableView {
+#import "DeletableTableView.h"
+
+@interface SongsTableView : DeletableTableView {
 
 }
-
-- (void) deleteSelectedSong:(BOOL)force;
 
 @end

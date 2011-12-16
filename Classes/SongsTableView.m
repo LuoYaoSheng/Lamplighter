@@ -5,31 +5,14 @@
 
 @implementation SongsTableView
 
-- (void) keyDown:(NSEvent*)event {
-  NSString *chars = [event characters];
-  unichar character = [chars characterAtIndex: 0];
-  NSInteger flags = ([event modifierFlags] & NSDeviceIndependentModifierFlagsMask);
-
-  if (character == NSDeleteCharacter) {
-    if (flags == NSCommandKeyMask) {
-      [self deleteSelectedSong:YES]; // Force delete
-    } else {
-      [self deleteSelectedSong:NO];
-    }
-  } else {
-    [super keyDown:event];
-  }
-}
-
-- (void) deleteSelectedSong:(BOOL)force {
+- (void) deleteSelectedItem {
   NSUInteger firstSelectedRow = [[self selectedRowIndexes] firstIndex];
   [[NSApp songsArrayController] remove:self];
   [[NSApp songsArrayController] setSelectionIndex:firstSelectedRow];
-  
 }
 
-- (void) deleteSong:(Song*)song {
-  
+- (NSString*) warningMessage {
+  return NSLocalizedString(@"song.warning.delete", nil);
 }
 
 - (NSDragOperation) draggingSourceOperationMaskForLocal:(BOOL)flag {
