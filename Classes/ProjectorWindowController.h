@@ -7,6 +7,6 @@
 
 // Instance Methods
 - (BOOL) isWindowVisible;
-- (void) updateWindow;
+- (void) updateSlide;
 
 @end

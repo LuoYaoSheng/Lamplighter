@@ -29,7 +29,7 @@
   return [self.window isVisible];
 }
 
-- (void) updateWindow {
+- (void) updateSlide {
   SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection] andPreviewMode:NO];
   [self.window setContentView:slideView];
 }

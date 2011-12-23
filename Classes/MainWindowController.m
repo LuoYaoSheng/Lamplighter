@@ -18,7 +18,7 @@
 
 @synthesize applicationDelegate;
 @synthesize playlistTableColumn, playlistTableView;
-@synthesize previewCollectionView, previewPDFView, previewPDFThumbnailView, liveviewCollectionView;
+@synthesize previewCollectionView, previewPDFView, previewPDFThumbnailView, liveviewPDFThumbnailView, liveviewCollectionView;
 
 /******************
  * INITIALIZATION *
@@ -35,6 +35,7 @@
 - (void) setupObservers {
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(projectorSlideViewWillDrawNotification:) name:ProjectorSlideViewWillDraw object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self.liveviewController selector:@selector(slideViewWasDoubleClickedNotification:) name:SlideViewWasDoubleClickedNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self.liveviewController selector:@selector(PDFThumbnailViewWasDoubleClickedNotification:) name:PDFThumbnailViewWasDoubleClickedNotification object:nil];
 }
 
 - (void) setupPDFViews {

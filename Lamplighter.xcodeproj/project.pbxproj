@@ -58,7 +58,7 @@
 		D8E6DDE21475746F000F7B23 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E6DDE11475746F000F7B23 /* Quartz.framework */; };
 		D8E6DE8F1476BF98000F7B23 /* PDFsDrawer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8E6DE8E1476BF98000F7B23 /* PDFsDrawer.xib */; };
 		D8E6DE921476BFBF000F7B23 /* SongImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE911476BFBF000F7B23 /* SongImporter.m */; };
-		D8E6DE951476BFEA000F7B23 /* PreviewPDFThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE941476BFEA000F7B23 /* PreviewPDFThumbnailView.m */; };
+		D8E6DE951476BFEA000F7B23 /* BasePDFThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE941476BFEA000F7B23 /* BasePDFThumbnailView.m */; };
 		D8E6DE981476C012000F7B23 /* SongsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE971476C012000F7B23 /* SongsTableView.m */; };
 		D8E6DE9C1476C07C000F7B23 /* PDFsDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DE9B1476C07C000F7B23 /* PDFsDrawerViewController.m */; };
 		D8E6DEA11476C246000F7B23 /* PDFsTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DEA01476C246000F7B23 /* PDFsTableDataSource.m */; };
@@ -161,8 +161,8 @@
 		D8E6DE8E1476BF98000F7B23 /* PDFsDrawer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDFsDrawer.xib; sourceTree = "<group>"; };
 		D8E6DE901476BFBF000F7B23 /* SongImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongImporter.h; path = Classes/SongImporter.h; sourceTree = "<group>"; };
 		D8E6DE911476BFBF000F7B23 /* SongImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongImporter.m; path = Classes/SongImporter.m; sourceTree = "<group>"; };
-		D8E6DE931476BFEA000F7B23 /* PreviewPDFThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewPDFThumbnailView.h; path = Classes/PreviewPDFThumbnailView.h; sourceTree = "<group>"; };
-		D8E6DE941476BFEA000F7B23 /* PreviewPDFThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewPDFThumbnailView.m; path = Classes/PreviewPDFThumbnailView.m; sourceTree = "<group>"; };
+		D8E6DE931476BFEA000F7B23 /* BasePDFThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; name = BasePDFThumbnailView.h; path = Classes/BasePDFThumbnailView.h; sourceTree = "<group>"; };
+		D8E6DE941476BFEA000F7B23 /* BasePDFThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BasePDFThumbnailView.m; path = Classes/BasePDFThumbnailView.m; sourceTree = "<group>"; };
 		D8E6DE961476C012000F7B23 /* SongsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongsTableView.h; path = Classes/SongsTableView.h; sourceTree = "<group>"; };
 		D8E6DE971476C012000F7B23 /* SongsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongsTableView.m; path = Classes/SongsTableView.m; sourceTree = "<group>"; };
 		D8E6DE9A1476C07C000F7B23 /* PDFsDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFsDrawerViewController.h; path = Classes/PDFsDrawerViewController.h; sourceTree = "<group>"; };
@@ -543,8 +543,8 @@
 		D8E6DDEA147574E1000F7B23 /* PDF Views */ = {
 			isa = PBXGroup;
 			children = (
-				D8E6DE931476BFEA000F7B23 /* PreviewPDFThumbnailView.h */,
-				D8E6DE941476BFEA000F7B23 /* PreviewPDFThumbnailView.m */,
+				D8E6DE931476BFEA000F7B23 /* BasePDFThumbnailView.h */,
+				D8E6DE941476BFEA000F7B23 /* BasePDFThumbnailView.m */,
 			);
 			name = "PDF Views";
 			sourceTree = "<group>";
@@ -684,7 +684,7 @@
 				D84CFCE21449A7F30070724D /* BaseWindow.m in Sources */,
 				D84C03A2144DDF0F0070724D /* ProgressWindowController.m in Sources */,
 				D8E6DE921476BFBF000F7B23 /* SongImporter.m in Sources */,
-				D8E6DE951476BFEA000F7B23 /* PreviewPDFThumbnailView.m in Sources */,
+				D8E6DE951476BFEA000F7B23 /* BasePDFThumbnailView.m in Sources */,
 				D8E6DE981476C012000F7B23 /* SongsTableView.m in Sources */,
 				D8E6DE9C1476C07C000F7B23 /* PDFsDrawerViewController.m in Sources */,
 				D8E6DEA11476C246000F7B23 /* PDFsTableDataSource.m in Sources */,

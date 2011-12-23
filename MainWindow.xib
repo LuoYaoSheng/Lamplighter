@@ -552,6 +552,29 @@
 									<int key="NSvFlags">4352</int>
 									<object class="NSMutableArray" key="NSSubviews">
 										<bool key="EncodedWithXMLCoder">YES</bool>
+										<object class="PDFThumbnailView" id="275835407">
+											<reference key="NSNextResponder" ref="150039659"/>
+											<int key="NSvFlags">-2147479278</int>
+											<object class="NSMutableSet" key="NSDragTypes">
+												<bool key="EncodedWithXMLCoder">YES</bool>
+												<object class="NSArray" key="set.sortedObjects">
+													<bool key="EncodedWithXMLCoder">YES</bool>
+													<string>Apple PDF pasteboard type</string>
+													<string>NSFilenamesPboardType</string>
+													<string>NeXT TIFF v4.0 pasteboard type</string>
+												</object>
+											</object>
+											<string key="NSFrame">{{-1, -1}, {185, 272}}</string>
+											<reference key="NSSuperview" ref="150039659"/>
+											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView"/>
+											<float key="ThumbSizeWidth">64</float>
+											<float key="ThumbSizeHeight">64</float>
+											<int key="MaxColumns">0</int>
+											<bool key="Bezeled">NO</bool>
+											<bool key="AllowsDragging">NO</bool>
+											<nil key="PDFView"/>
+										</object>
 										<object class="NSScrollView" id="563601693">
 											<reference key="NSNextResponder" ref="150039659"/>
 											<int key="NSvFlags">4370</int>
@@ -636,7 +659,7 @@
 									<string key="NSFrame">{{296, 0}, {184, 270}}</string>
 									<reference key="NSSuperview" ref="983011935"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="563601693"/>
+									<reference key="NSNextKeyView" ref="275835407"/>
 									<string key="NSClassName">NSView</string>
 								</object>
 							</object>
@@ -1502,20 +1525,28 @@
 					<int key="connectionID">262</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">previewPDFThumbnailView</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="598561495"/>
-					</object>
-					<int key="connectionID">269</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">togglePDFsDrawerAction:</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="780715962"/>
 					</object>
 					<int key="connectionID">270</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">liveviewPDFThumbnailView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="275835407"/>
+					</object>
+					<int key="connectionID">274</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">previewPDFThumbnailView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="598561495"/>
+					</object>
+					<int key="connectionID">275</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -2373,6 +2404,7 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="563601693"/>
+							<reference ref="275835407"/>
 						</object>
 						<reference key="parent" ref="983011935"/>
 						<string key="objectName">Liveview Pane</string>
@@ -2565,6 +2597,11 @@
 						<reference key="object" ref="780715962"/>
 						<reference key="parent" ref="624128720"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">271</int>
+						<reference key="object" ref="275835407"/>
+						<reference key="parent" ref="150039659"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -2663,6 +2700,8 @@
 					<string>267.IBPluginDependency</string>
 					<string>268.IBPluginDependency</string>
 					<string>27.IBPluginDependency</string>
+					<string>271.CustomClassName</string>
+					<string>271.IBPluginDependency</string>
 					<string>28.IBPluginDependency</string>
 					<string>29.IBPluginDependency</string>
 					<string>30.IBPluginDependency</string>
@@ -2785,10 +2824,12 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>PreviewPDFThumbnailView</string>
+					<string>BasePDFThumbnailView</string>
 					<string>com.apple.pdfkit.ibplugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>BasePDFThumbnailView</string>
+					<string>com.apple.pdfkit.ibplugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2834,7 +2875,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">270</int>
+			<int key="maxID">275</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2864,6 +2905,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/BaseCollectionView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">BasePDFThumbnailView</string>
+					<string key="superclassName">PDFThumbnailView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/BasePDFThumbnailView.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -2929,6 +2978,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>applicationDelegate</string>
 							<string>liveviewCollectionView</string>
+							<string>liveviewPDFThumbnailView</string>
 							<string>playlistTableColumn</string>
 							<string>playlistTableView</string>
 							<string>previewCollectionView</string>
@@ -2939,6 +2989,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>ApplicationDelegate</string>
 							<string>BaseCollectionView</string>
+							<string>PreviewPDFThumbnailView</string>
 							<string>NSTableColumn</string>
 							<string>NSTableView</string>
 							<string>BaseCollectionView</string>
@@ -2952,6 +3003,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>applicationDelegate</string>
 							<string>liveviewCollectionView</string>
+							<string>liveviewPDFThumbnailView</string>
 							<string>playlistTableColumn</string>
 							<string>playlistTableView</string>
 							<string>previewCollectionView</string>
@@ -2967,6 +3019,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">liveviewCollectionView</string>
 								<string key="candidateClassName">BaseCollectionView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">liveviewPDFThumbnailView</string>
+								<string key="candidateClassName">PreviewPDFThumbnailView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">playlistTableColumn</string>
@@ -3060,14 +3116,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/NSDocument.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">PreviewPDFThumbnailView</string>
-					<string key="superclassName">PDFThumbnailView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/PreviewPDFThumbnailView.h</string>
 					</object>
 				</object>
 			</object>

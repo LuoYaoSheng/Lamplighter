@@ -8,6 +8,8 @@ extern NSString * const PDFDataType;
 // Notifications
 extern NSString * const SlideViewWasSingleClickedNotification;
 extern NSString * const SlideViewWasDoubleClickedNotification;
+extern NSString * const PDFThumbnailViewWasSingleClickedNotification;
+extern NSString * const PDFThumbnailViewWasDoubleClickedNotification;
 extern NSString * const CollectionViewSelectionDidChangeNotification;
 
 extern NSString * const ProgressDidChangeNotification;

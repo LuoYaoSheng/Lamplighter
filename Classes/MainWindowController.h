@@ -9,7 +9,7 @@
 @class EditSongWindowController;
 @class PlaylistTableDataSource;
 @class BaseCollectionView;
-@class PreviewPDFThumbnailView;
+@class BasePDFThumbnailView;
 @class ProgressWindowController;
 
 @interface MainWindowController : NSWindowController {
@@ -28,7 +28,8 @@
 
   // Collection/Thumbnail Views
   IBOutlet PDFView *previewPDFView;
-  IBOutlet PreviewPDFThumbnailView *previewPDFThumbnailView;
+  IBOutlet BasePDFThumbnailView *previewPDFThumbnailView;
+  IBOutlet BasePDFThumbnailView *liveviewPDFThumbnailView;
   IBOutlet BaseCollectionView *previewCollectionView;
   IBOutlet BaseCollectionView *liveviewCollectionView;
   
@@ -65,7 +66,8 @@
 
 // Collection/Thumbnail Views
 @property (nonatomic, retain, readwrite) PDFView *previewPDFView;
-@property (nonatomic, retain, readonly) PreviewPDFThumbnailView *previewPDFThumbnailView;
+@property (nonatomic, retain, readonly) BasePDFThumbnailView *previewPDFThumbnailView;
+@property (nonatomic, retain, readonly) BasePDFThumbnailView *liveviewPDFThumbnailView;
 @property (nonatomic, retain, readonly) BaseCollectionView *previewCollectionView;
 @property (nonatomic, retain, readonly) BaseCollectionView *liveviewCollectionView;
 
