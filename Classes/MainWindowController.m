@@ -11,6 +11,7 @@
 #import "PreviewController.h"
 #import "LiveviewController.h"
 #import "ProjectorController.h"
+#import "ProjectorWindowController.h"
 #import "BaseCollectionView.h"
 #import "ProgressWindowController.h"
 
@@ -41,6 +42,14 @@
 - (void) setupPDFViews {
   self.previewPDFView = [PDFView new];
   [self.previewPDFThumbnailView setBackgroundColor:[NSColor headerColor]];
+  [self.liveviewPDFThumbnailView setBackgroundColor:[NSColor headerColor]];
+  PDFView *projectorPDFView = [[[NSApp projectorController] projectorWindowController] pdfView];
+  [self.liveviewPDFThumbnailView setPDFView:projectorPDFView];
+
+  //[[[NSApp mainWindowController] liveviewPDFThumbnailView] setPDFView:NULL];
+  //[[[NSApp mainWindowController] liveviewPDFThumbnailView] setPDFView:projectorPDFView];
+  //[projectorPDFView setDocument:document];
+
 }
 
 /************

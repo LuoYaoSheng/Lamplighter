@@ -22,14 +22,13 @@
   [[[NSApp mainWindowController] liveviewCollectionView] setContent:[presentation sortedSlides] andIndex:index];
 }
 
-- (void) setPDF:(PDF*)pdf {
+- (void) setPDFDocument:(PDFDocument*)pdfDocument andPage:(PDFPage*)pdfPage {
+  //debugLog(@"Setting document to page %@", pdfPage);
   [[[NSApp mainWindowController] liveviewPDFThumbnailView] setHidden:NO];
   [[[NSApp mainWindowController] liveviewCollectionView] setHidden:YES];
-  PDFDocument *document = [[PDFDocument alloc] initWithURL:pdf.url];
-  [[[NSApp mainWindowController] liveviewPDFThumbnailView] setPDFView:NULL];
   PDFView *projectorPDFView = [[[NSApp projectorController] projectorWindowController] pdfView];
-  [[[NSApp mainWindowController] liveviewPDFThumbnailView] setPDFView:projectorPDFView];
-  [projectorPDFView setDocument:document];
+  [projectorPDFView setDocument:pdfDocument];
+  [projectorPDFView goToPage:pdfPage];
 }
 
 /* If some random Controller told the ProjectorController to go blank, really we want the liveviewCollection
@@ -57,14 +56,9 @@
 }
 
 - (void) PDFThumbnailViewWasDoubleClickedNotification:(NSNotification*)notification {
-  BasePDFThumbnailView *pdfThumbnailView = [notification object];
-  
-  
-  NSInteger page = [pdfThumbnailView currentPage];
-  
-  debugLog(@"object: %@", pdfThumbnailView);
-  debugLog(@"page: %i", page);
-
+  PDFPage *pdfPage = [[[notification object] PDFView] currentPage];
+  PDFDocument *pdfDocument = [pdfPage document];
+  [self setPDFDocument:pdfDocument andPage:pdfPage];
 }
 
 @end

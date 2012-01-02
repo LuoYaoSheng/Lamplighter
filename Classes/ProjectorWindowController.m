@@ -6,6 +6,8 @@
 
 @implementation ProjectorWindowController
 
+@synthesize pdfView;
+
 /******************
  * INITIALIZATION *
  ******************/
