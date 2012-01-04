@@ -43,13 +43,7 @@
   self.previewPDFView = [PDFView new];
   [self.previewPDFThumbnailView setBackgroundColor:[NSColor headerColor]];
   [self.liveviewPDFThumbnailView setBackgroundColor:[NSColor headerColor]];
-  PDFView *projectorPDFView = [[[NSApp projectorController] projectorWindowController] pdfView];
-  [self.liveviewPDFThumbnailView setPDFView:projectorPDFView];
-
-  //[[[NSApp mainWindowController] liveviewPDFThumbnailView] setPDFView:NULL];
-  //[[[NSApp mainWindowController] liveviewPDFThumbnailView] setPDFView:projectorPDFView];
-  //[projectorPDFView setDocument:document];
-
+  [self.liveviewPDFThumbnailView setPDFView:[[[NSApp projectorController] projectorWindowController] pdfView]];
 }
 
 /************

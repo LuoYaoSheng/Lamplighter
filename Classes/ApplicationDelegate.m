@@ -22,6 +22,7 @@
 - (void) setupControllerObservers {
   [[NSNotificationCenter defaultCenter] addObserver:self.projectorController selector:@selector(collectionViewSelectionDidChangeNotification:) name:CollectionViewSelectionDidChangeNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self.projectorController selector:@selector(slideViewWasDoubleClickedNotification:) name:SlideViewWasDoubleClickedNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self.projectorController selector:@selector(PDFThumbnailViewWasDoubleClickedNotification:) name:PDFThumbnailViewWasDoubleClickedNotification object:nil];
 }
 
 /**********************

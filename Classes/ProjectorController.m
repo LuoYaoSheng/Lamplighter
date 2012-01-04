@@ -88,6 +88,10 @@
   }
 }
 
+- (void) PDFThumbnailViewWasDoubleClickedNotification:(NSNotification*)notification {
+  [[self projectorWindowController] updatePDF];
+}
+
 - (void) slideViewWasDoubleClickedNotification:(NSNotification*)notification {
   SlideView *slideView = [notification object];
   if ([slideView collectionView] == NULL) {

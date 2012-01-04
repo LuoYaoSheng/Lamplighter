@@ -6,7 +6,7 @@
 
 @implementation ProjectorWindowController
 
-@synthesize pdfView;
+@synthesize pdfView, backgroundView;
 
 /******************
  * INITIALIZATION *
@@ -34,6 +34,12 @@
 - (void) updateSlide {
   SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection] andPreviewMode:NO];
   [self.window setContentView:slideView];
+}
+
+- (void) updatePDF {
+  NSView *background = [NSView new];
+  [self.window setContentView:background];
+  [background addSubview:(NSView*)self.pdfView];
 }
 
 @end
