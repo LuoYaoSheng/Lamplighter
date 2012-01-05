@@ -80,7 +80,6 @@
 									<string key="NSFrameSize">{177, 121}</string>
 									<reference key="NSSuperview" ref="704692444"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<int key="NSViewLayerContentsRedrawPolicy">2</int>
 									<string key="NSReuseIdentifierKey">_NS:51</string>
 									<int key="DisplayMode">0</int>

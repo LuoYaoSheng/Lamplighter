@@ -51,7 +51,7 @@
     // doesn't work. One could imagine that the number of slides changes in a Song - but I assume that the
     // CollectionView then updates its content (Slides) and all positions are correct again.
     //NSDictionary *notificationObject = [NSDictionary dictionaryWithObjectsAndKeys:self.slide, @"slide", self.collectionView, @"collectionView", nil];
-    [self setPresentation:(Presentation*)[slide presentation] andIndex:(NSUInteger)[slide position]];
+    [self setPresentation:(Presentation*)[slide presentation] andIndex:(NSUInteger)[[slide position] intValue]];
   }
 }
 
