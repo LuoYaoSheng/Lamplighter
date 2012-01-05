@@ -121,9 +121,6 @@
   CGColorRelease(rootColor);
 }
 
-
-
-
 /******************
  * GETTER METHODS *
  ******************/

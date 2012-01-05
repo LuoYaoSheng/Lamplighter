@@ -1,5 +1,6 @@
 #import "ProjectorWindowController.h"
 
+#import <Quartz/Quartz.h>
 #import "ApplicationDelegate.h"
 #import "ProjectorController.h"
 #import "SlideView.h"
@@ -21,6 +22,9 @@
   [self.window setMovableByWindowBackground:YES];
   NSSize size = [[NSApp projectorController] sizeOfProjectorScreen];
   [self.window setContentSize:NSMakeSize(250, 250 / (size.width / size.height))];
+  [self.window setBackgroundColor:[NSColor blackColor]];
+  [self.pdfView setBackgroundColor:[NSColor blackColor]];
+  //[self.pdfView setAllowsDragging:NO];
 }
 
 /********************
@@ -37,9 +41,7 @@
 }
 
 - (void) updatePDF {
-  NSView *background = [NSView new];
-  [self.window setContentView:background];
-  [background addSubview:(NSView*)self.pdfView];
+  [self.window setContentView:(NSView*)self.pdfView];
 }
 
 - (ProjectorWindow*) window {
