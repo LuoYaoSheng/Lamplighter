@@ -7,6 +7,7 @@
 #import "MainWindowController.h"
 #import "SongsDrawerViewController.h"
 #import "BaseCollectionView.h"
+#import "ProjectorWindow.h"
 
 @implementation ProjectorController
 
@@ -89,13 +90,17 @@
 }
 
 - (void) PDFThumbnailViewWasDoubleClickedNotification:(NSNotification*)notification {
-  [[self projectorWindowController] updatePDF];
+   [[self projectorWindowController] updatePDF];
+}
+
+- (void) PDFViewWasDoubleClickedNotification:(NSNotification*)notification {
+  [[self.projectorWindowController window] toggleFullscreen];
 }
 
 - (void) slideViewWasDoubleClickedNotification:(NSNotification*)notification {
   SlideView *slideView = [notification object];
   if ([slideView collectionView] == NULL) {
-    [slideView toggleFullscreen];
+    [[self.projectorWindowController window] toggleFullscreen];
   } else {
     if ([slideView collectionView] == [[NSApp mainWindowController] liveviewCollectionView] && ![self isLive]) {
       [self goLive];

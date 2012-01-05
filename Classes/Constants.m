@@ -12,6 +12,7 @@ NSString * const SlideViewWasSingleClickedNotification = @"LamplighterSlideViewW
 NSString * const SlideViewWasDoubleClickedNotification = @"LamplighterSlideViewWasDoubleClickedNotification";
 NSString * const PDFThumbnailViewWasSingleClickedNotification = @"LamplighterPDFThumbnailViewWasSingleClickedNotification";
 NSString * const PDFThumbnailViewWasDoubleClickedNotification = @"LamplighterPDFThumbnailViewWasDoubleClickedNotification";
+NSString * const PDFViewWasDoubleClickedNotification = @"LamplighterPDFViewWasDoubleClickedNotification";
 NSString * const CollectionViewSelectionDidChangeNotification = @"LamplighterCollectionViewSelectionDidChangeNotification";
 
 NSString * const ProgressDidChangeNotification = @"LamplighterProgressDidChangeNotification";

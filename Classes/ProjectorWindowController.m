@@ -42,4 +42,8 @@
   [background addSubview:(NSView*)self.pdfView];
 }
 
+- (ProjectorWindow*) window {
+  return (ProjectorWindow*)[super window];
+}
+
 @end

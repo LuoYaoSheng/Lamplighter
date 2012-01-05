@@ -121,36 +121,7 @@
   CGColorRelease(rootColor);
 }
 
-/***********************
- * FULLSCREEN HANDLING *
- ***********************/
 
--(void) toggleFullscreen {
-  if ([self isInFullScreenMode]) {
-    [self exitFullScreen];
-    [NSCursor unhide];
-  } else {
-    [self goFullscreenOnScreen:[self.window screen]];
-  }
-}
-
-- (void) exitFullScreen {
-  [self exitFullScreenModeWithOptions:NULL];
-  [self.window makeFirstResponder:self];
-}
-
--(void) goFullscreenOnScreen:(NSScreen*)screen {
-  NSNumber *presentationOptions = [NSNumber numberWithUnsignedInt:(NSApplicationPresentationAutoHideMenuBar|NSApplicationPresentationAutoHideDock|NSApplicationPresentationDisableProcessSwitching)];
-  NSDictionary *opts = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], NSFullScreenModeAllScreens, presentationOptions, NSFullScreenModeApplicationPresentationOptions, nil];
-  if (![self isInFullScreenMode]) {
-    if (screen == [NSScreen mainScreen]) [NSCursor hide];
-    [self enterFullScreenMode:screen withOptions:opts];
-  } else {
-    if (screen == [NSScreen mainScreen]) [NSCursor hide];
-    [self exitFullScreenModeWithOptions:NULL];
-    [self enterFullScreenMode:screen withOptions:opts];
-  }
-}
 
 
 /******************
