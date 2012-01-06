@@ -65,6 +65,7 @@
 		D8E6DF111477FFAF000F7B23 /* PDFsArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6DF101477FFAF000F7B23 /* PDFsArrayController.m */; };
 		D8E6E1FF14815108000F7B23 /* PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6E1FE14815108000F7B23 /* PDF.m */; };
 		E0707C7F14B60D91009EAC70 /* ProjectorPDFView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0707C7E14B60D91009EAC70 /* ProjectorPDFView.m */; };
+		E0707C9714B75759009EAC70 /* pdfs.icns in Resources */ = {isa = PBXBuildFile; fileRef = E0707C9614B75759009EAC70 /* pdfs.icns */; };
 		E09A673F149BA2EE00E9BF32 /* DeletableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E09A673E149BA2EE00E9BF32 /* DeletableTableView.m */; };
 		E09A6744149BA40C00E9BF32 /* PDFsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E09A6743149BA40C00E9BF32 /* PDFsTableView.m */; };
 		E0CDED52148E98EE0044B115 /* PDFImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = E0CDED51148E98EE0044B115 /* PDFImporter.m */; };
@@ -176,6 +177,7 @@
 		D8E6E1FE14815108000F7B23 /* PDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDF.m; path = Classes/PDF.m; sourceTree = "<group>"; };
 		E0707C7D14B60D91009EAC70 /* ProjectorPDFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectorPDFView.h; path = Classes/ProjectorPDFView.h; sourceTree = "<group>"; };
 		E0707C7E14B60D91009EAC70 /* ProjectorPDFView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectorPDFView.m; path = Classes/ProjectorPDFView.m; sourceTree = "<group>"; };
+		E0707C9614B75759009EAC70 /* pdfs.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = pdfs.icns; path = Images/pdfs.icns; sourceTree = "<group>"; };
 		E09A673D149BA2EE00E9BF32 /* DeletableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeletableTableView.h; path = Classes/DeletableTableView.h; sourceTree = "<group>"; };
 		E09A673E149BA2EE00E9BF32 /* DeletableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeletableTableView.m; path = Classes/DeletableTableView.m; sourceTree = "<group>"; };
 		E09A6742149BA40C00E9BF32 /* PDFsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFsTableView.h; path = Classes/PDFsTableView.h; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				D84CFD591449CA5D0070724D /* songs.icns */,
+				E0707C9614B75759009EAC70 /* pdfs.icns */,
 				D88261BA142DDAE2005E96B7 /* app_logo_on.icns */,
 				D88261BB142DDAE2005E96B7 /* app_logo.icns */,
 			);
@@ -700,6 +703,7 @@
 				D84CFD5A1449CA5D0070724D /* songs.icns in Resources */,
 				D84C039B144DDE580070724D /* ProgressWindow.xib in Resources */,
 				D8E6DE8F1476BF98000F7B23 /* PDFsDrawer.xib in Resources */,
+				E0707C9714B75759009EAC70 /* pdfs.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
