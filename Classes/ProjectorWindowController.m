@@ -3,6 +3,7 @@
 #import <Quartz/Quartz.h>
 #import "ApplicationDelegate.h"
 #import "ProjectorController.h"
+#import "MainWindowController.h"
 #import "SlideView.h"
 
 @implementation ProjectorWindowController
@@ -24,9 +25,11 @@
   [self.window setContentSize:NSMakeSize(250, 250 / (size.width / size.height))];
   [self.window setBackgroundColor:[NSColor blackColor]];
   [self.pdfView setBackgroundColor:[NSColor blackColor]];
-  //[self.pdfView setAllowsDragging:NO];
 }
 
+- (void)windowDidResize:(NSNotification *)notification {
+  [[NSApp mainWindowController] updateThumbnailSize];
+}
 /********************
  * INSTANCE METHODS *
  ********************/

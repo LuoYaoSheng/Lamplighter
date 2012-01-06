@@ -216,6 +216,7 @@
   [self.liveviewCollectionView updateThumbnailSize];
   [self.previewCollectionView updateThumbnailSize];
   [self.previewPDFThumbnailView updateThumbnailSize];
+  [self.liveviewPDFThumbnailView updateThumbnailSize];
 }  
 
 - (PreviewController*) previewController {

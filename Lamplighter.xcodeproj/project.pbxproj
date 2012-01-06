@@ -205,10 +205,9 @@
 		080E96DDFE201D6D7F000001 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D8825CBC141E60A1005E96B7 /* Application Delegate */,
-				D882612C142C682D005E96B7 /* General Controllers */,
-				D87981BC143ADB54001D9CB7 /* View Controllers */,
-				D8E6DAE214717F49000F7B23 /* Window Controllers */,
+				E0707C9414B74C55009EAC70 /* Delegate */,
+				E0707C8114B714C6009EAC70 /* Main Window */,
+				E0707C8214B714ED009EAC70 /* Projector */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -290,26 +289,6 @@
 			name = Objects;
 			sourceTree = "<group>";
 		};
-		D87981AF143ADA23001D9CB7 /* CollectionViews */ = {
-			isa = PBXGroup;
-			children = (
-				D87981AC143ADA1E001D9CB7 /* BaseCollectionView.h */,
-				D87981AD143ADA1E001D9CB7 /* BaseCollectionView.m */,
-			);
-			name = CollectionViews;
-			sourceTree = "<group>";
-		};
-		D87981BC143ADB54001D9CB7 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D8825B70141CADC9005E96B7 /* SongsDrawerViewController.h */,
-				D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */,
-				D8E6DE9A1476C07C000F7B23 /* PDFsDrawerViewController.h */,
-				D8E6DE9B1476C07C000F7B23 /* PDFsDrawerViewController.m */,
-			);
-			name = "View Controllers";
-			sourceTree = "<group>";
-		};
 		D8825B5E141CAD21005E96B7 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,14 +299,6 @@
 			name = "Data Sources";
 			sourceTree = "<group>";
 		};
-		D8825B80141CAE14005E96B7 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				2F7446980DB6B7EA00F9684A /* Application.xib */,
-			);
-			name = Application;
-			sourceTree = "<group>";
-		};
 		D8825BC0141CB2B6005E96B7 /* Array Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,25 +307,6 @@
 				D8825F44142108B1005E96B7 /* BaseArrayController.m */,
 			);
 			name = "Array Controllers";
-			sourceTree = "<group>";
-		};
-		D8825CA3141DDE5B005E96B7 /* Peripherals */ = {
-			isa = PBXGroup;
-			children = (
-				D8825CA6141DDE8B005E96B7 /* NewSongWindow.xib */,
-				D88264BA14343E54005E96B7 /* EditSongWindow.xib */,
-				D84C039A144DDE580070724D /* ProgressWindow.xib */,
-			);
-			name = Peripherals;
-			sourceTree = "<group>";
-		};
-		D8825CBC141E60A1005E96B7 /* Application Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				D8825B6C141CADC9005E96B7 /* ApplicationDelegate.h */,
-				D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */,
-			);
-			name = "Application Delegate";
 			sourceTree = "<group>";
 		};
 		D8825DFB141E8960005E96B7 /* Core Data */ = {
@@ -382,19 +334,6 @@
 				E0707C7E14B60D91009EAC70 /* ProjectorPDFView.m */,
 			);
 			name = Projector;
-			sourceTree = "<group>";
-		};
-		D882612C142C682D005E96B7 /* General Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D87981A8143AD9AB001D9CB7 /* LiveviewController.h */,
-				D87981A9143AD9AB001D9CB7 /* LiveviewController.m */,
-				D8826293142DEABE005E96B7 /* PreviewController.h */,
-				D8826294142DEABE005E96B7 /* PreviewController.m */,
-				D88260EC142BA370005E96B7 /* ProjectorController.h */,
-				D88260ED142BA370005E96B7 /* ProjectorController.m */,
-			);
-			name = "General Controllers";
 			sourceTree = "<group>";
 		};
 		D88261B6142DDAD7005E96B7 /* Images */ = {
@@ -443,32 +382,12 @@
 		D8A00D421416A1510034792D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D8E6DDEA147574E1000F7B23 /* PDF Views */,
-				D8825B80141CAE14005E96B7 /* Application */,
-				D87981AF143ADA23001D9CB7 /* CollectionViews */,
-				D8825CA3141DDE5B005E96B7 /* Peripherals */,
-				D8A00D431416A1570034792D /* MainWindow */,
+				E0707C9514B74C64009EAC70 /* Delegate */,
+				E0707C8A14B72137009EAC70 /* Main Window */,
 				D8826128142C67C2005E96B7 /* Projector */,
 				D8E6DADD14717DA2000F7B23 /* Slide */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		D8A00D431416A1570034792D /* MainWindow */ = {
-			isa = PBXGroup;
-			children = (
-				D84CFCDD1449A7F30070724D /* BaseView.h */,
-				D84CFCDE1449A7F30070724D /* BaseView.m */,
-				D84CFCDF1449A7F30070724D /* BaseWindow.h */,
-				D84CFCE01449A7F30070724D /* BaseWindow.m */,
-				E09A6741149BA3CC00E9BF32 /* DeletableTableView */,
-				E09A673D149BA2EE00E9BF32 /* DeletableTableView.h */,
-				E09A673E149BA2EE00E9BF32 /* DeletableTableView.m */,
-				D8A00D841416A4310034792D /* MainWindow.xib */,
-				D8E6DE8E1476BF98000F7B23 /* PDFsDrawer.xib */,
-				D8A00D9A141743870034792D /* SongsDrawer.xib */,
-			);
-			name = MainWindow;
 			sourceTree = "<group>";
 		};
 		D8A00D441416A16F0034792D /* Locales */ = {
@@ -507,22 +426,6 @@
 			name = SongWindowController;
 			sourceTree = "<group>";
 		};
-		D8E6DAE214717F49000F7B23 /* Window Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D8825B6E141CADC9005E96B7 /* MainWindowController.h */,
-				D8825B9D141CAF2A005E96B7 /* MainWindowController.m */,
-				D84C03A0144DDF0F0070724D /* ProgressWindowController.h */,
-				D84C03A1144DDF0F0070724D /* ProgressWindowController.m */,
-				D8826130142C686F005E96B7 /* ProjectorWindowController.h */,
-				D8826131142C686F005E96B7 /* ProjectorWindowController.m */,
-				D8E6DADF14717EB6000F7B23 /* SongWindowController */,
-				D8825CFD141E6CD2005E96B7 /* SongWindowController.h */,
-				D8825CFE141E6CD2005E96B7 /* SongWindowController.m */,
-			);
-			name = "Window Controllers";
-			sourceTree = "<group>";
-		};
 		D8E6DAE314717FCE000F7B23 /* BaseArrayController */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,15 +448,6 @@
 			name = Presentation;
 			sourceTree = "<group>";
 		};
-		D8E6DDEA147574E1000F7B23 /* PDF Views */ = {
-			isa = PBXGroup;
-			children = (
-				D8E6DE931476BFEA000F7B23 /* BasePDFThumbnailView.h */,
-				D8E6DE941476BFEA000F7B23 /* BasePDFThumbnailView.m */,
-			);
-			name = "PDF Views";
-			sourceTree = "<group>";
-		};
 		D8E6DE781476BE0A000F7B23 /* DraggableTableDataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,6 +459,168 @@
 				D8E6DEA01476C246000F7B23 /* PDFsTableDataSource.m */,
 			);
 			name = DraggableTableDataSource;
+			sourceTree = "<group>";
+		};
+		E0707C8114B714C6009EAC70 /* Main Window */ = {
+			isa = PBXGroup;
+			children = (
+				E0707C9314B74C43009EAC70 /* Window */,
+				E0707C8514B7154F009EAC70 /* Preview */,
+				E0707C8614B71557009EAC70 /* Liveview */,
+				E0707C8314B7152E009EAC70 /* Drawers */,
+				E0707C8714B715AE009EAC70 /* Song Editing */,
+				E0707C8814B715F2009EAC70 /* Songs Import */,
+			);
+			name = "Main Window";
+			sourceTree = "<group>";
+		};
+		E0707C8214B714ED009EAC70 /* Projector */ = {
+			isa = PBXGroup;
+			children = (
+				D88260EC142BA370005E96B7 /* ProjectorController.h */,
+				D88260ED142BA370005E96B7 /* ProjectorController.m */,
+				D8826130142C686F005E96B7 /* ProjectorWindowController.h */,
+				D8826131142C686F005E96B7 /* ProjectorWindowController.m */,
+			);
+			name = Projector;
+			sourceTree = "<group>";
+		};
+		E0707C8314B7152E009EAC70 /* Drawers */ = {
+			isa = PBXGroup;
+			children = (
+				D8E6DE9A1476C07C000F7B23 /* PDFsDrawerViewController.h */,
+				D8E6DE9B1476C07C000F7B23 /* PDFsDrawerViewController.m */,
+				D8825B70141CADC9005E96B7 /* SongsDrawerViewController.h */,
+				D8825B71141CADC9005E96B7 /* SongsDrawerViewController.m */,
+			);
+			name = Drawers;
+			sourceTree = "<group>";
+		};
+		E0707C8514B7154F009EAC70 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				D8826293142DEABE005E96B7 /* PreviewController.h */,
+				D8826294142DEABE005E96B7 /* PreviewController.m */,
+			);
+			name = Preview;
+			sourceTree = "<group>";
+		};
+		E0707C8614B71557009EAC70 /* Liveview */ = {
+			isa = PBXGroup;
+			children = (
+				D87981A8143AD9AB001D9CB7 /* LiveviewController.h */,
+				D87981A9143AD9AB001D9CB7 /* LiveviewController.m */,
+			);
+			name = Liveview;
+			sourceTree = "<group>";
+		};
+		E0707C8714B715AE009EAC70 /* Song Editing */ = {
+			isa = PBXGroup;
+			children = (
+				D8E6DADF14717EB6000F7B23 /* SongWindowController */,
+				D8825CFD141E6CD2005E96B7 /* SongWindowController.h */,
+				D8825CFE141E6CD2005E96B7 /* SongWindowController.m */,
+			);
+			name = "Song Editing";
+			sourceTree = "<group>";
+		};
+		E0707C8814B715F2009EAC70 /* Songs Import */ = {
+			isa = PBXGroup;
+			children = (
+				D84C03A0144DDF0F0070724D /* ProgressWindowController.h */,
+				D84C03A1144DDF0F0070724D /* ProgressWindowController.m */,
+			);
+			name = "Songs Import";
+			sourceTree = "<group>";
+		};
+		E0707C8A14B72137009EAC70 /* Main Window */ = {
+			isa = PBXGroup;
+			children = (
+				E0707C9214B74C22009EAC70 /* Window */,
+				E0707C9014B721E5009EAC70 /* Songs Import */,
+				E0707C8F14B721DE009EAC70 /* Song Editing */,
+				E0707C8E14B721CD009EAC70 /* Drawers */,
+				E0707C8D14B7217F009EAC70 /* Preview/Liveview */,
+			);
+			name = "Main Window";
+			sourceTree = "<group>";
+		};
+		E0707C8D14B7217F009EAC70 /* Preview/Liveview */ = {
+			isa = PBXGroup;
+			children = (
+				D87981AC143ADA1E001D9CB7 /* BaseCollectionView.h */,
+				D87981AD143ADA1E001D9CB7 /* BaseCollectionView.m */,
+				D8E6DE931476BFEA000F7B23 /* BasePDFThumbnailView.h */,
+				D8E6DE941476BFEA000F7B23 /* BasePDFThumbnailView.m */,
+			);
+			name = Preview/Liveview;
+			sourceTree = "<group>";
+		};
+		E0707C8E14B721CD009EAC70 /* Drawers */ = {
+			isa = PBXGroup;
+			children = (
+				D8A00D9A141743870034792D /* SongsDrawer.xib */,
+				D8E6DE8E1476BF98000F7B23 /* PDFsDrawer.xib */,
+				E09A6741149BA3CC00E9BF32 /* DeletableTableView */,
+				E09A673D149BA2EE00E9BF32 /* DeletableTableView.h */,
+				E09A673E149BA2EE00E9BF32 /* DeletableTableView.m */,
+			);
+			name = Drawers;
+			sourceTree = "<group>";
+		};
+		E0707C8F14B721DE009EAC70 /* Song Editing */ = {
+			isa = PBXGroup;
+			children = (
+				D8825CA6141DDE8B005E96B7 /* NewSongWindow.xib */,
+				D88264BA14343E54005E96B7 /* EditSongWindow.xib */,
+			);
+			name = "Song Editing";
+			sourceTree = "<group>";
+		};
+		E0707C9014B721E5009EAC70 /* Songs Import */ = {
+			isa = PBXGroup;
+			children = (
+				D84C039A144DDE580070724D /* ProgressWindow.xib */,
+			);
+			name = "Songs Import";
+			sourceTree = "<group>";
+		};
+		E0707C9214B74C22009EAC70 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				D8A00D841416A4310034792D /* MainWindow.xib */,
+				D84CFCDD1449A7F30070724D /* BaseView.h */,
+				D84CFCDE1449A7F30070724D /* BaseView.m */,
+				D84CFCDF1449A7F30070724D /* BaseWindow.h */,
+				D84CFCE01449A7F30070724D /* BaseWindow.m */,
+			);
+			name = Window;
+			sourceTree = "<group>";
+		};
+		E0707C9314B74C43009EAC70 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				D8825B6E141CADC9005E96B7 /* MainWindowController.h */,
+				D8825B9D141CAF2A005E96B7 /* MainWindowController.m */,
+			);
+			name = Window;
+			sourceTree = "<group>";
+		};
+		E0707C9414B74C55009EAC70 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				D8825B6C141CADC9005E96B7 /* ApplicationDelegate.h */,
+				D8825B6D141CADC9005E96B7 /* ApplicationDelegate.m */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		E0707C9514B74C64009EAC70 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				2F7446980DB6B7EA00F9684A /* Application.xib */,
+			);
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 		E09A6741149BA3CC00E9BF32 /* DeletableTableView */ = {

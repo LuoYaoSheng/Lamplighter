@@ -78,7 +78,7 @@
 					<bool key="NSToolbarAllowsUserCustomization">NO</bool>
 					<bool key="NSToolbarAutosavesConfiguration">NO</bool>
 					<int key="NSToolbarDisplayMode">1</int>
-					<int key="NSToolbarSizeMode">1</int>
+					<int key="NSToolbarSizeMode">2</int>
 					<object class="NSMutableDictionary" key="NSToolbarIBIdentifiedItems">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -448,7 +448,6 @@
 											<string key="NSFrame">{{-1, -1}, {174, 272}}</string>
 											<reference key="NSSuperview" ref="473069228"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView"/>
 											<float key="ThumbSizeWidth">64</float>
 											<float key="ThumbSizeHeight">64</float>
 											<int key="MaxColumns">0</int>
@@ -472,7 +471,7 @@
 															<string key="NSFrameSize">{172, 270}</string>
 															<reference key="NSSuperview" ref="222336473"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="276893799"/>
+															<reference key="NSNextKeyView" ref="1069553889"/>
 															<string key="NSMinGridSize">{0, 0}</string>
 															<string key="NSMaxGridSize">{0, 0}</string>
 															<int key="NSMaxNumberOfGridRows">0</int>
@@ -534,7 +533,7 @@
 											<string key="NSFrameSize">{172, 270}</string>
 											<reference key="NSSuperview" ref="473069228"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="1069553889"/>
+											<reference key="NSNextKeyView" ref="222336473"/>
 											<int key="NSsFlags">133648</int>
 											<reference key="NSVScroller" ref="276893799"/>
 											<reference key="NSHScroller" ref="1069553889"/>
@@ -567,7 +566,6 @@
 											<string key="NSFrame">{{-1, -1}, {185, 272}}</string>
 											<reference key="NSSuperview" ref="150039659"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView"/>
 											<float key="ThumbSizeWidth">64</float>
 											<float key="ThumbSizeHeight">64</float>
 											<int key="MaxColumns">0</int>
@@ -591,7 +589,7 @@
 															<string key="NSFrameSize">{184, 270}</string>
 															<reference key="NSSuperview" ref="289759547"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="430005702"/>
+															<reference key="NSNextKeyView" ref="877927955"/>
 															<string key="NSMinGridSize">{0, 0}</string>
 															<string key="NSMaxGridSize">{0, 0}</string>
 															<int key="NSMaxNumberOfGridRows">0</int>
@@ -627,7 +625,6 @@
 													<string key="NSFrame">{{234, 1}, {15, 143}}</string>
 													<reference key="NSSuperview" ref="563601693"/>
 													<reference key="NSWindow"/>
-													<reference key="NSNextKeyView"/>
 													<reference key="NSTarget" ref="563601693"/>
 													<string key="NSAction">_doScroller:</string>
 													<double key="NSCurValue">1</double>
@@ -649,7 +646,7 @@
 											<string key="NSFrameSize">{184, 270}</string>
 											<reference key="NSSuperview" ref="150039659"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="877927955"/>
+											<reference key="NSNextKeyView" ref="289759547"/>
 											<int key="NSsFlags">133648</int>
 											<reference key="NSVScroller" ref="430005702"/>
 											<reference key="NSHScroller" ref="877927955"/>
@@ -678,7 +675,7 @@
 					<reference key="NSNextKeyView" ref="983011935"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
-				<string key="NSMinSize">{480, 348}</string>
+				<string key="NSMinSize">{480, 339}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<string key="NSFrameAutosaveName">MainWindow</string>
 				<int key="NSWindowCollectionBehavior">128</int>
@@ -2989,11 +2986,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>ApplicationDelegate</string>
 							<string>BaseCollectionView</string>
-							<string>PreviewPDFThumbnailView</string>
+							<string>BasePDFThumbnailView</string>
 							<string>NSTableColumn</string>
 							<string>NSTableView</string>
 							<string>BaseCollectionView</string>
-							<string>PreviewPDFThumbnailView</string>
+							<string>BasePDFThumbnailView</string>
 							<string>PDFView</string>
 						</object>
 					</object>
@@ -3022,7 +3019,7 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">liveviewPDFThumbnailView</string>
-								<string key="candidateClassName">PreviewPDFThumbnailView</string>
+								<string key="candidateClassName">BasePDFThumbnailView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">playlistTableColumn</string>
@@ -3038,7 +3035,7 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">previewPDFThumbnailView</string>
-								<string key="candidateClassName">PreviewPDFThumbnailView</string>
+								<string key="candidateClassName">BasePDFThumbnailView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">previewPDFView</string>
