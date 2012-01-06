@@ -16,5 +16,3 @@ NSString * const PDFViewWasDoubleClickedNotification = @"LamplighterPDFViewWasDo
 NSString * const CollectionViewSelectionDidChangeNotification = @"LamplighterCollectionViewSelectionDidChangeNotification";
 
 NSString * const ProgressDidChangeNotification = @"LamplighterProgressDidChangeNotification";
-
-NSString * const ProjectorSlideViewWillDraw = @"LamlighterProjectorSlideViewWillDraw";

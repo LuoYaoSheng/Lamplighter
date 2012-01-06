@@ -88,9 +88,6 @@
   [self resizeLayers];
   [self updateSelected];
   [self.textLayer setupSize];
-  if (!self.collectionView) {
-    [[NSNotificationCenter defaultCenter] postNotificationName:ProjectorSlideViewWillDraw object:self];
-  }
 }
 
 - (void) resizeLayers {

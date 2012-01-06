@@ -34,7 +34,6 @@
 }
 
 - (void) setupObservers {
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(projectorSlideViewWillDrawNotification:) name:ProjectorSlideViewWillDraw object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self.liveviewController selector:@selector(slideViewWasDoubleClickedNotification:) name:SlideViewWasDoubleClickedNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self.liveviewController selector:@selector(PDFThumbnailViewWasDoubleClickedNotification:) name:PDFThumbnailViewWasDoubleClickedNotification object:nil];
 }
@@ -316,14 +315,6 @@
       item.title = NSLocalizedString(@"menu.songs.show", nil);
     }
   }
-}
-
-/****************
- * NOTIFICAIONS *
- ****************/
-
-- (void) projectorSlideViewWillDrawNotification:(NSNotification*)notification {
-  [self updateThumbnailSize];
 }
 
 @end

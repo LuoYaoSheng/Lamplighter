@@ -14,5 +14,3 @@ extern NSString * const PDFViewWasDoubleClickedNotification;
 extern NSString * const CollectionViewSelectionDidChangeNotification;
 
 extern NSString * const ProgressDidChangeNotification;
-
-extern NSString * const ProjectorSlideViewWillDraw;
