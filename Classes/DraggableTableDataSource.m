@@ -2,6 +2,7 @@
 
 #import "ApplicationDelegate.h"
 #import "MainWindowController.h"
+#import "PDFsDrawerViewController.h"
 
 @implementation DraggableTableDataSource
 

@@ -6,6 +6,8 @@
 #import "SongsDrawerViewController.h"
 #import "PDFsDrawerViewController.h"
 #import "PDF.h"
+#import "BaseCollectionView.h"
+#import "BasePDFThumbnailView.h"
 
 @implementation PreviewController
 

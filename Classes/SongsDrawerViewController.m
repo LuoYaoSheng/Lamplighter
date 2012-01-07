@@ -6,6 +6,7 @@
 #import "NewSongWindowController.h"
 #import "EditSongWindowController.h"
 #import "PreviewController.h"
+#import "SongsArrayController.h"
 
 @implementation SongsDrawerViewController
 

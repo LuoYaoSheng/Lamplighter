@@ -5,6 +5,7 @@
 #import "ProjectorController.h"
 #import "MainWindowController.h"
 #import "SlideView.h"
+#import "ProjectorWindow.h"
 
 @implementation ProjectorWindowController
 

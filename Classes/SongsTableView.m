@@ -2,6 +2,7 @@
 
 #import "Song.h"
 #import "ApplicationDelegate.h"
+#import "SongsArrayController.h"
 
 @implementation SongsTableView
 

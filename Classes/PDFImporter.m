@@ -2,6 +2,7 @@
 
 #import "ApplicationDelegate.h"
 #import "ProgressWindowController.h"
+#import "PDFsArrayController.h"
 
 @implementation PDFImporter
 

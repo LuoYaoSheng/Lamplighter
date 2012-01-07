@@ -30,8 +30,6 @@
 
 - (void) setupFont {
   self.alignmentMode = kCAAlignmentCenter;
-  self.fontSize = 15;
-  self.font = @"Helvetica Neue";
   CGColorRef whiteColor = CGColorCreateGenericRGB(1,1,1,1);
   self.foregroundColor = whiteColor;
   CGColorRelease(whiteColor);

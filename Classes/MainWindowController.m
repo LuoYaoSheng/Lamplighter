@@ -14,6 +14,8 @@
 #import "ProjectorWindowController.h"
 #import "BaseCollectionView.h"
 #import "ProgressWindowController.h"
+#import "BasePDFThumbnailView.h"
+#import "PDFsArrayController.h"
 
 @implementation MainWindowController
 

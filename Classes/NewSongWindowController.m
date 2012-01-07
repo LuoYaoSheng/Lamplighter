@@ -3,6 +3,7 @@
 #import "ApplicationDelegate.h"
 #import "Song.h"
 #import "MainWindowController.h"
+#import "SongsArrayController.h"
 
 @implementation NewSongWindowController
 

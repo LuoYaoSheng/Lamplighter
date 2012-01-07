@@ -3,6 +3,7 @@
 #import "ApplicationDelegate.h"
 #import "MainWindowController.h"
 #import "SongsDrawerViewController.h"
+#import "PlaylistArrayController.h"
 
 @implementation PlaylistTableDataSource
 
