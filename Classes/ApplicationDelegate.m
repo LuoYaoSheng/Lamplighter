@@ -135,7 +135,9 @@
   
   persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: mom];
   NSError *error = nil;
-  if (![persistentStoreCoordinator addPersistentStoreWithType:NSBinaryStoreType configuration:nil URL:[self databaseFileURL] options:nil error:&error]){
+  // Enabling Automatic Lightweight Migrations
+  NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+  if (![persistentStoreCoordinator addPersistentStoreWithType:NSBinaryStoreType configuration:nil URL:[self databaseFileURL] options:options error:&error]){
     [NSApp presentError:error];
     [persistentStoreCoordinator release], persistentStoreCoordinator = nil;
     return nil;
