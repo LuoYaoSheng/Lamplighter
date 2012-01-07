@@ -27,7 +27,7 @@
   PlaylistTableDataSource *playlistTableDataSource;
 
   // Collection/Thumbnail Views
-  IBOutlet PDFView *previewPDFView;
+  PDFView *previewPDFView;
   IBOutlet BasePDFThumbnailView *previewPDFThumbnailView;
   IBOutlet BasePDFThumbnailView *liveviewPDFThumbnailView;
   IBOutlet BaseCollectionView *previewCollectionView;
