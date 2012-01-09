@@ -57,7 +57,6 @@
   for (i=minFontSize; i<maxFontSize; i = i + step) {
     NSDictionary* attrs = [[NSDictionary alloc] initWithObjectsAndKeys:[NSFont fontWithName:@"Helvetica Neue" size:i], NSFontAttributeName, nil];
     NSSize strSize = [self.string sizeWithAttributes:attrs];
-    [attrs release];
     if (strSize.width > targetWidth || strSize.height > targetHeight) break;
   }
   return i - step;

@@ -122,7 +122,6 @@
   NSArray *result;
   NSSortDescriptor *sortByPosition = [[NSSortDescriptor alloc] initWithKey:@"position" ascending:YES];
   result = [[self primitiveValueForKey:@"slides"] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortByPosition]];
-  [sortByPosition release];
   return result;
 }
 

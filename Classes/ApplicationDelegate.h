@@ -36,23 +36,23 @@
  **************/
 
 // Window Controllers
-@property (nonatomic, retain, readonly) MainWindowController *mainWindowController;
+@property (nonatomic, readonly) MainWindowController *mainWindowController;
 
 // General Controllers
-@property (nonatomic, retain, readonly) ProjectorController *projectorController;
+@property (nonatomic, readonly) ProjectorController *projectorController;
 
 // Array Controllers
-@property (nonatomic, retain, readonly) SongsArrayController *songsArrayController;
-@property (nonatomic, retain, readonly) PDFsArrayController *pdfsArrayController;
-@property (nonatomic, retain, readonly) PlaylistArrayController *playlistArrayController;
+@property (nonatomic, readonly) SongsArrayController *songsArrayController;
+@property (nonatomic, readonly) PDFsArrayController *pdfsArrayController;
+@property (nonatomic, readonly) PlaylistArrayController *playlistArrayController;
 
 // Object Controllers
-@property (nonatomic, retain, readonly) NSObjectController *projectorSlideController;
+@property (nonatomic, readonly) NSObjectController *projectorSlideController;
 
 // Core Data
-@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
 /**************
  * FILESYSTEM *

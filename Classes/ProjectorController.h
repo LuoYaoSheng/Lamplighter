@@ -14,7 +14,7 @@
  **************/
 
 // Window Controllers
-@property (nonatomic, retain, readonly) ProjectorWindowController *projectorWindowController;
+@property (nonatomic, readonly) ProjectorWindowController *projectorWindowController;
 
 /***********
  * METHODS *

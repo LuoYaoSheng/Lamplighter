@@ -24,7 +24,7 @@
 
   for (NSURL *url in urls) {
     if ([[self PDFsWithURL:url] count] == 0) {
-      CFStringRef fileExtension = (CFStringRef) [url pathExtension];
+      CFStringRef fileExtension = (__bridge CFStringRef) [url pathExtension];
       CFStringRef fileUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension, NULL);
       
       if (UTTypeConformsTo(fileUTI, kUTTypePDF)) {

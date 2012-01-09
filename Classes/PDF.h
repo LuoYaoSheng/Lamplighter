@@ -5,7 +5,7 @@
 @interface PDF : NSManagedObject {}
 
 // Attributes
-@property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) NSURL *url;
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSURL *url;
 
 @end

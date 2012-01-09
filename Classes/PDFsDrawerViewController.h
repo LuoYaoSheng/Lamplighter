@@ -14,11 +14,11 @@
  **************/
 
 // GUI Items
-@property (nonatomic, retain) IBOutlet NSTableColumn *tableColumn;
-@property (nonatomic, retain, readonly) IBOutlet NSTableView *tableView;
+@property (nonatomic) IBOutlet NSTableColumn *tableColumn;
+@property (nonatomic, readonly) IBOutlet NSTableView *tableView;
 
 // Data Sources
-@property (nonatomic, retain, readonly) PDFsTableDataSource *pdfsTableDataSource;
+@property (nonatomic, readonly) PDFsTableDataSource *pdfsTableDataSource;
 
 /***********
  * METHODS *

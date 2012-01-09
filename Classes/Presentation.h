@@ -5,12 +5,12 @@
 @interface Presentation : NSManagedObject {}
 
 // Attributes
-@property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) NSString *content;
-@property (nonatomic, retain) NSString *footnote;
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *content;
+@property (nonatomic) NSString *footnote;
 
 // Associations
-@property (nonatomic, retain) NSSet *slides;
+@property (nonatomic) NSSet *slides;
 
 // Class Methods
 + (BOOL) validTitle:(NSString*)suggestedTitle;

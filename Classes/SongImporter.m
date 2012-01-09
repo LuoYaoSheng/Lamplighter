@@ -50,12 +50,12 @@
   debugLog(@"importEasislidesStarter called");
   // This AutoreleasePool is mandatory for every Thread. Basically, it prevents
   // the code between here and "[pool drain]" to blow your memory into pieces.
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-  [self importEasislides];
+  @autoreleasepool {
+    [self importEasislides];
   
   
   
-  [pool drain];
+  }
 }
 
 - (void) importEasislides {

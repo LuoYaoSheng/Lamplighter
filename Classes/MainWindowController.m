@@ -132,7 +132,6 @@
     [animation setAnimationBlockingMode: NSAnimationNonblocking];
     [animation setDuration: 0.38];
     [animation startAnimation];
-    [animation release];
   }
 }
 
@@ -287,7 +286,6 @@
     }
     [NSApp setApplicationIconImage:itemImage];
     item.image = itemImage;
-    [itemImage release];
   } else if ([item action] == @selector(toggleSongsDrawerAction:)) {
     if ([songsDrawer state] == NSDrawerOpenState || [songsDrawer state] == NSDrawerOpeningState) {
       item.label = NSLocalizedString(@"toolbar.songs.hide", nil);

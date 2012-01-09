@@ -10,8 +10,8 @@
   
 }
 
-@property (nonatomic, retain, readonly) PDFView *pdfView;
-@property (nonatomic, retain, readonly) NSView *backgroundView;
+@property (nonatomic, readonly) PDFView *pdfView;
+@property (nonatomic, readonly) NSView *backgroundView;
 
 - (ProjectorWindow *)window;
 

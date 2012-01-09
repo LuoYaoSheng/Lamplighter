@@ -6,7 +6,7 @@
   
 }
 
-@property (nonatomic, retain, readwrite) NSArray *paths;
+@property (nonatomic, readwrite) NSArray *paths;
 
 - (id) initWithPaths:(NSArray*)newPaths;
 - (BOOL) import;

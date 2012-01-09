@@ -13,10 +13,10 @@
 
 }
 
-@property (nonatomic, retain, readwrite) NSString *filepath;
-@property (nonatomic, retain, readwrite) NSXMLDocument *document;
+@property (nonatomic, readwrite) NSString *filepath;
+@property (nonatomic, strong, readwrite) NSXMLDocument *document;
 
-@property (nonatomic, retain, readonly) SongsArrayController *songsArrayController;
+@property (nonatomic, readonly) SongsArrayController *songsArrayController;
 
 - (id) initWithPath:(NSString*)newFilepath;
 - (void) import;

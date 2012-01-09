@@ -4,7 +4,7 @@
   
 }
 
-@property (nonatomic, retain) IBOutlet NSProgressIndicator *progressIndicator;
+@property (nonatomic) IBOutlet NSProgressIndicator *progressIndicator;
 
 
 - (void) setMaxValue:(NSUInteger)newValue;

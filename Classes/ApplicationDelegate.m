@@ -62,7 +62,7 @@
   if (songsArrayController) return songsArrayController;
   songsArrayController = [SongsArrayController new];
   [songsArrayController setManagedObjectContext:self.managedObjectContext];
-  NSSortDescriptor *sortByTitle = [[[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)] autorelease];
+  NSSortDescriptor *sortByTitle = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
   [songsArrayController setSortDescriptors:[NSArray arrayWithObject:sortByTitle]];
   return songsArrayController;
 }
@@ -71,7 +71,7 @@
   if (pdfsArrayController) return pdfsArrayController;
   pdfsArrayController = [PDFsArrayController new];
   [pdfsArrayController setManagedObjectContext:self.managedObjectContext];
-  NSSortDescriptor *sortByTitle = [[[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)] autorelease];
+  NSSortDescriptor *sortByTitle = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
   [pdfsArrayController setSortDescriptors:[NSArray arrayWithObject:sortByTitle]];
   return pdfsArrayController;
 }
@@ -111,7 +111,7 @@
  */
 - (NSManagedObjectModel*) managedObjectModel {
   if (managedObjectModel) return managedObjectModel;
-  managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
+  managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];    
   return managedObjectModel;
 }
 
@@ -139,7 +139,7 @@
   NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
   if (![persistentStoreCoordinator addPersistentStoreWithType:NSBinaryStoreType configuration:nil URL:[self databaseFileURL] options:options error:&error]){
     [NSApp presentError:error];
-    [persistentStoreCoordinator release], persistentStoreCoordinator = nil;
+    persistentStoreCoordinator = nil;
     return nil;
   }    
   return persistentStoreCoordinator;
@@ -341,7 +341,6 @@
     [alert addButtonWithTitle:cancelButton];
 
     NSInteger answer = [alert runModal];
-    [alert release];
     alert = nil;
     if (answer == NSAlertAlternateReturn) return NSTerminateCancel;
   }
@@ -355,21 +354,5 @@
 /*
  * Implementation of dealloc, to release the retained variables.
  */
-- (void) dealloc {
-  // Window Controllers
-  [mainWindowController release];
-  // Other Controllers
-  [projectorController release];
-  // Array Controllers
-  [songsArrayController release];
-  [playlistArrayController release];
-  // Object Controllers
-  [projectorSlideController release];
-  // Core Data
-  [managedObjectContext release];
-  [persistentStoreCoordinator release];
-  [managedObjectModel release];
-  [super dealloc];
-}
 
 @end

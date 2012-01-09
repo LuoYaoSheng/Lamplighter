@@ -16,13 +16,13 @@
  **************/
 
 // GUI Items
-@property (nonatomic, retain) IBOutlet NSTableColumn *songsTableColumn;
-@property (nonatomic, retain, readonly) IBOutlet NSTableView *songsTableView;
-@property (nonatomic, retain, readonly) IBOutlet NSButton *createSongButton;
-@property (nonatomic, retain, readonly) IBOutlet NSSearchField *searchField;
+@property (nonatomic) IBOutlet NSTableColumn *songsTableColumn;
+@property (nonatomic, readonly) IBOutlet NSTableView *songsTableView;
+@property (nonatomic, readonly) IBOutlet NSButton *createSongButton;
+@property (nonatomic, readonly) IBOutlet NSSearchField *searchField;
 
 // Data Sources
-@property (nonatomic, retain, readonly) SongsTableDataSource *songsTableDataSource;
+@property (nonatomic, readonly) SongsTableDataSource *songsTableDataSource;
 
 /***********
  * METHODS *

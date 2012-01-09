@@ -25,17 +25,17 @@
  **************/
 
 // Objects
-@property (nonatomic, retain, readwrite) Slide *slide;
-@property (nonatomic, retain, readwrite) NSCollectionView *collectionView;
+@property (nonatomic, readwrite) Slide *slide;
+@property (nonatomic, readwrite) NSCollectionView *collectionView;
 
 // Status trackers
 @property (readwrite) BOOL isSelected;
 @property (readwrite) BOOL isBoxed;
 
 // Layers
-@property (nonatomic, retain, readonly) SlideRootLayer *rootLayer;
-@property (nonatomic, retain, readonly) SlideBackgroundLayer *backgroundLayer;
-@property (nonatomic, retain, readonly) SlideTextLayer *textLayer;
+@property (nonatomic, readonly) SlideRootLayer *rootLayer;
+@property (nonatomic, readonly) SlideBackgroundLayer *backgroundLayer;
+@property (nonatomic, readonly) SlideTextLayer *textLayer;
 
 /***********
  * METHODS *

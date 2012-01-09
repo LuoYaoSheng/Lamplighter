@@ -53,36 +53,36 @@
  **************/
 
 // Application Delegate Outlet
-@property (nonatomic, retain, readonly) ApplicationDelegate *applicationDelegate;
+@property (nonatomic, readonly) ApplicationDelegate *applicationDelegate;
 
 // Preview Controller
-@property (nonatomic, retain, readonly) PreviewController *previewController;
-@property (nonatomic, retain, readonly) LiveviewController *liveviewController;
+@property (nonatomic, readonly) PreviewController *previewController;
+@property (nonatomic, readonly) LiveviewController *liveviewController;
 
 // Playlist
-@property (nonatomic, retain, readonly) NSTableColumn *playlistTableColumn;
-@property (nonatomic, retain, readonly) NSTableView *playlistTableView;
-@property (nonatomic, retain, readonly) PlaylistTableDataSource *playlistTableDataSource;
+@property (nonatomic, readonly) NSTableColumn *playlistTableColumn;
+@property (nonatomic, readonly) NSTableView *playlistTableView;
+@property (nonatomic, readonly) PlaylistTableDataSource *playlistTableDataSource;
 
 // Collection/Thumbnail Views
-@property (nonatomic, retain, readwrite) PDFView *previewPDFView;
-@property (nonatomic, retain, readonly) BasePDFThumbnailView *previewPDFThumbnailView;
-@property (nonatomic, retain, readonly) BasePDFThumbnailView *liveviewPDFThumbnailView;
-@property (nonatomic, retain, readonly) BaseCollectionView *previewCollectionView;
-@property (nonatomic, retain, readonly) BaseCollectionView *liveviewCollectionView;
+@property (nonatomic, strong, readwrite) PDFView *previewPDFView;
+@property (nonatomic, readonly) BasePDFThumbnailView *previewPDFThumbnailView;
+@property (nonatomic, readonly) BasePDFThumbnailView *liveviewPDFThumbnailView;
+@property (nonatomic, readonly) BaseCollectionView *previewCollectionView;
+@property (nonatomic, readonly) BaseCollectionView *liveviewCollectionView;
 
 // Drawer
-@property (nonatomic, retain, readonly) NSDrawer *songsDrawer;
-@property (nonatomic, retain, readonly) NSDrawer *pdfsDrawer;
-@property (nonatomic, retain, readonly) SongsDrawerViewController *songsDrawerViewController;
-@property (nonatomic, retain, readonly) PDFsDrawerViewController *pdfsDrawerViewController;
+@property (nonatomic, readonly) NSDrawer *songsDrawer;
+@property (nonatomic, readonly) NSDrawer *pdfsDrawer;
+@property (nonatomic, readonly) SongsDrawerViewController *songsDrawerViewController;
+@property (nonatomic, readonly) PDFsDrawerViewController *pdfsDrawerViewController;
 
 // Song creation
-@property (nonatomic, retain, readonly) NewSongWindowController *newSongWindowController;
-@property (nonatomic, retain, readonly) EditSongWindowController *editSongWindowController;
+@property (nonatomic, readonly) NewSongWindowController *newSongWindowController;
+@property (nonatomic, readonly) EditSongWindowController *editSongWindowController;
 
 // Periphals
-@property (nonatomic, retain, readonly) ProgressWindowController *progressWindowController;
+@property (nonatomic, readonly) ProgressWindowController *progressWindowController;
 
 /***********
  * METHODS *

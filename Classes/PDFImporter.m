@@ -25,7 +25,7 @@
     NSError *error = nil;
     NSString *target = [[NSApp pdfsDirectoryPath] stringByAppendingPathComponent:[source lastPathComponent]];
     
-    CFStringRef fileExtension = (CFStringRef) [source pathExtension];
+    CFStringRef fileExtension = (__bridge CFStringRef) [source pathExtension];
     CFStringRef fileUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension, NULL);
 
     if (UTTypeConformsTo(fileUTI, kUTTypePDF) && ![fileManager contentsEqualAtPath:source andPath:target]) {
