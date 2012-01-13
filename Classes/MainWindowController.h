@@ -108,6 +108,7 @@
 // Menu/Toolbar Actions
 - (IBAction) togglePDFsDrawerAction:sender;
 - (IBAction) toggleSongsDrawerAction:sender;
+- (IBAction) searchSongAction:sender;
 - (IBAction) toggleLiveAction:sender;
 - (IBAction) projectorGoBlankAction:sender;
 

@@ -189,14 +189,17 @@
   if (state == NSDrawerOpenState || state == NSDrawerOpeningState) {
     [self.songsDrawer close];
   } else {
-    [self.pdfsDrawer close];
-    [[NSApp songsArrayController] ensureContentIsLoaded];
-    [self ensureSpaceForDrawer:self.songsDrawer];
-    [self.songsDrawer openOnEdge:NSMinXEdge];
-    [self.window makeFirstResponder:[songsDrawerViewController searchField]];
-    
+    [self searchSongAction:self];
   }
   if ([sender isKindOfClass:[NSToolbarItem class]]) [self validateToolbarItem:sender];
+}
+
+- (IBAction) searchSongAction:sender {
+  [self.pdfsDrawer close];
+  [[NSApp songsArrayController] ensureContentIsLoaded];
+  [self ensureSpaceForDrawer:self.songsDrawer];
+  [self.songsDrawer openOnEdge:NSMinXEdge];
+  [self.window makeFirstResponder:[songsDrawerViewController searchField]];
 }
 
 - (IBAction) toggleLiveAction:sender {
@@ -239,9 +242,11 @@
   BOOL result = YES;
   if ([item action] == @selector(projectorGoBlankAction:)) {
     if (![[NSApp projectorController] isLive] || [[NSApp projectorController] isBlank]) result = NO;
+  } else if ([item action] == @selector(searchSongAction:)) {
+    if ([self isTextFieldInFocus:[songsDrawerViewController searchField]]) result = NO;
   }
   [self updateMenuItem:item];
-  return (result);
+  return result;
 }
 
 - (BOOL) validateToolbarItem:(NSToolbarItem*)item {
@@ -315,6 +320,13 @@
       item.title = NSLocalizedString(@"menu.songs.show", nil);
     }
   }
+}
+
+
+- (BOOL) isTextFieldInFocus:(NSTextField*)field {
+  return ([[[field window] firstResponder] isKindOfClass:[NSTextView class]] &&
+          [[field window] fieldEditor:NO forObject:nil] != nil &&
+          [field isEqualTo:(id)[(NSTextView *)[[field window] firstResponder] delegate]]);
 }
 
 @end
