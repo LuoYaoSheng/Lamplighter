@@ -97,7 +97,8 @@
 
 // Drawer
 - (void) ensureSpaceForDrawer:(NSDrawer*)drawer;
-- (BOOL) isDrawerOpen;
+- (BOOL) isSongsDrawerOpen;
+- (BOOL) isPDFsDrawerOpen;
 
 // GUI Items
 - (void) setupMenuLocalization;

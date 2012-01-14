@@ -135,8 +135,12 @@
   }
 }
 
-- (BOOL) isDrawerOpen {
+- (BOOL) isSongsDrawerOpen {
   return [songsDrawer state] == NSDrawerOpenState || [songsDrawer state] == NSDrawerOpeningState;
+}
+
+- (BOOL) isPDFsDrawerOpen {
+  return [pdfsDrawer state] == NSDrawerOpenState || [pdfsDrawer state] == NSDrawerOpeningState;
 }
 
 /*****************
@@ -292,13 +296,13 @@
     [NSApp setApplicationIconImage:itemImage];
     item.image = itemImage;
   } else if ([item action] == @selector(toggleSongsDrawerAction:)) {
-    if ([songsDrawer state] == NSDrawerOpenState || [songsDrawer state] == NSDrawerOpeningState) {
+    if ([self isSongsDrawerOpen]) {
       item.label = NSLocalizedString(@"toolbar.songs.hide", nil);
     } else {
       item.label = NSLocalizedString(@"toolbar.songs.show", nil);
     }
   } else if ([item action] == @selector(togglePDFsDrawerAction:)) {
-    if ([pdfsDrawer state] == NSDrawerOpenState || [pdfsDrawer state] == NSDrawerOpeningState) {
+    if ([self isPDFsDrawerOpen]) {
       item.label = NSLocalizedString(@"toolbar.pdfs.hide", nil);
     } else {
       item.label = NSLocalizedString(@"toolbar.pdfs.show", nil);
@@ -314,10 +318,16 @@
       item.title = NSLocalizedString(@"menu.projector.live.start", nil);
     }
   } else if ([item action] == @selector(toggleSongsDrawerAction:)) {
-    if ([self isDrawerOpen]) {
+    if ([self isSongsDrawerOpen]) {
       item.title = NSLocalizedString(@"menu.songs.hide", nil);
     } else {
       item.title = NSLocalizedString(@"menu.songs.show", nil);
+    }
+  } else if ([item action] == @selector(togglePDFsDrawerAction:)) {
+    if ([self isPDFsDrawerOpen]) {
+      item.title = NSLocalizedString(@"menu.pdfs.hide", nil);
+    } else {
+      item.title = NSLocalizedString(@"menu.pdfs.show", nil);
     }
   }
 }
