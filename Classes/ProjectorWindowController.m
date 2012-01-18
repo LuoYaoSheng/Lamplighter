@@ -41,11 +41,14 @@
 
 - (void) updateSlide {
   SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection] andPreviewMode:NO];
+  NSView *oldContentView = [self.window contentView];
   [self.window setContentView:slideView];
+  [oldContentView setHidden:YES];
+  if ([oldContentView isInFullScreenMode]) [self.window toggleFullscreen];
 }
 
 - (void) updatePDF {
-  [self.window setContentView:(NSView*)self.pdfView];
+  //[self.window setContentView:(NSView*)self.pdfView];
 }
 
 - (ProjectorWindow*) window {
