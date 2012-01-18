@@ -35,6 +35,9 @@
  * to not have anything selected. That's an example case of why we need this "callback" method.
  */
 - (BOOL) ensureNoSelection {
+  //if () {
+    
+  //}
   return [[[NSApp mainWindowController] liveviewCollectionView] deselectAll];
 }
 

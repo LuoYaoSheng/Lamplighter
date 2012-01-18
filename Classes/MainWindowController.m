@@ -186,7 +186,7 @@
 }
 
 - (IBAction) toggleSongsDrawerAction:sender {
-  // Initialize the Drawer by simply calling it
+  [self pdfsDrawerViewController]; // For some reason we have to initialize the PDF Drawer right here. Otherwise its view will be empty.
   [self songsDrawerViewController];
   NSDrawerState state = [self.songsDrawer state];
   
@@ -212,7 +212,8 @@
 }
 
 - (IBAction) projectorGoBlankAction:sender {
-  [self.liveviewController ensureNoSelection];
+  // Equals to hitting the escape key
+  [[self window] cancelOperation:self];
 }
 
 /***********

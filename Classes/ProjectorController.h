@@ -30,5 +30,7 @@
 - (void) goLive;
 - (void) leaveLive;
 - (void) setSlide:(Slide*)newSlide;
+- (BOOL) showsPDF;
+- (BOOL) showsSlide;
 
 @end

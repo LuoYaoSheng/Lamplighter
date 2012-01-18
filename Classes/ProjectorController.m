@@ -8,6 +8,7 @@
 #import "SongsDrawerViewController.h"
 #import "BaseCollectionView.h"
 #import "ProjectorWindow.h"
+#import "ProjectorPDFView.h"
 
 @implementation ProjectorController
 
@@ -45,7 +46,7 @@
 }
 
 - (BOOL) isBlank {
-  if ([[NSApp projectorSlideController] content]) return NO; else return YES;
+  return ([self showsPDF] || [self showsSlide]) ? NO : YES;
 }
 
 - (void) goBlank {
@@ -73,6 +74,14 @@
 - (void) setSlide:(Slide*)newSlide {
   [[NSApp projectorSlideController] setContent:newSlide];
   [[self projectorWindowController] updateSlide];
+}
+
+- (BOOL) showsPDF {
+  return [[[[self projectorWindowController] window] contentView] class] == [ProjectorPDFView class];
+}
+
+- (BOOL) showsSlide {
+  return [[[NSApp projectorSlideController] content] class] ? YES : NO;
 }
 
 /*****************
