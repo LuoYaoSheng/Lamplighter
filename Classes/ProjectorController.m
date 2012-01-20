@@ -54,7 +54,7 @@
 }
 
 - (void) toggleLive {
-  [self isLive] ? [self leaveLive] :[ self goLive];
+  [self isLive] ? [self leaveLive] : [self goLive];
 }
 
 - (BOOL) isLive {

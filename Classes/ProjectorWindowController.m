@@ -18,6 +18,7 @@
 - (void) awakeFromNib {
   debugLog(@"[ProjectorWindowController] awakeFromNib");
   [self setupWindow];
+  [self setupObservers];
 }
 
 - (void) setupWindow {
@@ -26,6 +27,10 @@
   [self.window setContentSize:NSMakeSize(250, 250 / (size.width / size.height))];
   [self.window setBackgroundColor:[NSColor blackColor]];
   [self.pdfView setBackgroundColor:[NSColor blackColor]];
+}
+
+- (void) setupObservers {
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nsApplicationDidChangeScreenParametersNotification:) name:NSApplicationDidChangeScreenParametersNotification object:nil];
 }
 
 - (void)windowDidResize:(NSNotification *)notification {
@@ -40,15 +45,30 @@
 }
 
 - (void) updateSlide {
-  SlideView *slideView = [[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection] andPreviewMode:NO];
+  [self setContentView:(NSView*)[[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection] andPreviewMode:NO]];
+}
+
+- (void) updatePDF {
+  [self setContentView:(NSView*)self.pdfView];
+}
+
+- (void) setContentView:(NSView*)contentView {
   NSView *oldContentView = [self.window contentView];
-  [self.window setContentView:slideView];
+  [self.window setContentView:contentView];
   [oldContentView setHidden:YES];
   if ([oldContentView isInFullScreenMode]) [self.window toggleFullscreen];
 }
 
-- (void) updatePDF {
-  //[self.window setContentView:(NSView*)self.pdfView];
+- (void) nsApplicationDidChangeScreenParametersNotification:(NSNotification*)notification {
+  if ([[NSScreen screens] count] == 1) {
+    debugLog(@"Hey, possibly you uplugged the projector!");
+    [self.window exitFullScreen];
+  } else {
+    debugLog(@"Hey, possibly you attached the projector!");
+    if ([[NSApp projectorController] isLive]) {
+      [self.window goFullscreenOnScreen:[[NSScreen screens] objectAtIndex:0]];
+    }
+  }
 }
 
 - (ProjectorWindow*) window {
