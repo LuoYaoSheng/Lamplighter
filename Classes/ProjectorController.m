@@ -71,9 +71,8 @@
   [[NSApp mainWindowController] updateThumbnailSize];
 }
 
-- (void) setSlide:(Slide*)newSlide {
-  [[NSApp projectorSlideController] setContent:newSlide];
-  [[self projectorWindowController] updateSlide];
+- (BOOL) isFullScreenMode {
+  return [[NSScreen screens] count] > 1;
 }
 
 - (BOOL) showsPDF {
@@ -82,6 +81,13 @@
 
 - (BOOL) showsSlide {
   return [[[NSApp projectorSlideController] content] class] ? YES : NO;
+}
+
+// The PDFView does the following manually.
+
+- (void) setSlide:(Slide*)newSlide {
+  [[NSApp projectorSlideController] setContent:newSlide];
+  [[self projectorWindowController] updateSlide];
 }
 
 /*****************

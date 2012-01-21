@@ -9,7 +9,7 @@
 
 @implementation ProjectorWindowController
 
-@synthesize pdfView, backgroundView;
+@synthesize pdfView, currentProjectorView;
 
 /******************
  * INITIALIZATION *
@@ -36,6 +36,7 @@
 - (void)windowDidResize:(NSNotification *)notification {
   [[NSApp mainWindowController] updateThumbnailSize];
 }
+
 /********************
  * INSTANCE METHODS *
  ********************/
@@ -45,19 +46,31 @@
 }
 
 - (void) updateSlide {
-  [self setContentView:(NSView*)[[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection] andPreviewMode:NO]];
+  [self showView:(NSView*)[[SlideView alloc] initWithSlide:[[NSApp projectorSlideController] selection] andPreviewMode:NO]];
 }
 
 - (void) updatePDF {
-  [self setContentView:(NSView*)self.pdfView];
+  [self showView:(NSView*)self.pdfView];
 }
 
-- (void) setContentView:(NSView*)contentView {
-  NSView *oldContentView = [self.window contentView];
-  [self.window setContentView:contentView];
-  [oldContentView setHidden:YES];
-  if ([oldContentView isInFullScreenMode]) [self.window toggleFullscreen];
+- (void) showView:(NSView*)view {
+  if ([[NSApp projectorController] isFullScreenMode]) {
+    [self goFullscreen:view];
+    [self.currentProjectorView exitFullScreenModeWithOptions:NULL];
+  } else {
+    [self.window setContentView:view];
+  }
+  self.currentProjectorView = view;
 }
+
+- (void) goFullscreen:(NSView*)view {
+  // NSNumber *presentationOptions = [NSNumber numberWithUnsignedInt:(NSApplicationPresentationAutoHideMenuBar|NSApplicationPresentationAutoHideDock|NSApplicationPresentationDisableProcessSwitching)];
+  NSDictionary *opts = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], NSFullScreenModeAllScreens, NULL, NSFullScreenModeApplicationPresentationOptions, nil];
+  [view enterFullScreenMode:[[NSScreen screens] objectAtIndex:1] withOptions:opts];
+  [[[NSApp mainWindowController] window] makeKeyWindow];
+}
+
+// Notifications
 
 - (void) nsApplicationDidChangeScreenParametersNotification:(NSNotification*)notification {
   if ([[NSScreen screens] count] == 1) {
@@ -70,6 +83,8 @@
     }
   }
 }
+
+// Accessors
 
 - (ProjectorWindow*) window {
   return (ProjectorWindow*)[super window];

@@ -6,12 +6,12 @@
   ProjectorWindow *window;
 
   IBOutlet PDFView *pdfView;
-  IBOutlet NSView *backgroundView;
+  NSView *currentProjectorView;
   
 }
 
 @property (nonatomic, readonly) PDFView *pdfView;
-@property (nonatomic, readonly) NSView *backgroundView;
+@property (nonatomic, readwrite) NSView *currentProjectorView;
 
 - (ProjectorWindow *)window;
 

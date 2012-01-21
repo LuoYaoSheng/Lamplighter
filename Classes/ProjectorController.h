@@ -29,6 +29,7 @@
 - (BOOL) isLive;
 - (void) goLive;
 - (void) leaveLive;
+- (BOOL) isFullScreenMode;
 - (void) setSlide:(Slide*)newSlide;
 - (BOOL) showsPDF;
 - (BOOL) showsSlide;
