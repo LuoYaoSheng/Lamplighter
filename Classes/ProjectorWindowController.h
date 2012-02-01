@@ -1,22 +1,24 @@
-@class PDFView;
+@class ProjectorPDFView;
 @class ProjectorWindow;
 
 @interface ProjectorWindowController : NSWindowController <NSWindowDelegate> {
 
   ProjectorWindow *window;
 
-  IBOutlet PDFView *pdfView;
-  NSView *currentProjectorView;
+  ProjectorPDFView *pdfView;
+  IBOutlet NSView *projectorView;
   
 }
 
-@property (nonatomic, readonly) PDFView *pdfView;
-@property (nonatomic, readwrite) NSView *currentProjectorView;
+@property (nonatomic, readwrite, strong) ProjectorPDFView *pdfView;
+@property (nonatomic, readwrite) NSView *projectorView;
 
 - (ProjectorWindow *)window;
 
 // Initialization
 - (void) setupWindow;
+- (void) setupPDFView;
+- (void) setupObservers;
 
 // Instance Methods
 - (BOOL) isWindowVisible;

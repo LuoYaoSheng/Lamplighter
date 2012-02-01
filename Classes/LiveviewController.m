@@ -11,6 +11,7 @@
 #import "SlideView.h"
 #import "Slide.h"
 #import "PDF.h"
+#import "ProjectorPDFView.h"
 
 @implementation LiveviewController
 
@@ -26,7 +27,7 @@
   //debugLog(@"Setting document to page %@", pdfPage);
   [[[NSApp mainWindowController] liveviewPDFThumbnailView] setHidden:NO];
   [[[NSApp mainWindowController] liveviewCollectionView] setHidden:YES];
-  PDFView *projectorPDFView = [[[NSApp projectorController] projectorWindowController] pdfView];
+  ProjectorPDFView *projectorPDFView = [[[NSApp projectorController] projectorWindowController] pdfView];
   [projectorPDFView setDocument:pdfDocument];
   [projectorPDFView goToPage:pdfPage];
 }

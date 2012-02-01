@@ -6,10 +6,11 @@
 #import "MainWindowController.h"
 #import "SlideView.h"
 #import "ProjectorWindow.h"
+#import "ProjectorPDFView.h"
 
 @implementation ProjectorWindowController
 
-@synthesize pdfView, currentProjectorView;
+@synthesize pdfView, projectorView;
 
 /******************
  * INITIALIZATION *
@@ -18,15 +19,22 @@
 - (void) awakeFromNib {
   debugLog(@"[ProjectorWindowController] awakeFromNib");
   [self setupWindow];
+  [self setupPDFView];
   [self setupObservers];
 }
 
 - (void) setupWindow {
   [self.window setMovableByWindowBackground:YES];
   NSSize size = [[NSApp projectorController] sizeOfProjectorScreen];
-  [self.window setContentSize:NSMakeSize(250, 250 / (size.width / size.height))];
+  self.window.contentSize = NSMakeSize(250, 250 / (size.width / size.height));
   [self.window setBackgroundColor:[NSColor blackColor]];
-  [self.pdfView setBackgroundColor:[NSColor blackColor]];
+}
+
+- (void) setupPDFView {
+  self.pdfView = [ProjectorPDFView new];
+  self.pdfView.displayMode = kPDFDisplaySinglePage;
+  self.pdfView.autoScales = YES;
+  self.pdfView.backgroundColor = [NSColor blackColor];
 }
 
 - (void) setupObservers {
@@ -54,6 +62,13 @@
 }
 
 - (void) showView:(NSView*)view {
+  [view setAutoresizingMask:(NSViewMinXMargin|NSViewWidthSizable|NSViewMaxXMargin|NSViewMinYMargin|NSViewHeightSizable|NSViewMaxYMargin)];
+  [view setFrame:NSMakeRect(0, 0, self.projectorView.frame.size.width, self.projectorView.frame.size.height)];
+  [self.projectorView setSubviews:[NSArray arrayWithObjects: view, nil]];
+
+  
+
+/*
   if ([[NSApp projectorController] isFullScreenMode]) {
     [self goFullscreen:view];
     [self.currentProjectorView exitFullScreenModeWithOptions:NULL];
@@ -61,6 +76,7 @@
     [self.window setContentView:view];
   }
   self.currentProjectorView = view;
+  */
 }
 
 - (void) goFullscreen:(NSView*)view {

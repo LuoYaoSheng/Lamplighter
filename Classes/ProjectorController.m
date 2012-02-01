@@ -12,9 +12,9 @@
 
 @implementation ProjectorController
 
-/********************
- * INSTANCE METHODS *
- ********************/
+/***************************
+ * SCREEN SIZE CALCULATION *
+ ***************************/
 
 - (NSSize) recommendedThumbnailSize {
   NSSize size = [self sizeOfProjectorScreen];
@@ -45,20 +45,16 @@
   return NSMakeSize(frame.size.width, frame.size.height);
 }
 
-- (BOOL) isBlank {
-  return ([self showsPDF] || [self showsSlide]) ? NO : YES;
-}
-
-- (void) goBlank {
-  [self setSlide:NULL];
+/****************
+ * LIVE HANDING *
+ ****************/
+ 
+- (BOOL) isLive {
+  return [[self projectorWindowController] isWindowVisible];
 }
 
 - (void) toggleLive {
   [self isLive] ? [self leaveLive] : [self goLive];
-}
-
-- (BOOL) isLive {
-  return [[self projectorWindowController] isWindowVisible];
 }
 
 - (void) goLive {
@@ -70,6 +66,20 @@
   [[self projectorWindowController] close];
   [[NSApp mainWindowController] updateThumbnailSize];
 }
+
+/************************
+ * BLANK SLIDE HANDLING *
+ ************************/
+ 
+- (BOOL) isBlank {
+  return ([self showsPDF] || [self showsSlide]) ? NO : YES;
+}
+
+- (void) goBlank {
+  [self setSlide:NULL];
+}
+
+
 
 - (BOOL) isFullScreenMode {
   return [[NSScreen screens] count] > 1;
