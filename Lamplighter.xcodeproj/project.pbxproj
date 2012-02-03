@@ -70,6 +70,7 @@
 		E09A6744149BA40C00E9BF32 /* PDFsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E09A6743149BA40C00E9BF32 /* PDFsTableView.m */; };
 		E0CDED52148E98EE0044B115 /* PDFImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = E0CDED51148E98EE0044B115 /* PDFImporter.m */; };
 		E0CDED56148E9AE00044B115 /* Importer.m in Sources */ = {isa = PBXBuildFile; fileRef = E0CDED55148E9AE00044B115 /* Importer.m */; };
+		E0F08D4314DC50F200CF59D6 /* ProjectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F08D4214DC50F200CF59D6 /* ProjectorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,6 +188,8 @@
 		E0CDED51148E98EE0044B115 /* PDFImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFImporter.m; path = Classes/PDFImporter.m; sourceTree = "<group>"; };
 		E0CDED54148E9AE00044B115 /* Importer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Importer.h; path = Classes/Importer.h; sourceTree = "<group>"; };
 		E0CDED55148E9AE00044B115 /* Importer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Importer.m; path = Classes/Importer.m; sourceTree = "<group>"; };
+		E0F08D4114DC50F200CF59D6 /* ProjectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectorView.h; path = Classes/ProjectorView.h; sourceTree = "<group>"; };
+		E0F08D4214DC50F200CF59D6 /* ProjectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectorView.m; path = Classes/ProjectorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +337,8 @@
 				D84CF9B51448CF870070724D /* ProjectorWindow.m */,
 				E0707C7D14B60D91009EAC70 /* ProjectorPDFView.h */,
 				E0707C7E14B60D91009EAC70 /* ProjectorPDFView.m */,
+				E0F08D4114DC50F200CF59D6 /* ProjectorView.h */,
+				E0F08D4214DC50F200CF59D6 /* ProjectorView.m */,
 			);
 			name = Projector;
 			sourceTree = "<group>";
@@ -760,6 +765,7 @@
 				E09A673F149BA2EE00E9BF32 /* DeletableTableView.m in Sources */,
 				E09A6744149BA40C00E9BF32 /* PDFsTableView.m in Sources */,
 				E0707C7F14B60D91009EAC70 /* ProjectorPDFView.m in Sources */,
+				E0F08D4314DC50F200CF59D6 /* ProjectorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

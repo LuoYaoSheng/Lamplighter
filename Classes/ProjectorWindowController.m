@@ -69,7 +69,7 @@
   
 
 /*
-  if ([[NSApp projectorController] isFullScreenMode]) {
+  if ([[NSApp projectorController] forceFullscreenMode]) {
     [self goFullscreen:view];
     [self.currentProjectorView exitFullScreenModeWithOptions:NULL];
   } else {
@@ -86,18 +86,24 @@
   [[[NSApp mainWindowController] window] makeKeyWindow];
 }
 
-// Notifications
-
-- (void) nsApplicationDidChangeScreenParametersNotification:(NSNotification*)notification {
+- (void) ensureCorrectFullscreenState { 
   if ([[NSScreen screens] count] == 1) {
     debugLog(@"Hey, possibly you uplugged the projector!");
     [self.window exitFullScreen];
   } else {
     debugLog(@"Hey, possibly you attached the projector!");
     if ([[NSApp projectorController] isLive]) {
-      [self.window goFullscreenOnScreen:[[NSScreen screens] objectAtIndex:0]];
+      if (![self.projectorView isInFullScreenMode]) {
+        [self.window goFullscreenOnScreen:[[NSScreen screens] objectAtIndex:1]];
+      }
     }
   }
+}
+
+// Notifications
+
+- (void) nsApplicationDidChangeScreenParametersNotification:(NSNotification*)notification {
+  [self ensureCorrectFullscreenState];
 }
 
 // Accessors

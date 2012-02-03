@@ -24,5 +24,6 @@
 - (BOOL) isWindowVisible;
 - (void) updateSlide;
 - (void) updatePDF;
+- (void) ensureCorrectFullscreenState;
 
 @end

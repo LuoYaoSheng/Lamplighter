@@ -59,11 +59,13 @@
 
 - (void) goLive {
   [[self projectorWindowController] showWindow:self];
+  [[self projectorWindowController] ensureCorrectFullscreenState];
   [[NSApp mainWindowController] updateThumbnailSize];
 }
 
 - (void) leaveLive {
   [[self projectorWindowController] close];
+  [[self projectorWindowController] ensureCorrectFullscreenState];
   [[NSApp mainWindowController] updateThumbnailSize];
 }
 
@@ -77,12 +79,6 @@
 
 - (void) goBlank {
   [self setSlide:NULL];
-}
-
-
-
-- (BOOL) isFullScreenMode {
-  return [[NSScreen screens] count] > 1;
 }
 
 - (BOOL) showsPDF {
