@@ -13,7 +13,8 @@
   if (newLayer) {
     [newLayer setupBindingForSlide:newSlide];
     [newLayer setupConstraints]; 
-    [newLayer setupFont];
+    [newLayer setupFontAlignment];
+    [newLayer hideFont];
   }
   return newLayer;
 }
@@ -28,8 +29,17 @@
   [self setConstraints:[NSArray arrayWithObjects:verticalConstraint, horizontalConstraint, nil]];
 }
 
-- (void) setupFont {
+- (void) setupFontAlignment {
   self.alignmentMode = kCAAlignmentCenter;
+}
+
+- (void) hideFont {
+  CGColorRef blackColor = CGColorCreateGenericRGB(0,0,0,1);
+  self.foregroundColor = blackColor;
+  CGColorRelease(blackColor);
+}
+
+- (void) showFont {
   CGColorRef whiteColor = CGColorCreateGenericRGB(1,1,1,1);
   self.foregroundColor = whiteColor;
   CGColorRelease(whiteColor);
@@ -41,6 +51,8 @@
 
 - (void) setupSize {
   [self increaseToMaxSize];
+  // Show the text only after resize
+  [self showFont];
 }
 
 - (void) increaseToMaxSize {
