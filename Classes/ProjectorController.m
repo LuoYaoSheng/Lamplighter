@@ -95,32 +95,30 @@
 }
 
 - (void) goLive {
-
   if ([NSApp singleScreenMode]) {
+    // Ensure there is nothing stuck in fullscreen mode
+    [self.projectorView exitFullScreenModeWithOptions:NULL];
+    // Show the single-screen mode window
     [self.windowController showWindow:self];
     [[self.windowController window] setContentView:self.projectorView];
   } else {
+    // Ensure the single-screen mode window is gone
+    [self.windowController close];
+    // Go fullscreen on secondary screen
     NSDictionary *opts = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], NSFullScreenModeAllScreens, NULL, NSFullScreenModeApplicationPresentationOptions, nil];
     [self.projectorView enterFullScreenMode:[[NSScreen screens] objectAtIndex:1] withOptions:opts];
   }
-  
   self.isLive = YES;
   [self sendLiveStatusChangedNotification];
-  //[self.windowController ensureCorrectFullscreenState];
 }
 
 - (void) leaveLive {
-
-  if ([NSApp singleScreenMode]) {
-    [self.windowController close];
-  } else {
-    NSDictionary *opts = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], NSFullScreenModeAllScreens, NULL, NSFullScreenModeApplicationPresentationOptions, nil];
-    [self.projectorView enterFullScreenMode:[[NSScreen screens] objectAtIndex:1] withOptions:opts];
-  }
-  
+  // Shut down all projector windows and views
+  // These methods won't fail if they already are closed
+  [self.windowController close];
+  [self.projectorView exitFullScreenModeWithOptions:NULL];
   self.isLive = NO;
   [self sendLiveStatusChangedNotification];
-  //[[self windowController] ensureCorrectFullscreenState];
 }
 
 - (void) sendLiveStatusChangedNotification {
@@ -174,21 +172,15 @@
   return [[[self.projectorView subviews] lastObject] class] == [SlideView class];
 }
 
-/*
-- (void) goFullscreen:(NSView*)view {
-  // NSNumber *presentationOptions = [NSNumber numberWithUnsignedInt:(NSApplicationPresentationAutoHideMenuBar|NSApplicationPresentationAutoHideDock|NSApplicationPresentationDisableProcessSwitching)];
-  NSDictionary *opts = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], NSFullScreenModeAllScreens, NULL, NSFullScreenModeApplicationPresentationOptions, nil];
-  [view enterFullScreenMode:[[NSScreen screens] objectAtIndex:1] withOptions:opts];
-  [[[NSApp mainWindowController] window] makeKeyWindow];
-}
-
 - (void) ensureCorrectFullscreenState { 
-  if ([[NSScreen screens] count] == 1) {
-    // If there is just one screen, make sure nothing is in fullscreen mode here.
+  if ([NSApp singleScreenMode]) {
+  debugLog(@"Single");
+    // If there is just one screen, make sure nothing is in fullscreen mode at all.
     // This method won't fail if the window is not in fullscreen mode.
     //[self.window setIsVisible:YES];
-    //[self.window exitFullScreen];
+    [self.projectorView exitFullScreenModeWithOptions:NULL];
   } else {
+  debugLog(@"Multiple");
     if ([[NSApp projectorController] isLive] && ![self.projectorView isInFullScreenMode]) {
       // If there is a second screen, and we are in live mode, and we are not already in fullscreen mode
       // then go fullscreen on the secondary screen.
@@ -196,8 +188,9 @@
       //[self.window setIsVisible:NO];
     }
   }
+  // Refresh everything
+  if (self.isLive) [self goLive];
 }
-*/
 
 /*****************
  * NOTIFICATIONS *
@@ -208,6 +201,7 @@
 
 - (void) nsApplicationDidChangeScreenParametersNotification:(NSNotification*)notification {
   //[self ensureCorrectFullscreenState];
+  if (self.isLive) [self goLive];
 }
 
 - (void) collectionViewSelectionDidChangeNotification:(NSNotification*)notification {
