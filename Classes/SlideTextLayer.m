@@ -34,9 +34,9 @@
 }
 
 - (void) hideFont {
-  CGColorRef blackColor = CGColorCreateGenericRGB(0,0,0,1);
-  self.foregroundColor = blackColor;
-  CGColorRelease(blackColor);
+  CGColorRef transparentColor = CGColorCreateGenericRGB(0,0,0,0);
+  self.foregroundColor = transparentColor;
+  CGColorRelease(transparentColor);
 }
 
 - (void) showFont {

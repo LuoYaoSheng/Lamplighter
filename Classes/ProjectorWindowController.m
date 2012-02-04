@@ -63,20 +63,8 @@
 
 - (void) showView:(NSView*)view {
   [view setAutoresizingMask:(NSViewMinXMargin|NSViewWidthSizable|NSViewMaxXMargin|NSViewMinYMargin|NSViewHeightSizable|NSViewMaxYMargin)];
-  [view setFrame:NSMakeRect(0, 0, self.projectorView.frame.size.width, self.projectorView.frame.size.height)];
+  [view setFrame:NSMakeRect(0, 0, view.superview.frame.size.width, view.superview.frame.size.height)];
   [self.projectorView setSubviews:[NSArray arrayWithObjects: view, nil]];
-
-  
-
-/*
-  if ([[NSApp projectorController] forceFullscreenMode]) {
-    [self goFullscreen:view];
-    [self.currentProjectorView exitFullScreenModeWithOptions:NULL];
-  } else {
-    [self.window setContentView:view];
-  }
-  self.currentProjectorView = view;
-  */
 }
 
 - (void) goFullscreen:(NSView*)view {
@@ -88,14 +76,16 @@
 
 - (void) ensureCorrectFullscreenState { 
   if ([[NSScreen screens] count] == 1) {
-    debugLog(@"Hey, possibly you uplugged the projector!");
+    // If there is just one screen, make sure nothing is in fullscreen mode here.
+    // This method won't fail if the window is not in fullscreen mode.
+    //[self.window setIsVisible:YES];
     [self.window exitFullScreen];
   } else {
-    debugLog(@"Hey, possibly you attached the projector!");
-    if ([[NSApp projectorController] isLive]) {
-      if (![self.projectorView isInFullScreenMode]) {
-        [self.window goFullscreenOnScreen:[[NSScreen screens] objectAtIndex:1]];
-      }
+    if ([[NSApp projectorController] isLive] && ![self.projectorView isInFullScreenMode]) {
+      // If there is a second screen, and we are in live mode, and we are not already in fullscreen mode
+      // then go fullscreen on the secondary screen.
+      [self.window goFullscreenOnScreen:[[NSScreen screens] objectAtIndex:1]];
+      //[self.window setIsVisible:NO];
     }
   }
 }
