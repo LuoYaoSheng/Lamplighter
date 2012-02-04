@@ -38,13 +38,14 @@
 - (void) setupObservers {
   [[NSNotificationCenter defaultCenter] addObserver:self.liveviewController selector:@selector(slideViewWasDoubleClickedNotification:) name:SlideViewWasDoubleClickedNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self.liveviewController selector:@selector(PDFThumbnailViewWasDoubleClickedNotification:) name:PDFThumbnailViewWasDoubleClickedNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(liveStatusDidChangeNotification:) name:LiveStatusDidChangeNotification object:nil];
 }
 
 - (void) setupPDFViews {
   self.previewPDFView = [PDFView new];
   [self.previewPDFThumbnailView setBackgroundColor:[NSColor headerColor]];
   [self.liveviewPDFThumbnailView setBackgroundColor:[NSColor headerColor]];
-  [self.liveviewPDFThumbnailView setPDFView:(PDFView*)[[[NSApp projectorController] projectorWindowController] pdfView]];
+  [self.liveviewPDFThumbnailView setPDFView:(PDFView*)[[NSApp projectorController] pdfView]];
 }
 
 /************
@@ -237,6 +238,10 @@
   if (liveviewController) return liveviewController;
 	liveviewController = [LiveviewController new];
   return liveviewController;
+}
+
+- (void) liveStatusDidChangeNotification:(NSNotification*)notification {
+  [self updateThumbnailSize];
 }
 
 /**********************

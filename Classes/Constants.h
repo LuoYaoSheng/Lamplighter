@@ -1,16 +1,17 @@
 //Error
-extern NSString * const ErrorDomain;
+extern NSString* const ErrorDomain;
 
 // Data Types
-extern NSString * const SongDataType;
-extern NSString * const PDFDataType;
+extern NSString* const SongDataType;
+extern NSString* const PDFDataType;
 
 // Notifications
-extern NSString * const SlideViewWasSingleClickedNotification;
-extern NSString * const SlideViewWasDoubleClickedNotification;
-extern NSString * const PDFThumbnailViewWasSingleClickedNotification;
-extern NSString * const PDFThumbnailViewWasDoubleClickedNotification;
-extern NSString * const PDFViewWasDoubleClickedNotification;
-extern NSString * const CollectionViewSelectionDidChangeNotification;
+extern NSString* const SlideViewWasSingleClickedNotification;
+extern NSString* const SlideViewWasDoubleClickedNotification;
+extern NSString* const PDFThumbnailViewWasSingleClickedNotification;
+extern NSString* const PDFThumbnailViewWasDoubleClickedNotification;
+extern NSString* const PDFViewWasDoubleClickedNotification;
+extern NSString* const CollectionViewSelectionDidChangeNotification;
+extern NSString* const LiveStatusDidChangeNotification;
 
-extern NSString * const ProgressDidChangeNotification;
+extern NSString* const ProgressDidChangeNotification;

@@ -1,11 +1,20 @@
 @class ProjectorWindowController;
+@class ProjectorPDFView;
+@class ProjectorView;
 
 #import "Slide.h"
 
 @interface ProjectorController : NSObject {
 
+  // Views
+  ProjectorView *projectorView;
+  ProjectorPDFView *pdfView;
+  
   // Window Controllers
-  ProjectorWindowController *projectorWindowController;
+  ProjectorWindowController *windowController;
+
+  // Status trackers
+  BOOL isLive;
 
 }
 
@@ -13,25 +22,36 @@
  * PROPERTIES *
  **************/
 
+// Views
+@property (nonatomic, readwrite, strong) ProjectorView *projectorView;
+@property (nonatomic, readwrite, strong) ProjectorPDFView *pdfView;
+
 // Window Controllers
-@property (nonatomic, readonly) ProjectorWindowController *projectorWindowController;
+@property (nonatomic, readwrite, strong) ProjectorWindowController *windowController;
+
+// Status trackers
+@property (readwrite) BOOL isLive;
 
 /***********
  * METHODS *
  ***********/
 
-// Instance Methods
+// Projector size caluculation
 - (NSSize) recommendedThumbnailSize;
-- (NSSize) sizeOfProjectorScreen;
-- (BOOL) isBlank;
-- (void) goBlank;
+// Live handling
 - (void) toggleLive;
-- (BOOL) isLive;
 - (void) goLive;
 - (void) leaveLive;
+// Blank slide handling
+- (BOOL) isBlank;
+- (void) goBlank;
+// Slide/PDF handling
+- (void) setSlide:(Slide*)newSlide;
 - (void) setSlide:(Slide*)newSlide;
 - (BOOL) showsPDF;
 - (BOOL) showsSlide;
+
+
 
 
 @end

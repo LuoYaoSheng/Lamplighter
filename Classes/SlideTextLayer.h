@@ -12,7 +12,6 @@
 
 - (void) setupBindingForSlide:(Slide*)newSlide;
 - (void) setupConstraints;
-- (void) setupFont;
 
 // Font resizing
 - (void) setupSize;

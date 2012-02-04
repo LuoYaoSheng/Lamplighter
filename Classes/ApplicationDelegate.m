@@ -20,10 +20,6 @@
 }
 
 - (void) setupControllerObservers {
-  [[NSNotificationCenter defaultCenter] addObserver:self.projectorController selector:@selector(collectionViewSelectionDidChangeNotification:) name:CollectionViewSelectionDidChangeNotification object:nil];
-  [[NSNotificationCenter defaultCenter] addObserver:self.projectorController selector:@selector(slideViewWasDoubleClickedNotification:) name:SlideViewWasDoubleClickedNotification object:nil];
-  [[NSNotificationCenter defaultCenter] addObserver:self.projectorController selector:@selector(PDFThumbnailViewWasDoubleClickedNotification:) name:PDFThumbnailViewWasDoubleClickedNotification object:nil];
-  [[NSNotificationCenter defaultCenter] addObserver:self.projectorController selector:@selector(PDFViewWasDoubleClickedNotification:) name:PDFViewWasDoubleClickedNotification object:nil];
 }
 
 /**********************
@@ -283,6 +279,14 @@
   }
 }
 
+/********************
+ * SCREEN DETECTION *
+ ********************/
+
+- (BOOL) singleScreenMode {
+  return ([[NSScreen screens] count] == 1);
+}
+
 - (NSScreen*) suggestedScreenForProjector {
   if ([self singleScreenMode]) {
     // Single screen: Projector in a window mode
@@ -291,10 +295,6 @@
     // Multiple screens: Projector on secondary screen mode
     return [[NSScreen screens] lastObject];
   }
-}
-
-- (BOOL) singleScreenMode {
-  return ([[NSScreen screens] count] == 1);
 }
 
 /**********************
