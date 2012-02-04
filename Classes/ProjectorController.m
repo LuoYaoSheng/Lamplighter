@@ -97,7 +97,7 @@
 - (void) goLive {
   if ([NSApp singleScreenMode]) {
     // Ensure there is nothing stuck in fullscreen mode
-    [self.projectorView exitFullScreenModeWithOptions:NULL];
+    [self.projectorView exitFullscreen];
     // Show the single-screen mode window
     [self.windowController showWindow:self];
     [[self.windowController window] setContentView:self.projectorView];
@@ -105,8 +105,7 @@
     // Ensure the single-screen mode window is gone
     [self.windowController close];
     // Go fullscreen on secondary screen
-    NSDictionary *opts = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], NSFullScreenModeAllScreens, NULL, NSFullScreenModeApplicationPresentationOptions, nil];
-    [self.projectorView enterFullScreenMode:[[NSScreen screens] objectAtIndex:1] withOptions:opts];
+    [self.projectorView goFullscreen];
   }
   self.isLive = YES;
   [self sendLiveStatusChangedNotification];
@@ -116,7 +115,7 @@
   // Shut down all projector windows and views
   // These methods won't fail if they already are closed
   [self.windowController close];
-  [self.projectorView exitFullScreenModeWithOptions:NULL];
+  [self.projectorView exitFullscreen];
   self.isLive = NO;
   [self sendLiveStatusChangedNotification];
 }
@@ -219,17 +218,18 @@
 }
 
 - (void) PDFViewWasDoubleClickedNotification:(NSNotification*)notification {
-  [[self.windowController window] toggleFullscreen];
+  [self.projectorView toggleFullscreen];
 }
 
 - (void) slideViewWasDoubleClickedNotification:(NSNotification*)notification {
   SlideView *slideView = [notification object];
   if ([slideView collectionView] == NULL) {
-    [[self.windowController window] toggleFullscreen];
-  } else {
-    if ([slideView collectionView] == [[NSApp mainWindowController] liveviewCollectionView] && ![self isLive]) {
-      [self goLive];
-    }
+    // The user clicked on the projector window 
+    [self.projectorView toggleFullscreen];
+  } else if ([slideView collectionView] == [[NSApp mainWindowController] liveviewCollectionView]) {
+    // The user clicked on a slide of the liveViewCollectionView
+    // This will conveniently make us go live if we aren't already.
+    if (![self isLive]) [self goLive];
   }
 }
 
