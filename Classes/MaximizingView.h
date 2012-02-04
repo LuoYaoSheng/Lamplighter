@@ -1,3 +1,0 @@
-@interface MaximizingView : NSView
-
-@end

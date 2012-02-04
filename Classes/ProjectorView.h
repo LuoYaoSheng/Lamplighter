@@ -1,5 +1,3 @@
-#import "MaximizingView.h"
-
 @interface ProjectorView : NSView
 
 - (void) toggleFullscreen;

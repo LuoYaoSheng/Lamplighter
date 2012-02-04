@@ -15,17 +15,15 @@
  ******************/
 
 - (void) awakeFromNib {
-  debugLog(@"[ProjectorWindowController] awakeFromNib");
   [self setupWindow];
   [self setupObservers];
 }
 
 - (void) setupWindow {
-  [self.window setMovableByWindowBackground:YES];
-  //NSSize size = [[NSApp projectorController] sizeOfProjectorScreen];
-  //self.window.contentSize = NSMakeSize(250, 250 / (size.width / size.height));
+  self.window.movableByWindowBackground = YES;
   self.window.contentSize = [[NSApp projectorController] recommendedThumbnailSize];
-  [self.window setBackgroundColor:[NSColor blackColor]];
+  self.window.backgroundColor =[NSColor blackColor];
+  self.window.title = NSLocalizedString(@"projector.window.title", nil);
 }
 
 - (void) setupObservers {

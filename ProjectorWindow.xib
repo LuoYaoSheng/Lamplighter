@@ -12,7 +12,6 @@
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<string>NSCustomView</string>
 			<string>NSWindowTemplate</string>
 			<string>NSView</string>
 			<string>NSCustomObject</string>
@@ -41,7 +40,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{475, 540}, {200, 150}}</string>
 				<int key="NSWTFlags">611845120</int>
-				<string key="NSWindowTitle">Projector</string>
+				<string key="NSWindowTitle">projector.window.title</string>
 				<string key="NSWindowClass">ProjectorWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
@@ -49,29 +48,16 @@
 				<object class="NSView" key="NSWindowView" id="846956090">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">274</int>
-					<object class="NSMutableArray" key="NSSubviews">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSCustomView" id="427438050">
-							<reference key="NSNextResponder" ref="846956090"/>
-							<int key="NSvFlags">274</int>
-							<string key="NSFrameSize">{200, 150}</string>
-							<reference key="NSSuperview" ref="846956090"/>
-							<reference key="NSNextKeyView"/>
-							<int key="NSViewLayerContentsRedrawPolicy">2</int>
-							<string key="NSReuseIdentifierKey">_NS:1145</string>
-							<string key="NSClassName">ProjectorView</string>
-						</object>
-					</object>
 					<string key="NSFrameSize">{200, 150}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSNextKeyView" ref="427438050"/>
+					<reference key="NSNextKeyView"/>
 					<bool key="NSViewIsLayerTreeHost">YES</bool>
 					<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{200, 172}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
-				<string key="NSFrameAutosaveName">Projector</string>
+				<string key="NSFrameAutosaveName">projector.window.autosave</string>
 				<int key="NSWindowCollectionBehavior">256</int>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -86,14 +72,6 @@
 						<reference key="destination" ref="986794577"/>
 					</object>
 					<int key="connectionID">813</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">projectorView</string>
-						<reference key="source" ref="1021"/>
-						<reference key="destination" ref="427438050"/>
-					</object>
-					<int key="connectionID">829</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -147,18 +125,9 @@
 						<reference key="object" ref="846956090"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="427438050"/>
 						</object>
 						<reference key="parent" ref="986794577"/>
 						<string key="objectName">Content View</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">826</int>
-						<reference key="object" ref="427438050"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-						</object>
-						<reference key="parent" ref="846956090"/>
 					</object>
 				</object>
 			</object>
@@ -173,7 +142,6 @@
 					<string>811.IBWindowTemplateEditedContentRect</string>
 					<string>811.NSWindowTemplate.visibleAtLaunch</string>
 					<string>812.IBPluginDependency</string>
-					<string>826.IBPluginDependency</string>
 				</object>
 				<object class="NSArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -183,7 +151,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{475, 540}, {200, 150}}</string>
 					<boolean value="NO"/>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 				</object>
 			</object>

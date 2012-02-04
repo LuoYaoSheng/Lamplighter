@@ -2,6 +2,9 @@
 
 @implementation ProjectorWindow
 
+
+
+
 - (BOOL)canBecomeKeyWindow {
   return NO;
 }

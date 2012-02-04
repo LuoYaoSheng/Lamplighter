@@ -1,5 +1,3 @@
-#import "MaximizingView.h"
-
 @class Slide;
 @class SlideRootLayer;
 @class SlideBackgroundLayer;

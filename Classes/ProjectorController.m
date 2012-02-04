@@ -113,7 +113,7 @@
 
 - (void) leaveLive {
   // Shut down all projector windows and views
-  // These methods won't fail if they already are closed
+  // These methods won't fail if they are already closed
   [self.windowController close];
   [self.projectorView exitFullscreen];
   self.isLive = NO;
@@ -129,13 +129,11 @@
  ************************/
  
 - (BOOL) isBlank {
-  //return ([self showsPDF] || [self showsSlide]) ? NO : YES;
   return [[self.projectorView subviews] count] == 0;
 }
 
 - (void) goBlank {
   [self.projectorView setSubviews:[NSArray arrayWithObjects:nil]];
-  //[self setSlide:NULL];
 }
 
 /**********************
@@ -171,26 +169,6 @@
   return [[[self.projectorView subviews] lastObject] class] == [SlideView class];
 }
 
-- (void) ensureCorrectFullscreenState { 
-  if ([NSApp singleScreenMode]) {
-  debugLog(@"Single");
-    // If there is just one screen, make sure nothing is in fullscreen mode at all.
-    // This method won't fail if the window is not in fullscreen mode.
-    //[self.window setIsVisible:YES];
-    [self.projectorView exitFullScreenModeWithOptions:NULL];
-  } else {
-  debugLog(@"Multiple");
-    if ([[NSApp projectorController] isLive] && ![self.projectorView isInFullScreenMode]) {
-      // If there is a second screen, and we are in live mode, and we are not already in fullscreen mode
-      // then go fullscreen on the secondary screen.
-      //[self.window goFullscreenOnScreen:[[NSScreen screens] objectAtIndex:1]];
-      //[self.window setIsVisible:NO];
-    }
-  }
-  // Refresh everything
-  if (self.isLive) [self goLive];
-}
-
 /*****************
  * NOTIFICATIONS *
  *****************/
@@ -199,7 +177,6 @@
 // Notifications
 
 - (void) nsApplicationDidChangeScreenParametersNotification:(NSNotification*)notification {
-  //[self ensureCorrectFullscreenState];
   if (self.isLive) [self goLive];
 }
 
