@@ -26,7 +26,7 @@
 }
 
 - (void) setupSize {
-  self.fontSize = self.superlayer.bounds.size.height / 25;
+  self.fontSize = self.superlayer.bounds.size.height / 30;
   [self showFont];
 }
 

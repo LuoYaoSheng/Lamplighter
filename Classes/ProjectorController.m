@@ -23,7 +23,7 @@
     [self initProjectorView];
     [self initPDFView];
     [self initWindowController];
-    [self setupObservers];
+    [self initObservers];
   }
   return self;
 }
@@ -49,7 +49,7 @@
   self.windowController = [[ProjectorWindowController alloc] initWithWindowNibName:@"ProjectorWindow"];
 }
 
-- (void) setupObservers {
+- (void) initObservers {
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nsApplicationDidChangeScreenParametersNotification:) name:NSApplicationDidChangeScreenParametersNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collectionViewSelectionDidChangeNotification:) name:CollectionViewSelectionDidChangeNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(slideViewWasDoubleClickedNotification:) name:SlideViewWasDoubleClickedNotification object:nil];
@@ -107,6 +107,7 @@
     // Go fullscreen on secondary screen
     [self.projectorView goFullscreen];
   }
+  [self maximizeProjectorSubview];
   self.isLive = YES;
   [self sendLiveStatusChangedNotification];
 }
@@ -156,9 +157,17 @@
 }
 
 - (void) showView:(NSView*)view {
+  [self.projectorView setSubviews:[NSArray arrayWithObjects: view, nil]];
+  [self maximizeProjectorSubview];
+}
+
+// We need this method because a Slide can be assigned to the Projector
+// While the projector has not been initiated yet.
+- (void) maximizeProjectorSubview {
+  NSView *view = [[self.projectorView subviews] lastObject];
   [view setAutoresizingMask:(NSViewMinXMargin|NSViewWidthSizable|NSViewMaxXMargin|NSViewMinYMargin|NSViewHeightSizable|NSViewMaxYMargin)];
   [view setFrame:NSMakeRect(0, 0, self.projectorView.frame.size.width, self.projectorView.frame.size.height)];
-  [self.projectorView setSubviews:[NSArray arrayWithObjects: view, nil]];
+
 }
 
 - (BOOL) showsPDF {
