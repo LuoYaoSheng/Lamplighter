@@ -7,12 +7,14 @@
 #import "SlideRootLayer.h"
 #import "SlideBackgroundLayer.h"
 #import "SlideTextLayer.h"
+#import "SlideFootnotesLayer.h"
 #import "MainWindowController.h"
 #import "EditSongWindowController.h"
 
 @implementation SlideView
 
 @synthesize slide, isSelected, isBoxed, collectionView;
+@synthesize footnotesLayer;
 
 /******************
  * INITIALIZATION *
@@ -32,11 +34,13 @@
     self.slide = newSlide;
     self.isBoxed = newPreviewMode;
     self.collectionView = newCollectionView;
+    self.footnotesLayer = [SlideFootnotesLayer layerForSlide:self.slide];
     [self deactivateAnimations];
     [self setLayer:[self rootLayer]];
     [self setWantsLayer:YES];
     [[self rootLayer] addSublayer:[self backgroundLayer]];
     [[self backgroundLayer] addSublayer:[self textLayer]];
+    [[self backgroundLayer] addSublayer:self.footnotesLayer];
   }
   return self;
 }
@@ -88,6 +92,7 @@
   [self resizeLayers];
   [self updateSelected];
   [self.textLayer setupSize];
+  [self.footnotesLayer setupSize];
 }
 
 - (void) resizeLayers {

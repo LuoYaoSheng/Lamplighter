@@ -2,6 +2,7 @@
 @class SlideRootLayer;
 @class SlideBackgroundLayer;
 @class SlideTextLayer;
+@class SlideFootnotesLayer;
 
 @interface SlideView : NSView {
 
@@ -17,6 +18,7 @@
   SlideRootLayer *rootLayer;
   SlideBackgroundLayer *backgroundLayer;
   SlideTextLayer *textLayer;
+  SlideFootnotesLayer *footnotesLayer;
   
 }
 
@@ -36,6 +38,7 @@
 @property (nonatomic, readonly) SlideRootLayer *rootLayer;
 @property (nonatomic, readonly) SlideBackgroundLayer *backgroundLayer;
 @property (nonatomic, readonly) SlideTextLayer *textLayer;
+@property (nonatomic, readwrite) SlideFootnotesLayer *footnotesLayer;
 
 /***********
  * METHODS *

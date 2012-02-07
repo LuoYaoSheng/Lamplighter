@@ -3,9 +3,7 @@
 
 #import "Slide.h"
 
-@interface SlideTextLayer : CATextLayer {
-
-}
+@interface SlideTextLayer : CATextLayer
 
 // Initialization
 + (id) layerForSlide:(Slide*)newSlide;
