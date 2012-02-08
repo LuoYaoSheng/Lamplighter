@@ -147,7 +147,6 @@
  */
 - (NSManagedObjectContext*) managedObjectContext {
   if (managedObjectContext) return managedObjectContext;
-  debugLog(@"%@:%s Instantiating...", [self class], (char*)_cmd);
 
   NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
   if (!coordinator) {

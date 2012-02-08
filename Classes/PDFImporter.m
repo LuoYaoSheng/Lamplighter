@@ -31,7 +31,7 @@
     if (UTTypeConformsTo(fileUTI, kUTTypePDF) && ![fileManager contentsEqualAtPath:source andPath:target]) {
       if ([fileManager fileExistsAtPath:target]) [fileManager removeItemAtPath:target error:&error];
       if (error) NSLog(@"Error when removing existing file: %@", error);
-      debugLog(@"Importing PDF %@", source);
+      DLog(@"Importing PDF %@", source);
       [fileManager copyItemAtPath:source toPath:target error:&error];
       if (error) NSLog(@"Error when importing PDF: %@", error);
     }

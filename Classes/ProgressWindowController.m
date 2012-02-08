@@ -8,7 +8,7 @@
 @synthesize progressIndicator;
 
 - (void) setMaxValue:(NSUInteger)newValue {
-  debugLog(@"maximum value is %i", (int)newValue);
+  DLog(@"maximum value is %i", (int)newValue);
   //[self.progressIndicator setIndeterminate:NO];
   [self.progressIndicator setMaxValue:(double)newValue];
 }
@@ -31,7 +31,7 @@
 }
 
 - (void) sheetEnded:(NSWindow*)sheet returnCode:(int)code contextInfo:(void*)context {
-  debugLog(@"sheetEnded");
+  DLog(@"sheetEnded");
   [sheet orderOut:nil];
 }
 

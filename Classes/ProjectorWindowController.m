@@ -35,7 +35,6 @@
 }
 
 - (void) liveStatusDidChangeNotification:(NSNotification *)notification {
-  NSLog(@"obj: %@", [notification object]);
 }
 
 /********************

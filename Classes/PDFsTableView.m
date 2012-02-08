@@ -3,7 +3,7 @@
 @implementation PDFsTableView
 
 - (void) deleteSelectedItem {
-  debugLog(@"Deleting selected PDF.");
+  DLog(@"Deleting selected PDF.");
 }
 
 

@@ -3,7 +3,6 @@
 @implementation PlaylistArrayController
 
 - (id) init {
-  debugLog(@"[PlaylistArrayController] init");
   self = [super init];
   return self;
 }

@@ -23,7 +23,7 @@
   NSArray *paths = [[info draggingPasteboard] propertyListForType:NSFilenamesPboardType];
   
   PDFImporter *importer = [[PDFImporter alloc] initWithPaths:paths];
-  debugLog(@"Activating PDF Importer...");
+  DLog(@"Activating PDF Importer...");
   return [importer import];
 }
 

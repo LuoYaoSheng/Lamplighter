@@ -6,7 +6,6 @@
 @implementation PDFsArrayController
 
 - (id) init {
-  debugLog(@"[PDFsArrayController] init");
   self = [super init];
   if (self) {
     [self setAutomaticallyRearrangesObjects:YES];

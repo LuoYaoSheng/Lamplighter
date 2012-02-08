@@ -3,7 +3,6 @@
 @implementation BaseArrayController
 
 - (id) init {
-  debugLog(@"[BaseArrayController] init");
   self = [super init];
   if (self) {
     [self setAvoidsEmptySelection:NO];

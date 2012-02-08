@@ -28,7 +28,6 @@
  ******************/
 
 - (void) awakeFromNib {
-  debugLog(@"[MainWindowController] awakeFromNib");
   [self setupPlaylistTable];
   [self setupObservers];
   [self setupMenuLocalization];

@@ -23,7 +23,7 @@
   NSString *path = [paths objectAtIndex:0];
   
   SongImporter *importer = [[SongImporter alloc] initWithPath:path];
-  debugLog(@"Activating Importer...");
+  DLog(@"Activating Importer...");
   [importer import];
   //[importer release];
   

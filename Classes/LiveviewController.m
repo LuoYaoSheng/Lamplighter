@@ -24,7 +24,6 @@
 }
 
 - (void) setPDFDocument:(PDFDocument*)pdfDocument andPage:(PDFPage*)pdfPage {
-  //debugLog(@"Setting document to page %@", pdfPage);
   [[[NSApp mainWindowController] liveviewPDFThumbnailView] setHidden:NO];
   [[[NSApp mainWindowController] liveviewCollectionView] setHidden:YES];
   ProjectorPDFView *projectorPDFView = [[NSApp projectorController] pdfView];

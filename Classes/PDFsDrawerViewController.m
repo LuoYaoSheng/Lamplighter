@@ -14,7 +14,6 @@
  ******************/
 
 - (void) awakeFromNib {
-  debugLog(@"[PDFsDrawerViewController] awakeFromNib");
   [self setupTableView];
   [[self view] setNextResponder:[[NSApp mainWindowController] window]];
 }

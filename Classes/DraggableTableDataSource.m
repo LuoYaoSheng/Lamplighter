@@ -68,7 +68,7 @@
 
 - (NSArray *)tableView:(NSTableView *)aTableView namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination forDraggedRowsWithIndexes:(NSIndexSet *)indexSet {
 
-  debugLog(@"two");
+  DLog(@"two");
   NSArray *draggedFilenames = [NSArray arrayWithObjects:@"one.txt", @"two.txt", nil];
   
   for (NSString *filename in draggedFilenames) {
@@ -78,8 +78,8 @@
     
     
   }
-  debugLog(@"dropDestination: %@", dropDestination);
-  debugLog(@"draggedFilenames: %@", draggedFilenames);
+  DLog(@"dropDestination: %@", dropDestination);
+  DLog(@"draggedFilenames: %@", draggedFilenames);
 
   return draggedFilenames;
 }

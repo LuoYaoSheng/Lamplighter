@@ -22,23 +22,23 @@
   self.document = [[NSXMLDocument alloc] initWithData:data options:0 error:&error];
   NSString *rootName = [[self.document rootElement] name];
   if ([rootName isEqualToString:@"EasiSlides"]) {
-    debugLog(@"forking");
+    DLog(@"forking");
     NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(importEasislidesStarter:) object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:[self progressWindowController] selector:@selector(progressDidChangeNotification:) name:ProgressDidChangeNotification object:nil];
 
     
-    debugLog(@"Starting...");
+    DLog(@"Starting...");
     [thread start];
     
     /*
     while ([thread isExecuting]) {
-      debugLog(@"Executing...");
+      DLog(@"Executing...");
       sleep(1);
     }
      */
     
-    debugLog(@"Finished...");
+    DLog(@"Finished...");
     
     //[self importEasislides];
     
@@ -47,7 +47,7 @@
 }
 
 - (void) importEasislidesStarter:sender {
-  debugLog(@"importEasislidesStarter called");
+  DLog(@"importEasislidesStarter called");
   // This AutoreleasePool is mandatory for every Thread. Basically, it prevents
   // the code between here and "[pool drain]" to blow your memory into pieces.
   @autoreleasepool {
@@ -59,14 +59,14 @@
 }
 
 - (void) importEasislides {
-  debugLog(@"Importing: %@", [[self.document rootElement] name]);
+  DLog(@"Importing: %@", [[self.document rootElement] name]);
   NSUInteger songsCount = [[self.document rootElement] childCount];
   
   int i = 1;
   for (NSXMLElement* element in [[self.document rootElement] children]) {
     float progress = ((float)i / songsCount) * 100;
     
-    debugLog(@"element: %@", [[element children] objectAtIndex:0]);
+    DLog(@"element: %@", [[element children] objectAtIndex:0]);
     
     NSString *title    = [[[element elementsForName:@"Title1"] objectAtIndex:0] stringValue];
     NSString *content  = [[[element elementsForName:@"Contents"] objectAtIndex:0] stringValue];
@@ -92,34 +92,34 @@
     content = [content stringByReplacingOccurrencesOfString:@"[9]" withString:@""];
 
     
-    debugLog(@"addsong start...");
+    DLog(@"addsong start...");
 
     [self addSong:title withContent:content andFootnote:footnote];
 
-    //debugLog(@"addsong stop...");
+    //DLog(@"addsong stop...");
 
     [self setProgress:progress];
     
     i++;
     //if (i >= 3000) break;
   }
-  debugLog(@"finished.");
+  DLog(@"finished.");
 
   [[self progressWindowController] orderOut];
 }
 
 - (void) addSong:(NSString*)title withContent:(NSString*)content andFootnote:(NSString*)footnote {
-  //debugLog(@"adding song!");
+  //DLog(@"adding song!");
   Song *song = [[NSApp songsArrayController] newObject];
   [song setValue:title forKey:@"title"];
   [song setValue:content forKey:@"content"];
   [song setValue:footnote forKey:@"footnote"];
-  //debugLog(@"before array %@", NSApp);
-  debugLog(@"before array %@", [NSApp songsArrayController]);
+  //DLog(@"before array %@", NSApp);
+  DLog(@"before array %@", [NSApp songsArrayController]);
   [[self songsArrayController] addObject:song];
-  debugLog(@"commiting");
+  DLog(@"commiting");
   [[NSApp managedObjectContext] commitEditing];
-  debugLog(@"after array");
+  DLog(@"after array");
 }
 
 - (id) managedObjectContextForThread {    

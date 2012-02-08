@@ -60,7 +60,7 @@
   
   if (numberOfSlides > 0 && numberOfSlides == numberOfVerses){
     // How about that! The number of verses did not change by editing the content of this song.
-    debugLog(@"How about that!");
+    DLog(@"How about that!");
     NSArray *verses = [Presentation contentToVerses:value];
     int position = 0;
     for (Slide *slide in [self slides]) {
