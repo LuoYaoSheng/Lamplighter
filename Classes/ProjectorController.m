@@ -53,8 +53,10 @@
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nsApplicationDidChangeScreenParametersNotification:) name:NSApplicationDidChangeScreenParametersNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collectionViewSelectionDidChangeNotification:) name:CollectionViewSelectionDidChangeNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(slideViewWasDoubleClickedNotification:) name:SlideViewWasDoubleClickedNotification object:nil];
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PDFThumbnailViewWasDoubleClickedNotification:) name:PDFThumbnailViewWasDoubleClickedNotification object:nil];
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(PDFViewWasDoubleClickedNotification:) name:PDFViewWasDoubleClickedNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pdfThumbnailViewWasDoubleClickedNotification:) name:PDFThumbnailViewWasDoubleClickedNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pdfViewWasDoubleClickedNotification:) name:PDFViewWasDoubleClickedNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pdfThumbnailViewWasSingleClickedNotification:) name:PDFThumbnailViewWasSingleClickedNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(projectorViewWasDoubleClickedNotification:) name:ProjectorViewWasDoubleClickedNotification object:nil];
 }
 
 /******************************
@@ -199,24 +201,35 @@
   }
 }
 
-- (void) PDFThumbnailViewWasDoubleClickedNotification:(NSNotification*)notification {
-   [self updatePDF];
+- (void) pdfThumbnailViewWasSingleClickedNotification:(NSNotification*)notification {
+  // When the projector screen is blank but a PDF is shown in the LivePDFView, we need to bring the PDF
+  // back on the projector when the PDF thumbnail is single-clicked in the LivePDFView. But only do that
+  // when there is no PDF shown (we don't want to modify the ProjectorView subviews when there is no need to).
+  if (![self showsPDF]) [self updatePDF];
 }
 
-- (void) PDFViewWasDoubleClickedNotification:(NSNotification*)notification {
-  [self.projectorView toggleFullscreen];
+- (void) pdfThumbnailViewWasDoubleClickedNotification:(NSNotification*)notification {
+  [self updatePDF];
+}
+
+- (void) pdfViewWasDoubleClickedNotification:(NSNotification*)notification {
+  if ([NSApp singleScreenMode]) [self.projectorView toggleFullscreen];
 }
 
 - (void) slideViewWasDoubleClickedNotification:(NSNotification*)notification {
   SlideView *slideView = [notification object];
   if ([slideView collectionView] == NULL) {
-    // The user clicked on the projector window 
-    [self.projectorView toggleFullscreen];
+    // The user double-clicked on the projector window 
+    if ([NSApp singleScreenMode]) [self.projectorView toggleFullscreen];
   } else if ([slideView collectionView] == [[NSApp mainWindowController] liveviewCollectionView]) {
-    // The user clicked on a slide of the liveViewCollectionView
+    // The user double-clicked on a slide of the liveViewCollectionView
     // This will conveniently make us go live if we aren't already.
     if (![self isLive]) [self goLive];
   }
+}
+
+- (void) projectorViewWasDoubleClickedNotification:(NSNotification*)notification {
+  if ([NSApp singleScreenMode] && ![self showsSlide]) [self.projectorView toggleFullscreen];
 }
 
 @end

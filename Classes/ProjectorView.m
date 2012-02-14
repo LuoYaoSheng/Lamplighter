@@ -32,5 +32,24 @@
   [self exitFullScreenModeWithOptions:NULL];
 }
 
+- (void) mouseDown:(NSEvent*)event {
+  [super mouseDown:event];
+  switch ([event clickCount]) {
+    case 1: [self wasSingleClicked]; break;
+    case 2: [self wasDoubleClicked]; break;
+  }
+}
+
+- (void) wasSingleClicked {
+  [self sendWasClickedNotification:ProjectorViewWasSingleClickedNotification];
+}
+
+- (void) wasDoubleClicked {
+  [self sendWasClickedNotification:ProjectorViewWasDoubleClickedNotification];
+}
+
+- (void) sendWasClickedNotification:(NSString*)notificationName {
+  [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self];
+}
 
 @end
