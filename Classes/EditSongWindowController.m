@@ -36,9 +36,11 @@
 }
 
 - (void) doneEditSong:sender {
-  // The cursor is still in a text field at this point. The Core Data object will not be saved
-  // until the cursor has left the textfield. That's why we do that here.
+  // The keyboad cursor is still in a TextField at this point. The Core Data object will not be saved until the
+  // cursor has left the TextField. That's why we simulate that here by giving the Button the cursor focus.
   [self.window makeFirstResponder:doneButton];
+  
+  
   [NSApp endSheet:self.window returnCode:NSOKButton];
 }
 

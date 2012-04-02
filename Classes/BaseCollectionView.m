@@ -4,7 +4,6 @@
 #import "ApplicationDelegate.h"
 #import "SlideView.h"
 #import "Presentation.h"
-#import "Slide.h"
 #import "ProjectorController.h"
 
 @implementation BaseCollectionView

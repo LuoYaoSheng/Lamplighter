@@ -15,7 +15,7 @@
  * NSTableViewDelegate *
  ***********************/
 
-// This controller serves as delegate for Tables and thus implements the following
+// This controller serves as delegate for all sorts of Tables and thus implements the following
 // method to keep track of selection changes in the Tables
 - (void) tableViewSelectionDidChange:(NSNotification*)notification {
   // Getting the interplay of selections with all tables right if a song was actually selected
