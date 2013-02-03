@@ -15,7 +15,7 @@ You'l have to compile it yourself for the time being. I'll add a download for Mo
 * Add PDFs to Lamplighter by dragging them into the PDF drawer. Present them by double-clicking on the page you would like to present.
 * Add Songs by clicking on the add button in the Songs drawer.
 * Import songs from Easislides by drag-and-dropping the Easislides exported XML file into the Songs drawer.
-* Search for songs using the dame technology as Spotlight. E.g. a search for "song this" will yield all songs which have "this" *and* "song" in their title or description. Dead simple and dead fast.
+* Search for songs using the same technology as Spotlight. E.g. a search for "song this" will yield all songs which have "this" *and* "song" in their title or description. Dead simple and dead fast.
 * Drag important songs or PDFs from the drawer into your "Playlist" for immediate access.
 * When you have no second screen/projector attached, what you would see on the projector is shown in a preview window.
 
