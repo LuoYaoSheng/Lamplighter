@@ -4,7 +4,7 @@ I still don't have all features in places I would like to see in this applicatio
 
 ### Download
 
-You'l have to compile it yourself for the time being. I'll add a download for Mountain Lion soon I guess.
+* [Version 0.1.0](https://github.com/halo/Lamplighter/raw/0.1.0/latest_build/Lamplighter.zip) (Lion or higher)
 
 ### Screenshot
 
